@@ -1,0 +1,17 @@
+
+News broadcast text localization dataset
+Dataset description
+The set contains 4225 images, extracted from video news broadcasts. They contain both text added by the news service
+and naturally occurring text. The images are all of 748*432 size.
+Download
+The dataset can be downloaded at:
+https://www.dropbox.com/s/l076cfy18nmgvgc/euronews_frames.7z?dl=0
+Evaluation
+The provided Matlab code computes precision and recall scores for evaluating ocr text localization performance. The common PASCAL IoU threshold of 0.5 was used. As a demo, we have included a set of results in results_captioncapture.txt
+Instruction
+
+Download the dataset and provided code
+Modify dataset, annotation and ocr output paths as needed
+Run ocr_eval.m
+
+

@@ -1,0 +1,42 @@
+
+Learning-from-Demonstration-Dataset
+kit to record videos for the dataset
+Package content:
+The package contains launchers and visualization models for the data acquisition:
+#####./dataset_pkg_indigo/launch/
+
+dataset.sh
+dataset_bag.sh
+dataset.launch
+dataset_bag.launch
+rviz_dataset.launch
+
+#####./lasa-robots/kuka_lwr_bringup/launch/
+
+lwr2_realtime_viz.launch (main launcher which starts the robot_state_publisher topic)
+lwr2_loopback_sim_no_controllers.launch (intermediate configuration launcher)
+upload_lwr2.launch (model starter and updater)
+world_to_camera_tf_broadcaster_dataset.launch (world to cameras transformation)
+
+#####./lasa-robots/kuka_lwr_bringup/models/
+
+/table/table2.urdf.xacro (main table supporting robot)
+/table/operation_table.urdf.xacro (table where task is taking place)
+/pole/pole.urdf.xacro (kinect camera pole)
+/pole/pole2.urdf.xacro (kinect2 camera pole)
+
+#####./lasa-robots/kuka_lwr_description/robots/
+
+kuka_lwr2_lasa.urdf.xacro (main file to include all models and transformations)
+
+Quick steps:
+1 - go to the directory where launchers are
+% to run the capture
+2 - execute command: ./dataset.sh
+% to start recording (when executed follow instructions to enter the name of the session)
+3 - execute command: ./dataset_record.sh
+Notes:
+you may want to change the path where records will be saved, then edit "dataset_record.sh" files and change lines #26 - #28
+you will need robot-mirror package to start robot node (./launch/robot_mirror.launch)
+you may want rviz to visualize your own configuration. That can be changed in rviz_dataset.launch file
+

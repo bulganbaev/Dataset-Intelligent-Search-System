@@ -1,0 +1,35 @@
+
+ActivityNet-Video-Downloader
+This simple script is for downloading videos of ActivityNet dataset by parsing URLs from given .json file. Therefore, it is required to download the related .json file here.
+Using activityNetDownloader
+
+
+Install the prerequisites.
+
+
+Python 2.7
+
+
+Pafy:
+sudo pip install pafy
+
+
+
+
+Clone the repository or download the zip to your working directory.
+git clone https://github.com/ozgyal/ActivityNet-Video-Downloader.git
+
+
+Define a path to download the videos.
+directory = '/path/to/your/directory/'
+
+
+Videos will be downloaded in ".flv" format. If you want to change this, you can modify the following line by considering Pafy's website:
+best = video.getbest(preftype="flv")
+
+
+Run the script.
+python activityNetDownloader.py
+
+
+

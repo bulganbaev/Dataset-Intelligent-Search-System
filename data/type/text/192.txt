@@ -1,0 +1,72 @@
+
+NLP-IN-PRACTICE
+Use these NLP, Text Mining and Machine Learning code samples and tools to solve real world text data problems.
+Notebooks / Source
+Links in the first column take you to the subfolder/repository with the source code.
+
+
+
+Task
+Related Article
+Source Type
+Repository
+
+
+
+
+Large Scale Phrase Extraction
+phrase2vec article
+python script
+kavgan/phrase-at-scale
+
+
+Word Cloud for Jupyter Notebook and Python Web Apps 
+word_cloud article
+python script + notebook
+kavgan/word_cloud
+
+
+Gensim Word2Vec (with dataset)
+word2vec article
+notebook
+kavgan/nlp-in-practice
+
+
+Reading files and word count with Spark
+spark article
+python script
+kavgan/nlp-in-practice
+
+
+Extracting Keywords with TF-IDF and SKLearn (with dataset)
+tfidf article
+notebook
+kavgan/nlp-in-practice
+
+
+Text Preprocessing
+text preprocessing article
+notebook
+kavgan/nlp-in-practice
+
+
+TFIDFTransformer vs. TFIDFVectorizer
+tfidftransformer and tfidfvectorizer usage article
+notebook
+kavgan/nlp-in-practice
+
+
+Accessing Pre-trained Word Embeddings with Gensim
+
+notebook
+kavgan/nlp-in-practice
+
+
+
+Resources
+
+For more articles, please see this list
+
+Contact
+This repository is maintained by Kavita Ganesan. Please contact me directly if you have questions.
+

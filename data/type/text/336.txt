@@ -1,0 +1,32 @@
+
+Visual Re-ranking with Natural Language Understanding for Text Spotting (Dataset)
+This dataset has been used in this paper:
+Visual Re-ranking with Natural Language Understanding for Text Spotting https://arxiv.org/pdf/1810.12738.pdf
+This dataset is based on COCO-text, Please visit https://github.com/andreasveit/coco-text. COCO-text is based on Microsoft COCO Please visit http://mscoco.org/ for more information on COCO-dataset, including the image data, object annotatins and caption annotations.
+1 - Extracting  full images with bounding box (gt) from COCO-text
+
+COCO-text offical API python 2,7
+Run coco_api_modified.py Extract full image with its gt (json files)
+
+2) Extracting  the Bounding box and top-k objects (from object classifer)
+
+Matlab 2018 - Free 30 days trial you only need to run it once
+MatConvNet open source deep learning freamework
+Run Extract_BBox.m file 1 bounding box file 2 full image
+
+
+
+After installing MatConvNet you need to install pre-trained weight Resent152
+Visual contexts (object, places*)
+
+Image_id, spotted word(gt), objects, places
+Example: COCO_train2014_000000000081.jpg,airfracne, airliner, airfield
+
+*You can find the model Places365-CNNs
+For testing (object1, object2, places)
+This dataset from ICDAR2017 Robust Reading Challenge on COCO-Text, Task 3 End-to-End Recognition
+
+Image_id, spotted word(gt), objects1,object2,places
+Example: COCO_train2014_000000273358.jpg,barber,street,ticket_booth, barbershop
+
+

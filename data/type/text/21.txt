@@ -1,0 +1,29 @@
+
+Feature_Engineering_for_Yelp_Dataset
+Extract users' and items' top K neighbors(here K=100) based on user profile, item profile, user text, item text and geography features on Yelp dataset.
+Steps:
+
+
+extract_matrix_index.py : mapping the users' and items' id strings to indices.
+
+
+if you want to extract item profile top K neighbors:
+2.1 get_item_vector.py : item profile feature vectoring
+2.2 get_item_profile_similarity.py :get item profile top K neighbors after calculate cosine similarity
+
+
+if you want to extract item geography top K neighbors: get_item_gov_similarity.py
+
+
+if you want to extract user profile top K neighbors:
+4.1 get_user_vector.py : user profile feature vectoring
+4.2 get_user_profile_similarity.py :get user profile top K neighbors after calculate cosine similarity
+
+
+if you want to extract user or item text top K neighbors:
+5.1 concat_reviews.py : concatenate users' and items' reviews
+5.2 get_text_similarity.py : get user and item text similarity matrix
+5.3 sim_matrix_to_dict.py: get user and item text top K neighbors after calculate similarity
+
+
+

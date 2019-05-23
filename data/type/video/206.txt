@@ -1,0 +1,4 @@
+
+sign-language-recognizer
+I built a system that can recognize words communicated using the American Sign Language (ASL). I used a preprocessed dataset of tracked hand and nose positions extracted from video. Than  I used a portion of this dataset to train a set of Hidden Markov Models (HMMs) to try and identify individual words from test sequences. In the future I will incorporate Statistical Language Models (SLMs) that can capture the conditional probability of particular sequences of words occurring. This will help to improve the recognition accuracy of the system.
+

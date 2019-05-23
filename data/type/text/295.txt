@@ -1,0 +1,4 @@
+
+Creation-of-Dataset-for-Image-Captioning
+Created a Sports dataset consisting 1,50,000 images and its corresponding text using web crawler • Crawled results were pre-processed and organized for convenient usage
+

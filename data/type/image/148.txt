@@ -1,0 +1,18 @@
+
+bayes-whales
+Image classifier for finding quality ocean images in the NOAA Whales Aerial dataset. Uses a deep convolution network for binary classification. Submission for Bayes Hack 2016.
+Play with a demo on a pretrained net. (accuracy: 92.67%)
+
+Technologies Used
+
+Caffe
+pavlov/nin-imagenet
+
+Team Members
+
+Alex Kern
+Sam Kirschner
+
+License and Acknowledgements
+BSD 3-Clause license
+

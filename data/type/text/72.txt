@@ -1,0 +1,28 @@
+
+WikiText.jl
+ 
+About
+WikiText.jl provides an interface to the WikiText Long Term Dependency Language Modeling dataset.
+Usage
+WikiText exports the following 4 types, corresponding to the 4 available datasets:
+
+WikiText2
+WikiText103,
+WikiText2Raw
+WikiText103Raw
+
+Wikitext also exports following 3 functions:
+
+trainfile
+validationfile
+testfile
+
+Downloading and unzipping the datasets will happen automatically (with your approval) when you access them for the first time, courtesy of DataDeps.jl.
+julia> Pkg.clone("https://github.com/dellison/WikiText.jl")
+julia> using WikiText
+julia> corpus = WikiText2v1()
+julia> trainfile(corpus)
+"/path/to/wiki.train.tokens"
+julia> validfile(corpus)
+"/path/to/wiki.valid.tokens"
+

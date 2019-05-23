@@ -1,0 +1,4 @@
+
+Youtube-Spam-Classification
+In this project of Information retrieval, we have to solve supervised classification problem to filter YouTube comments whether they are spam or not. Five datasets composed by 1,956 real messages extracted from five videos was used to train our model. By ensemble of Logistic regression, Random Forest and Gradient Boosting we achieved max accuracy of 98%. I managed and worked in this project as Team Lead. Programming Language: Python
+

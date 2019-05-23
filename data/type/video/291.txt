@@ -1,0 +1,109 @@
+
+DukeMTMC-VideoReID
+DukeMTMC-VideoReID [1] is a subset of the DukeMTMC tracking dataset [2] for video-based person re-identification.
+The dataset consists of 702 identities for training, 702 identities for testing, and 408 identities as distractors. In total there are 2,196 videos for training and 2,636 videos for testing. Each video contains person images sampled every 12 frames. During testing, a video for each ID is used as the query and the remaining videos are placed in the gallery.
+Download Dataset
+Data Offline. Since the privacy implications of the data set are being considered, we have to offline the download link for DukeMTMC-VideoReID. We are very sorry about it. There is currently no clear indication as to when, if ever, the data set will be allowed to be restored.
+You may try the following download link to check whether the data set is restored officially.
+http://vision.cs.duke.edu/DukeMTMC/data/misc/DukeMTMC-VideoReID.zip
+About Dataset
+
+
+
+Directory
+Description
+
+
+
+
+./train
+The training video tracklets. It contains 702 identities.
+
+
+./query
+The query video tracklets. Each of them is from different identities in different cameras.
+
+
+./gallery
+The gallery video tracklets. It contains 702 gallery identities and 408 distractors.
+
+
+
+Directory Structure
+Followings are the directory structure for DukeMTMC-VideoReID.
+
+Splits
+
+Person ids
+
+Video tracklet ids
+
+Frame bounding box images
+
+
+
+
+For example, for one frame image train/0001/0003/0001_C6_F0099_X30823.jpg, train, 0001, 0003, and 0001_C6_F0099_X30823.jpg are the split, person id, video tracklet id, and image frame name, respectively.
+Naming Rules for image file.
+For most frame bounding box images, e.g. 0001_C6_F0099_X30823.jpg, "0001" is the identity. "C6" indicate Camera 6. "F0099" means it is the 99th frame within the tracklet. "X" indicates it is a normal image (otherwise, "D" for distractors) and " 30823" is the 30823th frame in the whole video of Camera 6.
+Training Baseline model
+ETAP-Net
+The baseline model is an end-to-end ResNet-50 model with temporal average pooling (ETAP-Net).
+More details about the ETAP-Net can be found in our CVPR2018 paper Exploit the Unknown Gradually: One-Shot Video-Based Person Re-Identification by Stepwise Learning.
+Dependencies
+
+Python 3.6
+PyTorch (version >= 0.2.0)
+h5py, scikit-learn, metric-learn, tqdm
+
+Run
+Move the downloaded dataset file DukeMTMC-VideoReID.zip to ./data/ and unzip here.
+python3 run.py --dataset DukeMTMC-VideoReID --logs_dir logs/DukeMTMC-VideoReID_baseline/ --max_frames 900 --batch_size 16
+Results on DukeMTMC-VideoReID
+
+      
+      
+
+Method
+Rank-1Rank-5Rank-20
+mAP
+
+
+ETAP-Net
+83.62 
+94.59
+97.58
+78.34
+
+
+References
+
+
+[1] Exploit the Unknown Gradually: One-Shot Video-Based Person Re-Identification by Stepwise Learning. Wu et al., CVPR 2018
+
+
+[2] Performance Measures and a Data Set for Multi-Target, Multi-Camera Tracking. Ristani et al., ECCVWS 2016
+
+
+Please cite the following two papers if this dataset helps your research.
+@inproceedings{wu2018cvpr_oneshot,
+  title = {Exploit the Unknown Gradually: One-Shot Video-Based Person Re-Identification by Stepwise Learning},
+  author = {Wu, Yu and Lin, Yutian and Dong, Xuanyi and Yan, Yan and Ouyang, Wanli and Yang, Yi},
+  booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month = {June},
+  year = {2018}
+}
+
+@inproceedings{ristani2016MTMC,
+  title = {Performance Measures and a Data Set for Multi-Target, Multi-Camera Tracking},
+  author = {Ristani, Ergys and Solera, Francesco and Zou, Roger and Cucchiara, Rita and Tomasi, Carlo},
+  booktitle = {European Conference on Computer Vision workshop on Benchmarking Multi-Target Tracking},
+  year = {2016}
+}
+
+License
+Please refer to the license file for DukeMTMC-VideoReID and DukeMTMC.
+Contact
+If you have any questions about this dataset, please do not hesitate to contact me.
+Yu Wu's Homepage
+

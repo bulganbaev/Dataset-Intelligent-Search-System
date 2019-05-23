@@ -1,0 +1,98 @@
+
+video-summarization-resources
+Video Summarization Dataset, Papers, Codes
+Dataset:
+1 MED Summaries
+Location: http://lear.inrialpes.fr/people/potapov/med_summaries
+About: The "MED Summaries" is a new dataset for evaluation of dynamic video summaries. It contains annotations of 160 videos: a validation set of 60 videos and a test set of 100 videos. There are 10 event categories in the test set.
+Reference Paper:
+
+Category-specific video summarization D.Potapov, M.Douze, Z.Harchaoui, C.Schmid, ECCV 2014 |  hal.inria.fr/hal-01022967/
+
+2 TVSum Dataset
+Location: https://github.com/yalesong/tvsum
+About: Title-based Video Summarization (TVSum) dataset serves as a benchmark to validate video summarization techniques. It contains 50 videos of various genres (e.g., news, how-to, documentary, vlog, egocentric) and 1,000 annotations of shot-level importance scores obtained via crowdsourcing (20 per video). The video and annotation data permits an automatic evaluation of various video summarization techniques, without having to conduct (expensive) user study.
+The videos, collected from YouTube, comes with the Creative Commons CC-BY (v3.0) license. We release both the video files and their URLs. The shot-level importance scores are annotated via Amazon Mechanical Turk -- each video was annotated by 20 crowd-workers. The dataset has been reviewed to conform to Yahoo's data protection standards, including strict controls on privacy.
+Reference Paper:
+
+TVSum: Summarizing web videos using titles | https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Song_TVSum_Summarizing_Web_2015_CVPR_paper.pdf
+
+3  UT Egocentric (UT Ego) Dataset
+Location: http://vision.cs.utexas.edu/projects/egocentric_data/UT_Egocentric_Dataset.html
+About: The Univ. of Texas at Austin Egocentric (UT Ego) Dataset contains 4 videos captured from head-mounted cameras.  Each video is about 3-5 hours long, captured in a natural, uncontrolled setting.
+We used the Looxcie wearable camera, which captures video at 15 fps at 320 x 480 resolution.  Four subjects wore the camera for us: one undergraduate student, two graduate students, and one office worker.  The videos capture a variety of activities such as eating, shopping, attending a lecture, driving, and cooking.
+Due to privacy reasons, we are able to share only 4 of the 10 videos originally captured (one from each subject).  They correspond to the test videos that we evaluate on in both the CVPR 2012 and CVPR 2013 papers.
+Reference Paper:
+
+Discovering Important People and Objects for Egocentric Video Summarization| http://vision.cs.utexas.edu/projects/egocentric/
+Story-Driven Summarization for Egocentric Video.| vision.cs.utexas.edu/projects/egocentric/storydriven.html
+
+4 Youtube Dataset (small)
+Location: https://sites.google.com/site/vsummsite/download
+5 SumMe Dataset
+Location: http://classif.ai/dataset/ethz-cvl-video-summe/
+About:  The Video Summarization (SumMe) dataset consists of 25 videos, each annotated with at least 15 human summaries (390 in total). The data consists of videos, annotations and evaluation code, as used in this paper. The groundtruth is a new paradigm in evaluation as it stems from a psychological experiment and allows a consistent automatic evaluation, rather than a user study each time there is a new summary result. Download You can download the data (Size: 2.2 GB) from: http://www.vision.ee.ethz.ch/~gyglim/vsum/ References Creating Summaries from User Videos Michael Gygli, Helmut Grabner, Hayko Riemenschneider and Luc Van Gool published in ECCV 2014, Zurich.
+Git Repositories:
+
+
+Query-adaptive Video Summarization via Quality-aware Relevance Estimation, CVVPR 2017
+https://github.com/arunbalajeev/query-video-summary
+helpful: https://github.com/gyglim/gm_submodular | Video Summarization by Learning Submodular Mixtures of Objectives, CVVPR 2015
+
+
+Unsupervised Video Summarization with Adversarial LSTM Networks
+https://github.com/j-min/Adversarial_Video_Summary
+
+
+Automated (YouTube) Video Summarization Using Captions
+https://github.com/rkindi/vidDistill
+
+
+PyTorch implementation of Video Summarization on Twitch (LOL) dataset| Video Highlight Prediction Using Audience Chat Reactions
+https://github.com/chengyangfu/Pytorch-Twitch-LOL
+dataset: https://drive.google.com/drive/folders/0By9LEMeCDdboVDlHTDlqQUNHMnc?usp=sharing
+
+
+Experimenting with different Summarizing techniques on SumMe Dataset
+https://github.com/shruti-jadon/Video-Summarization
+
+
+SnapStitch
+https://github.com/avikj/SnapStitch
+Service: http://www.hackathon.io/snapstitch
+
+
+Video-Summarization-with-LSTM
+https://github.com/kezhang-cs/Video-Summarization-with-LSTM
+
+
+Papers:
+Query-focused
+
+
+http://openaccess.thecvf.com/content_cvpr_2017/papers/Sharghi_Query-Focused_Video_Summarization_CVPR_2017_paper.pdf | Query-Focused Video Summarization: Dataset, Evaluation, and A Memory Network Based Approach | https://www.aidean-sharghi.com/cvpr2017
+
+
+http://openaccess.thecvf.com/content_cvpr_2017/papers/Plummer_Enhancing_Video_Summarization_CVPR_2017_paper.pdf | Enhancing Video Summarization via Vision-Language Embedding
+
+
+https://arxiv.org/abs/1704.01466   A Unified Multi-Faceted Video Summarization System
+
+
+https://arxiv.org/pdf/1705.00581.pdf | Query-adaptive Video Summarization via Quality-aware Relevance Estimation
+
+
+https://arxiv.org/abs/1807.06677 |  Query-Conditioned Three-Player Adversarial Network for Video Summarization
+
+
+RL + GAN+ DL
+
+
+https://arxiv.org/pdf/1804.11228.pdf | DTR-GAN: Dilated Temporal Relational Adversarial Network for Video Summarization
+
+
+https://arxiv.org/pdf/1801.00054.pdf | Deep Reinforcement Learning for Unsupervised Video Summarization with
+Diversity-Representativeness Reward
+
+
+

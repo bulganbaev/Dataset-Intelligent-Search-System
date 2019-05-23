@@ -1,0 +1,10 @@
+
+Music-Interface
+This Processing sketch is a data visulization interface to show all the infromation of music tracks from a json file.
+It provides search by year and sort functions.
+The result is as following:
+
+
+
+
+

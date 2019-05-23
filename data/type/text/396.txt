@@ -1,0 +1,34 @@
+
+ COCO-Text-Patch
+COCO-Text-Patch is the first text verification data set created to encourage researchers to use machine learning techniques for text verification which will in turn enhance the whole end-to-end text detection and recognition process. 
+
+The data set is derived from COCO-Text and contains approximately 354 thousands images labeled as text and non-text.
+  Using the data set 
+If you are going to use this data set please cite the paper
+@Inbook{Ibrahim2016,
+      author="Ibrahim, Ahmed and Abbott, A. Lynn and Hussein, Mohamed E.",
+      title="An Image Dataset of Text Patches in Everyday Scenes",
+      bookTitle="Advances in Visual Computing: 12th International Symposium, ISVC 2016, Las Vegas, NV, USA, December 12-14, 2016, Proceedings, Part II",
+      year="2016",
+      publisher="Springer International Publishing",
+      address="Cham",
+      pages="291--300",
+      isbn="978-3-319-50832-0",
+      doi="10.1007/978-3-319-50832-0_28",
+      url="http://dx.doi.org/10.1007/978-3-319-50832-0_28"
+ }
+
+  Creating the data set 
+to create the data set you have to:-
+-In the COCOAPI folder, unzip the COCO_Text.json.gz file
+-Download the COCO 2014 training data set from http://msvocds.blob.core.windows.net/coco2014/train2014.zip
+-Make sure you have Python 2.7 installed with numpy, skimage, math, Image, HD5 packages
+-Clone the Git repository  
+-From Python shell run createdataset.py
+
+  supplied models 
+ the folder "models" contains model description files ready to be used in caffe to train the models descibed in our paper "Text Patches Data Set for Text verification"
+ the folder contains model desciptions as well as suggested solver files.
+ you need to have Caffe installed from http://caffe.berkeleyvision.org/
+for any inquiries please contact me on nady at vt.edu
+

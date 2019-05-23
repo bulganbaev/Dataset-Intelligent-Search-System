@@ -1,0 +1,8 @@
+
+Text Visualization DRG Project
+
+
+
+Prototype for exploratory visual data analysis of large social message datasets
+Documentation is available on ReadTheDocs.
+

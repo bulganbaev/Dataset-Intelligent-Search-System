@@ -1,0 +1,11 @@
+
+Manual_Annotations_Saraga
+The Manual Annotations for the Saraga Dataset with their respective Music Brain ID's(MBID).
+The Carnatic music research  corpus mainly comprises of audio recordings, its associated editorial metadata, lyrics, scores, contextual information on music concepts, and community (social) information from online music forums and other sources extensilvely researched and through by Compmusic(http://compmusic.upf.edu/)
+This dataset contains folders with the names  MBID's having  manual annotations which are the timestamps of either the bpm, samas(the start of the cycle, analogous to the downbeat), the phrases and the tempo.
+In Indian Music Context, specific to Carnatic Music every composition in a Katcheri(Concert) has notes(swaras) and corresponding lyrics(sahitya).
+Every composition is divided into Vocal Alap, Pallavi, Anupallavi, Charanam and Kalpana swarams. These can be observed in the sections annotations in the folder. The timestamps
+Since the composition also has phrases which is a conglomeration of the swaras, those phrases are manually annotated as well.
+The Sama is the start of the rhythm cycle in Carnatic Music. The annotations of the sama is given in the file of same name. The timestamps define the start of the taala (rhythm) cycle.
+The audio for the folder can be found in https://archive.org/details/Manual_Annotation_Saraga_mp3
+

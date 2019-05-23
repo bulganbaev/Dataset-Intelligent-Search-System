@@ -1,0 +1,9 @@
+
+k-Nearest-Neighbor-Classifier
+Image classifier on CIFAR 10 dataset using:-
+
+Scikit Learn
+Without Using Scikit Learn
+Using CNN
+
+

@@ -1,0 +1,43 @@
+
+VehicleTrajectoryDataset
+Scripts of the dataset corresponding to the paper 3D Vehicle Trajectory Reconstruction in Monocular Video Data Using Environment Structure Constraints.
+The actual dataset can be requested on this Fraunhofer IOSB webpage.
+Download the following files from the ftp server:
+ground_truth_data.tar.gz
+rendering_data.tar.gz
+Extract these into the same folder  (i.e. merge the contents)
+That means,  should show the following structure:
+<dataset>
+	general_ground_truth_files
+	path_car_1_obj
+	path_car_2_obj
+	path_car_3_obj
+	path_car_4_obj
+	path_car_5_obj
+	path_car_6_obj
+	path_car_7_obj
+
+In order to create convenient ground truth files clone this repository with the following command to make sure the submodule is correctly initialized:
+git clone --recurse-submodules https://github.com/SBCV/VehicleTrajectoryDataset.git
+
+Run the following command:
+python Post_Processing.py
+
+to automatically create a local copy of the config files.
+This will create two config files, i.e.
+VehicleTrajectoryDataset/Utility/CloudCompare/CloudCompare.cfg
+VehicleTrajectoryDataset/Config/config.cfg
+
+The script relies on CloudCompare CloudCompare to transform Vehicle Meshes. At least version 2.10 is required. Set the path in CloudCompare.cfg to your CloudCompare executable.
+In config.cfg adjust the path pointing to the downloaded dataset.
+Run the following command (again) to post-process the dataset:
+python Post_Processing.py
+
+Calibration of the camera used for rendering:
+focal_length: 2100 [pixel]
+cx = 960 [pixel] and cy = 540 [pixel] 
+(No radial distortion)
+width = 1920 [pixel] and height = 1080 [pixel]
+stereo_baseline = 0.3 [meter]
+
+

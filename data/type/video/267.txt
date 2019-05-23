@@ -1,0 +1,4 @@
+
+Video-Summarization-Dataset
+The dataset that was used to evaluate Self-tuning based Sparse Subspace Clustering and Deep Features for Object Based Video Summarization method using human face as the object. It contains 24 videos, with at least 3 videos representing one of the 7 genres (News, Surveillance, Movies/TV Show, Press Conference, Talk Show, Speech and Interview). The total duration of the video content is approximately 100 minutes.
+

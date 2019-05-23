@@ -1,0 +1,98 @@
+
+Image Search Scraper
+Overview
+This user-friendly application allows you to easily scrape the web for images that match your queries. Its friendly interface allows for single or multiple queries to automate the process of building your dataset through the use of multiple image search APIs, each allowing numerous queries. The initial intention behind the development of this tool was to facilitate the building process for deep learning image datasets when developing specific applications or working in research.
+
+
+On this page
+
+Installation
+Supported APIs
+Usage
+Limitations
+
+Google Custom Search JSON API
+Bing Image Search API v7
+
+
+API Prerequisites
+
+Set up Google Custom Search Engine
+Set up Bing Image Search API v7
+
+
+
+
+Installation
+Build from source
+Python 3 + Qt5 + Requests without Google Image Scraper support for downloading 100+ images per query
+conda install -c anaconda pyqt=5 requests
+pyrcc5 -o resources.py resources.qrc
+python image_search_scraper.py
+Python 3 + Qt5 + Requests with Google Image Scraper support for downloading 100+ images per query
+conda install -c anaconda pyqt=5 requests
+pip install selenium
+pyrcc5 -o resources.py resources.qrc
+python image_search_scraper.py
+Supported APIs
+We currently support image scraping with Google's Custom Search JSON API and Microsoft's Bing Image Search API v7, or without any credentials required by scraping the results of a Google Image Search's HTML content. For more information on how to get the necessary credentials in order to use this tool with Google's Custom Search JSON API and Microsoft's Bing Image Search API v7, refer to the prerequisites section.
+If you wish to use this tool to download images by scraping the results of a Google Image Search's HTML content, and want to get more than 100 results to download per query, you will need to install selenium along with the correct ChromeDriver.
+Usage
+In progress
+Limitations
+As with all APIs, Google and Microsoft's Image Search APIs have certain limitations. The main limitations of each can be found below.
+Google Custom Search JSON API
+
+The maximum search results to be returned per API call is 10. If the number of results requested is greater than 10, the tool will split the search into multiple calls (i.e., 2 calls will be made in order to get 17 results).
+For the same searched phrase, the API will return a maximum of 100 results (even if split into 10 queries of 10 results per day). This is extremely restrictive if you need to build a dataset with more than 100 samples per query (class, label, etc.).
+[For free users only] The API provides 100 search queries per day. To circumvent this restriction, multiple search engines could be created and their different IDs could be associated to a different set of queries through the JSON configuration file.
+[For paying users only] The API allows for a maximum of 10k requests per day per API.
+
+For more information, please visit Google Custom Search JSON API.
+Bing Image Search API v7
+
+The maximum search results to return per query is 150. However, if a number greater than 150 is specified, the tool will split the search into multiple calls.
+The total number of results for the same searched phrase is only limited to the number of relevant results the API will find (usually much greater than 100).
+
+For example, an image search for "huawei p20" has a total estimated match of over 940 results (may vary). The total estimated matches, as the name indicates, is only an estimate. Thus, the image scraper will retrieve the results returned by the Bing Image Search API until the specified number of images has been retrieved or until the API has no more unique images relevant to the search to return.
+
+
+As opposed to Google's Custom Search Engine and their API, which returns a finite number of images at every query (the number specified by the user), Bing Image Search API doesn't guarantee that the number of results delivered will be equal to the number of results requested (may be less). Bing estimates the number of matches for each query, but this number will change from one query to another.
+
+Thus, some search terms may result in duplicate images if the number of results requested is greater than what Bing's Images Search API ultimately found relevant for the query. Don't worry, the tool will output a warning if that is the case.
+
+
+
+For more information, please visit Microsoft's Cognitive Services pricing for Bing Image Search API or Bing Image Search API v7 reference.
+Note: for future improvement, the suggested related searches by the API could be used to get more results from Bing if needed.
+Prerequisites
+In order to call Google or Microsoft's API, you need an API key. The instructions below will guide you through getting your key for the selected API.
+Set up Google Custom Search Engine
+To search for images you need to sign up for Google Custom Search Engine.
+Here are the steps you need to follow:
+1. Create a Google Custom Search Engine
+Before using the JSON Custom Search API you will first need to create and configure your Custom Search Engine. If you have not already created a Custom Search Engine, go to the Custom Search Engine control panel.
+Do not specify any sites to search but instead use the "Restrict Pages using Schema.org Types" under the "Advanced options".
+For the most inclusive set, use the Schema: Thing. Make a note of the CSE ID.
+2. Enable Image Search
+Go to your search engine Setup, and then in the Basics tab enable Image search by switching it to ON.
+3. Set up a Google Custom Search Engine API
+Create a new project (or use an existing one if you wish) and enable Google Custom Search Engine API here: Google Developers Console. Make note of the API key.
+Set up Bing Image Search API v7
+To search for images you need to either request a free 7-day trial for Microsoft's Cognitive Services, sign up for a free Azure account or sign in to your existing Azure account.
+Here are the steps you need to follow:
+Free 7-day Trial
+Head to the Bing Search API page and click on Get API Key for Bing Search APIs v7 which includes Bing Web, Image, Video, News and Visual Search. We'll only need the Image Search API. When prompted, choose the Guest option by clicking on Getting started and register for the 7-day free trial. Eventually, you'll have access to your API key(s). Make note of the key(s).
+Freemium with an Azure free account
+The term freemium was used because getting an API key through the Azure Portal will require you to select a paid tier for your Bing Search API, but signing up for an Azure free account will grant you free credits to use. Thus, until you surpass the free credits value, your API usage will technically be free.
+1. Sign up for an Azure free account
+If you don't already have an Azure free account, you can sign up for one here and receive CA$250 (US$200) in credits that you can then use with their Image Search API.
+2. Create a resource for your API
+Head to Microsoft's Azure Portal. When logged in, click on the first result for Bing Search v7 and create a resource for the API by clicking on Create in the lower right. There, you will be able to name your resource and select a pricing tier to fit your needs. For more information on the different pricing tiers, visit the Image Search API's pricing details. Since we only need the Bing Image Search API, the S3 tier offering should be more than sufficient for our application.
+3. Get your key
+Once the resource for your Bing Image Search API has been created, you should have access to two keys. Make note of either one. As mentioned by Microsoft:
+
+Both keys work for accessing the API and you only need to specify one. These help you avoid downtime with your application. You may need or want to change the key used in your application, and with two keys you can avoid downtime by updating to one key while regenerating the other.
+
+If you ever need to access your keys at a later time, you can always do so through your resources. Just click on the name of your Bing Search API resource, then in your resource's menu under the RESOURCE MANAGEMENT tab click on Keys.
+

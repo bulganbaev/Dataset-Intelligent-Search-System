@@ -1,0 +1,9 @@
+
+Video datasets loader for ActiveNet challenge
+Description
+Convenience scripts for loading and transforming youtube video for ActiveNet challenge
+
+AVA Dataset
+Kinetics
+
+

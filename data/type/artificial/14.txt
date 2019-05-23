@@ -1,0 +1,3 @@
+
+This repository contains utilities for creating and checking artificial datasets for use with the darknet CNN program. The dataset is created from cropped images of the objects and backgrounds. There are also some utilities for validating a trained network.
+

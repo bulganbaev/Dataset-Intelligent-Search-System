@@ -1,0 +1,5 @@
+
+Mahabharatha_Dataset
+The text dataset used to create Question-Answer models in NLP.
+I have open sourced the code. Please note that this is a fully fucntioning code. But I did not document the code well.
+

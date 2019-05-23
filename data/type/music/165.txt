@@ -1,0 +1,20 @@
+
+Philharmonia Orchestra Frequencies
+The following is a data set of frequency outputs from the Philharmonia Orchestra "Make Music" dataset.
+The "Make Music" dataset is series of thousands of samples created by the Philharmonia Orchestra players.
+The Philharmonia Orchestra "Make Music" samples are released under Creative Commons Attribution-ShareAlike 3.0 Unported License
+Frequency Data
+Each audio file in the "Make Music" data set was sampled and frequency output was exported in .csv file format.
+Each .csv file is formatted in the following way.
+timestamp
+frequency_data
+timestamp
+frequency_data
+timestamp
+frequency_data
+...
+
+Where timestamp is the time in seconds where sampling occured and frequency_data is a 1024 array of 8-bit unsigned values.
+Each .csv naming convention is derived from the original sampled .mp3 file from the Philharmonia Orchestra "Make Music" dataset.
+For instance for the mp3 file trombone_B4_05_fortissimo_normal.mp3 frequency data can be found at frequencies/trombone_B4_05_fortissimo_normal.csv.
+

@@ -1,0 +1,114 @@
+
+ML---Music-Popularity-Predictor
+Install
+This project requires Python 3.x and the following Python libraries installed:
+
+NumPy
+Pandas
+matplotlib
+keras
+Eli5
+scikit-learn
+spotipy
+
+You will also need to have software installed to run and execute an iPython Notebook
+We recommend students install Anaconda, a pre-packaged Python distribution that contains all of the necessary libraries and software for this project.
+Code
+
+which requires spotify song URI. Spotify song URI can be copied from spotify by:
+
+
+Right click the song that you want to get estimated song popularity
+Click 'Share'
+Click 'Copy Spotify URI'
+
+Following project includes several codes for different purpose.
+
+Data Collection: Code used to collect dataset for training prediction model.
+Predict_Song_Popularity(Final): Final model for the users.
+Song Popularity Estimator using Spotify Song Analysis: Overall data exploration, model comparison and how final model is built can be explored.
+get_song_info.py : function used to get a single song analysis data
+spotifydatafile.csv : output from Data Collection
+
+Run
+In a terminal or command window, navigate to the top-level project directory ML---Music-Popularity-Predictor/ (that contains following README file) and run one of the following commands:
+
+If you want to simply get a estimated song popularity:
+
+ipython notebook Predict_Song_popularity(Final).ipynb
+or
+jupyter notebook Predict_Song_popularity(Final).ipynb
+
+which requires spotify song URI. Spotify song URI can be copied from spotify by:
+a. Right click the song that you want to get estimated song popularity
+b. Click 'Share'
+c. Click 'Copy Spotify URI'
+
+
+If you want to explore how model is built and explore the data:
+
+ipython notebook Song_Popularity_Estimator_using_Spotify_Song_Analysis.ipynb
+or
+jupyter notebook Song_Popularity_Estimator_using_Spotify_Song_Analysis.ipynb
+
+This will open the iPython Notebook software and project file in your browser.
+Data
+All the data for following project is collected from spotify. If further information is needed, please visit https://developer.spotify.com/
+Features
+
+track_name: Name of the track
+artist_name: Name of the artist
+track_id: id of the track in spotify
+artist_id: id of the artist in spotify
+track_popularity: current track popularity in spotify
+artist_popularity: current artist popularity in spotify
+artist_followers: number of followers for the artist in spotify
+confidence_mean: mean confidence of overall song
+confidence_std: standard deviation of confidence through out the song
+confidence_kurtosis: kurtosis of confidence through out the song
+loudness_mean: mean loudness of overall song
+loudness_std: standard deviation of loudness through out the song
+loudness_kurtosis: kurtosis of loudness through out the song
+tempo_mean: mean tempo of overall song
+tempo_std: standard deviation of tempo through out the song
+tempo_kurtosis: kurtosis of tempo through out the song
+tempo_confidence_mean: mean tempo confidence of overall song
+tempo_confidence_std: standard deviation of tempo confidence through out the song
+tempo_confidence_kurtosis: kurtosis of tempo confidence through out the song
+key_mean: mean key of overall song
+key_std: standard deviation of key through out the song
+key_kurtosis: kurtosis of key through out the song
+key_confidence_mean: mean key confidence of overall song
+key_confidence_std: standard deviation of key confidence through out the song
+key_confidence_kurtosis: kurtosis of key confidence through out the song
+mode_mean: mean mode of overall song
+mode_std: standard deviation of mode through out the song
+mode_kurtosis: kurtosis of mode through out the song
+mode_confidence_mean: mean mode confidence of overall song
+mode_confidence_std: standard deviation of mode confidence through out the song
+mode_confidence_kurtosis: kurtosis of mode confidence through out the song
+time_signature_mean: mean time signature of overall song
+time_signature_std: standard deviation of time signature through out the song
+time_signature_kurtosis: kurtosis of time signature through out the song
+time_signature_confidence_mean: mean time signature confidence of overall song
+time_signature_confidence_std: standard deviation of time signature confidence through out the song
+time_signature_confidence_kurtosis: kurtosis of time signature confidence through out the song
+C,C#.. B _dominance_mean: mean dominance of a pitch of overall song
+C,C#.. B _dominance_std: standard deviation of a pitch through out the song
+C,C#.. B _dominance_iqr: interquartile range of a pitch through out the song
+C,C#.. B _dominance_kurtosis: kurtosis of a pitch through out the song
+pitch_entropy: entropy of pitch
+timbre_ 1.. 12_mean: mean timbre of overall song
+timbre_ 1.. 12_std: standard deviation of a timbre through out the song
+timbre_ 1.. 12_iqr: interquartile range of a timbre through out the song
+timbre_ 1.. 12_kurtosis: kurtosis of a timbre through out the song
+
+Similar Model
+Similar model by Mohamed Nasreldin, Stephen Ma, Eric Dailey, Phuc Dang can be found from
+https://towardsdatascience.com/song-popularity-predictor-1ef69735e380
+with source code
+https://github.com/manasreldin/Song-Popularity-Predictor
+However, dataset such as cleaned_million.csv does not exist in the code.
+Comparison between following model and model by Mohamed Nareldin was planned to be performed.
+However, due to lacking dataset and complete code, it was not able to be done.
+

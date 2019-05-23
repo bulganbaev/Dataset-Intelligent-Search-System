@@ -1,0 +1,4 @@
+
+MNIST-updated
+If you were going through the video lectures of 'Deep Learning with Python' and got to video 1-4, where you worked on the MNIST dataset, you  would have noticed that his code is now out of date, so I am uploading my solution which is good for the newer versions of keras
+

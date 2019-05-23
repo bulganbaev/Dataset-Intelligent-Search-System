@@ -1,0 +1,19 @@
+
+data analysis of music store dataset
+have analyzed The Chinook Database which holds information about a music store.
+using SQL (SQL lite- Postgres)
+Status
+
+used softwares
+
+sqlite broweser
+Excel
+
+what I have done:
+
+I have asked some interesting questions.
+I have written SQL query
+draw chats based on it (using Excel sheets as a data visualization tool)
+I have made some insights based on it.
+
+

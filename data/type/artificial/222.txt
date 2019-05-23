@@ -1,0 +1,109 @@
+
+utl_flatfile
+create a flatfile from a SAS dataset with layout
+  T1005500 SAS-L: Exporting one txt/dat file with specific positions for variables
+
+  Real programmers do not use CSV file?
+  The use fixed format files?
+
+  WORKING CODE
+      %utl_flatfile(lib=work,sasdsn=class,file=d:/txt/class.txt);
+
+  Ian Whitlock flatfile program, still germnmaine
+
+  HAVE
+  ====
+
+  WORK.CLASS
+
+  Up to 40 obs from class total obs=19
+
+  Obs    Name       Sex    Age    Height    Weight
+
+    1    Alfred      M      14     69.0      112.5
+    2    Alice       F      13     56.5       84.0
+    3    Barbara     F      13     65.3       98.0
+    4    Carol       F      14     62.8      102.5
+    5    Henry       M      14     63.5      102.5
+  ...
+
+  NOTE THE FORMATS FROM PROC CONTENTS
+
+        Variables in Creation Order
+
+  #    Variable    Type    Len    Format
+
+  1    Name        Char      7    $7.
+  2    Sex         Char      1    $1.
+  3    Age         Num       8    3.
+  4    Height      Num       8    5.1
+  5    Weight      Num       8    5.1
+
+
+
+  WANT  (fixed formmated output and layout)
+  =========================================
+
+  FILE: d:/txt/class.txt
+
+  Alfred  M  14  69.0 112.5
+  Alice   F  13  56.5  84.0
+  Barbara F  13  65.3  98.0
+  Carol   F  14  62.8 102.5
+  Henry   M  14  63.5 102.5
+  James   M  12  57.3  83.0
+
+  Ian provides layout for WORK.CLASS to d:/txt/class.txt
+
+  Column Name    fmtlen
+  ------------------------
+  Name           $7. +1
+  Sex            $1. +1
+  Age            3. +1
+  Height         5.1 +1
+  Weight         5.1 +1
+
+  The input statement would be.
+  You have to cut and paste
+
+  data classorg;
+    infile "d:/txt/class.txt";
+    input
+       Name           $7. +1
+       Sex            $1. +1
+       Age            3. +1
+       Height         5.1 +1
+       Weight         5.1 +1
+    ;
+  run;quit;
+
+  *                _              _       _
+   _ __ ___   __ _| | _____    __| | __ _| |_ __ _
+  | '_ ` _ \ / _` | |/ / _ \  / _` |/ _` | __/ _` |
+  | | | | | | (_| |   <  __/ | (_| | (_| | || (_| |
+  |_| |_| |_|\__,_|_|\_\___|  \__,_|\__,_|\__\__,_|
+
+  ;
+
+  data class;
+    format
+        Name    $7.
+        Sex     $1.
+        Age     3.
+        Height  5.1
+        Weight  5.1
+    ;
+    set sashelp.class;
+  run;quit;
+
+  *          _       _   _
+   ___  ___ | |_   _| |_(_) ___  _ __
+  / __|/ _ \| | | | | __| |/ _ \| '_ \
+  \__ \ (_) | | |_| | |_| | (_) | | | |
+  |___/\___/|_|\__,_|\__|_|\___/|_| |_|
+
+  ;
+
+  %utl_flatfile(lib=work,sasdsn=class,file=d:/txt/class.txt);
+
+

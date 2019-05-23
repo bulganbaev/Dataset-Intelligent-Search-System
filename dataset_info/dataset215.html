@@ -1,0 +1,1518 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://github.githubassets.com">
+  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+
+
+
+  <link crossorigin="anonymous" media="all" integrity="sha512-3+HOqCwtQal5hOJQ+mdxiq5zmGOTjF6RhjDsPLxbKDYgGlLFeCwzoIanb7j5IiCuXKUqyC2q8FdkC4nmx2P2rA==" rel="stylesheet" href="https://github.githubassets.com/assets/frameworks-a2fba223d5af91496cac70d4ec3624df.css" />
+  <link crossorigin="anonymous" media="all" integrity="sha512-4ohd09bNnMlKWClfY22ZwyWNN3GJm6wo4ooCUoXfNecOKxjerWekbqlOj2amcXHSvPnhYhtDF15J5KgHTuO5tA==" rel="stylesheet" href="https://github.githubassets.com/assets/site-4540bebef0c6bac62c2b8b073beec16b.css" />
+    <link crossorigin="anonymous" media="all" integrity="sha512-wZ9rOsxIvsYw9kcZXeCctIpuHxnpRS/zvUVZvjXyrfie5Ycb02TMwICKxmrJEfGuof4lgRNzRS8+FeN5wC4dew==" rel="stylesheet" href="https://github.githubassets.com/assets/github-9a3ec4cccf452785917858fb2c54dc01.css" />
+    
+    
+    
+    
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>GitHub - DrewNF/Tensorflow_Object_Tracking_Video: Object Tracking in Tensorflow ( Localization Detection Classification ) developed to partecipate to ImageNET VID competition</title>
+    <meta name="description" content="Object Tracking in Tensorflow ( Localization Detection Classification ) developed to partecipate to ImageNET VID competition - DrewNF/Tensorflow_Object_Tracking_Video">
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+  <meta property="fb:app_id" content="1401488693436528">
+
+    <meta name="twitter:image:src" content="https://avatars0.githubusercontent.com/u/2854222?s=400&amp;v=4" /><meta name="twitter:site" content="@github" /><meta name="twitter:card" content="summary" /><meta name="twitter:title" content="DrewNF/Tensorflow_Object_Tracking_Video" /><meta name="twitter:description" content="Object Tracking in Tensorflow ( Localization Detection Classification ) developed to partecipate to ImageNET VID competition - DrewNF/Tensorflow_Object_Tracking_Video" />
+    <meta property="og:image" content="https://avatars0.githubusercontent.com/u/2854222?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="DrewNF/Tensorflow_Object_Tracking_Video" /><meta property="og:url" content="https://github.com/DrewNF/Tensorflow_Object_Tracking_Video" /><meta property="og:description" content="Object Tracking in Tensorflow ( Localization Detection Classification ) developed to partecipate to ImageNET VID competition - DrewNF/Tensorflow_Object_Tracking_Video" />
+
+  <link rel="assets" href="https://github.githubassets.com/">
+  
+  <meta name="pjax-timeout" content="1000">
+  
+  <meta name="request-id" content="E292:25F23:2793CE9:3BDC561:5CDDDF9D" data-pjax-transient>
+
+
+  
+
+  <meta name="selected-link" value="repo_source" data-pjax-transient>
+
+      <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+    <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
+
+  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-request_id" content="E292:25F23:2793CE9:3BDC561:5CDDDF9D" /><meta name="octolytics-dimension-region_edge" content="ams" /><meta name="octolytics-dimension-region_render" content="iad" />
+<meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;" data-pjax-transient="true" />
+
+
+
+    <meta name="google-analytics" content="UA-3769691-2">
+
+
+<meta class="js-ga-set" name="dimension1" content="Logged Out">
+
+
+
+  
+
+      <meta name="hostname" content="github.com">
+    <meta name="user-login" content="">
+
+      <meta name="expected-hostname" content="github.com">
+    <meta name="js-proxy-site-detection-payload" content="ZThlNWIxZTMzMTA3NTlmOTJhNzRjZjdlODE0MTc0ZTczYjQ3YTk1OTk4OWZkMjVlNjhmNGJhYTZhZjBjMmViM3x7InJlbW90ZV9hZGRyZXNzIjoiMTc4Ljg5LjI1MS4yMTIiLCJyZXF1ZXN0X2lkIjoiRTI5MjoyNUYyMzoyNzkzQ0U5OjNCREM1NjE6NUNERERGOUQiLCJ0aW1lc3RhbXAiOjE1NTgwNDQ1NzQsImhvc3QiOiJnaXRodWIuY29tIn0=">
+
+    <meta name="enabled-features" content="UNIVERSE_BANNER,MARKETPLACE_INVOICED_BILLING,MARKETPLACE_SOCIAL_PROOF_CUSTOMERS,MARKETPLACE_TRENDING_SOCIAL_PROOF,MARKETPLACE_RECOMMENDATIONS">
+
+  <meta name="html-safe-nonce" content="6afc5cedec9bf829ea0cecf49c9561a642930f6f">
+
+  <meta http-equiv="x-pjax-version" content="d71a8cfea56190be9934bd46070d95b4">
+  
+
+      <link href="https://github.com/DrewNF/Tensorflow_Object_Tracking_Video/commits/master.atom" rel="alternate" title="Recent Commits to Tensorflow_Object_Tracking_Video:master" type="application/atom+xml">
+
+  <meta name="go-import" content="github.com/DrewNF/Tensorflow_Object_Tracking_Video git https://github.com/DrewNF/Tensorflow_Object_Tracking_Video.git">
+
+  <meta name="octolytics-dimension-user_id" content="2854222" /><meta name="octolytics-dimension-user_login" content="DrewNF" /><meta name="octolytics-dimension-repository_id" content="64685910" /><meta name="octolytics-dimension-repository_nwo" content="DrewNF/Tensorflow_Object_Tracking_Video" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="64685910" /><meta name="octolytics-dimension-repository_network_root_nwo" content="DrewNF/Tensorflow_Object_Tracking_Video" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false" />
+
+
+    <link rel="canonical" href="https://github.com/DrewNF/Tensorflow_Object_Tracking_Video" data-pjax-transient>
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <link rel="mask-icon" href="https://github.githubassets.com/pinned-octocat.svg" color="#000000">
+  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://github.githubassets.com/favicon.ico">
+
+<meta name="theme-color" content="#1e2327">
+
+
+
+
+
+  <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials">
+
+  </head>
+
+  <body class="logged-out env-production min-width-lg">
+    
+
+  <div class="position-relative js-header-wrapper ">
+    <a href="#start-of-content" tabindex="1" class="px-2 py-4 bg-blue text-white show-on-focus js-skip-to-content">Skip to content</a>
+    <div id="js-pjax-loader-bar" class="pjax-loader-bar"><div class="progress"></div></div>
+
+    
+    
+    <div class="unsupported-browser">
+  <div class="container clearfix d-flex flex-items-center py-2">
+    <img src="https://github.githubassets.com/images/icons/ie-notice.png" class="flex-self-start flex-shrink-0 pt-1 mr-2 ">
+    <div class="d-flex flex-auto flex-row">
+      <div class="flex-auto min-width-0 mr-2">
+          <h5>Please note that GitHub no longer supports Internet Explorer.</h5>
+          <p class="m-0">We recommend upgrading to the latest <a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Microsoft Edge</a>, <a href="https://chrome.google.com">Google Chrome</a>, or <a href="https://mozilla.org/firefox/">Firefox</a>.</p>
+      </div>
+      <div class="d-flex flex-items-center flex-shrink-0 ">
+        <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/site/dismiss_unsupported_browser" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="uEbIxJtw++qNW7ggEPfQN5MMMopzzZ3jxHxGzhdZcSwpcx4bkPHvG9NtoMbFa90gK8/NF3uJRTmJL+XcCTTLKA==" />
+          <button type="submit" class="btn btn-danger">Ignore</button>
+</form>        <a href="https://help.github.com/articles/supported-browsers" class="btn ml-2">Learn more</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+        <header class="Header-old header-logged-out  position-relative f4 py-2" role="banner">
+  <div class="container-lg d-flex px-3">
+    <div class="d-flex flex-justify-between flex-items-center">
+        <a class="mr-4" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+          <svg height="32" class="octicon octicon-mark-github text-white" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+    </div>
+
+    <div class="HeaderMenu HeaderMenu--logged-out d-flex flex-justify-between flex-items-center flex-auto">
+      <div class="d-none">
+        <button class="btn-link js-details-target" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <svg height="24" class="octicon octicon-x text-gray" viewBox="0 0 12 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+        </button>
+      </div>
+
+        <nav class="mt-0" aria-label="Global">
+          <ul class="d-flex list-style-none">
+              <li class=" mr-3 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap  d-inline-block">
+                    Why GitHub?
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-relative">
+                      <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 mt-0  p-4 left-n4 position-absolute">
+                    <a href="/features" class="py-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Features">Features <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a>
+                    <ul class="list-style-none f5 pb-3">
+                      <li class="edge-item-fix"><a href="/features/code-review/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Code review">Code review</a></li>
+                      <li class="edge-item-fix"><a href="/features/project-management/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Project management">Project management</a></li>
+                      <li class="edge-item-fix"><a href="/features/integrations" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Integrations">Integrations</a></li>
+                      <li class="edge-item-fix"><a href="/features/actions" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Actions">Actions</a>
+                          <li class="edge-item-fix"><a href="/features/package-registry" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Package Registry">Package registry</a>
+                      <li class="edge-item-fix"><a href="/features#team-management" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Team management">Team management</a></li>
+                      <li class="edge-item-fix"><a href="/features#social-coding" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Social coding">Social coding</a></li>
+                      <li class="edge-item-fix"><a href="/features#documentation" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Documentation">Documentation</a></li>
+                      <li class="edge-item-fix"><a href="/features#code-hosting" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Code hosting">Code hosting</a></li>
+                    </ul>
+
+                    <ul class="list-style-none mb-0 border-lg-top pt-lg-3">
+                      <li class="edge-item-fix"><a href="/customer-stories" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Customer stories">Customer stories <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="/security" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Security">Security <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+              <li class=" mr-3 mr-lg-3">
+                <a href="/enterprise" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="(Logged out) Header, go to Enterprise">Enterprise</a>
+              </li>
+
+              <li class=" mr-3 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap  d-inline-block">
+                    Explore
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-relative">
+                      <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 pt-2 pb-0 mt-0  p-4 left-n4 position-absolute">
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="/explore" class="py-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Explore">Explore GitHub <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                    </ul>
+
+                    <h4 class="text-gray-light text-normal text-mono f5 mb-2  border-top pt-3">Learn &amp; contribute</h4>
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="/topics" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Topics">Topics</a></li>
+                        <li class="edge-item-fix"><a href="/collections" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Collections">Collections</a></li>
+                      <li class="edge-item-fix"><a href="/trending" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Trending">Trending</a></li>
+                      <li class="edge-item-fix"><a href="https://lab.github.com/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Learning lab">Learning Lab</a></li>
+                      <li class="edge-item-fix"><a href="https://opensource.guide" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Open source guides">Open source guides</a></li>
+                    </ul>
+
+                    <h4 class="text-gray-light text-normal text-mono f5 mb-2  border-top pt-3">Connect with others</h4>
+                    <ul class="list-style-none mb-0">
+                      <li class="edge-item-fix"><a href="https://github.com/events" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Events">Events</a></li>
+                      <li class="edge-item-fix"><a href="https://github.community" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Community forum">Community forum</a></li>
+                      <li class="edge-item-fix"><a href="https://education.github.com" class="py-2 pb-0 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to GitHub Education">GitHub Education</a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+
+              <li class=" mr-3 mr-lg-3">
+                <a href="/marketplace" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="(Logged out) Header, go to Marketplace">Marketplace</a>
+              </li>
+
+              <li class=" mr-3 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap  d-inline-block">
+                    Pricing
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-relative">
+                       <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 pt-2 pb-4 mt-0  p-4 left-n4 position-absolute">
+                    <a href="/pricing" class="pb-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Pricing">Plans <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a>
+
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="/pricing#feature-comparison" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Compare plans">Compare plans</a></li>
+                      <li class="edge-item-fix"><a href="https://enterprise.github.com/contact" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Contact Sales">Contact Sales</a></li>
+                    </ul>
+
+                    <ul class="list-style-none mb-0  border-top pt-3">
+                      <li class="edge-item-fix"><a href="/nonprofit" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Nonprofits">Nonprofit <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://education.github.com" class="py-2 pb-0 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover"  data-ga-click="(Logged out) Header, go to Education">Education <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+          </ul>
+        </nav>
+
+      <div class="d-flex flex-items-center px-0 text-center text-left">
+          <div class="d-lg-flex ">
+            <div class="header-search mr-3 scoped-search site-scoped-search js-site-search position-relative js-jump-to"
+  role="combobox"
+  aria-owns="jump-to-results"
+  aria-label="Search or jump to"
+  aria-haspopup="listbox"
+  aria-expanded="false"
+>
+  <div class="position-relative">
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-site-search-form" role="search" aria-label="Site" data-scope-type="Repository" data-scope-id="64685910" data-scoped-search-url="/DrewNF/Tensorflow_Object_Tracking_Video/search" data-unscoped-search-url="/search" action="/DrewNF/Tensorflow_Object_Tracking_Video/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+      <label class="form-control input-sm header-search-wrapper p-0 header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center js-chromeless-input-container">
+        <input type="text"
+          class="form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+          data-hotkey="s,/"
+          name="q"
+          value=""
+          placeholder="Search"
+          data-unscoped-placeholder="Search GitHub"
+          data-scoped-placeholder="Search"
+          autocapitalize="off"
+          aria-autocomplete="list"
+          aria-controls="jump-to-results"
+          aria-label="Search"
+          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations#csrf-token=UkucAt5Im6J3BNVB4KrCfenCVKfydQaG8ybkqiloqWMklh5Fe52n6O4WCIF3e9RR+N49ulyuObfUA+VOSrCGdw=="
+          spellcheck="false"
+          autocomplete="off"
+          >
+          <input type="hidden" class="js-site-search-type-field" name="type" >
+            <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="" class="mr-2 header-search-key-slash">
+
+            <div class="Box position-absolute overflow-hidden d-none jump-to-suggestions js-jump-to-suggestions-container">
+              
+<ul class="d-none js-jump-to-suggestions-template-container">
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-suggestion" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+</ul>
+
+<ul class="d-none js-jump-to-no-results-template-container">
+  <li class="d-flex flex-justify-center flex-items-center f5 d-none js-jump-to-suggestion p-2">
+    <span class="text-gray">No suggested jump to results</span>
+  </li>
+</ul>
+
+<ul id="jump-to-results" role="listbox" class="p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container">
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-scoped-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-global-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+
+</ul>
+
+            </div>
+      </label>
+</form>  </div>
+</div>
+
+          </div>
+
+        <a class="HeaderMenu-link no-underline mr-3" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="6ae2c3b57730684f4c9caf12384ee3dd3863490639ee86649d0821a0042a9f87" data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in" href="/login?return_to=%2FDrewNF%2FTensorflow_Object_Tracking_Video">
+          Sign&nbsp;in
+</a>          <a class="HeaderMenu-link d-inline-block no-underline border border-gray-dark rounded-1 px-2 py-1" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="86d88fe4e5db03f8a348d53ac5d5e54465fdf1a2585e618489e33aaea7022d16" data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up" href="/join">
+            Sign&nbsp;up
+</a>      </div>
+    </div>
+  </div>
+</header>
+
+  </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+
+    <div id="js-flash-container">
+
+</div>
+
+
+
+  <div class="application-main " data-commit-hovercards-enabled>
+        <div itemscope itemtype="http://schema.org/SoftwareSourceCode" class="">
+    <main id="js-repo-pjax-container" data-pjax-container >
+      
+  
+
+
+
+
+
+
+  <div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav  ">
+    <div class="repohead-details-container clearfix container">
+
+      <ul class="pagehead-actions">
+
+
+
+
+  <li>
+    
+  <a class="tooltipped tooltipped-s btn btn-sm btn-with-count" aria-label="You must be signed in to watch a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;notification subscription menu watch&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="a69ef5795669e01901375a75715719b86be4f2136f9bc57daf0d95798cc16302" href="/login?return_to=%2FDrewNF%2FTensorflow_Object_Tracking_Video">
+    <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+    Watch
+</a>    <a class="social-count" href="/DrewNF/Tensorflow_Object_Tracking_Video/watchers"
+       aria-label="46 users are watching this repository">
+      46
+    </a>
+
+  </li>
+
+  <li>
+        <a class="btn btn-sm btn-with-count tooltipped tooltipped-s" aria-label="You must be signed in to star a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;star button&quot;,&quot;repository_id&quot;:64685910,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="796854444c7acec0a576960aa6fa28b03fb41eb7716df890f6a31b7a55312160" href="/login?return_to=%2FDrewNF%2FTensorflow_Object_Tracking_Video">
+      <svg class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+      Star
+</a>
+    <a class="social-count js-social-count" href="/DrewNF/Tensorflow_Object_Tracking_Video/stargazers"
+      aria-label="441 users starred this repository">
+      441
+    </a>
+
+  </li>
+
+  <li>
+      <a class="btn btn-sm btn-with-count tooltipped tooltipped-s" aria-label="You must be signed in to fork a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;repo details fork button&quot;,&quot;repository_id&quot;:64685910,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="752c709284aa43b04b9a9bcd4f3994e596e1d0d63f6260816a1dc65149940d7d" href="/login?return_to=%2FDrewNF%2FTensorflow_Object_Tracking_Video">
+        <svg class="octicon octicon-repo-forked v-align-text-bottom" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 0 0-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 0 0 2 1a1.993 1.993 0 0 0-1 3.72V6.5l3 3v1.78A1.993 1.993 0 0 0 5 15a1.993 1.993 0 0 0 1-3.72V9.5l3-3V4.72A1.993 1.993 0 0 0 8 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+        Fork
+</a>
+    <a href="/DrewNF/Tensorflow_Object_Tracking_Video/network/members" class="social-count"
+       aria-label="180 users forked this repository">
+      180
+    </a>
+  </li>
+</ul>
+
+      <h1 class="public ">
+    <svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+  <span class="author" itemprop="author"><a class="url fn" rel="author" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=2854222" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/DrewNF">DrewNF</a></span><!--
+--><span class="path-divider">/</span><!--
+--><strong itemprop="name"><a data-pjax="#js-repo-pjax-container" href="/DrewNF/Tensorflow_Object_Tracking_Video">Tensorflow_Object_Tracking_Video</a></strong>
+  
+
+</h1>
+
+    </div>
+    
+<nav class="reponav js-repo-nav js-sidenav-container-pjax container"
+     itemscope
+     itemtype="http://schema.org/BreadcrumbList"
+    aria-label="Repository"
+     data-pjax="#js-repo-pjax-container">
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a class="js-selected-navigation-item selected reponav-item" itemprop="url" data-hotkey="g c" aria-current="page" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /DrewNF/Tensorflow_Object_Tracking_Video" href="/DrewNF/Tensorflow_Object_Tracking_Video">
+      <svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg>
+      <span itemprop="name">Code</span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a itemprop="url" data-hotkey="g i" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /DrewNF/Tensorflow_Object_Tracking_Video/issues" href="/DrewNF/Tensorflow_Object_Tracking_Video/issues">
+        <svg class="octicon octicon-issue-opened" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg>
+        <span itemprop="name">Issues</span>
+        <span class="Counter">12</span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a data-hotkey="g p" itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /DrewNF/Tensorflow_Object_Tracking_Video/pulls" href="/DrewNF/Tensorflow_Object_Tracking_Video/pulls">
+      <svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0 0 10 15a1.993 1.993 0 0 0 1-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v6.56A1.993 1.993 0 0 0 2 15a1.993 1.993 0 0 0 1-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+      <span itemprop="name">Pull requests</span>
+      <span class="Counter">3</span>
+      <meta itemprop="position" content="3">
+</a>  </span>
+
+
+    <a data-hotkey="g b" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /DrewNF/Tensorflow_Object_Tracking_Video/projects" href="/DrewNF/Tensorflow_Object_Tracking_Video/projects">
+      <svg class="octicon octicon-project" viewBox="0 0 15 16" version="1.1" width="15" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h13a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z"/></svg>
+      Projects
+      <span class="Counter" >0</span>
+</a>
+
+
+
+    <a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse people alerts /DrewNF/Tensorflow_Object_Tracking_Video/pulse" href="/DrewNF/Tensorflow_Object_Tracking_Video/pulse">
+      <svg class="octicon octicon-graph" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg>
+      Insights
+</a>
+
+</nav>
+
+
+  </div>
+<div class="container new-discussion-timeline experiment-repo-nav  ">
+  <div class="repository-content ">
+
+    
+    
+        <div class="signup-prompt-bg rounded-1">
+      <div class="signup-prompt p-4 text-center mb-4 rounded-1">
+        <div class="position-relative">
+          <!-- '"` --><!-- </textarea></xmp> --></option></form><form action="/prompt_dismissals/signup" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="_method" value="put" /><input type="hidden" name="authenticity_token" value="ZU5YgXUtC0wN4/zzZkpNkHc3clZ+bP7bRVNnQJEGDAqMgIgdwTn8dBNsmbua2gjbRyfZFMhTfOob/qWCz1FVFw==" />
+            <button type="submit" class="position-absolute top-0 right-0 btn-link link-gray" data-ga-click="(Logged out) Sign up prompt, clicked Dismiss, text:dismiss">
+              Dismiss
+            </button>
+</form>          <h3 class="pt-2">Join GitHub today</h3>
+          <p class="col-6 mx-auto">GitHub is home to over 36 million developers working together to host and review code, manage projects, and build software together.</p>
+          <a class="btn btn-primary" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;files signup prompt&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="bdedd38ee345748d16609611c4c187918c6ea15e13c3fd430874003317576192" data-ga-click="(Logged out) Sign up prompt, clicked Sign up, text:sign-up" href="/join?source=prompt-code">Sign up</a>
+        </div>
+      </div>
+    </div>
+
+
+
+      <div class="d-flex flex-items-start">
+    <div class="flex-auto">  <div class="f4">
+        <span class="text-gray-dark mr-2" itemprop="about">
+          Object Tracking in Tensorflow ( Localization Detection Classification ) developed to partecipate to ImageNET VID competition
+        </span>
+  </div>
+</div>
+  </div>
+
+    <div class="repository-topics-container mt-2 mb-3 js-topics-list-container">  <div class="list-topics-container f6">
+            <a class="topic-tag topic-tag-link " href="/topics/detection" title="Topic: detection" data-ga-click="Topic, repository page" data-octo-click="topic_click" data-octo-dimensions="topic:detection">
+        detection
+</a>
+
+            <a class="topic-tag topic-tag-link " href="/topics/video" title="Topic: video" data-ga-click="Topic, repository page" data-octo-click="topic_click" data-octo-dimensions="topic:video">
+        video
+</a>
+
+            <a class="topic-tag topic-tag-link " href="/topics/yolo" title="Topic: yolo" data-ga-click="Topic, repository page" data-octo-click="topic_click" data-octo-dimensions="topic:yolo">
+        yolo
+</a>
+
+            <a class="topic-tag topic-tag-link " href="/topics/tensorflow" title="Topic: tensorflow" data-ga-click="Topic, repository page" data-octo-click="topic_click" data-octo-dimensions="topic:tensorflow">
+        tensorflow
+</a>
+
+            <a class="topic-tag topic-tag-link " href="/topics/inception" title="Topic: inception" data-ga-click="Topic, repository page" data-octo-click="topic_click" data-octo-dimensions="topic:inception">
+        inception
+</a>
+
+            <a class="topic-tag topic-tag-link " href="/topics/imagenet" title="Topic: imagenet" data-ga-click="Topic, repository page" data-octo-click="topic_click" data-octo-dimensions="topic:imagenet">
+        imagenet
+</a>
+
+            <a class="topic-tag topic-tag-link " href="/topics/object-detection" title="Topic: object-detection" data-ga-click="Topic, repository page" data-octo-click="topic_click" data-octo-dimensions="topic:object-detection">
+        object-detection
+</a>
+
+            <a class="topic-tag topic-tag-link " href="/topics/classification" title="Topic: classification" data-ga-click="Topic, repository page" data-octo-click="topic_click" data-octo-dimensions="topic:classification">
+        classification
+</a>
+
+            <a class="topic-tag topic-tag-link " href="/topics/tensorbox" title="Topic: tensorbox" data-ga-click="Topic, repository page" data-octo-click="topic_click" data-octo-dimensions="topic:tensorbox">
+        tensorbox
+</a>
+
+            <a class="topic-tag topic-tag-link " href="/topics/dataset" title="Topic: dataset" data-ga-click="Topic, repository page" data-octo-click="topic_click" data-octo-dimensions="topic:dataset">
+        dataset
+</a>
+
+  </div>
+</div>
+
+
+
+  <div class="overall-summary overall-summary-bottomless">
+    <div class="stats-switcher-viewport js-stats-switcher-viewport">
+      <div class="stats-switcher-wrapper">
+      <ul class="numbers-summary">
+        <li class="commits">
+          <a data-pjax href="/DrewNF/Tensorflow_Object_Tracking_Video/commits/master">
+              <svg class="octicon octicon-history" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg>
+              <span class="num text-emphasized">
+                22
+              </span>
+              commits
+          </a>
+        </li>
+        <li>
+          <a data-pjax href="/DrewNF/Tensorflow_Object_Tracking_Video/branches">
+            <svg class="octicon octicon-git-branch" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 5c0-1.11-.89-2-2-2a1.993 1.993 0 0 0-1 3.72v.3c-.02.52-.23.98-.63 1.38-.4.4-.86.61-1.38.63-.83.02-1.48.16-2 .45V4.72a1.993 1.993 0 0 0-1-3.72C.88 1 0 1.89 0 3a2 2 0 0 0 1 1.72v6.56c-.59.35-1 .99-1 1.72 0 1.11.89 2 2 2 1.11 0 2-.89 2-2 0-.53-.2-1-.53-1.36.09-.06.48-.41.59-.47.25-.11.56-.17.94-.17 1.05-.05 1.95-.45 2.75-1.25S8.95 7.77 9 6.73h-.02C9.59 6.37 10 5.73 10 5zM2 1.8c.66 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2C1.35 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2zm0 12.41c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm6-8c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+            <span class="num text-emphasized">
+              3
+            </span>
+            branches
+          </a>
+        </li>
+
+        <li>
+          <a href="/DrewNF/Tensorflow_Object_Tracking_Video/releases">
+            <svg class="octicon octicon-tag" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.73 1.73C7.26 1.26 6.62 1 5.96 1H3.5C2.13 1 1 2.13 1 3.5v2.47c0 .66.27 1.3.73 1.77l6.06 6.06c.39.39 1.02.39 1.41 0l4.59-4.59a.996.996 0 0 0 0-1.41L7.73 1.73zM2.38 7.09c-.31-.3-.47-.7-.47-1.13V3.5c0-.88.72-1.59 1.59-1.59h2.47c.42 0 .83.16 1.13.47l6.14 6.13-4.73 4.73-6.13-6.15zM3.01 3h2v2H3V3h.01z"/></svg>
+            <span class="num text-emphasized">
+              0
+            </span>
+            releases
+          </a>
+        </li>
+
+
+          <li >
+              <include-fragment src="/DrewNF/Tensorflow_Object_Tracking_Video/contributors_size">
+                <a href="/DrewNF/Tensorflow_Object_Tracking_Video/graphs/contributors">
+                  <svg class="octicon octicon-organization" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 12.999c0 .439-.45 1-1 1H7.995c-.539 0-.994-.447-.995-.999H1c-.54 0-1-.561-1-1 0-2.634 3-4 3-4s.229-.409 0-1c-.841-.621-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.442.58 2.5 3c.058 2.41-.159 2.379-1 3-.229.59 0 1 0 1s1.549.711 2.42 2.088C9.196 9.369 10 8.999 10 8.999s.229-.409 0-1c-.841-.62-1.058-.59-1-3 .058-2.419 1.367-3 2.5-3s2.437.581 2.495 3c.059 2.41-.158 2.38-1 3-.229.59 0 1 0 1s3.005 1.366 3.005 4z"/></svg>
+                  <span class="num text-emphasized"></span>
+                  Fetching contributors
+                </a>
+</include-fragment>          </li>
+
+          <li>
+            <a href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/LICENSE">
+              <svg class="octicon octicon-law" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 4c-.83 0-1.5-.67-1.5-1.5S6.17 1 7 1s1.5.67 1.5 1.5S7.83 4 7 4zm7 6c0 1.11-.89 2-2 2h-1c-1.11 0-2-.89-2-2l2-4h-1c-.55 0-1-.45-1-1H8v8c.42 0 1 .45 1 1h1c.42 0 1 .45 1 1H3c0-.55.58-1 1-1h1c0-.55.58-1 1-1h.03L6 5H5c0 .55-.45 1-1 1H3l2 4c0 1.11-.89 2-2 2H2c-1.11 0-2-.89-2-2l2-4H1V5h3c0-.55.45-1 1-1h4c.55 0 1 .45 1 1h3v1h-1l2 4zM2.5 7L1 10h3L2.5 7zM13 10l-1.5-3-1.5 3h3z"/></svg>
+                MIT
+            </a>
+          </li>
+      </ul>
+
+        <div class="repository-lang-stats">
+          <ol class="repository-lang-stats-numbers">
+            <li>
+                <a href="/DrewNF/Tensorflow_Object_Tracking_Video/search?l=python"  data-ga-click="Repository, language stats search click, location:repo overview">
+                  <span class="color-block language-color" style="background-color:#3572A5;"></span>
+                  <span class="lang">Python</span>
+                  <span class="percent">90.9%</span>
+                </a>
+            </li>
+            <li>
+                <a href="/DrewNF/Tensorflow_Object_Tracking_Video/search?l=c%2B%2B"  data-ga-click="Repository, language stats search click, location:repo overview">
+                  <span class="color-block language-color" style="background-color:#f34b7d;"></span>
+                  <span class="lang">C++</span>
+                  <span class="percent">9.1%</span>
+                </a>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <button type="button" class="d-flex p-0 repository-lang-stats-graph js-toggle-lang-stats" title="Click for language details" data-ga-click="Repository, language bar stats toggle, location:repo overview">
+      <span class="language-color" aria-label="Python 90.9%" style="width:90.9%; background-color:#3572A5;" itemprop="keywords">Python</span>
+      <span class="language-color" aria-label="C++ 9.1%" style="width:9.1%; background-color:#f34b7d;" itemprop="keywords">C++</span>
+  </button>
+
+
+
+
+
+
+  <div class="file-navigation in-mid-page d-flex flex-items-start">
+  
+<details class="details-reset details-overlay select-menu branch-select-menu  hx_rsm" id="branch-select-menu">
+  <summary class="btn btn-sm select-menu-button css-truncate"
+           data-hotkey="w"
+           
+           title="Switch branches or tags">
+    <i>Branch:</i>
+    <span class="css-truncate-target">master</span>
+  </summary>
+
+  <details-menu class="select-menu-modal hx_rsm-modal position-absolute" style="z-index: 99;" src="/DrewNF/Tensorflow_Object_Tracking_Video/ref-list/master?source_action=disambiguate&amp;source_controller=files" preload>
+    <include-fragment class="select-menu-loading-overlay anim-pulse">
+      <svg height="32" class="octicon octicon-octoface" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"/></svg>
+    </include-fragment>
+  </details-menu>
+</details>
+
+
+        <button type="button" class="btn btn-sm disabled tooltipped tooltipped-n new-pull-request-btn" aria-label="You must be signed in to create a pull request">
+          New pull request
+        </button>
+
+  <div class="breadcrumb flex-auto">
+    
+  </div>
+
+  <div class="BtnGroup">
+
+    <a class="btn btn-sm empty-icon float-right BtnGroup-item" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;target&quot;:&quot;FIND_FILE_BUTTON&quot;,&quot;repository_id&quot;:64685910,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="c31ed5e6db8a6f33a4590f87a352291b8238d893349f4864514d9238c21bc134" data-ga-click="Repository, find file, location:repo overview" data-hotkey="t" data-pjax="true" href="/DrewNF/Tensorflow_Object_Tracking_Video/find/master">Find File</a>
+  </div>
+
+
+    
+
+    <details class="get-repo-select-menu js-get-repo-select-menu js-anon-get-repo-select-menu position-relative details-overlay details-reset">
+  <summary class="btn btn-sm ml-2 btn-primary" data-hydro-click="{&quot;event_type&quot;:&quot;repository.click&quot;,&quot;payload&quot;:{&quot;repository_id&quot;:64685910,&quot;target&quot;:&quot;CLONE_OR_DOWNLOAD_BUTTON&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="c41a695734e22e51542f2aa8bc46a9ca1caf258beab1567b9ccd4ed70d9f0887">
+    Clone or download
+    <span class="dropdown-caret"></span>
+</summary>  <div class="position-relative">
+    <div class="get-repo-modal dropdown-menu dropdown-menu-sw pb-0 js-toggler-container  js-get-repo-modal">
+
+      <div class="get-repo-modal-options">
+          <div class="clone-options https-clone-options">
+
+            <h4 class="mb-1">
+              Clone with HTTPS
+              <a class="muted-link" href="https://help.github.com/articles/which-remote-url-should-i-use" target="_blank" title="Which remote URL should I use?">
+                <svg class="octicon octicon-question" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M6 10h2v2H6v-2zm4-3.5C10 8.64 8 9 8 9H6c0-.55.45-1 1-1h.5c.28 0 .5-.22.5-.5v-1c0-.28-.22-.5-.5-.5h-1c-.28 0-.5.22-.5.5V7H4c0-1.5 1.5-3 3-3s3 1 3 2.5zM7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7z"/></svg>
+              </a>
+            </h4>
+            <p class="mb-2 get-repo-decription-text">
+              Use Git or checkout with SVN using the web URL.
+            </p>
+
+            <div class="input-group">
+  <input type="text" class="form-control input-monospace input-sm" data-autoselect value="https://github.com/DrewNF/Tensorflow_Object_Tracking_Video.git" aria-label="Clone this repository at https://github.com/DrewNF/Tensorflow_Object_Tracking_Video.git" readonly>
+  <div class="input-group-button">
+    <clipboard-copy value="https://github.com/DrewNF/Tensorflow_Object_Tracking_Video.git" aria-label="Copy to clipboard" class="btn btn-sm" data-hydro-click="{&quot;event_type&quot;:&quot;clone_or_download.click&quot;,&quot;payload&quot;:{&quot;feature_clicked&quot;:&quot;COPY_URL&quot;,&quot;git_repository_type&quot;:&quot;REPOSITORY&quot;,&quot;repository_id&quot;:64685910,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="9cc5c13888481d68be9a7676fa0774df7bff041876180581dd83e64eb82f22d1"><svg class="octicon octicon-clippy" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M2 13h4v1H2v-1zm5-6H2v1h5V7zm2 3V8l-3 3 3 3v-2h5v-2H9zM4.5 9H2v1h2.5V9zM2 12h2.5v-1H2v1zm9 1h1v2c-.02.28-.11.52-.3.7-.19.18-.42.28-.7.3H1c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1h3c0-1.11.89-2 2-2 1.11 0 2 .89 2 2h3c.55 0 1 .45 1 1v5h-1V6H1v9h10v-2zM2 5h8c0-.55-.45-1-1-1H8c-.55 0-1-.45-1-1s-.45-1-1-1-1 .45-1 1-.45 1-1 1H3c-.55 0-1 .45-1 1z"/></svg></clipboard-copy>
+  </div>
+</div>
+
+          </div>
+
+        <div class="mt-2">
+            <a class="btn btn-outline get-repo-btn tooltipped tooltipped-s tooltipped-multiline js-get-repo" aria-label="Clone DrewNF/Tensorflow_Object_Tracking_Video to your computer and use it in GitHub Desktop." data-hydro-click="{&quot;event_type&quot;:&quot;clone_or_download.click&quot;,&quot;payload&quot;:{&quot;feature_clicked&quot;:&quot;OPEN_IN_DESKTOP&quot;,&quot;git_repository_type&quot;:&quot;REPOSITORY&quot;,&quot;repository_id&quot;:64685910,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="e31de96a944180d9760b86ea29db0a272beed6fe04e9458d3b3698683bc9ea23" data-open-app="windows" href="https://desktop.github.com">Open in Desktop</a>
+
+<a class="btn btn-outline get-repo-btn js-anon-download-zip-link " rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;clone_or_download.click&quot;,&quot;payload&quot;:{&quot;feature_clicked&quot;:&quot;DOWNLOAD_ZIP&quot;,&quot;git_repository_type&quot;:&quot;REPOSITORY&quot;,&quot;repository_id&quot;:64685910,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="7dab90b9ace0830e685bdc9c126f1d9a66c3094bf2950f38cc9c165acdb06f1a" data-ga-click="Repository, download zip, location:repo overview" href="/DrewNF/Tensorflow_Object_Tracking_Video/archive/master.zip">Download ZIP</a>
+
+        </div>
+      </div>
+
+        <div class="js-modal-downloading" hidden>
+          <div class="py-2 px-3">
+            <h4 class="lh-condensed mb-3">Downloading<span class="animated-ellipsis-container"><span class="animated-ellipsis">...</span></span></h4>
+            <p class="text-gray">
+              Want to be notified of new releases in
+              <span class="text-bold">DrewNF/Tensorflow_Object_Tracking_Video</span>?
+            </p>
+          </div>
+          <div class="width-full d-flex">
+            <a rel="nofollow" class="get-repo-btn btn btn-outline" style="width: 50%" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;download popover&quot;,&quot;repository_id&quot;:64685910,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="ba5258e6c2d0e16b7f0083489d583cb2cd6c3f8d9905b1f0087878c673644df8" href="/login?return_to=https%3A%2F%2Fgithub.com%2FDrewNF%2FTensorflow_Object_Tracking_Video">Sign in</a>
+            <a rel="nofollow" class="get-repo-btn btn btn-primary" style="width: 50%" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;download popover&quot;,&quot;repository_id&quot;:64685910,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;client_id&quot;:null,&quot;originating_request_id&quot;:&quot;E292:25F23:2793CE9:3BDC561:5CDDDF9D&quot;,&quot;originating_url&quot;:&quot;https://github.com/DrewNF/Tensorflow_Object_Tracking_Video&quot;,&quot;referrer&quot;:null,&quot;user_id&quot;:null}}" data-hydro-click-hmac="47047a5f7d6ebe14e4306fadc4fc86dbd3e6dc9361e20d247caaf506001cb18b" href="/join?return_to=%2FDrewNF%2FTensorflow_Object_Tracking_Video">Sign up</a>
+          </div>
+        </div>
+
+      <div class="js-modal-download-mac py-2 px-3 d-none">
+        <h4 class="lh-condensed mb-3">Launching GitHub Desktop<span class="animated-ellipsis-container"><span class="animated-ellipsis">...</span></span></h4>
+        <p class="text-gray">If nothing happens, <a href="https://desktop.github.com/">download GitHub Desktop</a> and try again.</p>
+        <p><button class="btn-link js-get-repo-modal-download-back">Go back</button></p>
+      </div>
+
+      <div class="js-modal-download-windows py-2 px-3 d-none">
+        <h4 class="lh-condensed mb-3">Launching GitHub Desktop<span class="animated-ellipsis-container"><span class="animated-ellipsis">...</span></span></h4>
+        <p class="text-gray">If nothing happens, <a href="https://desktop.github.com/">download GitHub Desktop</a> and try again.</p>
+        <p><button class="btn-link js-get-repo-modal-download-back">Go back</button></p>
+      </div>
+
+      <div class="js-modal-download-xcode py-2 px-3 d-none">
+        <h4 class="lh-condensed mb-3">Launching Xcode<span class="animated-ellipsis-container"><span class="animated-ellipsis">...</span></span></h4>
+        <p class="text-gray">If nothing happens, <a href="https://developer.apple.com/xcode/">download Xcode</a> and try again.</p>
+        <p><button class="btn-link js-get-repo-modal-download-back">Go back</button></p>
+      </div>
+
+      <div class="js-modal-download-visual-studio py-2 px-3 d-none">
+        <h4 class="lh-condensed mb-3">Launching Visual Studio<span class="animated-ellipsis-container"><span class="animated-ellipsis">...</span></span></h4>
+        <p class="text-gray">If nothing happens, <a href="https://visualstudio.github.com/">download the GitHub extension for Visual Studio</a> and try again.</p>
+        <p><button class="btn-link js-get-repo-modal-download-back">Go back</button></p>
+      </div>
+
+    </div>
+  </div>
+</details>
+
+</div>
+
+
+  
+
+
+  <div class="commit-tease js-details-container Details d-flex rounded-top-1" data-issue-and-pr-hovercards-enabled>
+    
+<div class="AvatarStack flex-self-start ">
+  <div class="AvatarStack-body" aria-label="DrewNF">
+        <a class="avatar" data-skip-pjax="true" data-hovercard-type="user" data-hovercard-url="/hovercards?user_id=2854222" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="/DrewNF">
+          <img height="20" width="20" alt="@DrewNF" src="https://avatars3.githubusercontent.com/u/2854222?s=60&amp;v=4" />
+</a>  </div>
+</div>
+
+    <div class="flex-auto f6 mr-3">
+      
+      <a href="/DrewNF/Tensorflow_Object_Tracking_Video/commits?author=DrewNF"
+     class="commit-author tooltipped tooltipped-s user-mention"
+     aria-label="View all commits by DrewNF">DrewNF</a>
+
+
+  
+
+
+        <a data-pjax="true" title="Create CODE_OF_CONDUCT.md" class="message text-inherit" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/6696a22287ac99a8730fa51eb7d3bc243cba8567">Create CODE_OF_CONDUCT.md</a>
+
+    </div>
+    <div class="no-wrap">
+      Latest commit
+      <a class="commit-tease-sha" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/6696a22287ac99a8730fa51eb7d3bc243cba8567" data-pjax>
+        6696a22
+      </a>
+      <span itemprop="dateModified"><relative-time datetime="2017-08-13T08:33:29Z">Aug 13, 2017</relative-time></span>
+    </div>
+  </div>
+
+
+
+<include-fragment class="file-wrap" src="/DrewNF/Tensorflow_Object_Tracking_Video/file-list/master">
+  <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/DrewNF/Tensorflow_Object_Tracking_Video/tree/6696a22287ac99a8730fa51eb7d3bc243cba8567">Permalink</a>
+
+  <table class="files js-navigation-container js-active-navigation-container" data-pjax>
+    <thead>
+      <tr>
+        <th><span class="sr-only">Type</span></th>
+        <th><span class="sr-only">Name</span></th>
+        <th><span class="sr-only">Latest commit message</span></th>
+        <th><span class="sr-only">Commit time</span></th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      <tr class="warning include-fragment-error">
+        <td class="icon"><svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></td>
+        <td class="content" colspan="3">Failed to load latest commit information.</td>
+      </tr>
+
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="directory" class="octicon octicon-file-directory" viewBox="0 0 14 16" version="1.1" width="14" height="16" role="img"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="This path skips through empty directories" id="8202731998bebfb665f35d8c9d959114-c4d294f8f9a2feb8541d3a8066e4907161e11510" href="/DrewNF/Tensorflow_Object_Tracking_Video/tree/master/INCEPTION/image_retraining"><span class="simplified-path">INCEPTION/</span>image_retraining</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="directory" class="octicon octicon-file-directory" viewBox="0 0 14 16" version="1.1" width="14" height="16" role="img"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="TENSORBOX" id="06872fdf4eb1f2d7bdcc45b03aa20529-cc91de6e4abae78135b7928219c0b0e1cb390594" href="/DrewNF/Tensorflow_Object_Tracking_Video/tree/master/TENSORBOX">TENSORBOX</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="directory" class="octicon octicon-file-directory" viewBox="0 0 14 16" version="1.1" width="14" height="16" role="img"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="YOLO" id="2d664feb111ebc50c56165966d077f8e-dc02ba2873bc57784192b77dff07a0ee8d946c09" href="/DrewNF/Tensorflow_Object_Tracking_Video/tree/master/YOLO">YOLO</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="directory" class="octicon octicon-file-directory" viewBox="0 0 14 16" version="1.1" width="14" height="16" role="img"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="dataset_scripts" id="ef84efaf050a620b59d5da10ccbd7aa7-ba6bbd882c83e6c15eedd1b64b18d21da381805b" href="/DrewNF/Tensorflow_Object_Tracking_Video/tree/master/dataset_scripts">dataset_scripts</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="directory" class="octicon octicon-file-directory" viewBox="0 0 14 16" version="1.1" width="14" height="16" role="img"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="images" id="59b514174bffe4ae402b3d63aad79fe0-954e16fe7a1f968f22f6e9c2383b90d3f4aaa935" href="/DrewNF/Tensorflow_Object_Tracking_Video/tree/master/images">images</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="added logo" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/842ec5d377976aabb7243b50d07bf00326afbbd3">added logo</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-19T17:29:20Z">Mar 19, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="directory" class="octicon octicon-file-directory" viewBox="0 0 14 16" version="1.1" width="14" height="16" role="img"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="license_dir" id="82a397ba3a5da026a0adb8c693bed039-d1f8fb1671b125bc4b0207d93bec0513a5bc748e" href="/DrewNF/Tensorflow_Object_Tracking_Video/tree/master/license_dir">license_dir</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="Restored Project From Local Backup" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/448330cdae95cf03a95826fbf89fc67e86d07f96">Restored Project From Local Backup</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2016-08-01T17:10:42Z">Aug 1, 2016</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="directory" class="octicon octicon-file-directory" viewBox="0 0 14 16" version="1.1" width="14" height="16" role="img"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="output_model" id="34dad21e616fcbb2a1a37fc07a90bce0-9b1f9c212d29752fe19fcf5de9f08ed3edc16819" href="/DrewNF/Tensorflow_Object_Tracking_Video/tree/master/output_model">output_model</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="directory" class="octicon octicon-file-directory" viewBox="0 0 14 16" version="1.1" width="14" height="16" role="img"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="video_result_OTV" id="9522fe848b308a8f4ea05ee9aab5f93a-3144a834a45eaab1b6c026b90886ca2acd098c30" href="/DrewNF/Tensorflow_Object_Tracking_Video/tree/master/video_result_OTV">video_result_OTV</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="directory" class="octicon octicon-file-directory" viewBox="0 0 14 16" version="1.1" width="14" height="16" role="img"><path fill-rule="evenodd" d="M13 4H7V3c0-.66-.31-1-1-1H1c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1zM6 4H1V3h5v1z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="video_result_YOLO" id="c5398253391354f5c7368a1f7ba7ff17-48b6ce744a091c2d2f7875f6efb61222512653f5" href="/DrewNF/Tensorflow_Object_Tracking_Video/tree/master/video_result_YOLO">video_result_YOLO</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="CODE_OF_CONDUCT.md" id="a1ee87dafebc22cbd96979f1b2b7e837-c26a2455fe54d355e1a35b4e4e4f46bf166bf7e7" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/CODE_OF_CONDUCT.md">CODE_OF_CONDUCT.md</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="Create CODE_OF_CONDUCT.md" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/6696a22287ac99a8730fa51eb7d3bc243cba8567">Create CODE_OF_CONDUCT.md</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-08-13T08:33:29Z">Aug 13, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="LICENSE" id="9879d6db96fd29134fc802214163b95a-fe830eb22dd227cd97e12614998d48155bf3c0d7" itemprop="license" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/LICENSE">LICENSE</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="Create LICENSE" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/d15582388fd748ed06041241a243450c2d068ba8">Create LICENSE</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-08-13T08:16:17Z">Aug 13, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="README.md" id="04c6e90faac2675aa89e2176d2eec7d8-17b1cb59d5b5679bf0045b6b21fc02c9ecd26a5e" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/README.md">README.md</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="Update README.md" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/bfc2dffc414834620534c4e0d0730219ec79096c">Update README.md</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-27T12:49:34Z">Mar 27, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="Utils.py" id="5668c5de4d89ddc14e6812990b9812a9-dd8190228248ad0bca6fbfd13c3aac76fa709361" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/Utils.py">Utils.py</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="Utils_Image.py" id="c44cdbe7cd530b2b02eda4ce996c7a27-b989855916823b926c69e3cce78f33a447b2476f" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/Utils_Image.py">Utils_Image.py</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="Utils_Imagenet.py" id="372ba8657e93f4509098a1177e7b6cfc-c8d88c7a913092cb739ba548bc31994cac5f1117" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/Utils_Imagenet.py">Utils_Imagenet.py</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="Utils_Tensorbox.py" id="baec9813946b31b2b11a829bac2c6221-f59c2cad49434194450b3c8fddcedaf498efbfe3" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/Utils_Tensorbox.py">Utils_Tensorbox.py</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="Utils_Video.py" id="1d45458e9bbacb0aec0720833879e6cc-38f7d41ba23f116971857705344e4abf1dc7b11c" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/Utils_Video.py">Utils_Video.py</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="VID_tensorbox.py" id="2639425b347f3cc94c57aafcf18eccaa-8d3b567081064e70a2c92c20642539de5ae376e0" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/VID_tensorbox.py">VID_tensorbox.py</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="VID_yolo.py" id="de015445108749f25a91ed462b8d7aca-76ee117d099b4b1475e50a6d6bf4251ea3e261da" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/VID_yolo.py">VID_yolo.py</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="eval_script.py" id="1222c5454e9a9a494b644e475b681e41-3eb57d30febe1deaa063425a0344f6b44f868891" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/eval_script.py">eval_script.py</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="frame.py" id="bf0323627166d3733c9c24e1352ba016-f5abdf674599aa45da4df919b66299a15188a25f" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/frame.py">frame.py</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="multiclass_rectangle.py" id="280e4dca156fd6bde8559548c91c3a83-5171b7bed5f94d4d5cb91c4c93844dcf07774be6" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/multiclass_rectangle.py">multiclass_rectangle.py</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+        <tr class="js-navigation-item">
+          <td class="icon">
+            <svg aria-label="file" class="octicon octicon-file" viewBox="0 0 12 16" version="1.1" width="12" height="16" role="img"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg>
+            <img width="16" height="16" class="spinner" alt="" src="https://github.githubassets.com/images/spinners/octocat-spinner-32.gif" />
+          </td>
+          <td class="content">
+            <span class="css-truncate css-truncate-target"><a class="js-navigation-open" title="vid_classes.py" id="7365ac17ee3b79b22fe2ae847eb87fa6-c6b43f9fc6d0b5f973a5dbbd9bd7fd1809599b3d" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/vid_classes.py">vid_classes.py</a></span>
+          </td>
+          <td class="message">
+            <span class="css-truncate css-truncate-target">
+                  <a data-pjax="true" title="UPDATE the whole project to the last version of it" class="link-gray" href="/DrewNF/Tensorflow_Object_Tracking_Video/commit/7d0d2528656a7f1e770e9b7744f05502ff76fa74">UPDATE the whole project to the last version of it</a>
+            </span>
+          </td>
+          <td class="age">
+            <span class="css-truncate css-truncate-target"><time-ago datetime="2017-03-10T17:25:12Z">Mar 10, 2017</time-ago></span>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+</include-fragment>
+
+
+
+  <div id="readme" class="Box Box--condensed instapaper_body md js-code-block-container">
+    <div class="Box-header d-flex flex-items-center flex-justify-between px-2">
+      <h3 class="Box-title pr-3">
+        <svg class="octicon octicon-book" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg>
+        README.md
+      </h3>
+    </div>
+      <div class="Box-body">
+        <article class="markdown-body entry-content p-5" itemprop="text"><h1><a id="user-content-tensorflow_object_tracking_video" class="anchor" aria-hidden="true" href="#tensorflow_object_tracking_video"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tensorflow_Object_Tracking_Video</h1>
+<p>(Version 0.3, Last Update 10-03-2017)</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/images/UPC_logo.png"><img src="/DrewNF/Tensorflow_Object_Tracking_Video/raw/master/images/UPC_logo.png" alt="alt text" title="Logo Title Text 1" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/images/BSC_logo.png"><img src="/DrewNF/Tensorflow_Object_Tracking_Video/raw/master/images/BSC_logo.png" alt="alt text" title="Logo Title Text 1" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/images/IGP_logo.png"><img src="/DrewNF/Tensorflow_Object_Tracking_Video/raw/master/images/IGP_logo.png" alt="alt text" title="Logo Title Text 1" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/images/POLITO_logo.png"><img src="/DrewNF/Tensorflow_Object_Tracking_Video/raw/master/images/POLITO_logo.png" alt="alt text" title="Logo Title Text 1" style="max-width:100%;"></a></p>
+<p>The Project follow the below <strong>index</strong>:</p>
+<ol>
+<li><strong><a href="#1introduction">Introduction</a>;</strong></li>
+<li><strong><a href="#2requirement--installation">Requitements &amp; Installation</a>;</strong></li>
+<li><strong><a href="#3yolo-script-usage">YOLO Script Usage</a></strong>
+<ol>
+<li><strong><a href="#isetting-parameters">Setting Parameters</a>;</strong></li>
+<li><strong><a href="#iiusage">Usage</a>.</strong></li>
+</ol>
+</li>
+<li><strong><a href="#4vid-tensorbox-script-usage">VID TENSORBOX Script Usage</a></strong>
+<ol>
+<li><strong><a href="#isetting-parameters-2">Setting Parameters</a>;</strong></li>
+<li><strong><a href="#iiusage-2">Usage</a>.</strong></li>
+</ol>
+</li>
+<li><strong><a href="#5tensorbox-tests">TENSORBOX Tests Files</a>;</strong></li>
+<li><strong><a href="#6dataset-script">Dataset Scripts</a>;</strong></li>
+<li><strong><a href="#7copyright">Copyright</a>;</strong></li>
+<li><strong><a href="#8state-of-the-project">State of the Project</a>.</strong></li>
+<li><strong><a href="#9downloads">DOWNLOADS</a>.</strong></li>
+<li><strong><a href="#10acknowledgements">Acknowledgements</a>.</strong></li>
+<li><strong><a href="#11bibliography">Bibliography</a>.</strong></li>
+</ol>
+<h2><a id="user-content-1introduction" class="anchor" aria-hidden="true" href="#1introduction"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.Introduction</h2>
+<p>This Repository is my Master Thesis Project: "Develop a Video Object Tracking with Tensorflow Technology"
+and it's still developing, so many updates will be made.
+In this work, I used the architecture and problem solving strategy of the Paper T-CNN(<a href="http://arxiv.org/abs/1604.02532" rel="nofollow">Arxiv</a>), that won last year <a href="http://image-net.org/" rel="nofollow">IMAGENET 2015</a> <a href="http://image-net.org/challenges/LSVRC/2015/results" rel="nofollow">Teaser Challenge VID</a>.
+So the whole script architecture will be made of several component in cascade:</p>
+<ol>
+<li>Still Image Detection (Return Tracking Results on single Frame);</li>
+<li>Temporal Information Detection( Introducing Temporal Information into the DET Results);</li>
+<li>Context Information Detection( Introducing Context Information into the DET Results);</li>
+</ol>
+<blockquote>
+<p>Notice that the Still Image Detection component could be unique or decompose into two sub-component:</p>
+<ol>
+<li>First: determinate "Where" in the Frame;</li>
+<li>Second: determinate "What" in the Frame.</li>
+</ol>
+</blockquote>
+<p>My project use many online tensorflow projects, as:</p>
+<ul>
+<li><a href="https://github.com/gliese581gg/YOLO_tensorflow">YOLO Tensorflow</a>;</li>
+<li><a href="https://github.com/Russell91/TensorBox">TensorBox</a>.</li>
+<li><a href="https://github.com/tensorflow/models/tree/master/inception">Inception</a>.</li>
+</ul>
+<h2><a id="user-content-2requirement--installation" class="anchor" aria-hidden="true" href="#2requirement--installation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2.Requirement &amp; Installation</h2>
+<p>To install the script you only need to download the Repository.
+To Run the script you have to had installed:</p>
+<ul>
+<li>Tensorflow;</li>
+<li>OpenCV;</li>
+<li>Python;</li>
+</ul>
+<p>All the Python library necessary could be installed easily trought pip install package-name.
+If you want to follow a guide to install the requirements here is the link for a <a href="https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV">tutorial</a> I wrote for myself and for a course of Deep Learning at UPC.</p>
+<h2><a id="user-content-3yolo-script-usage" class="anchor" aria-hidden="true" href="#3yolo-script-usage"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3.YOLO Script Usage</h2>
+<h3><a id="user-content-isetting-parameters" class="anchor" aria-hidden="true" href="#isetting-parameters"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>i.Setting Parameters</h3>
+<p>This are the inline terminal argmunts taken from the script, most of them aren't required, only the video path <strong>must</strong> be specified when we call the script:</p>
+<div class="highlight highlight-source-python"><pre>  parser <span class="pl-k">=</span> argparse.ArgumentParser()
+  parser.add_argument(<span class="pl-s"><span class="pl-pds">'</span>--det_frames_folder<span class="pl-pds">'</span></span>, <span class="pl-v">default</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>det_frames/<span class="pl-pds">'</span></span>, <span class="pl-v">type</span><span class="pl-k">=</span><span class="pl-c1">str</span>)
+  parser.add_argument(<span class="pl-s"><span class="pl-pds">'</span>--det_result_folder<span class="pl-pds">'</span></span>, <span class="pl-v">default</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>det_results/<span class="pl-pds">'</span></span>, <span class="pl-v">type</span><span class="pl-k">=</span><span class="pl-c1">str</span>)
+  parser.add_argument(<span class="pl-s"><span class="pl-pds">'</span>--result_folder<span class="pl-pds">'</span></span>, <span class="pl-v">default</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>summary_result/<span class="pl-pds">'</span></span>, <span class="pl-v">type</span><span class="pl-k">=</span><span class="pl-c1">str</span>)
+  parser.add_argument(<span class="pl-s"><span class="pl-pds">'</span>--summary_file<span class="pl-pds">'</span></span>, <span class="pl-v">default</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>results.txt<span class="pl-pds">'</span></span>, <span class="pl-v">type</span><span class="pl-k">=</span><span class="pl-c1">str</span>)
+  parser.add_argument(<span class="pl-s"><span class="pl-pds">'</span>--output_name<span class="pl-pds">'</span></span>, <span class="pl-v">default</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>output.mp4<span class="pl-pds">'</span></span>, <span class="pl-v">type</span><span class="pl-k">=</span><span class="pl-c1">str</span>)
+  parser.add_argument(<span class="pl-s"><span class="pl-pds">'</span>--perc<span class="pl-pds">'</span></span>, <span class="pl-v">default</span><span class="pl-k">=</span><span class="pl-c1">5</span>, <span class="pl-v">type</span><span class="pl-k">=</span><span class="pl-c1">int</span>)
+  parser.add_argument(<span class="pl-s"><span class="pl-pds">'</span>--path_video<span class="pl-pds">'</span></span>, <span class="pl-v">required</span><span class="pl-k">=</span><span class="pl-c1">True</span>, <span class="pl-v">type</span><span class="pl-k">=</span><span class="pl-c1">str</span>)</pre></div>
+<p>Now you have to download the <a href="https://drive.google.com/file/d/0B2JbaJSrWLpza08yS2FSUnV2dlE/view?usp=sharing" rel="nofollow">weights</a> for YOLO and put them into /YOLO_DET_Alg/weights/.</p>
+<p>For YOLO knowledge <a href="http://pjreddie.com/darknet/yolo/" rel="nofollow">here</a> you can find Original code(C implementation) &amp; paper.</p>
+<h3><a id="user-content-iiusage" class="anchor" aria-hidden="true" href="#iiusage"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ii.Usage</h3>
+<p>After Set the Parameters, we can proceed and run the script:</p>
+<div class="highlight highlight-source-python"><pre>  python <span class="pl-c1">VID_yolo</span>.py <span class="pl-ii">--</span>path_video video.mp4</pre></div>
+<p>You will see some Terminal Output like:</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/images/terminal_output_run.png"><img src="/DrewNF/Tensorflow_Object_Tracking_Video/raw/master/images/terminal_output_run.png" alt="alt tag" style="max-width:100%;"></a></p>
+<p>You will see a realtime frames output(like the one here below) and then finally all will be embedded into the Video Output( I uploaded the first two Test I've made in the folder /video_result, you can download them and take a look to the final result.
+The first one has problems in the frames order, this is why you will see so much flickering in the video image,the problem was then solved and in the second doesn't show frames flickering ):</p>
+<p><a target="_blank" rel="noopener noreferrer" href="/DrewNF/Tensorflow_Object_Tracking_Video/blob/master/images/DET_frame_example.jpg"><img src="/DrewNF/Tensorflow_Object_Tracking_Video/raw/master/images/DET_frame_example.jpg" alt="alt tag" style="max-width:100%;"></a></p>
+<h2><a id="user-content-4vid-tensorbox-script-usage" class="anchor" aria-hidden="true" href="#4vid-tensorbox-script-usage"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4.VID TENSORBOX Script Usage</h2>
+<h3><a id="user-content-isetting-parameters-1" class="anchor" aria-hidden="true" href="#isetting-parameters-1"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>i.Setting Parameters</h3>
+<p>This are the inline terminal argmunts taken from the script, most of them aren't required.
+As before, only the video path <strong>must</strong> be specified when we call the script:</p>
+<div class="highlight highlight-source-python"><pre>  parser.add_argument(<span class="pl-s"><span class="pl-pds">'</span>--output_name<span class="pl-pds">'</span></span>, <span class="pl-v">default</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>output.mp4<span class="pl-pds">'</span></span>, <span class="pl-v">type</span><span class="pl-k">=</span><span class="pl-c1">str</span>)
+  parser.add_argument(<span class="pl-s"><span class="pl-pds">'</span>--hypes<span class="pl-pds">'</span></span>, <span class="pl-v">default</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>./hypes/overfeat_rezoom.json<span class="pl-pds">'</span></span>, <span class="pl-v">type</span><span class="pl-k">=</span><span class="pl-c1">str</span>)
+  parser.add_argument(<span class="pl-s"><span class="pl-pds">'</span>--weights<span class="pl-pds">'</span></span>, <span class="pl-v">default</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>./output/save.ckpt-1090000<span class="pl-pds">'</span></span>, <span class="pl-v">type</span><span class="pl-k">=</span><span class="pl-c1">str</span>)
+  parser.add_argument(<span class="pl-s"><span class="pl-pds">'</span>--perc<span class="pl-pds">'</span></span>, <span class="pl-v">default</span><span class="pl-k">=</span><span class="pl-c1">2</span>, <span class="pl-v">type</span><span class="pl-k">=</span><span class="pl-c1">int</span>)
+  parser.add_argument(<span class="pl-s"><span class="pl-pds">'</span>--path_video<span class="pl-pds">'</span></span>, <span class="pl-v">required</span><span class="pl-k">=</span><span class="pl-c1">True</span>, <span class="pl-v">type</span><span class="pl-k">=</span><span class="pl-c1">str</span>)</pre></div>
+<p>I will soon put a weight file to download.
+For train and spec on the multiclass implementation I will add them after the end of my thesis project.</p>
+<h3><a id="user-content-iiusage-1" class="anchor" aria-hidden="true" href="#iiusage-1"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ii.Usage</h3>
+<p>Download the .zip files linked in the Download section and replace the folders.</p>
+<p>Then, after set the parameters, we can proceed and run the script:</p>
+<div class="highlight highlight-source-python"><pre>  python <span class="pl-c1">VID_tensorbox_multi_class</span>.py <span class="pl-ii">--</span>path_video video.mp4</pre></div>
+<h2><a id="user-content-5tensorbox-tests" class="anchor" aria-hidden="true" href="#5tensorbox-tests"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5.Tensorbox Tests</h2>
+<p>In the folder video_result_OVT you can find files result of the runs of the VID TENSOBOX scripts.</p>
+<h2><a id="user-content-6dataset-scripts" class="anchor" aria-hidden="true" href="#6dataset-scripts"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6.Dataset Scripts</h2>
+<p>All the scripts below are for the VID classes so if you wonna adapt them for other you have to simply change the Classes.py file where are defined the correspondencies between codes and names. All the data on the image are made respect a specific Image Ratio, because TENSORBOX works only with 640x480 PNG images, you will have to change the code a little to adapt to your needs.
+I will provide four scripts:</p>
+<ol>
+<li><strong>Process_Dataset_heavy.py</strong>: Process your dataset with a brute force approach, you will obtain more bbox and files for each class;</li>
+<li><strong>Process_Dataset_lightweight.py</strong>: Process your dataset with a lightweight approach making, you will obtain less bbox and files for each class;</li>
+<li><strong>Resize_Dataset.py</strong>: Resize your dataset to 640x480 PNG images;</li>
+<li><strong>Test_Processed_Data.py</strong>: Will test that the process end well without errors.</li>
+</ol>
+<p>I've also add some file scripts to pre process and prepare the dataset to train the last component, the Inception Model, you can find them in a subfolder of the dataset script folder.</p>
+<h2><a id="user-content-7copyright" class="anchor" aria-hidden="true" href="#7copyright"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7.Copyright</h2>
+<p>According to the LICENSE file of the original code,</p>
+<ul>
+<li>Me and original author hold no liability for any damages;</li>
+<li>Do not use this on commercial!.</li>
+</ul>
+<h2><a id="user-content-8state-of-the-project" class="anchor" aria-hidden="true" href="#8state-of-the-project"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>8.State of the Project</h2>
+<ul>
+<li>Support YOLO (SingleClass) DET Algorithm;</li>
+<li>Support Training <strong>ONLY TENSOBOX and INCEPTION Training</strong>;</li>
+<li><strong>USE OF TEMPORAL INFORMATION</strong> [This are retrieved through some post processing algorithm I've implemented in the Utils_Video.py file <strong>NOT TRAINABLE</strong>];</li>
+<li>Modular Architecture composed in cascade by: Tensorbox (as General Object Detector), Tracker and Smoother and Inception (as Object Classifier);</li>
+</ul>
+<h2><a id="user-content-9downloads" class="anchor" aria-hidden="true" href="#9downloads"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>9.Downloads</h2>
+<p>Here below the links of the weights file for Inception and Tensorbox from my retraining experiments:</p>
+<ul>
+<li><a href="https://mega.nz/#!rtkD2TzA!iDoBGzAFC69b8VE2wlJOoRg7kJ6XnayMcagrzidZGxw" rel="nofollow">INCEPTION</a></li>
+<li><a href="https://mega.nz/#!WpdSUArZ!8-E3YIvpfBHUoBc1QGDyiWA0CKbIXxOyVqJWMeSE6-g" rel="nofollow">TENSORBOX</a></li>
+</ul>
+<h2><a id="user-content-10acknowledgements" class="anchor" aria-hidden="true" href="#10acknowledgements"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>10.Acknowledgements</h2>
+<p>Thanks to Professors:</p>
+<ul>
+<li><strong>Elena Baralis</strong> from Politecnico di Torino Dipartimento di Automatica e Informatica;</li>
+<li><strong>Jordi Torres</strong> from BSC Department of Computer Science;</li>
+<li><strong>Xavi Giro ”I” Nieto</strong> from UPC Department of Image Processing.</li>
+</ul>
+<h2><a id="user-content-11bibliography" class="anchor" aria-hidden="true" href="#11bibliography"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>11.Bibliography</h2>
+<h3><a id="user-content-icourse" class="anchor" aria-hidden="true" href="#icourse"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>i.Course</h3>
+<ul>
+<li><a href="http://imatge-upc.github.io/telecombcn-2016-dlcv/" rel="nofollow">Deep Learning for Computer Vision Barcelona</a></li>
+<li><a href="https://github.com/DrewNF/Build-Deep-Learning-Env-with-Tensorflow-Python-OpenCV">Build Deep Learning Env with Tensorflow Python OpenCV</a></li>
+</ul>
+<h3><a id="user-content-iiclassification" class="anchor" aria-hidden="true" href="#iiclassification"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ii.Classification</h3>
+<ul>
+<li><a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks" rel="nofollow"> Alex Krizhevsky, Ilya Sutskever, and Geoffrey E. Hinton. “ImageNet Classification  with  Deep  Convolutional  Neural  Networks”.</a></li>
+<li><a href="https://arxiv.org/abs/1409.4842" rel="nofollow">Christian Szegedy et al. “Going Deeper with Convolutions”.</a></li>
+<li><a href="https://arxiv.org/abs/1512.00567" rel="nofollow">Christian Szegedy et al. “Rethinking the Inception Architecture for ComputerVision”.</a></li>
+<li><a href="https://arxiv.org/abs/1502.01852" rel="nofollow">Kaiming  He  et  al.  “Delving  Deep  into  Rectifiers:  Surpassing  Human-LevelPerformance on ImageNet Classification”. </a></li>
+</ul>
+<h3><a id="user-content-iiidetection" class="anchor" aria-hidden="true" href="#iiidetection"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iii.Detection</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1506.04878" rel="nofollow">Russell  Stewart  and  Mykhaylo  Andriluka.  “End-to-end  people  detection  incrowded scenes”.</a></li>
+<li><a href="https://arxiv.org/abs/1312.6229" rel="nofollow">Pierre  Sermanet  et  al.  “OverFeat:  Integrated  Recognition,  Localization  andDetection  using  Convolutional  Networks”.</a></li>
+<li><a href="https://arxiv.org/abs/1506.01497" rel="nofollow">S. Ren et al. “Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks”.</a></li>
+</ul>
+<h3><a id="user-content-ivtracking" class="anchor" aria-hidden="true" href="#ivtracking"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iv.Tracking</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/1506.04714" rel="nofollow">Dinesh Jayaraman and Kristen Grauman. “Slow and Steady Feature Analy-sis: Higher Order Temporal Coherence in Video”.</a></li>
+<li><a href="https://arxiv.org/abs/1604.02532" rel="nofollow">K.  Kang  et  al.  “T-CNN:  Tubelets  with  Convolutional  Neural  Networks  forObject Detection from Videos”.</a></li>
+<li><a href="https://arxiv.org/abs/1602.08465" rel="nofollow"> W. Han et al. “Seq-NMS for Video Object Detection”.</a>
+-<a href="https://arxiv.org/abs/1506.02640" rel="nofollow">J. Redmon et al. “You Only Look Once: Unified, Real-Time Object Detection”</a></li>
+</ul>
+</article>
+      </div>
+  </div>
+
+
+
+  </div>
+  <div class="modal-backdrop js-touch-events"></div>
+</div>
+
+    </main>
+  </div>
+  
+
+  </div>
+
+        
+<div class="footer container-lg width-full px-3" role="contentinfo">
+  <div class="position-relative d-flex flex-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <ul class="list-style-none d-flex flex-wrap ">
+      <li class="mr-3">&copy; 2019 <span title="0.28966s from unicorn-944bfb898-d698d">GitHub</span>, Inc.</li>
+        <li class="mr-3"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
+        <li class="mr-3"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
+        <li class="mr-3"><a data-ga-click="Footer, go to security, text:security" href="https://github.com/security">Security</a></li>
+        <li class="mr-3"><a href="https://githubstatus.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a data-ga-click="Footer, go to help, text:help" href="https://help.github.com">Help</a></li>
+    </ul>
+
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mx-lg-4" href="https://github.com">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
+   <ul class="list-style-none d-flex flex-wrap ">
+        <li class="mr-3"><a data-ga-click="Footer, go to contact, text:contact" href="https://github.com/contact">Contact GitHub</a></li>
+        <li class="mr-3"><a href="https://github.com/pricing" data-ga-click="Footer, go to Pricing, text:Pricing">Pricing</a></li>
+      <li class="mr-3"><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li class="mr-3"><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+        <li class="mr-3"><a href="https://github.blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about">About</a></li>
+
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
+    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+    </button>
+    You can’t perform that action at this time.
+  </div>
+
+
+    <script crossorigin="anonymous" async="async" integrity="sha512-egZzLk7E3rVGIhN0xSynGAZiHRKhEONjTrkhDLAQf5csRzjt25I08MrAhlYO5dBhTLxSnIc6hMdD9AzvFF189Q==" type="application/javascript" src="https://github.githubassets.com/assets/unsupported-bootstrap-50514141.js"></script>
+  <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner" hidden
+    >
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
+    <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+  </div>
+  <template id="site-details-dialog">
+  <details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark" open>
+    <summary aria-haspopup="dialog" aria-label="Close dialog"></summary>
+    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast">
+      <button class="Box-btn-octicon m-0 btn-octicon position-absolute right-0 top-0" type="button" aria-label="Close dialog" data-close-dialog>
+        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+      </button>
+      <div class="octocat-spinner my-6 js-details-dialog-spinner"></div>
+    </details-dialog>
+  </details>
+</template>
+
+  <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
+  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box box-shadow-large" style="width:360px;">
+  </div>
+</div>
+
+  <div aria-live="polite" class="js-global-screen-reader-notice sr-only"></div>
+
+  </body>
+</html>
+

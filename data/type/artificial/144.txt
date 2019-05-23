@@ -1,0 +1,11 @@
+
+Churn-Analytics-of-Bank-Using-Neural-Networks
+This repository is about predicting the exit status of the customer of the bank using the other independent variables in the dataset.We are using a Artificial Neural Network as the model to train over the dataset.Go through the Notebook to find the relevant details , visualisations about the dataset. The ANN.py file contains the code for training the model.
+Before running the python code make sure you have the following packages downloaded and installed over your IDE.
+Pandas
+Scikit Learn( sklearn )
+Numpy
+Keras
+Seaborn
+Download the csv file  ie. the dataset. Download the dataset and make sure the dataset in the same directory where the pynb and .py files of the located.
+

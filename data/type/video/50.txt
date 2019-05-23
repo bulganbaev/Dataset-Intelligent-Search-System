@@ -1,0 +1,69 @@
+
+Data-Analysis-with-Python-Video
+Jupyter notebook and datasets- Tutorial - Data Analysis with python in pandas | http://bit.ly/Python4DataAnalysis
+Download or fork Ipyn Notebook
+Videos (playlist)
+Datasets
+
+
+
+Filename
+Description
+Raw File
+Original Source
+Other
+
+
+
+
+chipotle.tsv
+Online orders from the Chipotle restaurant chain
+bit.ly/chipsdataset
+The Upshot
+Upshot article
+
+
+drinks.csv
+Alcohol consumption by country
+bit.ly/drinksdataset
+FiveThirtyEight
+FiveThirtyEight article
+
+
+imdb_1000.csv
+Top rated movies from IMDb
+bit.ly/imbddataset
+IMDb
+Web scraping script
+
+
+titanic_test.csv
+Testing set from Kaggle's Titanic competition
+bit.ly/titanictest
+Kaggle
+Data dictionary
+
+
+titanic_train.csv
+Training set from Kaggle's Titanic competition
+http://bit.ly/TitanicTrain
+Kaggle
+Data dictionary
+
+
+u.user
+Demographic information about MovieLens users
+bit.ly/movieusersdataset
+GroupLens
+Data dictionary
+
+
+ufo.csv
+Reports of UFO sightings from 1930-2000
+bit.ly/ufodataset
+National UFO Reporting Center
+Web scraping script
+
+
+
+

@@ -1,0 +1,6 @@
+
+360-Degree Videos Head Movements Dataset
+Used in conjunction with software availible at this place, for research in 360-degree video streaming at UMass Amherst, Spring 2018. Modifcations are to simulate latency in head movement.
+99.9% of this code was written by someone else. See the link for proper attribution (at the top of their page).
+If I wanted to pay for github premium, this would be private.
+

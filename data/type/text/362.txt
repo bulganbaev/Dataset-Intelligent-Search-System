@@ -1,0 +1,4 @@
+
+-R-Stephen-King
+R basics - Dataset analysis and text analysis performed on the books by Stephen King.
+

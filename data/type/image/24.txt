@@ -1,0 +1,27 @@
+
+CIFAR-10 Image Classification
+About
+This is a solution to the CIFAR10-dataset, consisting of 50,000 classified
+32x32 pixel images of 10 classes: airplane, automobile, bird, cat, deer, dog,
+frog, horse, ship and truck.
+The solution is a convolutional neural network that achieves 85% accuracy on
+the dataset.
+Motivation
+Image classification using deep learning has become very popular, and seems to
+be one of the best methods. Images with more features (and higher resolution)
+require more sophisticated networks that are able to consider the translation
+invariance of features, and other important aspects of image classification.
+This project was meant to give an insight and understanding of how
+convolutional neural networks work, different methods for improving a model
+(batch normalization, data augmentation etc.) and the evaluation of complex
+models.
+Solution
+The solution can be found in a documented Jupyter Notebook
+in docs/cifar-project.ipynb.
+A full evaluation of the models used are found in the notebook, as well as a
+comparison with a FCNN-model on the same dataset, and an application of
+transfer-learning.
+How to run
+pip install -r requirements.txt
+
+

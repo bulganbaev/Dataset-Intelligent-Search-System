@@ -1,0 +1,18 @@
+
+YouTube-US-Trending-Videos-Data.
+Context
+YouTube (the world-famous video sharing website) maintains a list of the top trending videos on the platform. According to Variety magazine, “To determine the year’s top-trending videos, YouTube uses a combination of factors including measuring users interactions (number of views, shares, comments and likes). Note that they’re not the most-viewed videos overall for the calendar year”. Top performers on the YouTube trending list are music videos (such as the famously virile “Gangam Style”), celebrity and/or reality TV performances, and the random dude-with-a-camera viral videos that YouTube is well-known for.
+This dataset is a daily record of the top trending YouTube videos in US.
+Content
+Data includes the video title, channel title, publish time, tags, views, likes and dislikes, description, and comment count.
+Acknowledgements
+This dataset was submitted by "Mitchell J" on kaggle. The data was retrieved through Youtube API.
+What is done so far?
+Did an Exploratory Data Analysis on the data to derive few meaningful trends through visualizations.
+To Do's and what else can be done?
+Sentiment analysis on the description to see if it effects views,likes..etc. Analysis of what factors will help a newly uploaded video to trend. Analyzing how to convert views into likes and comments. (All these without taking in the actual content of the video)
+link to data: https://www.kaggle.com/datasnaek/youtube-new/home
+Feel free to fork and develope upon the code!
+Thank you
+Hemanth Kumar Gudur
+

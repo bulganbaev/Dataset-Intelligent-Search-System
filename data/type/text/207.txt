@@ -1,0 +1,9 @@
+
+SemanticSimilarityBetweenTexts
+A Word2vec model trained on the story dataset of game of thrones on Google Collaboratory
+Upload the ipython notebook on google cloud and open using google collaboratory.
+The dataset used to train the word2vec model is Game of thrones story dataset referenced as got1.txt..... got5.txt
+Upload these dataset on the google cloud and obtain the file id for each by clicking on the get shareable link and thus the unique id
+referenced after "id=" in the link.
+Replace them in the Ipython Notebook and run the code on your google collaboratory
+

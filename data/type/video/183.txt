@@ -1,0 +1,5 @@
+
+hello-world
+An open source repository that is used to organize a single project to store ideas, resources, and share with others that holds folders, files, images, videos, spreadsheets, and datasets.
+Making changes to this copied file was found in Find File in upper right hand side where I was able to find the pencil icon to edit this very message.
+

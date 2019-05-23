@@ -1,0 +1,37 @@
+
+ImageNet-Demo-Audit
+Annotations
+Available in Releases Tab: https://github.com/cdulhanty/ImageNet-Demo-Audit/releases/tag/0.1
+Re-implement detections and annotations
+ILSVRC Dataset Download
+Kaggle is the new home of the ImageNet Challenge.
+Create a Kaggle account and download the ILSVRC images (155 GB) here; extract images via:
+tar -xzvf imagenet_object_localization.tar.gz
+
+ImageNet 'person' Synset Download
+ImageNet Fall 2011 Release available at academic torrents.
+Package Installation
+Install requirements via:
+pip install -r requirements.txt
+
+Face Detection via FaceBoxes
+cd FaceBoxes
+./make.sh
+
+Download FaceBoxes weights from Google Drive
+Apparent Age and Gender Estimation via DEX
+Download the pre-trained age and gender estimation models available at the above link, specifically:
+
+Apparent age estimation trained on LAP dataset: .caffemodel and age.prototxt
+Gender prediction: .caffemodel and gender.prototxt
+
+Convert to PyTorch models via this Google Colab Page
+Download age.py, age.pth. gender.py, gender.pth
+Run Detection & Annotation scripts
+Edit file paths in source code for model weights and data locations (TODO: add argparse for command-line input)
+python face_detection_ImageNet.py
+python age_estimation_ImageNet.py
+python gender_estimation_ImageNet.py
+
+Repeat for person synset.
+

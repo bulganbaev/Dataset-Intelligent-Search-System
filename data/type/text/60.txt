@@ -1,0 +1,4 @@
+
+textclassifierIMdb
+text classification using tensor-hub on Large Movie Review Dataset v1.0 based on tensorflow tutorial- https://www.tensorflow.org/tutorials/keras/basic_text_classification
+

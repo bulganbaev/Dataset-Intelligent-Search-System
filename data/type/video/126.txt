@@ -1,0 +1,5 @@
+
+YouTube-Trending
+Data exploration and processing techniques regarding the Trending YouTube Video Statistics and Comments dataset.
+See the main.py file for the source code, and the Data Exploration.ipynb file for the Jupyter Notebook.
+

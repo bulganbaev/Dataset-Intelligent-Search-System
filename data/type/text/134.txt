@@ -1,0 +1,11 @@
+
+Multilingual text categorization dataset
+Dataset
+Dataset can be found in data folder. (It's stored in this repository by Git LFS
+I created a small Notebook giving some additional info on how data is distributed here: Multilingual-Text-Dataset.ipynb
+Source
+I created this dataset using free API from Webhose. Data inside dataset was scraped on 2018/09/13.
+This dataset contains blog posts labeled by language and by category.
+Possible usage
+This dataset can be useful for NLP procedures involving text categorization and language detection.
+

@@ -1,0 +1,46 @@
+
+AudioSet-Extractor
+Forked from album-splitter
+How to install
+
+Install ffmpeg
+
+Download v3.4.2
+For Windows 64-bit
+For macOS 64-bit
+
+
+Install Python 3
+Install pip3
+Install virtualenv (optional)
+Fork/Clone/Download this repository
+virtualenv -p /usr/bin/python3 venv (optional)
+
+source venv/bin/activate
+
+
+Install the required packages via pip
+
+pip install -r requirements/prod.txt
+
+
+
+Quick guide
+
+Run the script
+
+Basic usage: python main.py
+Specify Label Name: python main.py -label LABELNAME
+Specify Label ID: python main.py -id LABELID
+
+
+Wait for the splitting process to complete
+You will find your audio files in the results folder which sorted by label
+
+Need help?
+If you need any help just create an Issue or send me an email at the address you can find on my profile.
+Want to help?
+If you want to improve the code and submit a pull request feel free to do so.
+Licence
+GPL v3
+

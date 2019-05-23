@@ -1,0 +1,19 @@
+
+Spark ML Decision Tree Example
+Extending the Spark ML examples to a real world text dataset. You never see these and this is a exercise to share the concept on real text data.
+Instructions:
+Clone the repo to your IDE. 
+Create your Google Cloud Dataproc cluster 
+Create a storage bucket. 
+Grab the datafile from UCI ML repo 
+Upload datfile to storage bucket 
+Edit the scala file on line 42 with the location of the datafile 
+From the base directory run: 
+sbt clean assembly
+Upload the jar to the Storage Bucket 
+Launch the job pointing the the uploaded jar.
+This example runs on the UCI Machine Learning repo dataset found here: 
+https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection
+
+Be careful to clean non-printing characters from the dataset first. 
+

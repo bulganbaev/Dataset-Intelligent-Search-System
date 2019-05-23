@@ -1,0 +1,22 @@
+
+imagerecognition
+Recognise 200 classes (subset of ImageNet dataset) using CNN
+
+
+Clone the project
+
+
+Make 2 Folders:
+a. training_data
+b. summary_log
+
+
+Run the following command on terminal :
+python model.py
+
+
+To Predict class of an image :
+python predict.py "path to file"
+
+
+

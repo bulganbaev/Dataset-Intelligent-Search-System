@@ -1,0 +1,36 @@
+
+datasette-jellyfish
+
+
+Datasette plugin that adds custom SQL functions for fuzzy string matching, built on top of the Jellyfish Python library by James Turk and Michael Stephens.
+Interactive demos:
+
+soundex, metaphone, nysiis, match_rating_codex comparison.
+distance functions comparison
+
+Examples:
+SELECT soundex("hello");
+    -- Outputs H400
+SELECT metaphone("hello");
+    -- Outputs HL
+SELECT nysiis("hello");
+    -- Outputs HAL
+SELECT match_rating_codex("hello");
+    -- Outputs HLL
+SELECT porter_stem("running");
+    -- Outputs run
+SELECT levenshtein_distance("hello", "hello world");
+    -- Outputs 6
+SELECT damerau_levenshtein_distance("hello", "hello world");
+    -- Outputs 6
+SELECT hamming_distance("hello", "hello world");
+    -- Outputs 6
+SELECT jaro_distance("hello", "hello world");
+    -- Outputs 0.8181818181818182
+SELECT jaro_winkler("hello", "hello world");
+    -- Outputs 0.890909090909091
+SELECT match_rating_comparison("hello", "helloo");
+    -- Outputs 1
+
+See the Jellyfish documentation for an explanation of each of these functions.
+

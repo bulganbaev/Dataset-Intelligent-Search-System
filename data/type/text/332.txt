@@ -1,0 +1,4 @@
+
+Text-Classification
+Implementation of an unweighted k-NN classifier which uses an appropriate similarity measure for working with text data represented as a document-term matrix. Implementation should be suitable for multi-class classification (i.e. a dataset with more than 2 class labels). The number of neighbors k should be a user-specified parameter. There should be an option to allow weighted majority voting (i.e. a weighted kNN classifier), using an appropriate weighting scheme. Evaluate the accuracy of both the unweighted and weighted k-NN classifiers for different values of k in the range [1,10] on the sample dataset.
+

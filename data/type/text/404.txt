@@ -1,0 +1,8 @@
+
+Text-Analysis-and-Entity-Resolution
+
+Used Apache Spark to apply powerful and scalable text analysis techniques and perform entity resolution across two datasets of commercial products
+Performed text similarity-weighted Bag-of-Words using TF-IDF, and cosine similarity to compare the two documents
+Measured the overall goodness of the algorithm using F-measure metric
+
+

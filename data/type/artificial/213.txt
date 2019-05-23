@@ -1,0 +1,359 @@
+
+Madelon: Feature Selection + Classification
+Problem Statement:
+The Madelon dataset consists of artificial data in which 20 features are relevant (five (5) informative and 15 redundant) while the rest of the features, are noise. The objective is to find the five (5) informative features and build a classifier model trained on that data.
+Method:
+The process of solving the problem above was divided into five main steps:
+0. Data Fetching
+1. EDA (Exploratory Data Analysis) and Data Cleaning
+2. Benchmarking on Naive Models
+3. Feature Selection/Extraction
+4. Model Building
+
+0. Data Fetching
+The data collection step was split up into two parts: first, the collection of the UCI Madelon dataset and second, Joshua Cook’s Madelon dataset. Downloading and reading the UCI dataset was a simple task with no setbacks. The only challenge that was come across was the size of Josh’s dataset, 200,000 rows by 1,000 columns. Pulling that amount of data at once using a t2.micro machine on an AWS instance proved to be near impossible. Instead, smaller sets of 5,000 random samples were pulled one at a time and then concatenated to form three (3) sets of 20,000 rows. To make the workflow easier, a sample set of 2,000 rows from Josh’s was used for all of the pre-modeling stages.
+*Improvement suggestion: In hindsight, the three (3) sets of 20,000 may have overlapping rows given that the random samples of 5,000 were bootstrapped (sampled with replacement) and most likely contain repeated row samples.
+1. EDA (Exploratory Data Analysis) and Data Cleaning
+Most conventional methods of EDA did not prove to be helpful considering the artificial nature of the data. Without any real meaning to the data, it was hard to gain any insight. The main observations were simply the shape of the data. The only cleaning that needed to be done was the dropping of a column with Nan’s in the UCI dataset and an “ID” column in Josh’s.
+2. Benchmarking on Naive Models
+The following naive models (no hyperparameter tuning) were used to get benchmark results:
+
+LogisticRegression
+DecisionTree
+KNeighborsClassifier
+SVC
+
+3. Feature Selection/Extraction
+The following methods were used for feature extraction:
+
+Correlation Matrix analysis
+SelectKBest
+SelectFromModel
+RFE (Recursive Feature Selection)
+Mean R-squared
+
+The features returned from the correlation matrix method and mean R-squared were selected as the 20 relevant features.
+Relevant features UCI: 28, 48, 64, 105, 128, 153, 241, 281, 318, 336, 338, 378, 433, 442, 451, 453, 455, 472, 475, 493
+Relevant features Josh: 257, 269, 308, 315, 336, 341, 395, 504, 526, 639, 681, 701, 724, 736, 769, 808, 829, 867, 920, 956
+Once the 20 features were identified, PCA was conducted in order to reduce redundancy and dimensionality in the dataset.
+4. Model Building
+A grid search was conducted on the same models as the benchmarks plus RandomForest.
+The resulting scores between benchmark and final models are the following:
+UCI (benchmark):
+
+
+
+
+dataset
+model
+preprocessing
+score
+
+
+
+
+0
+train
+LogisticRegression
+scaled
+0.815672
+
+
+1
+test
+LogisticRegression
+scaled
+0.525758
+
+
+2
+train
+DecisionTreeClassifier
+scaled
+1.000000
+
+
+3
+test
+DecisionTreeClassifier
+scaled
+0.715152
+
+
+4
+train
+KNeighborsClassifier
+scaled
+0.723881
+
+
+5
+test
+KNeighborsClassifier
+scaled
+0.550000
+
+
+6
+train
+SVC
+scaled
+1.000000
+
+
+7
+test
+SVC
+scaled
+0.545455
+
+
+
+UCI (final models):
+
+
+
+
+dataset
+model
+preprocessing
+score
+
+
+
+
+0
+train
+LogisticRegressionGrid
+scaled, PCA
+0.614925
+
+
+1
+test
+LogisticRegressionGrid
+scaled, PCA
+0.587879
+
+
+2
+train
+DecisionTreeClassifierGrid
+scaled, PCA
+0.954478
+
+
+3
+test
+DecisionTreeClassifierGrid
+scaled, PCA
+0.750000
+
+
+4
+train
+KNeighborsClassifierGrid
+scaled, PCA
+0.931343
+
+
+5
+test
+KNeighborsClassifierGrid
+scaled, PCA
+0.887879
+
+
+6
+train
+SVCGrid
+scaled, PCA
+0.979851
+
+
+7
+test
+SVCGrid
+scaled, PCA
+0.884848
+
+
+8
+train
+RandomForestClassifierGrid
+scaled, PCA
+1.000000
+
+
+9
+test
+RandomForestClassifierGrid
+scaled, PCA
+0.862121
+
+
+
+Josh’s (benchmark):
+
+
+
+
+dataset
+model
+preprocessing
+score
+
+
+
+
+0
+train
+LogisticRegression
+scaled
+1.000000
+
+
+1
+test
+LogisticRegression
+scaled
+0.530303
+
+
+2
+train
+DecisionTreeClassifier
+scaled
+1.000000
+
+
+3
+test
+DecisionTreeClassifier
+scaled
+0.624242
+
+
+4
+train
+KNeighborsClassifier
+scaled
+0.721642
+
+
+5
+test
+KNeighborsClassifier
+scaled
+0.518182
+
+
+6
+train
+SVC
+scaled
+1.000000
+
+
+7
+test
+SVC
+scaled
+0.595455
+
+
+
+Josh’s (final models):
+
+
+
+
+dataset
+model
+preprocessing
+score
+
+
+
+
+0
+train
+LogisticRegressionGrid
+scaled, PCA
+0.612612
+
+
+1
+test
+LogisticRegressionGrid
+scaled, PCA
+0.609091
+
+
+2
+train
+DecisionTreeClassifierGrid
+scaled, PCA
+0.801119
+
+
+3
+test
+DecisionTreeClassifierGrid
+scaled, PCA
+0.744091
+
+
+4
+train
+KNeighborsClassifierGrid
+scaled, PCA
+0.883358
+
+
+5
+test
+KNeighborsClassifierGrid
+scaled, PCA
+0.827576
+
+
+6
+train
+SVCGrid
+scaled, PCA
+0.883582
+
+
+7
+test
+SVCGrid
+scaled, PCA
+0.833939
+
+
+8
+train
+RandomForestClassifierGrid
+scaled, PCA
+1.000000
+
+
+9
+test
+RandomForestClassifierGrid
+scaled, PCA
+0.833182
+
+
+
+Coded in Python, built with:
+
+Jupyter Notebooks
+AWS EC2 t2.micro
+Psycopg2 (PostgreSQL)
+Pandas
+Scipy
+Scikit-learn
+
+

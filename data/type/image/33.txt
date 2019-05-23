@@ -1,0 +1,16 @@
+
+ImageDatasetTools
+A collection of tools for annotating object detection datasets for machine learning.
+makeLabelFiles.sh
+This script takes a directory of .jpg images as a commmand-line argument and makes a sub-directory called "LabelData" with a .txt file with the same name for each image in the original folder.
+For use with euclid image annotation tool.
+Example usage: ./makeLabelFiles.sh imagesDirectory/
+euclid.py
+This is just a copy of a useful image annotation tool that I found to be useful from here: https://github.com/prabindh/euclid
+It supports the KITTI dataset format used by NVIDIA DIGITS for object detection. I recommend running the makeLabelFiles script first, as euclid will not make a .txt file for an image if no bounding boxes are drawn, which causes problems in DIGITS.
+piCam.sh
+This is a small utility I made using fswebcam to take images using a USB webcam at a given rate. Command-line argument is pause time in seconds between captures. It is really more of a time-lapse script for collecting training images for machine-learning object detection.
+Example for 1 fps: ./piCam.sh 1
+multiclassDetectnet
+This is a version of NVIDIA's Detectnet caffe prototxt for object detection that I modified to support detection models on several classes at once. Instructions for use are included in the top of the file. Information about Detectnet can be found here: https://devblogs.nvidia.com/detectnet-deep-neural-network-object-detection-digits/
+

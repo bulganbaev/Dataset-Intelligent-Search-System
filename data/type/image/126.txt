@@ -1,0 +1,64 @@
+
+CIFAR 10 in Python
+The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class.
+There are 50000 training images and 10000 test images.
+The dataset is divided into five training batches and one test batch, each with 10000 images.
+CIFAR-10
+Download
+wget -c https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
+
+
+CIFAR 10 Python
+
+Extract
+tar -xvzf cifar-10-python.tar.gz
+
+Files:
+
+
+sigmoid.py : Based on DL.ai cats.py
+
+
+5_layer.py: : Based on DL.ai 5_layer_model.py
+
+
+load_cifar.py : load data_batch_1 data (images) and labels (classes) into a np.array
+
+
+imsave.py : save an image from CIFAR-10 as JPG
+
+
+class_labels.py : load batches.meta label_names (classes) and print them
+
+
+filter_class.py : write class label index from data_batch_1 to class_label.txt
+
+
+Accuracy
+load_cifar.py uses random.seed(1) for consistant accuracy
+sigmoid.py:
+train accuracy: 89.0 %
+test accuracy: 72.0 %
+
+5_layer.py:
+train accuracy: 99.0 %
+test accuracy: 70.0 %
+
+Classes:
+0 : airplane
+1 : automobile
+2 : bird
+3 : cat
+4 : deer
+5 : dog
+6 : frog
+7 : horse
+8 : ship
+9 : truck
+Ref:
+Batch to Array Code
+Compatability
+imsave.py uses from scipy.misc import imsave which is deprecated
+this requires sudo pip install scipy==0.16.1
+save.py PIL version
+

@@ -1,0 +1,4 @@
+
+Dataset for Action Recognition in Videos
+Dataset has been taken from Actions as Space-Time Shapes.
+

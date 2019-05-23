@@ -1,0 +1,4 @@
+
+Churn-Modelling-Problem
+Solving a data analytics problem for a bank. Given a dataset with a large sample of the bank's customers, information consisting customer id, credit score, gender, age, tenure, balance, if the customer is active, has a credit card, etc. During a period of 6 months, the bank observed if these customers left or stayed in the bank.   Created an Artificial Neural Network using python that can predict, based on geo-demographical and transactional information given above, if any individual customer will leave the bank or stay (customer churn). This model will also rank all the customers of the bank, based on their probability of leaving. For this, I created a Deep Learning model, that uses a probabilistic approach. This model will help the bank to significantly reduce customer churn.
+

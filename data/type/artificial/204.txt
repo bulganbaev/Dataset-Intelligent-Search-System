@@ -1,0 +1,4 @@
+
+Predictions-on-Blood-Donation-in-Taiwan
+This project tends to find out what algorithm is best to predict blood donation by three numerical predictor variables, and if it’s necessary to cluster dataset before building models. Based on the data obtained from UCI Machine Learning Repository, support vector machine (SVM), logistic regression, random forest and artificial neural network (ANN) are employed to solve supervised classification problem. After the comparison between all models, logistic regression model is implemented in both clustering dataset and non-clustering dataset. The result shows that logistic regression performs better on solving this problem and clustering before building model is not able to enhance statistical power. More detailed conclusions and corresponding suggestions are also given.
+

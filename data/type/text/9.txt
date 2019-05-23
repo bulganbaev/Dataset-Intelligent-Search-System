@@ -1,0 +1,52 @@
+
+SynthesizeTextDetectionDatasetTool
+A tool to synthesize Text Detection and Recognition Dataset. -- By Lu Dongwei(Gu Jiancheng).
+
+Directory
+
+fonts(puts all fonts here for random used)
+bg(puts all background image here for random used)
+
+Declaration
+
+This tool can only synthesize square object with no rotation.
+
+How to use?
+Windows env
+
+
+
+git clone https://github.com/yzldw333/SynthesizeTextDetectionDatasetTool.git
+
+
+move Freetype.dll to the root of python directory(or Anaconda directory)
+unzip freetype-py-master.zip
+
+cd freetype-py-master
+python setup.py install
+
+
+test if you can import freetype successfully.
+use script Synthesize_Object_Detection_Dataset.py to synthesize dataset. You can modify parameters to meet your needs
+
+General use method
+
+unzip freetype-py-master.zip or Download freetype source file, from https://github.com/rougier/freetype-py
+
+cd freetype-py-master
+python setup.py install
+
+
+Go to official freetype website to download source files or precompiled dlls.
+Use script Synthesize_Object_Detection_Dataset.py to synthesize dataset. You can modify parameters to meet your needs.
+
+
+
+Label txt Format
+xmin ymin xmax ymax txt
+
+
+Some words
+The code is easy to understand, if this cannot meet your needs completely, modify the codes!
+If there is some errs, please contact me immediately.
+

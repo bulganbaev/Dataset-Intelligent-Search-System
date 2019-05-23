@@ -1,0 +1,170 @@
+
+Open Images Dataset V4 Importer
+Requirements
+
+Python 3.6 or later
+SQLite 3
+
+Getting Started
+# Install dependencies
+$ pip install -r requirements.txt
+
+# Download dataset CSV files from Open Images Dataset V4
+$ ./download_dataset.py
+
+# Import CSV files to Sqlite3 DB
+$ ./import_dataset.py
+
+Tables
+See https://storage.googleapis.com/openimages/web/factsfigures.html for dataset specifications.
+Object Classes
+
+classes
+
+create table {table} (
+  label_name text,
+  class_name text
+);
+
+Bounding boxes
+
+bboxes_train
+bboxes_validation
+bboxes_test
+
+create table if not exists bboxes_* (
+  image_id text,
+  source text,
+  label_name text,
+  confidence float,
+  x_min float,
+  x_max float,
+  y_min float,
+  y_max float,
+  is_occluded int,
+  is_truncated int,
+  is_group_of int,
+  is_depiction int,
+  is_inside int
+);
+create index if not exists bboxes_*_image_id on bboxes_*(image_id);
+create index if not exists bboxes_*_label_name on bboxes_*(label_name);
+create index if not exists bboxes_*_image_id_and_label_name on bboxes_*(image_id, label_name);
+
+Labels
+
+labels_train
+labels_validation
+labels_test
+
+create table if not exists labels_* (
+  image_id text,
+  source text,
+  label_name text,
+  confidence float
+);
+create index if not exists labels_*_image_id on labels_*(image_id);
+create index if not exists labels_*_source on labels_*(source);
+create index if not exists labels_*_label_name on labels_*(label_name);
+create index if not exists labels_*_confidence on labels_*(confidence);
+create index if not exists labels_*_image_id_and_label_name on labels_*(image_id, label_name);
+
+Images
+
+images_train
+images_validation
+images_test
+
+create table if not exists image_* (
+  image_id text,
+  subset text,
+  original_url text,
+  original_landing_url text,
+  license text,
+  author_profile_url text,
+  author text,
+  title text,
+  original_size int,
+  original_md5 text,
+  thumbnail_300k_url text,
+  rotation float
+);
+create index if not exists images_*_image_id on images_*(image_id);
+
+Commands
+Dataset Downloader
+Download dataset CSV files from Open Images Dataset V4 web.
+$ ./download_dataset.py -h
+usage: download_dataset.py [-h] [-l {CRITICAL,ERROR,WARNING,INFO,DEBUG}]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -l {CRITICAL,ERROR,WARNING,INFO,DEBUG}, --loglevel {CRITICAL,ERROR,WARNING,INFO,DEBUG}
+
+Dataset Importer
+Import dataset CSV files to SQLite DB (dataset.sqlite)
+$ ./import_dataset.py -h
+usage: import_dataset.py [-h] [-l {CRITICAL,ERROR,WARNING,INFO,DEBUG}]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -l {CRITICAL,ERROR,WARNING,INFO,DEBUG}, --loglevel {CRITICAL,ERROR,WARNING,INFO,DEBUG}
+
+Image Downloader
+Download images and labels of classes specified by option.
+$ ./download_images.py -h
+usage: download_images.py [-h] [--set {train,validation,test}]
+                          [--classes CLASSES [CLASSES ...]] [--overwrite]
+                          [--without-preview] [--limit LIMIT]
+                          [--offset OFFSET]
+                          [-l {CRITICAL,ERROR,WARNING,INFO,DEBUG}]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --set {train,validation,test}
+                        Set of data (train, validation or test)
+  --classes CLASSES [CLASSES ...]
+                        List of classes to download (e.g. Person "Human eye")
+  --overwrite           Overwrite existing images
+  --without-preview     Without bbox preview
+  --limit LIMIT         Limit of the download images num
+  --offset OFFSET       Offset of the download images num
+  -l {CRITICAL,ERROR,WARNING,INFO,DEBUG}, --loglevel {CRITICAL,ERROR,WARNING,INFO,DEBUG}
+
+Image Previewer
+Preview image bboxes by image_id.
+% ./preview_image.py -h
+usage: preview_image.py [-h] [--set {train,validation,test}]
+                        [--classes CLASSES [CLASSES ...]]
+                        [-l {CRITICAL,ERROR,WARNING,INFO,DEBUG}]
+                        image_id
+
+positional arguments:
+  image_id
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --set {train,validation,test}
+                        Set of data (train, validation or test)
+  --classes CLASSES [CLASSES ...]
+                        List of classes to download (e.g. Person "Human eye")
+  -l {CRITICAL,ERROR,WARNING,INFO,DEBUG}, --loglevel {CRITICAL,ERROR,WARNING,INFO,DEBUG}
+
+Extract classes from Yolo dataset
+$ ./extract_classes_from_yolo_dataset.py -h
+usage: extract_classes_from_yolo_dataset.py [-h] --extract_class_nos
+                                            EXTRACT_CLASS_NOS
+                                            [EXTRACT_CLASS_NOS ...]
+                                            [-l {CRITICAL,ERROR,WARNING,INFO,DEBUG}]
+                                            images_list output_dir
+
+positional arguments:
+  images_list
+  output_dir
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --extract_class_nos EXTRACT_CLASS_NOS [EXTRACT_CLASS_NOS ...]
+  -l {CRITICAL,ERROR,WARNING,INFO,DEBUG}, --loglevel {CRITICAL,ERROR,WARNING,INFO,DEBUG}
+
+

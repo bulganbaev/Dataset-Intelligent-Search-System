@@ -1,0 +1,29 @@
+
+Generating-Datasets-for-Cards-Detection
+A little tricks for generating various images of diffierent backgrounds using single image or video.
+This is a preparing project for training YOLOv3-tiny to detect the specific patterns in the board game Halli-Galli-Card(《德国心脏病》). But with few changes, I am confident this could be used for any kinds of card detection projects. If you are getting into such projects, you may wanna have a try.
+This project is forked from
+Playing-card-detection, making some little changes to adapt for Halli-Galli-Card. Also conclude a usage instruction.
+For Chinese readers, my blog article may suit you better:[项目准备] 论使用深度学习进行卡片识别如何轻松省力获取大量数据 用四张卡片生成大量数据集
+Before Starting You Need Prepare
+1.imgaug : https://github.com/aleju/imgaug
+Helps with image augmentation
+
+2.shapely : https://github.com/Toblerity/Shapely
+For the manipulation and analysis of geometric objects in the Cartesian plane. It is useful here when we want to check if the bounding box of a card corner is covered by another card
+
+3.tqdm : https://github.com/tqdm/tqdm
+A progress bar tool. Not mandatory but convenient when you generate thousands of images
+
+4.Four videos of four independent cards with the fruit in the center. During shooting, you should adjust the light and move the camera(but not let cards out of vision) to gain enough data.
+5.Download Describable Textures Dataset (DTD)  here.
+Usage Instruction
+
+Video files should be in data/video, and named after their content, such as "Bananas.mp4".
+All steps are commented in generator.py, and there are all 4 generation steps and 5 testing steps. Searching for the word "STEP1" "STEP2" or something like those could lead you.
+I strongly recommend you to read the code so that you can understand why we are doing so.
+
+Demonstrations
+
+
+

@@ -1,0 +1,46 @@
+
+deezer_report
+Data Science Game 2017 | Online Qualification Phase: Music recommendation
+
+Started: 12:22 am, Friday 14 April 2017 UTC
+Ended: 11:59 pm, Wednesday 31 May 2017 UTC (47 total days)
+
+Deezer is a music streaming app, also available on the web. It proposes more than 43 million tracks and is available in more than 180 countries, through a free limited service and a premium offer.
+This was international student competition where more than 220 universities and around 800 students participated in online qualification round which lasted for 47 days. This competition was hosted on Kaggle. We participated in this competition as a team of 4 students from our university - Berlin School of Economics & Law. https://www.kaggle.com/teamten
+Main files:
+
+Final Report
+Feature Engineering(section 1 to 3 in Final Report)
+Models- folder
+
+XGBoost Sparse model(section 4a in Final Report)
+XGBoost Numeric model
+LightGBM
+H2O Automated Machine Learning
+H2O Distsributed Random Forest- Flow
+H2O Deep Learning - Flow
+
+
+Data used for other models
+(Data has also been put in zeno server under "60_data_other_models" and steps from above scripts/ models can be replicated. Dropbox link is to download data and try models locally without need of server.)
+Leaderboard Score Analysis
+Reference material (Parameters tuning and categorical encoding guide)
+Official documentation (Guide for XGBoost, LightGBM and H2O)
+
+Statistics about this competition:
+
+The goal of this challenge was to predict whether the users of the test dataset listened to the first track of Deezer's own music recommendation algorithm proposed them or not. The evaluation metric for this competition was the ROC AUC.
+Results:
+
+
+Model comparison
+
+
+
+Rank in Germany by Private Leaderboard Score
+
+
+
+Top 20 teams/ Finalists
+
+

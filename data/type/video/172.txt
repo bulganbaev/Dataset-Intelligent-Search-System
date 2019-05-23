@@ -1,0 +1,61 @@
+
+Facial Recognition using Open CV APIs in Python
+This article is about how to recognize faces, train and predict faces in images/photos (Jpeg, jpg) using OpenCV Python APis.
+To learn more about the Open CV APIs refer : https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_tutorials.html
+The Python code can be modified to recognize faces in Video streams as well.
+Here I have used the most commonly used face detection algorigthm called LBPH (Local Binary Patterns Histogram) to recognize, train faces and predict faces.
+Note: This does not detect images with no faces in them.
+The code is simple and is split into 2 parts.
+
+
+Set up training mode so that the face gets recognized and gets saved in some format understood by the API. The training involves reading the facial patterns and storing it in a flat file ( .yml file )
+
+
+Predict and Recognize the new face that is provided.
+User will have to provide the input to be predicted and if the image matches the data in trained data, then the image and the corresponding label gets displayed on the screen.
+
+
+Prerequisites :
+Install Python 3.x ( http://docs.python-guide.org/en/latest/starting/install3/linux/)
+Install Pip
+Install cv2 ( Google )
+The dataset folder should contain images to be trained.
+Code :
+Currently the images (jpegs) belong to that of Trump and HH Dalai Lama are stored in the dataSet folder in the current directory.
+You will notice that the file names/Ids on the Trump data set has a common '1' and HH Dalai Lama's images are set to '9', This distinguishes the labels for the faces and will help during prediction.
+More the images - more accurate the prediction. Ensure that the images have visible face profiles of the person you wish to identify and predict.
+If a new data set is to be created then enter an unique id/label for it as part of the file name in the dataSet. (Again, ensure that you have sufficient images for better accuracy of prediction)
+e.g:
+
+Einstein.8.1.jpeg
+Einstein.8.2.jpeg
+Einstein.8.3.jpeg
+
+Execute
+
+
+python3 trainer.py
+This will create the trainner.yml flat file containing the parameters of the images.
+
+
+python3 detector_image.py  trump.jpeg
+This will detect the image in the trained library and if it can recognize then a rectangle is printed on the face, along with the name.
+
+
+This can be further customized to user's specs. ( Just change the Id in the image.jpeg to whatever number you want.  e.g: Edison could have a label as  11, Think of this as a common label to the images. )
+The blue box around the face is what gets detected by the Python Open CV API.
+
+Another sample :
+
+Troubleshooting:
+Check that the input image is present and valid in the current folder when running the detector_image.py code.
+Check that the trainner.yml exists after the images are trained before predicting a face.
+If this error message shows up - that means the input file is incorrect.
+Image being processed :  dalailama.jpeg
+OpenCV Error: Assertion failed (scn == 3 || scn == 4) in cvtColor, file /Users/travis/build/skvark/opencv-python/opencv/modules/imgproc/src/color.cpp, line 11111
+Traceback (most recent call last):
+  File "detector_image.py", line 30, in <module>
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+cv2.error: /Users/travis/build/skvark/opencv-python/opencv/modules/imgproc/src/color.cpp:11111: error: (-215) scn == 3 || scn == 4 in function cvtColor
+
+

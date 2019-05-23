@@ -1,0 +1,164 @@
+
+utl_read_all_datasets_in_a_library_and_conditionally_split_them_with_error_checking_dosubl
+Read all datasets in a library and conditionally split them with error checking dosubl.  Keywords: sas sql join merge big data analytics macros oracle teradata mysql sas communities stackoverflow statistics artificial inteligence AI Python R Java Javascript WPS Matlab SPSS Scala Perl C C# Excel MS Access JSON graphics maps NLP natural language processing machine learning igraph DOSUBL DOW loop stackoverflow SAS community.
+Read all datasets in a library and conditionally split them with error checking dosubl
+I think it is best to place paths, table prefixes, filters and table names in a meta dataset.
+
+github
+https://tinyurl.com/ycqm2war
+https://github.com/rogerjdeangelis/utl_read_all_datasets_in_a_library_and_conditionally_split_them_with_error_checking_dosubl
+
+SAS forum:
+https://tinyurl.com/y7lz93nz
+https://communities.sas.com/t5/Base-SAS-Programming/read-all-datasets-in-a-library-and-conditionally-split-them/m-p/463317
+
+
+INPUT
+=====
+
+Three SAS datasets in d:/sd2
+
+The CONTENTS Procedure
+
+Physical Name  d:\sd2
+
+#  Name   Last Modified
+
+1  DOS    05/18/2018 15:37:51
+2  TRE    05/18/2018 15:37:51
+3  UNO    05/18/2018 15:37:51
+
+
+And this meta data
+
+WORK.META total obs=3
+                     OLD TABLE  NEW TABLE  WHERE UNION=
+bs    NUM     PTH      NAME      PREFIX    FILTER
+
+1      1     d:/sd2    DOS        INC       UNO
+2      2     d:/sd2    TRE        IND       DOS
+3      3     d:/sd2    UNO        ING       TRE
+
+EXAMPLE OUTPUTS
+
+LOG dataset with completion status and three filtered datasets.
+Completion results could be added to meta data.
+
+WORK.LOG total obs=3 (log file has completion status - could do more error cheking)
+
+ NUM     PTH      NAME    PREFIX    FILTER    RC     STATUS
+
+  1     d:/sd2    DOS      INC       UNO       0    Completed
+  2     d:/sd2    TRE      IND       DOS       0    Completed
+  3     d:/sd2    UNO      ING       TRE       0    Completed
+
+
+THREE NEW SUBSET DATASETS
+
+The CONTENTS Procedure
+
+Physical Name  d:\sd2
+
+#    Name     Last Modified       |      RULES FOR SPLITING
+                                  |
+1  INC_DOS    05/18/2018 15:37:51 |  sd2.dos(where=(union="DOS"))
+5  IND_TRE    05/18/2018 15:37:51 |  sd2.tre(where=(union="TRE"))
+6  ING_UNO    05/18/2018 15:37:51 |  sd2.uno(where=(union="UNO"))
+
+
+PROCESS
+=======
+
+data log;
+
+   set meta;
+
+   * get meta data;
+   call symputx("pth",pth);
+   call symputx("mem",name);
+   call symputx("pfx",prefix);
+   call symputx("filter",filter);
+
+   * execute split;
+   rc=dosubl('
+      data "&pth./&pfx._&mem..sas7bdat";
+         set "&pth./&mem..sas7bdat"(
+           where=(union="&filter"));
+      run;quit;
+   ');
+
+   * error checking;
+   if rc = 0 then status="Completed";
+   else status="Failed";
+
+   output;
+
+run;quit;
+
+*                _              _       _
+ _ __ ___   __ _| | _____    __| | __ _| |_ __ _
+| '_ ` _ \ / _` | |/ / _ \  / _` |/ _` | __/ _` |
+| | | | | | (_| |   <  __/ | (_| | (_| | || (_| |
+|_| |_| |_|\__,_|_|\_\___|  \__,_|\__,_|\__\__,_|
+
+;
+
+data _null_;
+  rc=dcreate("sd2","d:/");
+run;quit;
+
+data "d:/sd2/uno.sas7bdat"
+     "d:/sd2/dos.sas7bdat"
+     "d:/sd2/tre.sas7bdat";
+  do union="UNO","DOS","TRE";
+     do rec=1 to 3;
+       output;
+     end;
+  end;
+run;quit;
+
+*                _                         _
+ _ __ ___   __ _| | _____   _ __ ___   ___| |_ __ _
+| '_ ` _ \ / _` | |/ / _ \ | '_ ` _ \ / _ \ __/ _` |
+| | | | | | (_| |   <  __/ | | | | | |  __/ || (_| |
+|_| |_| |_|\__,_|_|\_\___| |_| |_| |_|\___|\__\__,_|
+
+;
+
+libname sd2 "D:/SD2";
+ods exclude all;
+ods output members=dir;
+proc contents data=sd2._all_ directory;
+run;quit;
+ods select all;
+
+data meta;
+  retain num . pth "d:/sd2";
+  array prefixes[3] $3 ("INC","IND","ING");
+  array  filters[3] $3 ("UNO","DOS","TRE");
+  set dir;
+  prefix=prefixes[num];
+  filter=filters[num];
+  keep num pth name filter prefix;
+run;quit;
+
+Up to 40 obs WORK.META total obs=3
+
+Obs    NUM     PTH      NAME    PREFIX    FILTER
+
+ 1      1     d:/sd2    DOS      INC       UNO
+ 2      2     d:/sd2    TRE      IND       DOS
+ 3      3     d:/sd2    UNO      ING       TRE
+
+
+*          _       _   _
+ ___  ___ | |_   _| |_(_) ___  _ __
+/ __|/ _ \| | | | | __| |/ _ \| '_ \
+\__ \ (_) | | |_| | |_| | (_) | | | |
+|___/\___/|_|\__,_|\__|_|\___/|_| |_|
+
+;
+
+see process
+
+

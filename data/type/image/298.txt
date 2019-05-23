@@ -1,0 +1,52 @@
+
+notMINST image classifer
+
+notMNIST dataset
+http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html
+Installation
+Step 1: Python
+You will need Python 3 along with the numpy, matplotlib, and OpenCV libraries.
+Anaconda Python 3 distribution from Continuum Analytics is recommended because it comes prepackaged with many of the Python dependencies you will need and makes it easy to install OpenCV.  Beyond that, it is one of the most common Python distributions used in data analytics and machine learning, so a great choice.
+Choose the appropriate Python 3 Anaconda install package for your operating system here.  Download and install the package.
+If you already have Anaconda for Python 2 installed, you can create a separate environment for Python 3 and all the appropriate dependencies with the following command:
+$  conda create --name=yourNewEnvironment python=3 anaconda
+$  source activate yourNewEnvironment`
+
+Step 2: Installing OpenCV
+Once you have Anaconda installed, first double check you are in your Python 3 environment:
+$ python
+Python 3.5.2 |Anaconda 4.1.1 (x86_64)| (default, Jul  2 2016, 17:52:12)
+[GCC 4.2.1 Compatible Apple LLVM 4.2 (clang-425.0.28)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+
+(Ctrl-d to exit Python) ... then run the following commands at the terminal prompt to get OpenCV:
+$ pip install pillow
+$ conda install -c https://conda.anaconda.org/menpo opencv3
+
+... then to test if OpenCV is installed correctly:
+$ python
+>>> import cv2
+>>>
+
+(Ctrl-d to exit Python)
+Step 3: Installing moviepy
+Package "moviepy" quite handy for processing videos in this project.
+To install moviepy run:
+$ pip install moviepy
+
+... and check that the install worked:
+$ python
+>>>import moviepy
+>>>
+
+(Ctrl-d to exit Python)
+Step 4: Installing sklearn
+$ pip install --upgrade sklearn
+
+Step 5: Installing tensorflow
+$ conda install -c conda-forge tensorflow
+
+Errors:
+If you're getting the error tensorflow.python.framework.errors.InvalidArgumentError: Placeholder:0 is both fed and fetched, you're running an older version of TensorFlow. Uninstall TensorFlow, and reinstall it using the instructions above. For more solutions, check out the Common Problems section.
+

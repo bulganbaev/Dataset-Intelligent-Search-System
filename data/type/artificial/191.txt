@@ -1,0 +1,5 @@
+
+Bank-Fraud-Prediction
+This project is based on a supervised dataset to predict the Bank Fraud by customers.
+It's made by using Artificial Neural Networks (ANNs) and Self Organizing Maps (SOMs) to give a visual representation of the fraud customers.
+

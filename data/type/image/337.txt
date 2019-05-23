@@ -1,0 +1,48 @@
+
+Generating-Devanagari-Using-DRAW
+PyTorch implementation of DRAW: A Recurrent Neural Network For Image Generation on the task of generating Devanagari Characters.
+
+
+
+Training
+Download the data and place it in the data/ directory. Run train.py to start training. To change the hyperparameters of the network, update the values in the param dictionary in train.py.
+Loss Curve
+
+
+
+Generating New Images
+To generate new images run generate.py.
+python3 evaluate.py -load_path /path/to/pth/checkpoint -num_output n
+The checkpoint file for the model trained for 50 epochs is present in checkpoint/ directory.
+Results
+
+
+ Devanagari Training Data 
+ Generated Devanagari After 50 Epochs
+
+
+
+
+
+
+
+
+ Devanagari Numbers Only Training Data 
+ Generated Devanagari Numbers After 50 Epochs
+
+
+
+
+
+
+Some more generated images:
+
+References
+
+Karol Gregor, Ivo Danihelka, Alex Graves, Danilo Jimenez Rezende, Daan Wierstra. DRAW: A Recurrent Neural Network For Image Generation. [arxiv]
+ericjang/draw [repo]
+What is DRAW (Deep Recurrent Attentive Writer)? [blog]
+
+Data
+The Devanagari Character dataset is available on kaggle. (Source)
+

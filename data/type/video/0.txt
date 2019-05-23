@@ -1,0 +1,118 @@
+
+Python pandas Q&A video series
+Read about the series, and view all of the videos on one page: Easier data analysis in Python with pandas.
+Jupyter Notebooks
+
+Main notebook (videos 1 through 30)
+Notebook for "How do I use the MultiIndex in pandas?"
+Notebook for "4 new time-saving tricks in pandas"
+Notebook for "5 new changes in pandas you need to know about"
+
+Videos (playlist)
+
+What is pandas? (Introduction to the Q&A series) (6:24)
+How do I read a tabular data file into pandas? (8:54)
+How do I select a pandas Series from a DataFrame? (11:10)
+Why do some pandas commands end with parentheses (and others don't)? (8:45)
+How do I rename columns in a pandas DataFrame? (9:36)
+How do I remove columns from a pandas DataFrame? (6:35)
+How do I sort a pandas DataFrame or a Series? (8:56)
+How do I filter rows of a pandas DataFrame by column value? (13:44)
+How do I apply multiple filter criteria to a pandas DataFrame? (9:51)
+Your pandas questions answered! (9:06)
+How do I use the "axis" parameter in pandas? (8:33)
+How do I use string methods in pandas? (6:16)
+How do I change the data type of a pandas Series? (7:28)
+When should I use a "groupby" in pandas? (8:24)
+How do I explore a pandas Series? (9:50)
+How do I handle missing values in pandas? (14:27)
+What do I need to know about the pandas index? (Part 1) (13:36)
+What do I need to know about the pandas index? (Part 2) (10:38)
+How do I select multiple rows and columns from a pandas DataFrame? (21:46)
+When should I use the "inplace" parameter in pandas? (10:18)
+How do I make my pandas DataFrame smaller and faster? (19:05)
+How do I use pandas with scikit-learn to create Kaggle submissions? (13:25)
+More of your pandas questions answered! (19:23)
+How do I create dummy variables in pandas? (13:13)
+How do I work with dates and times in pandas? (10:20)
+How do I find and remove duplicate rows in pandas? (9:47)
+How do I avoid a SettingWithCopyWarning in pandas? (13:29)
+How do I change display options in pandas? (14:55)
+How do I create a pandas DataFrame from another object? (14:25)
+How do I apply a function to a pandas Series or DataFrame? (17:57)
+Bonus: How do I use the MultiIndex in pandas? (25:00)
+Bonus: 4 new time-saving tricks in pandas (14:50)
+Bonus: 5 new changes in pandas you need to know about (20:54)
+Bonus: Your pandas questions answered! (webcast) (1:56:01)
+
+Datasets
+
+
+
+Filename
+Description
+Raw File
+Original Source
+Other
+
+
+
+
+chipotle.tsv
+Online orders from the Chipotle restaurant chain
+bit.ly/chiporders
+The Upshot
+Upshot article
+
+
+drinks.csv
+Alcohol consumption by country
+bit.ly/drinksbycountry
+FiveThirtyEight
+FiveThirtyEight article
+
+
+imdb_1000.csv
+Top rated movies from IMDb
+bit.ly/imdbratings
+IMDb
+Web scraping script
+
+
+stocks.csv
+Small dataset of stock prices
+bit.ly/smallstocks
+DataCamp
+
+
+
+titanic_test.csv
+Testing set from Kaggle's Titanic competition
+bit.ly/kaggletest
+Kaggle
+Data dictionary
+
+
+titanic_train.csv
+Training set from Kaggle's Titanic competition
+bit.ly/kaggletrain
+Kaggle
+Data dictionary
+
+
+u.user
+Demographic information about MovieLens users
+bit.ly/movieusers
+GroupLens
+Data dictionary
+
+
+ufo.csv
+Reports of UFO sightings from 1930-2000
+bit.ly/uforeports
+National UFO Reporting Center
+Web scraping script
+
+
+
+

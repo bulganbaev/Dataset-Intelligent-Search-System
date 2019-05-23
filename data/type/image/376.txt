@@ -1,0 +1,130 @@
+
+
+
+Turn even the largest data into images, accurately
+
+
+
+
+
+
+
+
+
+Build Status
+ 
+
+
+Coverage
+
+
+
+Latest dev release
+
+
+
+Latest release
+    
+
+
+Docs
+
+
+
+
+What is it?
+Datashader is a data rasterization pipeline for automating the process of
+creating meaningful representations of large amounts of data. Datashader
+breaks the creation of images of data into 3 main steps:
+
+
+Projection
+Each record is projected into zero or more bins of a nominal plotting grid
+shape, based on a specified glyph.
+
+
+Aggregation
+Reductions are computed for each bin, compressing the potentially large
+dataset into a much smaller aggregate array.
+
+
+Transformation
+These aggregates are then further processed, eventually creating an image.
+
+
+Using this very general pipeline, many interesting data visualizations can be
+created in a performant and scalable way. Datashader contains tools for easily
+creating these pipelines in a composable manner, using only a few lines of code.
+Datashader can be used on its own, but it is also designed to work as
+a pre-processing stage in a plotting library, allowing that library
+to work with much larger datasets than it would otherwise.
+Installation
+Datashader supports Python 2.7, 3.5, 3.6 and 3.7 on Linux, Windows, or
+Mac and can be installed with conda:
+conda install datashader
+
+or with pip:
+pip install datashader
+
+For the best performance, we recommend using conda so that you are sure
+to get numerical libraries optimized for your platform. The lastest
+releases are avalailable on the pyviz channel conda install -c pyviz datashader and the latest pre-release versions are avalailable on the
+dev-labelled channel conda install -c pyviz/label/dev datashader.
+Fetching Examples
+Once you've installed datashader as above you can fetch the examples:
+datashader examples
+cd datashader-examples
+
+This will create a new directory called
+datashader-examples with all the data
+needed to run the examples.
+To run all the examples you will need some extra dependencies. If you
+installed datashader within a conda environment, with that
+environment active run:
+conda env update --file environment.yml
+
+Otherwise create a new environment:
+conda env create --name datashader --file environment.yml
+conda activate datashader
+
+Developer Instructions
+
+
+Install Python 3
+miniconda or
+anaconda, if you don't
+already have it on your system.
+
+
+Clone the datashader git repository if you do not already have it:
+git clone git://github.com/pyviz/datashader.git
+
+
+
+Set up a new conda environment with all of the dependencies needed
+to run the examples:
+cd datashader
+conda env create --name datashader --file ./examples/environment.yml
+conda activate datashader
+
+
+
+Put the datashader directory into the Python path in this
+environment:
+pip install -e .
+
+
+
+Learning more
+After working through the examples, you can find additional resources linked
+from the datashader documentation,
+including API documentation and papers and talks about the approach.
+Some Examples
+
+
+
+About PyViz
+Datashader is part of the PyViz initiative for making Python-based visualization tools work well together.
+See pyviz.org for related packages that you can use with Datashader and
+status.pyviz.org for the current status of each PyViz project.
+

@@ -1,0 +1,4 @@
+
+CSCI446_Artificial_Intelligence_Project3_MachineLearning
+A series of experiments involving the machine learning algorithms: nearest neighbor, naive Bayes, tree-augmented naive Bayes (TAN), and ID3 (Iterative Dichotomiser 3). These experiments will be done on data from the UCI machine learning repository. These datasets are: Breast Cancer, Glass, Iris, Soybean (small), and vote.
+

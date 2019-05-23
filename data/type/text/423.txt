@@ -1,0 +1,4 @@
+
+dataset-from-text-file
+This is a project where I want to grap some data from a text file and structure the data with Pandas dataframe and then do data analysis and machine learning on it
+

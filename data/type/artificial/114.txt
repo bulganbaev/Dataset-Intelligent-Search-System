@@ -1,0 +1,676 @@
+
+utl_fmt_create_formats_from_datasets
+Two techniques to create formats from datasets. Keywords: sas sql join merge big data analytics macros oracle teradata mysql sas communities stackoverflow statistics artificial inteligence AI Python R Java Javascript WPS Matlab SPSS Scala Perl C C# Excel MS Access JSON graphics maps NLP natural language processing machine learning igraph DOSUBL DOW loop stackoverflow SAS community.
+Two techniques to create formats from datasets
+Macro on end
+
+github
+https://github.com/rogerjdeangelis/utl_fmt_create_formats_from_datasets
+
+https://stackoverflow.com/questions/48472307/how-to-add-others-in-formats-in-sas
+
+inspired by
+https://www.pharmasug.org/proceedings/2011/TT/PharmaSUG-2011-TT02.pdf
+
+  All macros are on the end
+
+  1.  Non macro hardcoded  formats (very flexible and easy)
+
+  3.  UTL_USRFMT Creates the following types of formats
+
+       1.  Character to character
+       2.  Character to constant
+       3.  Character to number
+       4.  Character to character
+       5.  Numeric   to character
+       6.  Numeric   range to character (does not support 'other')
+       7.  Character range to character (does not support 'other')
+       8.  Character range to numeric   (does not support 'other')
+
+
+INPUT DATASETS
+==============
+
+ Create and check formats using
+
+   sashelp.class      * formats char to char, char to constant and char to number;
+   sashelp.mileages   * format num to char;
+   sashelp.failure    * formats num range to char
+
+   * setup clead workspace;
+   options fmtsearch=(work.usrfmt work.formats);
+
+   options fmtsearch=(work.usrfmt work.formats);
+
+  %macro delcat;
+
+   proc catalog cat=work.usrfmt;
+      delete gender    /et=formatc;
+      delete age       /et=infmt;
+      delete nam2OneZro/et=infmt;
+      delete age       /et=formatc;
+      delete rng2city  /et=format;
+      delete chrRng    /et=infmt;
+      delete numRngChr /et=format;
+   run;quit;
+
+ %mend delcat;
+
+  *
+ _ __   ___  _ __        _ __ ___   __ _  ___ _ __ ___
+| '_ \ / _ \| '_ \ _____| '_ ` _ \ / _` |/ __| '__/ _ \
+| | | | (_) | | | |_____| | | | | | (_| | (__| | | (_) |
+|_| |_|\___/|_| |_|     |_| |_| |_|\__,_|\___|_|  \___/
+
+;
+
+   * given stuent name lookup gender using a format;
+
+
+
+    data nam2sex;
+       retain fmtname '@gender' hlo ' ';
+       set sashelp.class end=dne;
+       start=name;
+       end=start;
+       label=age;
+       if dne then do;
+          hlo='O';
+          label=-1;
+       end;
+    run;quit;
+
+    proc format cntlin=nam2sex;
+    run;quit;
+
+    data want;
+      set sashelp.class(keep=name obs=3) end=dne;
+      age=input(name,gender.);
+      if dne then do;
+          name="Stormy";
+          age=input(name,gender.);
+      end;
+    run;quit;
+
+   WORK.WANT total obs=3
+
+     NAME     AGE
+
+    Alfred     14
+    Alice      13
+    Stormy     -1
+
+*      _   _                    __           _
+ _   _| |_| |   _   _ ___ _ __ / _|_ __ ___ | |_
+| | | | __| |  | | | / __| '__| |_| '_ ` _ \| __|
+| |_| | |_| |  | |_| \__ \ |  |  _| | | | | | |_
+ \__,_|\__|_|___\__,_|___/_|  |_| |_| |_| |_|\__|
+           |_____|
+      _            ____         _
+  ___| |__  _ __  |___ \    ___| |__  _ __
+ / __| '_ \| '__|   __) |  / __| '_ \| '__|
+| (__| | | | |     / __/  | (__| | | | |
+ \___|_| |_|_|    |_____|  \___|_| |_|_|
+
+;
+
+   * just in case you rerun;
+   %delcat;
+
+   %utl_usrfmt(
+     gender
+    ,sashelp.class
+    ,work.usrfmt
+    ,start  =  name
+    ,label  =  sex
+    ,type   =  C
+    ,other  = "X"
+    ,print  =  Y
+    );
+
+
+  OUTPUT (meta data description can be retrieved)
+
+
+   ----------------------------------------------------------------------------
+   |       FORMAT NAME: $GENDER  LENGTH:    1   NUMBER OF VALUES:   20        |
+   |   MIN LENGTH:   1  MAX LENGTH:  40  DEFAULT LENGTH:   1  FUZZ:        0  |
+   |--------------------------------------------------------------------------|
+   |START           |END             |LABEL  (VER. V7|V8   28JAN2018:10:19:47)|
+   |----------------+----------------+----------------------------------------|
+   |Alfred          |Alfred          |M                                       |
+   |Alice           |Alice           |F                                       |
+   |Barbara         |Barbara         |F                                       |
+   |.....           |.....           |..                                      |
+   |William         |William         |M                                       |
+   |                |                |                                        |
+   |**OTHER**       |**OTHER**       |X                                       |
+   ----------------------------------------------------------------------------
+
+
+  CHECK THE FORMAT;
+
+   data want;
+     set sashelp.class(keep=name obs=3) end=dne;
+     sex=put(name,$gender.);
+     if dne then do;
+         name="Stormy";
+         sex=put(name,$gender.);
+     end;
+   run;quit;
+
+   proc print data=want;
+   title "CHARACTER to CHARACTER  Format";
+   run;quit;
+
+   CHARACTER to CHARACTER  Format
+
+   Obs     NAME     SEX
+
+    1     Alfred     M
+    2     Alice      F
+    3     Stormy     X
+
+*     _
+  ___| |__  _ __   _____ __ ___         ___  _ __   ___
+ / __| '_ \| '__| |_  / '__/ _ \ _____ / _ \| '_ \ / _ \
+| (__| | | | |     / /| | | (_) |_____| (_) | | | |  __/
+ \___|_| |_|_|    /___|_|  \___/       \___/|_| |_|\___|
+
+;
+  CHAR to CONSTANT (useful to subset a table)
+
+   %delcat;
+
+   %utl_usrfmt(
+     zroOne
+    ,sashelp.class
+    ,work.usrfmt
+    ,start  =  name
+    ,label  =  1
+    ,type   =  I
+    ,other  =  0
+    ,print  =  Y
+    );
+
+     ----------------------------------------------------------------------------
+     |                  INFORMAT NAME: @NAM2ONEZRO LENGTH: 7                    |
+     |   MIN LENGTH:   1  MAX LENGTH:  40  DEFAULT LENGTH:   7  FUZZ:        0  |
+     |--------------------------------------------------------------------------|
+     |START           |END             |INVALUE(VER. 9.4     28JAN2018:10:30:10)|
+     |----------------+----------------+----------------------------------------|
+     |Alfred          |Alfred          |                                       1|
+     |Alice           |Alice           |                                       1|
+     |Barbara         |Barbara         |                                       1|
+     |Carol           |Carol           |                                       1|
+     |.....           |.....           |..                                    ..|
+     |William         |William         |                                       1|
+     |                |                |                                        |
+     |**OTHER**       |**OTHER**       |                                       0| Note present
+     ----------------------------------------------------------------------------
+
+
+  CHECK THE FORMAT;
+
+   data want;
+     set sashelp.class(keep=name obs=3) end=dne;
+     present=input(name,zroOne.);
+     if dne then do;
+         name="Stormy";
+         present=input(name,zroOne.);
+     end;
+   run;quit;
+
+   proc print data=want;
+   run;quit;
+
+  WORK.WANT total obs=3
+
+      NAME     AGE
+
+     Alfred     1
+     Alice      1
+     Stormy     0  * not in the table
+
+*     _            ____
+  ___| |__  _ __  |___ \   _ __  _   _ _ __ ___
+ / __| '_ \| '__|   __) | | '_ \| | | | '_ ` _ \
+| (__| | | | |     / __/  | | | | |_| | | | | | |
+ \___|_| |_|_|    |_____| |_| |_|\__,_|_| |_| |_|
+
+;
+
+ CHAR TO NUMBER
+
+   %delcat;
+
+   %utl_usrfmt(
+     age
+    ,sashelp.class
+    ,work.usrfmt
+    ,start  =  name
+    ,label  =  age
+    ,type   =  I
+    ,other  =  -1
+    ,print  =  Y
+    );
+
+
+  OUTPUT (meta data description can be retrieved)
+
+   ----------------------------------------------------------------------------
+   |     INFORMAT NAME: @AGE     LENGTH:    7   NUMBER OF VALUES:   20        |
+   |   MIN LENGTH:   1  MAX LENGTH:  40  DEFAULT LENGTH:   7  FUZZ:        0  |
+   |--------------------------------------------------------------------------|
+   |START           |END             |INVALUE(VER. V7|V8   28JAN2018:10:44:41)|
+   |----------------+----------------+----------------------------------------|
+   |Alfred          |Alfred          |                                      14|
+   |Alice           |Alice           |                                      13|
+   |Barbara         |Barbara         |                                      13|
+   |.....           |.....           |..                                    ..|
+   |William         |William         |                                      15|
+   |                |                |                                        |
+   |**OTHER**       |**OTHER**       |                                      -1|
+   ----------------------------------------------------------------------------
+
+
+
+  CHECK THE FORMAT;
+
+   data want;
+     set sashelp.class(keep=name obs=3) end=dne;
+     sex=input(name,age.);
+     if dne then do;
+         name="Stormy";
+         sex=input(name,age.);
+     end;
+   run;quit;
+
+   proc print data=want;
+   title "CHARACTER to CHARACTER  Format";
+   run;quit;
+
+   CHARACTER to CHARACTER  Format
+
+   Obs     NAME     SEX
+
+    1     Alfred     14
+    2     Alice      13
+    3     Stormy     -1
+
+
+*                        ____         _
+ _ __  _   _ _ __ ___   |___ \    ___| |__  _ __
+| '_ \| | | | '_ ` _ \    __) |  / __| '_ \| '__|
+| | | | |_| | | | | | |  / __/  | (__| | | | |
+|_| |_|\__,_|_| |_| |_| |_____|  \___|_| |_|_|
+
+;
+
+  NUMBER to CHAR ( Miles from Atlata to other cities )
+
+   %delcat;
+
+   %utl_usrfmt(
+     mile2city
+    ,sashelp.mileages
+    ,work.usrfmt      /* you need to use work.formats if you want to use default work format library */
+    ,start  =  atlanta
+    ,label  =  city
+    ,type   =  N
+    ,other  =  "X"
+    ,print  =  Y
+    );
+
+
+    ----------------------------------------------------------------------------
+    |                    FORMAT NAME: MILE2CITY LENGTH: 15                     |
+    |   MIN LENGTH:   1  MAX LENGTH:  40  DEFAULT LENGTH:  15  FUZZ: STD       |
+    |--------------------------------------------------------------------------|
+    |START           |END             |LABEL  (VER. 9.4     28JAN2018:11:08:42)|
+    |----------------+----------------+----------------------------------------|
+    |               0|               0|Atlanta                                 |
+    |             543|             543|Washington D.C.                         |
+    |             587|             587|Chicago                                 |
+    |             604|             604|Miami                                   |
+    |             701|             701|Houston                                 |
+    |             748|             748|New York                                |
+    |            1212|            1212|Denver                                  |
+    |            1936|            1936|Los Angeles                             |
+    |            2139|            2139|San Francisco                           |
+    |            2182|            2182|Seattle                                 |
+    |**OTHER**       |**OTHER**       |X                                       |
+    ----------------------------------------------------------------------------
+
+
+     data want;
+       set sashelp.mileages(keep=atlanta obs=3) end=dne;
+       my_location=put(atlanta,mile2city.);
+       if dne then do;
+           atlanta=.;
+           my_location=put(atlanta,mile2city.);
+       end;
+     run;quit;
+
+    WORK.WANT total obs=3
+
+     Miles from Atlata to other cities
+
+     Obs    ATLANTA    CITYFMT
+
+      1          0     Atlanta
+      2        587     Chicago
+      3          .     X
+
+ *                             ____         _
+ _ __ __ _ _ __   __ _  ___  |___ \    ___| |__  _ __
+| '__/ _` | '_ \ / _` |/ _ \   __) |  / __| '_ \| '__|
+| | | (_| | | | | (_| |  __/  / __/  | (__| | | | |
+|_|  \__,_|_| |_|\__, |\___| |_____|  \___|_| |_|_|
+                 |___/
+;
+
+  NUMERIC RANGE to CHAR ( Miles from Atlata to other cities )
+
+   * daatset to create format;
+   data ranges;
+     array citys[4] $8 x1-x4 ("CHICAGO","ATLANTA","RUTLAND","BATH");
+     do lwr=1 to 4;
+        n+1;
+        upr=lwr+1;
+        city=citys[n];
+        output;
+     end;
+     drop x: n;
+   run;quit;
+
+   LWR    UPR    CITY
+
+    0      1     CHICAGO
+    2      3     ATLANTA
+    4      5     RUTLAND
+    6      7     BATH
+
+
+   * I don't think other is available with range formats;
+   * you can use low and high for values ouside the range;
+   * note SAS conversyt ranges like 1-2 to 1-<2;
+
+   %delmac;
+
+   %utl_usrfmt(
+     rng2city
+    ,work.ranges
+    ,work.usrfmt
+    ,start  =  lwr
+    ,end    =  upr
+    ,label  =  city
+    ,type   =  N
+    ,print  =  Y
+    );
+
+
+    ----------------------------------------------------------------------------
+    |       FORMAT NAME: RNG2CITY LENGTH:    7   NUMBER OF VALUES:    4        |
+    |   MIN LENGTH:   1  MAX LENGTH:  40  DEFAULT LENGTH:   7  FUZZ: STD       |
+    |--------------------------------------------------------------------------|
+    |START           |END             |LABEL  (VER. V7|V8   28JAN2018:13:11:59)|
+    |----------------+----------------+----------------------------------------|
+    |               1|               2|CHICAGO                                 |
+    |               2<               3|ATLANTA                                 |
+    |               3<               4|RUTLAND                                 |
+    |               4<               5|BATH                                    |
+    ----------------------------------------------------------------------------
+
+
+     data want;
+       set sashelp.failure(keep=count obs=10) end=dne;
+       my_location=put(count,rng2city.);
+       output;
+       if dne then do;
+           count=.;
+           my_location=put(count,rng2city.);
+           output;
+       end;
+     run;quit;
+
+
+     Up to 40 obs WORK.WANT total obs=11
+
+     Obs    COUNT    MY_LOCATION
+
+       1      15            15
+       2       2       CHICAGO
+       3       1       CHICAGO
+       4       2       CHICAGO
+       5       3       ATLANTA
+       6       8             8
+       7       1       CHICAGO
+       8      16            16
+       9       3       ATLANTA
+      10       1       CHICAGO
+      11       .             .
+
+*     _                               ____         _
+  ___| |__  _ __   _ __ _ __   __ _  |___ \    ___| |__  _ __
+ / __| '_ \| '__| | '__| '_ \ / _` |   __) |  / __| '_ \| '__|
+| (__| | | | |    | |  | | | | (_| |  / __/  | (__| | | | |
+ \___|_| |_|_|    |_|  |_| |_|\__, | |_____|  \___|_| |_|_|
+                              |___/
+;
+
+CHARACTER RANGE to CHARACTER
+
+   data chrRng;
+     lwr="A";upr="B";city='IST';output;
+     lwr="B";upr="L";city='2ND';output;
+     lwr="L";upr="Z";city='3RD';output;
+   run;quit;
+
+   %delmac;
+
+   * other is not possible;
+   %utl_usrfmt(
+     chrRng
+    ,work.chrRng
+    ,work.usrfmt      /* you need to use work.formats if you want to use default work format library */
+    ,start  =  lwr
+    ,end    =  upr
+    ,label  =  city
+    ,type   =  C
+    ,print  =  Y
+    );
+
+    ----------------------------------------------------------------------------
+    |       FORMAT NAME: $CHRRNG  LENGTH:    3   NUMBER OF VALUES:    3        |
+    |   MIN LENGTH:   1  MAX LENGTH:  40  DEFAULT LENGTH:   3  FUZZ:        0  |
+    |--------------------------------------------------------------------------|
+    |START           |END             |LABEL  (VER. V7|V8   28JAN2018:13:32:02)|
+    |----------------+----------------+----------------------------------------|
+    |A               |B               |IST                                     |
+    |B               <L               |2ND                                     |
+    |L               <Z               |3RD                                     |
+    ----------------------------------------------------------------------------
+
+    data want;
+      set sashelp.class(keep=name obs=3) end=dne;
+      grp=put(name,$chrRng.);
+      output;
+      if dne then do;
+          name="123";
+          grp=put(name,$chrRng.);
+          output;
+      end;
+      keep name grp;
+    run;quit;
+
+   WORK.WANT total obs=4
+
+     NAME       GRP
+
+     Alfred     IST
+     Alice      IST
+     Barbara    2ND
+
+     123        123   * not in format
+
+*     _                               ____
+  ___| |__  _ __   _ __ _ __   __ _  |___ \   _ __  _   _ _ __ ___
+ / __| '_ \| '__| | '__| '_ \ / _` |   __) | | '_ \| | | | '_ ` _ \
+| (__| | | | |    | |  | | | | (_| |  / __/  | | | | |_| | | | | | |
+ \___|_| |_|_|    |_|  |_| |_|\__, | |_____| |_| |_|\__,_|_| |_| |_|
+                              |___/
+;
+
+CHARACTER RANGE to NUMBER
+
+   data numRngChr;
+     lwr="A";upr="B";city=1;output;
+     lwr="B";upr="L";city=2;output;
+     lwr="L";upr="Z";city=3;output;
+   run;quit;
+
+
+   %delmac;
+
+   * other is not possible;
+   %utl_usrfmt(
+     numRngChr
+    ,work.numRngChr
+    ,work.usrfmt      /* you need to use work.formats if you want to use default work format library */
+    ,start  =  lwr
+    ,end    =  upr
+    ,label  =  city
+    ,type   =  I
+    ,print  =  Y
+    );
+
+    ----------------------------------------------------------------------------
+    |       FORMAT NAME: $CHRRNG  LENGTH:    3   NUMBER OF VALUES:    3        |
+    |   MIN LENGTH:   1  MAX LENGTH:  40  DEFAULT LENGTH:   3  FUZZ:        0  |
+    |--------------------------------------------------------------------------|
+    |START           |END             |LABEL  (VER. V7|V8   28JAN2018:13:32:02)|
+    |----------------+----------------+----------------------------------------|
+    |A               |B               |IST                                     |
+    |B               <L               |2ND                                     |
+    |L               <Z               |3RD                                     |
+    ----------------------------------------------------------------------------
+
+    data want;
+      set sashelp.class(keep=name obs=5) end=dne;
+      grp=input(name,numRngchr.);
+      output;
+      if dne then do;
+          name="-----";
+          grp=input(name,numRngchr.);
+          output;
+      end;
+      keep name grp;
+    run;quit;
+
+   WORK.WANT total obs=4
+
+       NAME      GRP
+
+      Alfred      1
+      Alice       1
+      Barbara     1
+      Carol       2
+      Henry       2
+
+      -----       .
+
+
+*
+ _ __ ___   __ _  ___ _ __ ___
+| '_ ` _ \ / _` |/ __| '__/ _ \
+| | | | | | (_| | (__| | | (_) |
+|_| |_| |_|\__,_|\___|_|  \___/
+
+;
+
+%macro utl_usrfmt(
+
+     fmtname     /* do not use $ prefix                   */
+    ,dsn         /* input dataset with code - decode      */
+    ,catalog     /* output catalog use work.formats for temporary or lib.usrfmt for perm */
+    ,start  =    /* from or code                           */
+    ,label  =    /* decode or label                        */
+    ,type   = C  /* character format I,C or N              */
+    ,end    =    /* if a range                             */
+    ,other  =    /* other category (do not use with ranges */
+    ,print  = N  /* print the format                       */
+
+    ) / des="create a format from a table";
+
+    %let type =  %upcase(&type );
+    %let print = %upcase(&print);
+    %let other = %upcase(&other);
+    %let start = %upcase(&start);
+    %let label = %upcase(&label);
+    %let print = %upcase(&print);
+    %let end   = %upcase(&end);
+
+    data __tmp;
+
+       %if &type=C %then %do;
+         length start end label $200;
+       %end;
+       retain fmtname "&fmtname" type "&type" hlo " ";
+       keep fmtname type start label
+       %if &other ne %str( ) %then %str( hlo);
+       %if &end   ne %str( ) %then %str( end);
+       %str(;);
+
+       set &dsn end=eof;
+       start = &start;
+       %if &end ne %str( ) %then %str( end=&end;);
+       label = &label;
+       output;
+
+       %if "&other" ne "" %then %do;
+         if eof then do;
+             %if &type eq N  %then %do;
+                start = &other;
+             %end;
+             %else %do;
+                start = "**OTHER**";
+             %end;
+             label =  &other;
+             hlo='O';
+             output;
+         end;
+       %end;
+
+    run;quit;
+
+    proc sort data=__tmp nodupkey;
+      by start;
+    run;quit;
+
+    proc format cntlin=__tmp  library=&catalog;
+    run;quit;
+
+    %if &print eq Y %then %do;
+
+        %if &type=C  %then %do;
+           proc format library=&catalog fmtlib;
+             select $&fmtname;
+           run;quit;
+        %end;
+        %if &type=N  %then %do;
+           proc format library=&catalog fmtlib;
+             select &fmtname;
+           run;quit;
+        %end;
+        %else %if &type=I %then %do;
+           proc format library=&catalog fmtlib;
+             select @&fmtname;
+           run;quit;
+        %end;
+
+    %end;
+
+%mend utl_usrfmt;
+
+

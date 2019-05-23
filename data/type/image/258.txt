@@ -1,0 +1,6 @@
+
+ImageSegmentation
+This was a project for a course on Computer Vision where we implemented semantic segmentation on the COCO dataset.
+We used the VGG19 model, pretrained on the ImageNet dataset as the backbone network for our model.
+Deconvolutional layers were appended to VGG19 and the parameters of these layers were trained on the COCO dataset.
+

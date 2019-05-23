@@ -1,0 +1,4 @@
+
+moving_object_in_static_camera
+A static camera capture a video frame by frame. The project is made for some cases of LASIESTA database to track object and classify them to respective class with the help of designed CNN. Trained CNN is attached with the codes. We can directly run the code by changing the path of dataset frames.  One more code is given for custom database recorded by us. Database and respective code and network are attached as well.
+

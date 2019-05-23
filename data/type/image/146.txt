@@ -1,0 +1,16 @@
+
+Train, label and save a custom dataset (keras using tf as backend)
+Lets you load your images, assign your labels and save the model in .h5 format and also save the weights in JSON, also you can have a test image for your saved mole.
+The model is training on the America sign language dataset.
+..Requirements..
+-> Python 3.5 
+-> OpenCV
+-> sklearn 
+-> Keras 2 
+-> TensorFlow 
+-> Numpy
+-> Matplotlib
+
+
+ deleted files from the data folder due to the 25MB limit 
+

@@ -1,0 +1,218 @@
+
+GyGO: an E-commerce Video Object Segmentation Dataset by Visualead
+
+Introduction
+GyGO (pronounced jai-go) is a video object segmentation dataset focused on e-commerce.
+It is currently comprised of 131 training and 24 validation sequences,
+along with their corresponding high quality annotations.
+On the one hand, the sequences are quite simple in that they are virtually devoid of occlusions, fast motions or many of the other complexity inducing attributes mentioned above.
+On the other hand, the objects in these videos vary wildly in their semantic categories: toys, cloths, models and office fluff.
+Each sequence is 1-10 seconds long and has been captured by a handheld smartphone camera.
+It was then decimated to ~5 fps in post-production and annotated by a non-trivial aggregation of Amazon Mechanical Turk workers.
+We release the dataset publicly with two goals in mind:
+
+There is a severe lack of data in the space of video object segmentation at the moment.
+With only hundreds of annotated videos, we believe every contribution has the potential to increase performance.
+In our internal (soon to be published) analysis we have shown that a joint training on the GyGO and DAVIS datasets yields improved inference results. [todo: confirm]
+To promote a more open, sharing culture and encourage other researchers to join our efforts :) The DAVIS dataset and the research ecosystem that grew it have been massively useful for us. We hope the community will find our datasets useful as well.
+
+Teaser:
+
+Download
+https://gygox-assets.oss-us-east-1.aliyuncs.com/gygo-dataset.tar.gz
+Folder structure
+.
+├── JPEGImages # folders containing RGB videos
+|   ├── 480p
+|   └── original
+├── Annotations # folders containing binary annotations
+|   ├── 480p
+|   └── original
+└── ImageSets
+    ├── Train.txt # contains a list of all the sequences for training
+    ├── trainval.txt # contains ALL the sequences for training and for validation    
+    └── val.txt # contains a list of all the for validation
+
+Benchmarks
+Attached is a chart of initial benchmarks we have done for the dataset. We consider the works of OSMN and OSVOS, as well as our internal networks which were inspired by OSMN and DeeplabV3+. For reference, we add our results on the DAVIS-2016 dataset as well.
+
+
+
+
+
+​
+
+
+Zero-shot
+
+
+One-shot, no fine-tuning
+
+
+One-shot with online fine-tuning
+
+
+
+
+​
+
+
+Gygo::val
+
+
+DAVIS16::val
+
+
+Gygo::val
+
+
+DAVIS16::val
+
+
+Gygo::val
+
+
+DAVIS16::val
+
+
+
+
+Gygo-OSMN (our implementation)
+
+
+N/A
+
+
+N/A
+
+
+​96.3% J​
+​
+7 FPS
+
+
+​80.0% J​
+0.797 F
+8 FPS
+
+
+​97.2% J​
+0.958 F
+0.18 FPS
+
+
+​83.2% J​
+​
+~0.2 FPS
+
+
+
+
+Gygo- Deeplabv3+ (our implementation)
+
+
+​93.3% J​
+​
+8.27 FPS
+
+
+​75.9% J​
+​
+8.53 FPS
+
+
+-
+
+
+-
+
+
+​96.0% J​
+​
+~0.52 FPS
+
+
+​79.0% J​
+​
+1.38 FPS
+
+
+
+
+Original OSMN (Previous SOTA)
+
+
+-
+
+
+-
+
+
+​95.1% J​
+​
+7 FPS
+
+
+​73.6% J​
+​
+8 FPS
+
+
+-
+
+
+-
+
+
+
+
+Original OSVOS
+
+
+​
+
+
+​
+
+
+​
+
+
+​
+
+
+93% J
+
+
+79.8% J0.11 FPS on TITAN X (10 min per sequence)
+
+
+
+
+
+
+The benchmarks were run on a P100 GPU, except when quoting original papers
+J = Jaccard index
+
+Links
+Video Object Segmentation — The Basics
+A Meta-analysis of DAVIS-2017 Video Object Segmentation Challenge
+The GyGO dataset was drew a lot of inspiration from:
+DAVIS Challenge (video object segmentation datasets)
+Contributors
+Itamar Friedman,
+Ilan Chemla,
+Eddie Smolyansky,
+Maxim Stepanov,
+Irina Afanasyeva,
+Gilad Sharir,
+Sagi Nadir,
+Sagi Rorlich
+Bibtex
+@misc{
+author={Friedman, Itamar and Chemla, Ilan and Smolyansky, Eddie and Stepanov, Maxim and Afansyeva, Irina and Sharir, Gilad and Nadir, Sagi and Rorlich, Sagi},
+title={GyGO: an E-commerce Video Object Segmentation Dataset by Visualead}, 
+url={https://github.com/ilchemla/gygo-dataset},
+year={2017}, month={Sep}}
+
+

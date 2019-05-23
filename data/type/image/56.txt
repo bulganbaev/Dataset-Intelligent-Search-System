@@ -1,0 +1,25 @@
+
+Eight class classification
+
+
+Preprocessing - Bag of Visual words
+
+
+
+
+
+This repository contains implementation of different algorithms such as
+
+SVM
+LMS
+KLMS
+MCC
+MEE
+PNN
+
+
+
+Results of these algorithms on the 8-class image dataset are in the Results folder.
+
+
+

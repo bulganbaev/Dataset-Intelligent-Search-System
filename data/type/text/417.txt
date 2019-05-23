@@ -1,0 +1,38 @@
+
+Dataset Entity Graph Algorithm (Preview) Sample
+This project was generated with Angular CLI version 1.0.3.
+Add your COSMOS API Keys
+Find the file 'COSMOS-Accelerators-Entity-Linking/src/app/services/cognitive-api.service.ts' and add your own COSMOS API keys.
+Environment Setup
+Before you get started with this project, make sure your environment is good to go.
+
+Install Node.js
+Install Visual Studio Code
+Install the Angular CLI
+Install git
+
+NOTE: On Windows 10--with npm or git you may have to update your Environment Variables for the command line to know where they were installed.
+Getting Started
+Now that you have your environment set up, you can finally start working with the sample code.
+
+git clone https://github.com/cosmos-cognitive-cloud/COSMOS-Accelerators-Entity-Linking
+Right click the project directory -> select Open with Code
+Ctrl + Shift + ` to open a terminal window
+Type npm install to download the project's packages
+Type ng serve to run the application via http://localhost:4200/.  The app will automatically reload if you change any of the source files.
+Success!  You should see a working demo of the Dataset Entity Graph Algorithm built on Angular.
+
+Development server
+Run ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Code scaffolding
+Run ng generate component component-name to generate a new component. You can also use ng generate directive|pipe|service|class|module.
+Build
+Run ng build to build the project. The build artifacts will be stored in the dist/ directory. Use the -prod flag for a production build.
+Running unit tests
+Run ng test to execute the unit tests via Karma.
+Running end-to-end tests
+Run ng e2e to execute the end-to-end tests via Protractor.
+Before running the tests make sure you are serving the app via ng serve.
+Further help
+To get more help on the Angular CLI use ng help or go check out the Angular CLI README.
+

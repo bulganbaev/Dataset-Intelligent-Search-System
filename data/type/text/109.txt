@@ -1,0 +1,84 @@
+
+text_classification
+Exploration of text classification from public datasets, especially emotion labels. See PDF
+Code
+Load and save data: load the datasets in use, preprocess them and save split/tokenized versions as .pkl files. Edit main() function to change output
+Train model: train several models, need to edit the script to change parameter space and select model
+API
+Theory
+
+Types of text classification
+
+types
+
+regression onto numeric data
+topic modeling (unsupervised)
+
+
+But there are all these other NLP use-cases that we miss!
+
+Text-generation | Question-answering
+Syntax identification | POS tagging
+EDA
+
+and other libraries for data-viz of text/corpus
+
+
+
+
+
+
+Challenges
+
+How to remove bias from the dataset?
+
+Embedding models contain bias. To overcome this we have to document exactly which terms to target and either:
+
+identify the sources of bias in the data and leave them out (this would be apply to the case where we use TF-IDF)
+reduce bias by projecting the embeddings to neturalize it
+
+
+
+
+Challenges with NLP on non-English data? How to mitigate?
+
+Locate a giant corpus of non-English text and train new word-embeddings
+Use open-sourced pre-trained embeddings
+
+
+
+
+Emotion classification
+
+Datasets on emotion classification
+Model architecture and results
+State-of-the-art
+Limitations of text-classification
+
+human benchmark
+multi-annotator accuracy
+
+
+Possible use-cases
+
+validated in academia
+deployed in industry
+What is the scope of a hyper-personalized emotion-classification model? What kind of data do we need to train this?
+
+
+
+
+EmotionAPI
+NLP in history
+
+Future of NLP
+
+
+Data Science Process
+
+Visualize the process using tensorboard
+versioning using DVC
+
+
+
+

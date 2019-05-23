@@ -1,0 +1,5 @@
+
+Video Games Dataset
+Video games sales dataset study without rating. Project in collaboration with Keyband to start learning Data Science. I used Python libraries for Data Analysis and Vizualisation Methods. Feel free to suggest other approaches and improvements in code.
+Thank You.
+

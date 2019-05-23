@@ -1,0 +1,19 @@
+
+# Image Scraper for BING
+
+downloads full-size images from bing image search results
+is multithreaded
+is crossplatform
+bypasses bing API
+has option to disable adult content filtering
+is written in python 3.
+uses SSL connection
+
+Usage
+chmod +x image_scraper.py
+./image_scraper.py [-h] [-s SEARCH_STRING] [-m MULTIPLE_SEARCH_STRINGS_COMMA_SEPARATED] [-f SEARCH_FILE] [-o OUTPUT] [--filter] [--no-filter]
+
+Example
+./image_scraper.py -s "hello world" -> will download "hello world" search results
+./image_scraper.py -m "bim,bom,bam" -> will download "bim" + "bom" + "bam" search results
+

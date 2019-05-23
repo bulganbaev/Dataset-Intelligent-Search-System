@@ -1,0 +1,16 @@
+
+image_extraction_from_mnist
+it is used to extract mnist image dataset from bytescode
+Unzip and Place your dataset files here in the dataset folder.
+There should be four files with these names (make sure the names match):
+create a datset folder and put all files in it like..
+   dataset/train-images-idx3-ubyte
+   
+   dataset/train-labels-idx1-ubyte
+   
+   dataset/t10k-images-idx3-ubyte
+   
+   dataset/t10k-labels-idx1-ubyte
+
+cmd line:- python convert_mnist_to_png.py "dataset/file_name" "output_directory"
+

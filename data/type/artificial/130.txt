@@ -1,0 +1,5 @@
+
+CECS 451: Artificial Intelligence
+Project by Brian To, Jesse Vargas, and Nick Torres
+Project for CECS 451 to use decision trees and random Forests to make conclusion on data namely, decide whether or not an individual makes greater or less than $50,000.
+

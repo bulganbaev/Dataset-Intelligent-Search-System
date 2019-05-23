@@ -1,0 +1,10 @@
+
+wordArt_oneDataset
+This sketch will import a parsed .CSV file (the output of which is generated from the Word Counter sketch-- available in a repo here) and will create a series of cascading circles, drawn in size in relation to the frequency that the word appears in the text.
+Screenshot
+Contains:
+[wordArt_oneDataset.pde] Main source code for the sketch
+[Circle.pde] A class file for the creation of Circle objects
+[midsummerNightsDream.txt] The full text of Shakespeare's 'A Midsummer Night's Dream', which was parsed using the Word Counter sketch found in another one of my repos
+[MSNDOutputFile.csv] The parsed CSV file of all the words within Shakespeare's 'A Midsummer Night's Dream' organized by frequency.  The main sketch will read this file to produce the output
+

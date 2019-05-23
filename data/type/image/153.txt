@@ -1,0 +1,10 @@
+
+Python-ISIC-Dataset-Downloader
+Python ISIC Dataset Downloader
+Run the script
+Install Python on your system
+Then run
+
+python fetcher.py
+
+

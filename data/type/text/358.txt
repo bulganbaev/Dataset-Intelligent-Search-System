@@ -1,0 +1,8 @@
+
+Using RNN to predict text
+Dataset - Alice in Wonderland, Project Gutenberg
+Accuracy Achieved
+
+Simple RNN  - 58.52 %
+
+

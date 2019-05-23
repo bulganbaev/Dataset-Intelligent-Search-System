@@ -1,0 +1,5 @@
+
+Artificial-Neural-Network
+Developed for a school project. It uses the UCI Machine Learning Poker Dataset (link below) to train and test an Artificial Neural Network. The ANN predicts the ranking of a poker hand given a data set. The output is currently incorrect, but all aspects of an Artificial Neural Network are included.
+http://archive.ics.uci.edu/ml/datasets/Poker+Hand
+

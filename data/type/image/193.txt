@@ -1,0 +1,10 @@
+
+image_segmentation
+Using the Kaggle DSTL Satellite dataset as a basis. An example will be shown on how to perform segmentation on images.
+Data Preprocessing
+TODO
+
+ Transfer Learning: Pretrained UNet Model
+ Preprocessing: Plot a graph of the correlations between classes in the dataset
+
+

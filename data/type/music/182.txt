@@ -1,0 +1,51 @@
+
+Script for scraping weekly Billboard charts from their website. In the future I intend to write functions extending the local module to gather other, more niche/underground charts. Datasets provided from the beginning of the chart to the year end of 2018, for all the charts the local module has been tested with.
+Scripts & dataset available to use under GNU General Public License, see LICENSE.txt for full details (basically all uses & modifications allowed as long as the original is cited, and no usage in closed source applications).
+
+Files
+
+README.md - Current file.
+LICENSE.txt - Full GNU General Public License.
+chartscraper.py - Billboard chart web scraping local script/module.
+CS_Driver.py - Script used to create the dataset & example of how to use chartscraper.
+*\ChartScraper_data* - Folder with CSVs containing data from the beginning of each chart to the last one in 2018, from the following Billboard charts:
+
+Hot R&B/Hip-hop Albums
+Hot R&B/Hip-hop Songs
+Hot 100
+Billboard 200
+Pop Songs
+Hot Rock Songs
+Hot Latin Songs
+Hot Dance/Electronic Songs
+YouTube
+Japan Hot 100
+Hot Country Songs
+
+
+
+
+Usage
+The following non-stock modules are utilized (they're all included in the Anaconda distro of Python):
+
+requests
+pandas
+numpy
+
+Local module file chartscraper.py must be in a location which is a part of the PYHTONPATH or the working directory needs to be changed to its location when it's imported (commented example found in CS_Driver.py)
+Main functions are bb_get_weekly_chart & bb_get_multiple_charts, all functions including internal ones, have help documentation. Included script CS_Driver.py contains an example of how they're used. Worth noting, I have hard coded a 1 second delay between multiple requests to avoid flooding.
+Notes About Billboard's Site/Data
+
+URL structure for weekly charts looks like https://www.billboard.com/charts/r-b-hip-hop-songs/2019-02-02
+
+You don't need to pass the specific date used to denote the week of the chart, Billboard's backend will take any date a part of the week the chart is for.
+
+
+There is some potential weirdness with the data which I only encountered once in the R&B/Hip-Hop songs chart, where between 1978-11-13 to 1978-11-18 it had a chart with only the number 1 song. When this case occurs, the data is added and there's a text output notification which should be a prompt to look into the occurence, and make sure no legit charts were missed
+In some cases there are missing artist names. When an artist value is None/null, the string token _"===<Missing_Artist>===" is substituted to make it more explicit.
+
+I believe I took care of all the missing artists in the dataset, replacing them with the correct values after doing some research myself. I reported the first one I found in 2018 to the email address in the Billboard site FAQ which was for data corrections, but 4 months later the data was not corrected, so any extra effort of benevolence might be wasted.
+
+
+
+

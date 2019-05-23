@@ -1,0 +1,6 @@
+
+youtube-classification
+This repository lists the tensorflow code files for the CS6140 Machine Learning Project "Comparison of Machine Learning Algorithms for Video Classification on
+Youtube-8M Dataset".
+Project Report
+

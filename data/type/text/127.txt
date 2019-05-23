@@ -1,0 +1,9 @@
+
+Author Classifier with Project Gutenberg
+Project Gutenberg is a large electronic collection of over 54,000 public domain books. We will be working with a dataset of 3036 books, available to download from Shibamouli Lahiri. There are two notebooks in this project, one to preprocess the corpus and one to build the classifier.
+Abstract
+Goal: Our goal is to classify texts from Project Gutenberg by author.
+Hypothesis: Our hypothesis is that each author uses a certain set of words, and we can train the machine to learn this "signature" and classify texts by author.
+We have created a Bag of Words TF-IDF model of each document. This means the value associated with each word in each document is equal to the term frequency, i.e. the number of times the word appears in the document divided by the length, times the inverse document frequency, i.e. the total number of documents in the corpus divided by the number of documents containing the word.
+We will start by exploring the data with some word clouds from selected authors in the corpus. Then we will use a Naive Bayes algorithm to classify the unigram model of the corpus by author. We will then train the same classifier on a bigram model with an increase in accuracy to 92.14%.
+

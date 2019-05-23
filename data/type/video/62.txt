@@ -1,0 +1,31 @@
+
+The INRS Audiovisual Quality Dataset
+the details are given in publication [1,2,3]
+File List:
+MOS Folder: This Folder contains various MOS Score files. These files are:
+FileNameWithMOS.csv: contains the name of audiovisual files and MOS scores computed.
+BaseDataset.csv: Contains 5 independen parameters (video frame rate, quantization parameter, noise reduction, packet loss rate for audio and video streams) and MOS scores computed [1, 2].
+WekaBaseDataset.arff: Same as BaseDataset in Weka format [1, 2].
+ParametricDataset.csv: contains BaseDataset and other dependent parameters extracted from transmitted videos. Models using this dataset would be called parametric No-Reference models [1, 2].
+WekaParametricDataset.arff: Same as ParametricDataset in Weka format [1, 2].
+BitstreamDataset.csv: contains BaseDataset and other dependent parameters extracted from transmitetd videos as well as reduced amount of information from original videos. Models using this dataset would be called bitstream reduced-Reference models [3].
+OutputVideoFiles Folder: This Folder contains saved output video files, RTCP stats collected during streaming for each file, consolidated statistics and video file header parameters, and randomized file list used in https://github.com/edipdemirbilek/SubjectiveAssesmentVideoPlayer.
+SourceVideoFiles Folder: It includes source video files, and audio and video CAPS used in GStreaming.
+SubjectDetails Folder: It contains ACR scores collected from all observers. These are non processed raw scores. No consolidation or rejection criteria is applied.
+SubjectMerged Folder: Consolidated ACR scores with summary info. The scores here are after rejection criteria is applied. Refer to [1] for details.
+CalculateCorrelation.py: Calculates the correlation of scrores of a given Subject with the overall MOS of all Subjects.
+GenerateGraphs.py: Generates variosu graphs used in [1]
+MergeSubjectDetails.py: Consolidates the ACR scores for a given Subject and also applies the rejection criteria specified in [1]
+MergeSubjects.py: Consolidate all Subject scores and compines with detailed parameters and generates varios MOS files. Comments in the file itself.
+PrepareBitstreamStats.py: From GStreamer RTCP stats file, it extracts only selected fields and stores in csv file.
+SubjectsSummary.csv: includes, total number of accepted scores, average time to rate and correlation to the rest for each subject.
+Publications related to this dataset:
+For the Base and Parametric version of the dataset refer to:
+[1] Demirbilek, Edip, and Jean-Charles Grégoire. “The INRS Audiovisual Quality Dataset." 2016 ACM Multimedia Conference.
+[2] Edip Demirbilek and Jean-Charles Grégoire. Machine learning based parametric audiovisual quality prediction models for realtime communications. ACM TOMM (Revised).
+For the Bitstream version of the dataset refer to:
+[3] Edip Demirbilek and Jean-Charles Grégoire. Machine learning based bitstream audiovisual quality prediction models for realtime communications. IEEE International Conference on Multimedia and Expo, 2016 (Submitted).
+For the implementation of the testbed used to create this dataset refer to:
+[4] https://github.com/edipdemirbilek/GStreamerMultimediaQualityTestbed
+[5] Edip Demirbilek and Jean-Charles Grégoire. Multimedia communication quality assessment testbeds. arXiv preprint arXiv:1609.06612, (2016).
+

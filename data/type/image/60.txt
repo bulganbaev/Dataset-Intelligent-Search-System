@@ -1,0 +1,27 @@
+
+MNIST-Dataset
+This is my first project using Python. I used MNIST dataset to practise Python coding and became familiar with CNN.
+Models
+
+MLP
+CNN
+
+Details
+
+Weight Initialization
+Suffle Training Example
+Dropout
+Batch Normalization
+Penalty
+Early Stopping
+Activation Function
+Learning Rate
+SGD RMSprop
+Cost Function
+PCA
+
+References
+
+Y. LeCun, L. Bottou, Y. Bengio, and P. Haffner, "Gradient-based learning applied to document recognition", Proc. IEEE 86(11): 2278-2324, 1998.
+
+

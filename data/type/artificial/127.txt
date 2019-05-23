@@ -1,0 +1,5 @@
+
+MNIST_with_tf.layers
+@Author:AYOUB EL KHALLIOUI
+Implementation a 2-hidden-layered deep neural network  by Tensorflow.layers API (Test the model on MNIST Dataset)
+

@@ -1,0 +1,24 @@
+
+My road image datasets
+
+
+Images scrapped from ImageNet image catalog (resized to 250x250). 494 road images. Also, it contains the scrapper script. Examples of images:
+    
+
+
+Road images scrapped from Google, Bing, Yahoo, Flickr (the scapper program is "Extreme picture finder"). 5,390 road images. Also, contains script for validating images by min requred size.
+Road images are classified into 6 classes:
+
+
+
+dirt roads
+forest roads
+gravel roads
+highway roads
+rainy roads
+snowy roads
+
+     
+   
+
+

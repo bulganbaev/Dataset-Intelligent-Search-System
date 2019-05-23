@@ -1,0 +1,6 @@
+
+Keras-image-classification
+Building powerful image classification Keras models using Logo dataset
+In which we can use binary_crossentropy loss to train our model.
+Because we have only two classes "Google" & "Nvidia"
+

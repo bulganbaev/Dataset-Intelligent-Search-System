@@ -1,0 +1,27 @@
+
+torchvideo
+
+
+
+
+WARNING: Do not use this library. It is still in development. When this notice is
+removed it will be sufficiently stable for usage.
+A PyTorch library for video-based computer vision tasks. torchvideo provides
+dataset loaders specialised for video, video frame samplers, and transformations specifically for video.
+Get started
+$ pip install git+https://github.com/willprice/torchvideo.git@master
+Learn how to use torchvideo
+Check out the example notebooks, you can launch these on binder without
+having to install anything locally!
+Acknowledgements
+Thanks to the following people and projects
+
+yjxiong for his work on TSN and publicly
+available pytorch implementation
+from which many of the transforms in this project started from.
+dukebw for his excellent
+lintel FFmpeg video loading library.
+hypothesis and the team behind it. This
+has been used heavily in testing the project.
+
+

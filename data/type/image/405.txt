@@ -1,0 +1,69 @@
+
+Dataset Downloader
+Preview
+Dataset_downloader allow you to download large dataset from multiple list of url, from image-net for example.
+You can split the download into 2 folders, one for the training and one for the testing.
+File are save into their class name, perfect for model training. It looks something like that:
+root:.
+|
+├───test
+│   ├───accerola
+│   ├───apple
+│   └───lemon
+├───train
+│   ├───accerola
+│   ├───apple
+│   └───lemon
+
+Installation
+Simply install from pip:
+pip install dataset_downloader
+
+Config
+Create a dataset.json file with the following content:
+{
+  "outputTrain": "...",
+  "outputTest": "...",
+  "ratio": ...,
+  "classes": {
+    "class1": [
+      "http://url1",
+      "http://url2"
+    ],
+    "class2": [
+      "http://url1",
+      "http://url2"
+    ],
+    "class3": "list_images.txt"
+  }
+}
+
+outputTrain: Output folder of the training images
+outputTest: Output folder of the testing images
+ratio: The ratio of training/testing images. 0.8 correspond of 80% of training images.
+classes: List of classes with their urls. Urls can be a list of url, a file containing a list of urls or an url containing a list of urls
+
+An exemple of file on a windows computer:
+  "outputTrain": "D:/dataset/train",
+  "outputTest": "D:/dataset/test",
+  "ratio": 0.8,
+  "classes": {
+    "accerola": [
+      "http://tiachea.files.wordpress.com/2008/10/acerolas.jpg",
+      "http://www.jardimdeflores.com.br/floresefolhas/JPEGS/A56acerola5.JPG",
+      "http://farm2.staticflickr.com/1353/4602150961_177e096984_z.jpg",
+    ],
+    "apple": [
+      "http://www.naturalhealth365.com/images/apple.jpg",
+      "http://urbanext.illinois.edu/fruit/images/apple1.jpg",
+      "https://www.aroma-zone.com/cms//sites/default/files/plante-acerola.jpg"
+    ],
+    "lemon": "list_images.txt",
+    "watermelon": "https://gist.githubusercontent.com/johnrazeur/645787bc08a5aedd82da9573fbfa169a/raw/49cea1ee1438cecef8ac213b20f24e5ae02d4d78/watermelon.txt"
+  }
+Run
+Simple call the dataset_downloader command:
+cd yourdirectory
+# You must create the dataset.json file before
+dataset_downloader
+

@@ -1,0 +1,4 @@
+
+Music-classification-from-MP3-file-by-using-Logistic-Regression-and-Support-Vector-Machine
+The dataset is organized into 10 distinct genres: blues, classical, country, disco, hip-hop, jazz, metal, pop, reggae, and rock. The dataset contains MP3 song of the first 30 seconds of 100 songs per genre. Our task is to classify a validation folder with 100 unlabeled songs.  Our implemented classifier can classify 77.57 % documents correctly by using Support Vector Machine.
+

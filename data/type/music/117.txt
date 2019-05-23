@@ -1,0 +1,8 @@
+
+Music-Recommendation
+Decision Tree and K-Means algorithm on the subset of the million song dataset.
+The dataset used is the subset of the million song dataset.
+Link: https://labrosa.ee.columbia.edu/millionsong/pages/getting-dataset#subset.
+It contains two python files namely decision_tree.py and clustering.py. The Decision Tree was used to predict songs based on genre and the K-Means clustering is used to cluster songs in accordance to year of release and duration of the songs.
+The Report.pdf file contains a formal report regarding the project and was submitted as a part of class assignment.
+

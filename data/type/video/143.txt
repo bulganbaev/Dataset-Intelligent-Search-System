@@ -1,0 +1,4 @@
+
+Sales-Prediction-using-Deep-Learning
+This project aims in predicting the total revenue for a given video game based on the sales dataset for past 1000 games. Pre-processed the dataset to divide into training and test data and used MinMaxScaler to scale the values to fit our model. Trained a simple Sequential model using 2 Dense layers with ReLU activation, using MSE loss function and Adam optimizer.
+

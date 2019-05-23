@@ -1,0 +1,4 @@
+
+videogame-sales
+Using Data Science tools to discover information on a Kaggle dataset. Based on the following tutorial: https://paulovasconcellos.com.br/como-criar-seu-primeiro-projeto-de-data-science-parte-2-de-2-cb9a2fe05eff
+

@@ -1,0 +1,13 @@
+
+Pairwise-Text-Classification-Dataset
+GLUE DATA
+"CoLA", "SST", "MRPC", "QQP", "STS", "MNLI", "SNLI", "QNLI", "RTE", "WNLI", "diagnostic"
+链接：https://pan.baidu.com/s/1qiam-B0VY_RIU8cPENltsw
+提取码：fy9m
+RQE_Data_AMIA2016
+链接：https://pan.baidu.com/s/1TW_dmxXshEDJleczZ9jLIw
+提取码：x22a
+SemEval2016-CQA
+链接：https://pan.baidu.com/s/1KWJQEfh438O_w_b-Sixo8w
+提取码：d4ny
+

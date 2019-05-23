@@ -1,0 +1,34 @@
+
+Basic LDS Scraper
+This is a small utility that scrapes the LINZ Data Service and generates a "map" of what's available.
+This doesn't actually scrape the data sets themselves though. Just the metadata.
+How do I use it?
+Assuming you already have Python installed, just run
+python scrape.py
+and it will generate a file called names.csv
+NOTE: At present, since we're learning Python while writing this, it only scrapes the first page, haha...
+In future, it should scrape all available pages... It's getting there...
+What does the generated CSV contain?
+At the moment, it has:
+
+
+
+Metadata
+
+
+
+
+Title
+
+
+Downloads
+
+
+Views
+
+
+
+Future features?
+It'd be nice to have include the other metadata like description, last updated etc.
+Gotta have the basic features down first.
+

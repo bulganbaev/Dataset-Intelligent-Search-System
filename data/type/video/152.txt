@@ -1,0 +1,51 @@
+
+Vision
+Clone the repository:
+git clone https://github.com/micco00x/Vision
+
+Initialize submodules:
+git submodule update --init
+
+Create folders:
+mkdir images
+mkdir logs
+mkdir weights
+
+Generate the dataset:
+python3 generate_dataset.py
+
+Split the dataset in train and val:
+python3 split_data.py --dataset=dataset/trainval/dataset.json
+
+Train the model (not necessary for the next steps):
+python3 activity.py train
+
+Train the extended model which includes COCO (note that there's no need to type
+--download=True if the COCO dataset has already been downloaded previously):
+python3 activity.py train --extended=True --download=True
+
+Evaluate the last trained model on the extended dataset:
+python3 activity.py evaluate --extended=True --model=last
+
+Generate the dataset that will be used to train the LSTM (considering
+that the videos are in dataset/activitynet/Gymnastics/ and that the
+frames will be saved in dataset/activitynet/Frames):
+python3 LSTM/extractFrames.py --videofolder=dataset/activitynet/Gymnastics/ --framesfolder=dataset/activitynet/Frames
+
+Split the video dataset in train and val (considering that the frames are
+in dataset/activitynet/Frames):
+python3 LSTM/splitDataset.py --framesfolder=dataset/activitynet/Frames
+
+Generate the .npz datasets that will be later used to train the LSTM:
+python3 generate_npz.py --dataset=dataset/activitynet/Frames/train.txt --model=weights/mask_rcnn_coco_0080.h5
+python3 generate_npz.py --dataset=dataset/activitynet/Frames/test.txt --model=weights/mask_rcnn_coco_0080.h5
+
+Train the LSTM that recognizes videos passing as datasets the .npz files
+generated in the previous step:
+python3 train_videos.py --train=dataset/activitynet/Frames/train_masks.npz --test=dataset/activitynet/Frames/test_masks.npz
+
+Create a confusion matrix to study the behaviour of the LSTM (be sure to use the
+same number of hidden layers for the LSTM):
+python3 eval_videos.py --dataset=dataset/activitynet/Frames/test_masks.npz --checkpoint=PATH_TO_CHECKPOINT
+
+

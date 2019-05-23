@@ -1,0 +1,28 @@
+
+Video-Game-Sales-Analysis
+The objective of this project is to perform Sales Analysis for Video Games Dataset in RShiny and to find different insights by performing visualizations with respect to year, publishers, global sales and Genre.
+Dataset
+
+Rows - 10100
+Columns - 11
+
+Dashboard
+Overview
+
+
+ It shows overall analysis of Video Game Sales from year 2007-2017 showing best and worst seller,publisher & genre.
+
+Publisher Analysis
+
+
+ It displays top selling publishers wrt copies sold(in millions)
+
+Analysis from year 2007-2017
+
+
+ It displays overall game sales trend from year 2007-2017 wrt genre.
+
+Thank You!	
+
+Follow @shreyaswankhede
+

@@ -1,0 +1,5 @@
+
+CIFAR-10 Image Classifier
+An image classifier for the CIFAR Datasets, built using PyTorch.
+The architecture is based on Szegedy, et.al, Going Deeper With Convolutions.
+

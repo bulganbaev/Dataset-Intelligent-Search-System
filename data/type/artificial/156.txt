@@ -1,0 +1,35 @@
+
+utl_graphics_400_SAS_and_R_graphics_with_code_and_datasets
+Over 400 SAS and R sample graphs in one pdf and a second file sith datasets and code.
+```  Single pdf with 589 psges with Sample SAS and R graphics with datasets and copy of code in separate file                                                                ```
+```                                                                                                                                                               ```
+```  see                                                                                                                                                          ```
+```   Over 400 SAS and R sample graphs in one pdf and a second file sith datasets and code.                                                                       ```
+```                                                                                                                                                               ```
+```  see my github  ( R and SAS)                                                                                                                                  ```
+```  https://github.com/rogerjdeangelis/utl_graphics_589_SAS_and_R_graphics_with_code_and_datasets                                                                ```
+```                                                                                                                                                               ```
+```  SAS samples                                                                                                                                                  ```
+```  ===========                                                                                                                                                  ```
+```                                                                                                                                                               ```
+```  https://goo.gl/XrAewK                                                                                                                                        ```
+```  https://communities.sas.com/t5/SAS-GRAPH-and-ODS-Graphics/SESUG2017-Leftovers-90-introductory-SAS-ODS-Graphics-code/m-p/414753/thread-id/14235               ```
+```                                                                                                                                                               ```
+```  https://goo.gl/Xb5FRq                                                                                                                                        ```
+```  https://communities.sas.com/t5/SAS-GRAPH-and-ODS-Graphics/SESUG2017-Leftovers-90-introductory-SAS-ODS-Graphics-code/m-p/414753/thread-id/14235?attachment-i  ```
+```                                                                                                                                                               ```
+```  https://support.sas.com/sassamples/graphgallery/                                                                                                             ```
+```                                                                                                                                                               ```
+```  http://robslink.com/SAS/Home.htm                                                                                                                             ```
+```                                                                                                                                                               ```
+```  https://goo.gl/iuNZLB                                                                                                                                        ```
+```                                                                                                                                                               ```
+```                                                                                                                                                               ```
+```  R samples                                                                                                                                                    ```
+```  =========                                                                                                                                                    ```
+```  http://www.r-graph-gallery.com/all-graphs/                                                                                                                   ```
+```  http://www.r-graph-gallery.com/portfolio/maps/                                                                                                               ```
+```                                                                                                                                                               ```
+```                                                                                                                                                               ```
+
+

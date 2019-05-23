@@ -1,0 +1,3 @@
+
+Derive music mood dataset from MIREX2009 multi tag audio dataset scheme, from LastFM social tags.
+

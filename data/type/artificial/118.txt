@@ -1,0 +1,118 @@
+
+utl_remove_labels_format_informat_all_datasets
+Removing labels, formats and informats using from proc datasets for an entire schema
+```  SAS Forum: Removing labels, formats and informats using from proc datasets for an entire schema                                                              ```
+```                                                                                                                                                               ```
+```  INPUT                                                                                                                                                        ```
+```  =====                                                                                                                                                        ```
+```   WORK.HAVE1 total obs=150                                                                                                                                    ```
+```                                                                                                                                                               ```
+```       Variable       Format    Informat    Label                                                                                                              ```
+```                                                                                                                                                               ```
+```       SPECIES                              Iris Species                                                                                                       ```
+```       SEPALLENGTH    5.2       5.2         Sepal Length (mm)                                                                                                  ```
+```       SEPALWIDTH     5.2       5.2         Sepal Width (mm)                                                                                                   ```
+```       PETALLENGTH    5.2       5.2         Petal Length (mm)                                                                                                  ```
+```       PETALWIDTH     5.2       5.2         Petal Width (mm)                                                                                                   ```
+```                                                                                                                                                               ```
+```   WORK.HAVE2 total obs=150                                                                                                                                    ```
+```                                                                                                                                                               ```
+```       Variable      Format    Informat    Label                                                                                                               ```
+```                                                                                                                                                               ```
+```       DOSE          5.2       5.2         1,2 Dimethylhydrazine dihydrochloride Dose Level                                                                    ```
+```       RAT           5.2       5.2         Rat Index                                                                                                           ```
+```       SAMPLE        5.2       5.2         Slide Index of Grouped Cells from a Rat                                                                             ```
+```       LENGTH        5.2       5.2         Tail Length of the Comet                                                                                            ```
+```                                                                                                                                                               ```
+```                                                                                                                                                               ```
+```  WORKING CODE                                                                                                                                                 ```
+```  ============                                                                                                                                                 ```
+```       set sashelp.vtable (where=(libname="WORK")); * very slow?;                                                                                              ```
+```       call symputx('memname',memname);                                                                                                                        ```
+```                                                                                                                                                               ```
+```       rc=dosubl('                                                                                                                                             ```
+```           proc datasets library=work nolist;                                                                                                                  ```
+```             modify &memname;                                                                                                                                  ```
+```             attrib _all_ label = "" ;                                                                                                                         ```
+```             format _all_;                                                                                                                                     ```
+```             informat _all_;                                                                                                                                   ```
+```           run;quit;                                                                                                                                           ```
+```       ');                                                                                                                                                     ```
+```                                                                                                                                                               ```
+```  OUTPUT                                                                                                                                                       ```
+```  ======                                                                                                                                                       ```
+```  WORK.HAVE1 total obs=150                                                                                                                                     ```
+```                                                                                                                                                               ```
+```       Variable       Label                                                                                                                                    ```
+```                                                                                                                                                               ```
+```       SPECIES        Iris Species                                                                                                                             ```
+```       SEPALLENGTH    Sepal Length (mm)                                                                                                                        ```
+```       SEPALWIDTH     Sepal Width (mm)                                                                                                                         ```
+```       PETALLENGTH    Petal Length (mm)                                                                                                                        ```
+```       PETALWIDTH     Petal Width (mm)                                                                                                                         ```
+```                                                                                                                                                               ```
+```   WORK.HAVE2 total obs=150                                                                                                                                    ```
+```                                                                                                                                                               ```
+```                                                                                                                                                               ```
+```       Variable      Label                                                                                                                                     ```
+```                                                                                                                                                               ```
+```       DOSE          1,2 Dimethylhydrazine dihydrochloride Dose Level                                                                                          ```
+```       RAT           Rat Index                                                                                                                                 ```
+```       SAMPLE        Slide Index of Grouped Cells from a Rat                                                                                                   ```
+```       LENGTH        Tail Length of the Comet                                                                                                                  ```
+```                                                                                                                                                               ```
+```  *                _               _       _                                                                                                                   ```
+```   _ __ ___   __ _| | _____     __| | __ _| |_ __ _                                                                                                            ```
+```  | '_ ` _ \ / _` | |/ / _ \   / _` |/ _` | __/ _` |                                                                                                           ```
+```  | | | | | | (_| |   <  __/  | (_| | (_| | || (_| |                                                                                                           ```
+```  |_| |_| |_|\__,_|_|\_\___|   \__,_|\__,_|\__\__,_|                                                                                                           ```
+```                                                                                                                                                               ```
+```  ;                                                                                                                                                            ```
+```                                                                                                                                                               ```
+```  see                                                                                                                                                          ```
+```  https://goo.gl/adiSVm                                                                                                                                        ```
+```  https://communities.sas.com/t5/Base-SAS-Programming/Removing-labels-using-from-proc-datasets-for-many-files/m-p/409482#M100047                               ```
+```                                                                                                                                                               ```
+```                                                                                                                                                               ```
+```  proc datasets lib=work kill;                                                                                                                                 ```
+```  run;quit;                                                                                                                                                    ```
+```  %symdel memname / nowarn;                                                                                                                                    ```
+```                                                                                                                                                               ```
+```  data have1;                                                                                                                                                  ```
+```    set sashelp.iris;                                                                                                                                          ```
+```  informat _numeric_ 5.2;                                                                                                                                      ```
+```  format _numeric_ 5.2;                                                                                                                                        ```
+```  run;                                                                                                                                                         ```
+```  data have2;                                                                                                                                                  ```
+```    set sashelp.comet;                                                                                                                                         ```
+```  informat _numeric_ 5.2;                                                                                                                                      ```
+```  format _numeric_ 5.2;                                                                                                                                        ```
+```  run;                                                                                                                                                         ```
+```                                                                                                                                                               ```
+```  *          _       _   _                                                                                                                                     ```
+```   ___  ___ | |_   _| |_(_) ___  _ __                                                                                                                          ```
+```  / __|/ _ \| | | | | __| |/ _ \| '_ \                                                                                                                         ```
+```  \__ \ (_) | | |_| | |_| | (_) | | | |                                                                                                                        ```
+```  |___/\___/|_|\__,_|\__|_|\___/|_| |_|                                                                                                                        ```
+```                                                                                                                                                               ```
+```  ;                                                                                                                                                            ```
+```                                                                                                                                                               ```
+```  data _null_;                                                                                                                                                 ```
+```    set sashelp.vtable (where=(libname="WORK"));                                                                                                               ```
+```    call symputx('memname',memname);                                                                                                                           ```
+```    rc=dosubl('                                                                                                                                                ```
+```        proc datasets library=work nolist;                                                                                                                     ```
+```          modify &memname;                                                                                                                                     ```
+```          attrib _all_ label = "" ;                                                                                                                            ```
+```          format _all_;                                                                                                                                        ```
+```          informat _all_;                                                                                                                                      ```
+```        run;quit;                                                                                                                                              ```
+```    ');                                                                                                                                                        ```
+```  run;                                                                                                                                                         ```
+```                                                                                                                                                               ```
+```                                                                                                                                                               ```
+```                                                                                                                                                               ```
+```                                                                                                                                                               ```
+```                                                                                                                                                               ```
+
+

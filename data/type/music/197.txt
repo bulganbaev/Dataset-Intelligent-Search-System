@@ -1,0 +1,31 @@
+
+Melodious-Medley
+Anshit Vishwakarma
+17119005
+Production and Industrial Engineering
+II Year
+CodeLink-https://github.com/anshitdead/Melodious-Medley/blob/master/Melodious_Medley_FinalModel.py
+Introduction-
+This document gives the detailed method and algorithm applied by me in Melodious Medley,in which we have to suggest a new song to a person based on his/her preferences and music taste by making a predictive model.
+Feature extraction from Datasets-
+The Dataset consists of 15 features in which I have used 14 features(excluding ID as it does not have major impact in prediction).The Data does not have any missing data which makes the work little bit easier.Missing data in pandas dataframe can be checked using dataset.isnull().sum().sum() which gives you the total number of missing data in your raw data.
+The most difficult and import feature to deal with is ts_listen. It is the Time-Series Data which can be used in pandas dataframe using dataset['ts_listen']=pd.to_datetime(dataset.ts_listen) #This line convert the raw data into a systematic data-time format which can be further used to extract different values from it.For eg. Date, Hour, seconds, milliseconds, day of the week,Year, etc.
+I have used weekday feature using dataset2['Weekday']=dataset2.ts_listen.dt.weekday
+#This will create a new column namely ‘Weekday’ which will contain the day of the week in which the particular song was listened. It gives the value of 1 to 6 (Monday=0,Tuesday=1,....,Sunday=6).
+I have used this feature considering the fact that a person will prefer to listen more songs on a weekend than on a working day.Now to use the Weekday feature into my model training ,I converted it into dummy variables using pandas command
+dataset = pd.get_dummies(dataset, columns=['Weekday'], drop_first=True) #which simply create the dummy variables with one less variable to avoid dummy-variable trap.
+Now the dataset is normalized the dataset using StandardScalar which converts x’=(x-mean)/s.d .Important point to note is that I have used the same mean and standard deviation for training, vaid and test datasets.
+Algorithms used in training-
+I have tried many  predictive algorithms such as RandomForest, XGBoost, LightGBM and ANN. Out of all the algorithms I tried LightGBM and ANN were the best with 0.87% Accuracy(*Parameter tuning applied).Now lets go deeper into both the Algorithms.
+1.LightGBM
+Light GBM is a fast, distributed, high-performance gradient boosting framework based on decision tree algorithm, used for ranking, classification and many other machine learning tasks.
+Since it is based on decision tree algorithms, it splits the tree leaf wise with the best fit whereas other boosting algorithms split the tree depth wise or level wise rather than leaf-wise. So when growing on the same leaf in Light GBM, the leaf-wise algorithm can reduce more loss than the level-wise algorithm and hence results in much better accuracy which can rarely be achieved by any of the existing boosting algorithms. Also, it is surprisingly very fast, hence the word ‘Light’.
+I have trained the model 100 rounds with Grid search parameter tuning applied to it. At last it was concluded that model performs best in its default parameters only.
+2.ANN
+An ANN can easily be applied for a predictive training by making the number of nodes in the last layer equal to 1, using sigmoid activation in that neutron and using Binary Cross Entropy Loss.
+I have trained a deeper model in this problem with 5 layers and 30 neurons in each layer.I have also used DROPOUT regularization with p=0.2 which simply avoids the model to overfit the training data and learn more robust features.I have trained the model with batch size =16 and epochs=10. RELU activations are applied in every layers as they outperforms other activations.
+Model Evaluation
+I have divided the training data into 80-20 split(80% training and 20% validation Data). The validation data is used to evaluate the model and for parameter tuning.For evaluation I tried both accuracy_score & roc_auc_score.
+REMARKS-
+As both the models were performing almost similar on the testset. I decided to use model ensembling of both the models. I simply calculated the final probabilities by both the algorithms and took mean. #ypred=(y_pred1+y_pred2)/2 and finally converted ypred>0.5 to 1 and ypred<0.5 to 0.
+

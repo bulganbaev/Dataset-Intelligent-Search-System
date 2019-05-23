@@ -1,0 +1,10 @@
+
+Tools-for-Image-Dataset-management
+Here are various tools for Image dataset management.
+
+Run Images_to_np_array.py for converting images into numpy array
+Run Rename.py for renaming images.
+Run psnr.py to calculate PSNR of images.
+Run split.py to split images into Train and Test folders.
+
+

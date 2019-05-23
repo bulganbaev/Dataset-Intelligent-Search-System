@@ -1,0 +1,5 @@
+
+How can we cluster text data effectively?
+I'm looking into visualising and clustering the 20 Newsgroups dataset, comparing performance to actual labels.
+See cluster_comparison.ipynb for WIP analysis.
+

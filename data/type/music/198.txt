@@ -1,0 +1,4 @@
+
+Song_recommendation_system
+Each and every person have their unique taste toward music. If musical company find the pattern in the user dataset and approach each and every person individual with what they like, then they could make more profit. Here i have created a recommendation model using (Descision tree and Extra tree) algorithm, this model find some critical pattern and recommend best music based on each and every person interest
+

@@ -1,0 +1,4 @@
+
+Top-Charts-
+Data Science Project - Exploratory Data Analysis & Problem formulation¶ Today we're going to be analysing the music of the '00s. Given a Billboard chart dataset, can we analyse and find out:  What made a hit soar to the top of the charts; How long they stayed there? We will dig into our handy Data Scientist's toolbox to answer these questions, using python and pandas for data cleaning, as well as Tableau for some beautiful visualisations to tell our story! Along the way we will use the pivot_table and melt functionality of pandas to make our lives easier.
+

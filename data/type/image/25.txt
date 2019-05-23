@@ -1,0 +1,34 @@
+
+Find_Similar_Images
+In this project, I have used OpenCV library in Python to find the similar images in a dataset.
+The methods that have been used are Color Histograms and Feature Matching to predict whether given two images are similar or not.
+The Similarity of Images have been classified into 4 categories:
+
+Almost Same
+Very Similar
+Somewhat Similar
+No Match
+
+For the use of this project, make sure OpenCV2 is installed with SIFT/SURF features along with other libraries like matplotlib, scipy, numpy etc.
+Clone the repository by using
+
+
+git clone https://github.com/mansigoel/Find_Similar_Images.git
+cd Find_Similar_Images
+
+
+Create a folder 'Dataset' and add all the images there
+
+
+mkdir Dataset
+
+
+run final.py
+
+
+python final.py
+
+
+When asked, enter the full path of image like 'Dataset/image.jpg' without quotes.
+Script will run and the status of every image [Match or not] can be seen on terminal along with their correlation and feature match percentage.
+

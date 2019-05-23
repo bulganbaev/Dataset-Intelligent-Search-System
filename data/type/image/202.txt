@@ -1,0 +1,9 @@
+
+Principal-Component-Analysis-PCA-on-image-dataset
+show few sample images from training dataset
+
+images are represented by the linear combination of eigenvectors.
+
+Number of eigenvectors are chosen by looking at the "Variance explained graph"
+
+

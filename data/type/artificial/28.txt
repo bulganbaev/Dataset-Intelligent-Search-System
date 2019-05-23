@@ -1,0 +1,38 @@
+
+The AsteroFLAG Artificial Data Generator 3 (AADG3)
+AADG3 simulates lightcurves of solar-like oscillators.  It is based on
+a series of programs derived from the original work by Chaplin et
+al. (1997), which describes the method of generating the
+oscillations using the Laplace transform solution of a damped harmonic
+oscillator.  The use of a correlated excitation component to produce
+mode asymmetry was introduced by Toutain et al. (2006).  Most
+recently, Howe et al. (2015) gave a detailed description of the
+code's methods as part of their validation of BiSON results.
+Variants of the code have been used by the Solar Fitting at Low
+Angular Degree (solarFLAG, e.g. Chaplin et al. 2006) and
+subsequent Asteroseismic Fitting at Low Angular Degree (asteroFLAG,
+e.g. Chaplin et al. 2008) consortia.
+This version is derived from code delivered as version 2, which we
+incremented to the present version.  We publicly released the code as
+part of Ball et al. (2018), in which we also presented a large
+catalogue of mock TESS targets for which we generated data using
+AADG3.
+Please cite these papers appropriately if you use AADG3 in your
+research.
+
+Documentation
+Documentation for AADG3 is available here.
+
+License
+Copyright 2018 Warrick Ball & Bill Chaplin
+AADG3 is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+AADG3 is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with AADG3.  If not, see https://www.gnu.org/licenses/.
+

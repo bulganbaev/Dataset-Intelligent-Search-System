@@ -1,0 +1,16 @@
+
+EXPLORING THE GENRES OF THE KK-BOX MUSIC RECOMMENDATION DATASET
+
+A while ago, KKBox [1] launched a music recommendation challenge on Kaggle [2]. They released a large dataset (>7M rows) containing information on which users listened to which song frequently. For each song, a bunch of additional info was given, including a list of genre IDs. 
+
+In this kernel, I explore the genres with respect to listener behaviour and co-occurrence. Are there pairs or groups of genres, which are commonly listened to by the same users? We could use this type of user-driven genre similarity as a feature in recommender systems, in particular for cold-start cases. Let's say, people who like alternative rock commonly also like indie - we can recommend indie songs to new users who only listened to a few alternative rock tracks so far.
+
+Since we only have the genre-IDs and don't know their "physical" meaning, we cannot use any higher-level background info (i.e. from music genre taxonomies). My idea for this kernel is to model genres in a graph. Each genre represents a node, associated with a node score which indicates how often this genre appears in the train set. Edges between nodes represent co-occurrences. The edge weights indicate how often a single user in the train set liked (by means of target = 1) both genres. For example, if the edge weight between alternative rock and indie has weight 500, this means that there are 500 users with at least one song with target = 1 and alternative rock as a genre tag, who also have at least one song with target = 1 and indie tag.
+
+I first construct a similarity matrix from the training data, then convert it to a networkx graph and use a 2-D layout to visualise genre similarities and popularities.
+
+[1] https://www.kkbox.com/intl/index.php?area=intl
+[2] https://www.kaggle.com/c/kkbox-music-recommendation-challenge
+
+All data can be downloaded at [2]!
+

@@ -1,0 +1,4 @@
+
+COGS108_trending-youtube-videos
+Final project for COGS 108: Data Science in Practice. Exploring a dataset from Kaggle with several months of data on daily trending videos collected using the Youtube API.
+

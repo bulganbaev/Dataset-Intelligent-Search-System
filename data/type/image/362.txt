@@ -1,0 +1,52 @@
+
+Food-101 Dataset Using Transfer Learning
+Inspired by HBO’s Silicon Valley “Not Hotdog” App, I set out to classify not only hotdogs but 101 categories of different foods. The other goal was to use data augmentation and transfer learning and data augmentation to achieve fast(er) training time and accuracy.
+Prerequisites
+
+Food-101 dataset
+Nvidia GPU or cloud GPU instances for training
+Tensoflow
+Keras
+Numpy
+
+Getting Started
+
+git clone  + repo URL
+cd to repo
+pip install -r /requirements/requirement.txt If packages are not yet installed
+
+
+Train model: python food_101.py -m train 
+Test model: python food_101.py -m test -i test_image.jpg
+
+History
+
+Initial test with 48% accuracy after 2 epochs!
+Add command line arguments including dropout.
+
+Built With
+
+Tensoflow - Software library for numerical computation using data flow graphs
+Keras - Deep Learning library
+Matplotlib - Python 2D plotting library
+Numpy - Package for scientific computing
+
+Contributing
+
+Fork it! Star it?
+Create your feature branch: git checkout -b my-new-feature
+Commit your changes: git commit -am 'Add some feature'
+Push to the branch: git push origin my-new-feature
+Submit a pull request :D
+
+Authors
+
+Jorge Ceja - Initial work - Account
+
+Acknowledgments
+
+Food-101 – Mining Discriminative Components with Random Forests - Research Paper
+Deep Residual Learning for Image Recognition - arXiv
+Going Deeper with Convolutions ("Inception") - arXiv
+
+

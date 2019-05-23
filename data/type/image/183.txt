@@ -1,0 +1,4 @@
+
+Mainly for transforming the dataset of images.
+Download the data here and unzip it in a directory called data/.
+

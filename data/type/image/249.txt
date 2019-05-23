@@ -1,0 +1,4 @@
+
+Handwritten-Digits-Classification-using-MNIST-dataset
+Developed a 5-layer Sequential Convolutional Neural Network using Keras with Tensorflow backend for digit recognition trained on MNIST dataset. Adjusted parameters such as kernel size, activation function and optimizer properties to compute the best fit. Obtained an accuracy of 97.12%. Performed Data Augmentation such as image scaling, image flips and image rotation to avoid overfitting and increase the accuracy to 98.02%. Compared the accuracy to KNN, Logistic Regression, Random Forest which had accuracies of 96.37%, 91.22% and 96.19% respectively.
+

@@ -1,0 +1,29 @@
+
+Author-Identification-using-Text-Mining
+This Dataset is taken from Kaggle Challenge. This demonstration includes data cleaning, visualization, analysis and modelling. Accuracy of classification: 82%
+It contains Text ID, Sample of text and corresponding author as a .CSV file. Our aim is to predict the author given a set of text. The number of authors in our dataframe is 3. No other information is given with regards to content of text or their arrangement.
+Procedure Followed
+First we drop the Text ID, as they do not reveal any important information and also because we should not rely on it, even in part. (Although I have removed only the prefix of the ID, I have not used numeric ID for prediction)
+Next, we perform some interesting data visualization, such as:
+
+Total number of text entries of each author in our dataset
+Mean Character length of each author's text
+Number of Unique words which each author uses in his text
+Box plot showing character length of authors' texts. This is helpful for outlier detection and the interquartile ranges of character length
+WordCloud depicting most common words used by each author. This can also hint towards what the content is about
+Variation of polarity of each author's text throughout the course of his text
+
+We also perform data cleaning to convert our text into bag-of-words format. This involves the following steps:
+
+Converting text into lower case
+Removing stop-words (articles, prepositions, etc.), punctuations
+Next we perform lemmatization (walk, walked, walks, walking) and tokenization (creating tokens for each word). These are done to prevent not-useful increase in feature dimensionality, and to create a DTM later respectively.
+Next we use CountVectorizer to count occurence of each feature (word) for input to our model (in our case, Naive Bayes Classifier)
+We can also perform advanced pre-processing for better accuracy like N-Grams (to take multiple words together as one feature like 'not good'.)
+Another technique is to use TfIdf, which penalizes highly frequent words because of their lesser importance compared to less common words. It can be considered somewhat analogous to Feature Scaling.
+
+Next we use TextBlob to understand polarity and subjectivity (Sentiment Analysis) for each text sample. However, I did not use this sentiment as a feature for the eventual model.
+In this project, I also explore preliminary Latent Dirichlet Analysis to understand topic of each author.
+Lastly I train-test-split data (instead of cross validation) as the classes are nearly balanced, and I apply NB and XGB Classifier. Clearly, in this case NB Classifier is better for text data.
+Any suggestions are welcome at harsh.15110054@iitgn.ac.in. Thanks:)
+

@@ -1,0 +1,201 @@
+
+🎮 Awesome Game Datasets 
+In computer science, Artificial Intelligence (AI) is intelligence demonstrated by machines. Its definition, AI research as the study of "intelligent agents": any device that perceives its environment and takes actions that achieving its goals. Russell et. al (2016)
+Withal, Data Mining (DM) is the process of discovering patterns in data sets (or datasets) involving methods of machine learning, statistics, and database systems; DM focus on extract the information of datasets. Han (2011)
+This repository serves as a guide for anyone who wants to work with Artificial Intelligence or Data Mining applied in digital games! Here you will find a series of datasets, tools and materials available to build your application or dataset.
+References
+Han, J., Pei, J., Kamber, M. (2011). Data mining: concepts and techniques. Elsevier.
+Russell, S. J., Norvig, P. (2016). Artificial intelligence: a modern approach. Malaysia; Pearson Education Limited.
+Contributing
+Any suggestions or doubts, please open an "issue". If you want to contribute, read this and make a "pull request".
+
+Contents
+
+API
+Artificial Intelligence
+
+Mobile
+Web
+
+
+Dataset
+
+Related
+
+
+Miscellaneous
+
+
+API
+API is "a set of functions and procedures allowing the creation of applications that access the features or data of an operating system, application, or other service" (Google).
+
+Battle.net - Collection of games developed by Blizzard.
+Battlefield 4 Stats - Stats, rankings, and progression of a player.
+BoardGameGeek - Board games data.
+EVE Online - Science fiction massively multiplayer online game.
+Giant Bomb - Game data and players review.
+IGDB - General information of games from any platform.
+metacritc - Game reviews and evaluation.
+OpenDota - Platform providing Dota 2 data.
+PandaScore - Realtime eSports data.
+PokéAPI - Pokémon data of all generations.
+Riot Games - Active games, match history, and ranked statistics.
+smm-course-search - Search courses from Super Mario Maker game.
+smm-course-viewer - Read courses from Super Mario Maker saves.
+smm-maker-profile - Fetch the user profile from Super Mario Maker game.
+Steam Database - Serie of tools to Steam data. Website.
+Steam Spy - Game statistical from Steam users profiles.
+Steam Web API - Query tool from Steam.
+TGDB - General information of games from any platform. Website.
+vgchartzScrape - Crawler from VGChartz.
+Xbox LIVE API - Games, apps, users stats and messages. Website, paper.
+
+
+Artificial Intelligence
+
+AI Birds - Artificial intelligence competition.
+Angry Bots - Shooting game against robots.
+Daimonin - Isometric MMORPG.
+Deliantra - Adventure game in a medieval environment.
+Dungeon and Cave Generation - Constructive generation methods for dungeons and levels.
+Dungeon Crawl: Stone Soup - Roguelike adventure.
+Fighting Game AI Competition - Controller for a fighting game.
+FlightGear Flight Simulator - Flight simulator.
+Game Data Mining Competition - Competition of prediction of the players' behavior.
+General Video Game AI - Controller for general video game playing. Paper.
+Hanabi Competition - Board game competition.
+Hearthstone AI - Card game competition.
+Infinite Mario Bros - Super Mario competition. Platformer AI antecedent. Website.
+irrlamb - Puzzle game with physics effects in 3D.
+Malmo - Platform built on top of Minecraft game.
+microRTS - RTS game competition. PT-BR.
+MiniDungeons - Procedural dungeon-like game.
+Ms. Pac-Man - Pac-Man game competition. Website.
+OpenLieroX - Liero (similar to Worms) game.
+Platformer AI - Super Mario competition.
+polyworld - Artificial life system.
+qengine - Retro game engine.
+Retro Contest - Competition on SEGA Genesis games. Website.
+Robocode - Robot battle tank competition.
+Showdown AI Competition - Competition of Pokemon battle. Website, paper.
+StarCraft AI Competition - StarCraft game competition.
+Text-Based Adventure AI Competition - Text-adventure game competition. Website.
+The Genius - Chess engine.
+Vindinium - Multi-player turn based on roguelike competition. Documentation.
+Visual Doom AI Competition - Doom game competition. Website.
+
+Mobile
+
+Pixel Dungeon - Roguelike game.
+Shattered Pixel Dungeon - Improved Pixel Dungeon.
+
+Web
+
+Digger - Boulderdash game. Play.
+Duck Hunt - Shooting game in ducks. Play.
+Infinite Mario Bros - Super Mario Bros. Play.
+Onslaught! Arena - Fight off hordes of medieval monsters. Play.
+Starship - Traditional starship game. Play.
+TapAI - User interactions with a tap on screen game. Play.
+WebNES - Play rooms of NES in web browser. Play.
+
+
+Dataset
+
+(LoL) League of Legends Ranked Games - Matches details from ranked games.
+2018 FIFA World Cup Squads - Squad details for teams participating in the World Cup.
+Board Game Data - Data from board games.
+Board Games Dataset - Attributes and the ratings from board games in BoardGameGeek.
+Boardgaming Online Game Records - Playthroughs of board games.
+Caltech Games - Game covers.
+Clash of Clans app store user comments - User reviews from Google Play and iTunes App Store.
+Clash royale Dataset - Cards data.
+Complete FIFA 2017 Player dataset (Global) - Players data.
+Condensing Steam: Distilling the Diversity of Gamer Behavior - Temporal games data.
+Connect-4 Data Set - Connect-4 game matches.
+CS:GO Competitive Matchmaking Data - Damage entries on rounds played.
+Data Game ClashRoyale - Player data of Clash Royale game.
+Defense of the Ancients - Monsters data from Warcraft III game.
+dnddata - Dataset of Dungeons and Dragons characters.
+Dota 2 Games (UCI) - Matches results.
+FIFA 18 Complete Player Dataset - Players and their attributes.
+Fortnite: Battle Royale - Weapon Attributes - Stats of the weapons.
+Fortnite Statistics_80 Games - End games statistics.
+GOSU.AI Dota 2 Game Chats - Chats from matches replays.
+Hearthstone Cards - Collection of cards.
+History of Hearthstone - Collection of decks.
+LCS 2017 Summer Split Fantasy Player & Team Stats - Player and team data.
+League of Legends Summoner Ids and Data - 2016 - Game data.
+Magic The Gathering Cards - Cards data.
+Oldschool Runescape Polling Data - Historical polling data.
+OpenDota - Continuous database of Dota 2 matches.
+Overwatch - Heros characteristics.
+Overwatch Game Records - Stats of one player from thousands of matches.
+Overwatch Ranked Data - Player and match data.
+Path of exile game statistic - Players data.
+Platform Experience Dataset - Super Mario Bros matches. Paper.
+Pokemon- Weedle's Cave - Battle data of Pokemon.
+Pokémon GO Pokédex - Encyclopedia Pokemon.
+Pokemon with stats - Pokemon data with stats and types.
+Pokemon Wonder Trade Results - Results of wonder trades in Pokemon Moon version.
+PokemonGO - Pokemon and battle stats.
+Predict'em All - Pokemon appear in PokemonGo over time.
+PUBG Match Deaths and Statistics - Matches data.
+Scrabble - Data Quackle game matches.
+SkillCraft-StarCraft - StarCraft 2 league-level performance.
+SMMnet - Network data from Super Mario Maker.
+Starcraft: Scouting The Enemy - Player reconnaissance in professional-level.
+StarCraft 2 (UCI) - Data stream of matches. Paper.
+StarCraft II matches history - Results of matches.
+StarCraft II Replay Analysis - Aggregation of the replays.
+StarData - Matches, videos, etc. Website, paper.
+Steam Game Data - Combination of Steam API and Steam Spy.
+Super Trunfo - Dinossaurs 2 - Cards of this game.
+Terra Mystica Snellman Statistics - Game logs and statistics.
+The Complete Pokemon Dataset - Pokemon data from all generations.
+Travian buildings - Time, cost and bonus of buildings.
+World of Warcraft Avatar History - Collection of records. Website.
+World of Warcraft Battlegrounds - Details of battlegrounds.
+
+Related
+
+20 Years of Games - Review data from IGN.
+Google Play Store Apps - Data from Play Store apps.
+JVC Game Reviews - Video game data from JeuxVideo.com.
+Kickstarter Datasets - Projects details.
+Metacritic games - Games data from metacritc.
+Over 13,000 Steam Games - Prices of video games from Steam.
+PEW-Gaming-Broadband - Questions about video games.
+Steam Video Games - Steam user interactions.
+Vandal Game Reviews - Game data from Vandal.com.
+Video Game DATA - Video games released.
+Video Game Sales - Sales data from games.
+Video Game Sales with Ratings - Video game sales and rating from metacritc.
+Video Games Review - Reviews on JeuxVideo.com.
+Video Games Sales 2019 - Sales and scores for games.
+World Top 100 Countries by Game Revenues - Global game revenue.
+
+
+Miscellaneous
+
+Academic Torrents - Sharing enormous datasets.
+ArchiveRL - Historical roguelike games. reddit.
+Awesome ACG - Technologies related to anime, comic and games.
+AWS Datasets - Amazon public datasets.
+data.world - Datasets.
+Games of Coding - Games to teach programming language.
+Games on GitHub - Popular videos games hosted in GitHub.
+Libre Game Wiki - Free gaming encyclopedia.
+Open HTML5 Games - JavaScript and HTML5 games. Play.
+Open-source games - Open-source games (PT-BR).
+UCI - Datasets.
+Yahoo! Datasets - Datasets.
+
+
+License
+
+
+License: Creative Commons Attribution-ShareAlike 4.0 International License
+Create by Leonardo Mauro ~ leomaurodesenv
+
+

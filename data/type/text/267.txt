@@ -1,0 +1,52 @@
+
+JURI-classif
+Unsupervized clustering using kmeans for the JURICAF dataset (open dataset for french supreme court decisions)
+Dependencies/libraries
+Requires:
+
+scikit-learn
+numpy
+matplotlib
+
+Dataset
+You can find more info and downloadable files at :
+https://www.data.gouv.fr/en/reuses/juricaf/
+The dataset consists of thousands of xml files arranged in folders/subfolders.
+The French open-data bill has allowed public diffusion of many datasets, including appeal and supreme court decisions. The decisions are first anonymized, then broadcasted in raw text. https://www.data.gouv.fr/fr/ and more specifically for juridic data : http://rip.journal-officiel.gouv.fr/
+Pre processing of data:
+To start with, we have to build a stopwords list. Stopwords are considered as not giving significant meaning to the text and therefore are eliminated from the text before applying the clustering algorithm. The initial list has been downloaded from a pypi standard set for French https://pypi.python.org/pypi/stop-words/2014.5.26 exists also in 15 other languages).
+Then we have to consider removal of punctuation:  “, : ! ?” . One special case will be the “dot” as it may be part of figures (ex: 20.000) and also spacing might have been mistyped during the transcription of the document and could lead to consider words which are not (ex: “languages.Because” != “languages. Because”). For that we will use a regular expression which adds a space after the dot if between 2 letters. This operation is crucial as it is greatly reduce our future dictionary size.
+Finally we build a count matrix which will display the amount of time each word is found in the full dataset. By looking at the most common words, we will be able to tailor the stopwords list and keep only significant words. This counter will also provide info about our dictionary size.
+Clustering with initial Latent Semantic Analysis and Inverse Document Frequency feature weighting:
+1) the process:
+Our dataset is pretty big therefore we will use a clustering algorithm made for large datasets: Minibatch K-means.
+(http://upcommons.upc.edu/bitstream/handle/2117/23414/R13-8.pdf)
+To start with, we use the preprocessing count matrix to map the most frequent words and build a sparse frequency matrix.
+We then apply a TFIDF/IDF wchi will allow to give more importance to words of low frequency but high-meaning by applying the following formula on the matrix weighs :
+TFIDFi,j = ( Ni,j / N*,j ) * log( D / Di ) where:
+Ni,j = the number of times word i appears in document j (the original cell count).
+N*,j = the number of total words in document j (just add the counts in column j).
+D = the number of documents (the number of columns).
+Di = the number of documents in which word i appears (the number of non-zero columns in row i).
+Before the clustering, we run first a Latent Semantic Analysis algorithm (using Singular Value Decomposition) which will allow us a dimension reduction of the occurrence matrix.  The computational resources needed will be vastly reduced this way.
+Normalization is applied.
+Finally we run the K-Means algorithm for clustering.
+We then measure the quality of our clustering by using the Silhouette Coefficient analysis.
+2) First results and corrections
+The first runs are executed with different amounts of cluster to find (10, 20…, 100), variable dimensionality reduction rate (100, 110, 120…, 300) and variable amount of features in the count matrix (5000, 10000, 15000, … , 50000). These values have been chosen according to the vocabulary size which is around 40000, and the usual qualitative reduction rate obtained by LSA which is around 100-250 (22000 / 100 = 220).
+The first results are showing that the silhouette coheficient is quite low (between 0.25 and 0.5) and is rising when we higher the amount of clusters to find (k=1000 => s=0.696) which is the sign that the dataset contains too many outliers to get clusters with proper silhouette.
+We also noticed that there is a lot of meaningless terms so the first thing to do is to remove them as much as possible by looking at the top terms for each clusters and adding the meaningless words to the stop words array. This is a manual process which is long and boring, but which significantly improve the relevance of our clusters.
+We can also partly achieve this goal by lowering the max_df parameter which corresponds to terms that appears in max_df% of the dataset and slightly increasing the min_df which allows terms that only appears in a minimum of min_df documents...
+A quick look at the top terms in each cluster is showing a clustering of documents by law practices, which would be logical for this dataset. It looks promising, but lower ranking terms might still be disparate.
+3) Potential improvements:
+
+lsa=256
+change the minibatch inertia converging
+introduce the 2 step kmeans clustering, starting with local centroids, then global centroid so we get a better initial spatial partition between centroids.
+use DBSCAN/HDBSCAN instead of kmeans
+
+silhouette coefficient with Linear Discriminant analysis.
+compare with hierarchical clustering
+SOM/Neural gas
+
+

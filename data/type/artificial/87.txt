@@ -1,0 +1,41 @@
+
+Decision trees with missing values
+This project measures the accuracy of the decision tree learning algorithm with multiple missing values in the dataset.
+
+Prerequisites
+
+Python 3 installed (tested on v3.6).
+matplotlib library installed for 2d plotting.
+
+How to use
+Run tests.py to start testing accuracies for three datasets provided (car.txt, phishing.txt, nursery.txt).
+Each dataset is tested multiple times using test() function with different probabilities of a missing value (0%, 10%, 20% and 50%).
+Accuracies are measured with the 10-fold cross-validation technique, and results are averaged over 10 shuffles.
+When all tests are done, a 2d graph will be plotted with matplotlib to compare the results, using plot_accuracies() function. An example plot is shown below.
+
+
+
+Code
+When an attribute has one or more missing values, those are handled by assigning the most common value for that attribute among all training examples, as seen in section 3.7.4 of Machine Learning by T. Mitchell (1997). The code to arbitrarily remove and then handle missing values is found in missing_values.py.
+decision_fork.py, decision_leaf.py, dt_learner.py, utils.py, dataset.py and cross_validation.py combine the data structures and functions required to run the project. Most of this code is adaptated from the aima-python repository.
+More information about the datasets used in this project can be found here.
+Test your own dataset
+To test your own dataset, copy the file to /datasets (both txt and csv file formats are supported). Then in tests.py you can run the code below:
+file = parse_file("datasets/YOUR_DATASET_HERE.csv")
+dataset = DataSet(name="YOUR_DATASET_NAME", examples=file, target=x)
+test(dataset)
+
+NOTE: x is the index of the attribute target used for classification.
+If you also want to plot the accuracy (requires matplotlib):
+accuracy = test(dataset)
+plot_accuracies([accuracy], ["YOUR_DATASET_NAME"])
+
+References
+
+Artificial Intelligence - A Modern Approach - Peter Norvig, Stuart J. Russell, 3rd edition. Pearson, 2010.
+UCI ML Repository - offers several free datasets.
+aima-python repository - provides most of the code for decision trees and cross validation used in this project.
+Machine Learning - Tom Mitchell, McGraw Hill, 1997.
+Stack Overflow
+
+

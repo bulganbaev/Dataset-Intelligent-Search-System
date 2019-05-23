@@ -1,0 +1,19 @@
+
+Markov chain text generator
+The Markovgen software is designed to allow you to quickly and easily train a markovchain on a text dataset, and to generate an arbitrary amount of text with the trained model.
+How to compile
+There is only one code file, main.cpp, to compile it simply clone or download the repository, open a terminal in the repository directory and run g++ main.cpp --std=c++11 -o markovgen. Add -O6 to optimize for speed.
+How to use
+If you have a textfile data.txt you wish to use to generate text, you can simply run ./markovgen data.txt, and it will use the default parameters and generate a bit of text.
+Run ./markovgen -h or ./markovgen --help for more information on what parameters can be set.
+Current state
+Active development
+
+ Generate text from single input file
+ Progress bar during training
+ Allow arbitrary number of input files, as well as standard input
+ Allow saving and loading of models
+ Greater control over how model is interpreted and text is generated
+ Makefile and/or script for compiling and installing
+
+

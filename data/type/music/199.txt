@@ -1,0 +1,4 @@
+
+CLASSIFY-SONG-GENRES-FROM-AUDIO-DATA
+Using a dataset comprised of songs of two music genres (Hip-Hop and Rock), I have trained a classifier to distinguish between the two genres based only on track information derived from Echonest (now part of Spotify). use the scikit-learn package to predict whether  correctly classify a song's genre based on features such as danceability, energy, acousticness, tempo, etc. It will go over implementations of common algorithms such as PCA, logistic regression, decision trees, and so forth.
+

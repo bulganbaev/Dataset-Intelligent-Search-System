@@ -1,0 +1,48 @@
+
+Text To Image Synthesis
+This is an experimental tensorflow implementation of synthesizing images. The images are synthesized using the GAN-CLS Algorithm from the paper Generative Adversarial Text-to-Image Synthesis. This implementation is built on top of the excellent DCGAN in Tensorflow.
+
+Image Source : Generative Adversarial Text-to-Image Synthesis Paper
+Requirements
+
+TensorFlow 1.0+
+TensorLayer 1.4+
+NLTK : for tokenizer
+
+Datasets
+
+The model is currently trained on the flowers dataset. Download the images from here and save them in 102flowers/102flowers/*.jpg. Also download the captions from this link. Extract the archive, copy the text_c10 folder and paste it in 102flowers/text_c10/class_*.
+
+N.B  You can downloads all data files needed manually or simply run the downloads.py and put the correct files to the right directories.
+python downloads.py
+Codes
+
+downloads.py download Oxford-102 flower dataset and caption files(run this first).
+data_loader.py load data for further processing.
+train_txt2im.py train a text to image model.
+utils.py helper functions.
+model.py models.
+
+Deployment of Web Application
+
+Upload all the trained (npz) and web app files to web server or domain
+input.php run the input.php file to give input.
+Give input and submit get desired output .
+
+References
+
+Generative Adversarial Text-to-Image Synthesis Paper
+Generative Adversarial Text-to-Image Synthesis Torch Code
+Skip Thought Vectors Paper
+Skip Thought Vectors Code
+Generative Adversarial Text-to-Image Synthesis with Skip Thought Vectors TensorFlow code
+DCGAN in Tensorflow
+
+Results
+
+these white flowers have petals that start off white in color and end in a white towards the tips.
+
+
+License
+Apache 2.0
+

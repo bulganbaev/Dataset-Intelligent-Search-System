@@ -1,0 +1,51 @@
+
+Yelp Dataset Challenge
+The problem of predicting a user's star rating for a product, given the user's text review for that product, is called Review Rating Prediction and has lately become a popular, problem in machine learning. In this project, we implement an approach which involves a combination of topic modeling and sentiment analysis to achieve this objective by treating Review Rating Prediction as a multi-class classification problem, and building different prediction models by using Latent Dirichlet Allocation as the underlying feature extraction method with three machine learning algorithms, (i) K Nearest Neighbors, (ii) Multinomial Naive Bayes and (iii) Random Forest. We analyze the performance of each of these models to come up with the best model for predicting the ratings from reviews. We use the dataset provided by Yelp for training and testing the models.
+
+CIS6930 : INTRODUCTION TO DATA MINING - RATING PREDICTION BASED ON USER REVIEWS
+INTRODUCTION
+The project folder contains:
+ - Ratings_Prediction_Final.ipynb
+ - Ratings_Prediction_Final.py
+ - Ratings Prediction Presentation
+ - IDM Project report
+ - README
+ - business.csv
+ - review.csv
+ - user.csv
+
+PRE-REQUISITES
+The following need to be installed to run the project:
+
+Python
+Jupyter Notebook
+
+INSTRUCTIONS FOR EXECUTION
+Steps to run .ipynb file
+
+Unzip the folder in the directory in which you wish to run the script.
+From the terminal, cd to the directory in which the above files are extracted
+Run 'jupyter notebook Ratings_Prediction_Final.ipynb'
+If jupyter notebook is not installed in your machine, you will get some error.
+Install jupyter notebook and then repeat step 3
+The notebook will start running and the application will be automatically opened in a new browser window.
+The results will be displayed on the browser from prior executions.
+
+Results can be viewed at the following lines in the script:
+Data Exploration - Lines 8,9,14,15
+Final results from all 3 models(LDA) - Lines 44,45,47
+Final results from all 3 models(LDA+Sentiment) - Lines 52,53,56
+7. To execute it from the beginning, click on the menu, Cell -> Run All.
+Note: The execution takes a little over 30 minutes to run all the models and display the results.
+8. To close the program, click on the menu, File -> Close and Halt.
+Steps to run .py file
+
+Unzip the folder in the directory in which you wish to run the script.
+From the terminal, cd to the directory in which the above files are extracted.
+Run 'python Ratings_Prediction_Final.py'
+If you encounter 'no such package' error, install required packages and its dependencies.
+When all dependencies are resolved, script will start running.
+Results and graphs can be viewed on the terminal.
+Note: The execution takes a little over an hour to run all the models and display the results.
+
+

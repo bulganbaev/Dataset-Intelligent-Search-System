@@ -1,0 +1,5 @@
+
+youtubeSportsVideoDataSet
+Youtube Sports Video Datasets
+Take from: http://cs.stanford.edu/people/karpathy/deepvideo/
+

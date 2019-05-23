@@ -1,0 +1,13 @@
+
+MergedSymbolsKannada
+Benchmarking dataset of merged symbols in Kannada along with their associated ground truth Unicode text
+The GroundTruthUnicode.txt file contains the ground truth Unicode text for each of the test images in TestImages folder.
+The following conventions are used in Unicode representation:
+A zero-width non-joner (ZWNJ) is used when a pure-consonant needs to be represented in un-modified form. For example,
+: ಜೆಟ್‌ನಿ
+When a vowel modifier such as anusvara or vowel_sign_ii appear at the beginning of the merged symbol sequence, the ground truth will have the Unicode of that depenent vowel at the beginning. For example:
+: ಂದಾದ
+ -> ೀಳುತಿದ
+An exception to the above rule is for arkaa ottu, which for simplicity, is represented using Kannada digit nine (೯) in the ground truth. For example:
+: ೯ಸಂ
+

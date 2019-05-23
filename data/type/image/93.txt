@@ -1,0 +1,5 @@
+
+Custom-Image-dataset-recognition
+A custom image dataset recognizer using CNN and openCV
+This project was based on creating our own data image dataset using webcam and training our Convolution Neural Network on them.
+

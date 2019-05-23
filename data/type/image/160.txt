@@ -1,0 +1,345 @@
+
+Circle ZigZag dataset
+This repository has a very tiny image dataset of hand drawing of Circle and ZigZag.
+In addition, it has datasets including more classes like 5 and 41 classes.
+
+Number of classes is 2. (and 5, 41.)
+Image size is 28x28.
+6000 images for each classes.
+
+You can download dataset as follows.
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/2/train.zip
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/2/test.zip
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/2/answer.csv
+
+train.zip is dataset for training.
+test.zip is dataset for testing.
+answer.csv is answers of testing.
+If you would like to get class list from training images, you can get them as follows.
+images = os.listdir("./train")
+class_list = sorted(list(set([f.split("_")[0] for f in images])))
+2 classes dataset
+
+Classes: circle and zigzag
+
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/2/train.zip
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/2/test.zip
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/2/answer.csv
+
+example:
+
+
+
+class
+-
+-
+
+
+
+
+circle
+
+
+
+
+zigzag
+
+
+
+
+
+5 classes dataset
+
+5 class images related with face
+
+face, ear, eye, mouth and nose.
+
+
+
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/5/train.zip
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/5/test.zip
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/5/answer.csv
+
+example:
+
+
+
+class
+-
+-
+
+
+
+
+ear
+
+
+
+
+eye
+
+
+
+
+face
+
+
+
+
+mouth
+
+
+
+
+nose
+
+
+
+
+
+41 classes dataset
+
+Classes whose name starts with "A" or "B".
+
+airplane, ambulance, angel, ant, anvil, apple, arm, asparagus, axe, backpack, bandage, barn, bat, bathtub, beach, bear, beard, bed, bee, belt, bench, bicycle, binoculars, bird, blackberry, blueberry, book, boomerang, bottlecap, bowtie, bracelet, brain, bread, bridge, broccoli, broom, bucket, bulldozer, bus, bush, butterfly
+
+
+
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/41/train.zip
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/41/test.zip
+$ wget -q https://github.com/ikeyasu/circle-zigzag-dataset/releases/download/41/answer.csv
+
+example:
+
+
+
+class
+-
+-
+
+
+
+
+airplane
+
+
+
+
+ambulance
+
+
+
+
+angel
+
+
+
+
+ant
+
+
+
+
+anvil
+
+
+
+
+apple
+
+
+
+
+arm
+
+
+
+
+asparagus
+
+
+
+
+axe
+
+
+
+
+backpack
+
+
+
+
+bandage
+
+
+
+
+barn
+
+
+
+
+bat
+
+
+
+
+bathtub
+
+
+
+
+beach
+
+
+
+
+bear
+
+
+
+
+beard
+
+
+
+
+bed
+
+
+
+
+bee
+
+
+
+
+belt
+
+
+
+
+bench
+
+
+
+
+bicycle
+
+
+
+
+binoculars
+
+
+
+
+bird
+
+
+
+
+blackberry
+
+
+
+
+blueberry
+
+
+
+
+book
+
+
+
+
+boomerang
+
+
+
+
+bottlecap
+
+
+
+
+bowtie
+
+
+
+
+bracelet
+
+
+
+
+brain
+
+
+
+
+bread
+
+
+
+
+bridge
+
+
+
+
+broccoli
+
+
+
+
+broom
+
+
+
+
+bucket
+
+
+
+
+bulldozer
+
+
+
+
+bus
+
+
+
+
+bush
+
+
+
+
+butterfly
+
+
+
+
+
+License
+The Quick, Draw! Dataset
+https://github.com/googlecreativelab/quickdraw-dataset/blob/master/LICENSE
+This data made available by Google, Inc. under the Creative Commons Attribution 4.0 International license.
+https://creativecommons.org/licenses/by/4.0/
+
+convert.py
+https://github.com/C-Aniruddh/RapidDraw#license
+Copyright 2017 Aniruddh Chandratre
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+

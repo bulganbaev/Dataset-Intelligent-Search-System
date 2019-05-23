@@ -1,0 +1,175 @@
+
+CHANGE SPATIAL RESOLUTION AND CROP
+
+The code executes image processing of images/masks. Firstly, the spatial resolution of the image/mask is changed, with an option to delete the original files simultaneously to free up the space. After this, these images/masks can be passed for cropping into a specified number of divisions (specified by height_division, width_division and size) and the resultant cropped images can be optionally resized. An additional functionality of extracting and/or exporting only roads and buildings from the masks has also been created through convenience functions.
+A working example can be seen in the test.py file
+Files involved :-
+
+
+cropping.py
+Class crop_and_save changes the spatial resolution of the images/masks and then crops them into width_division* height_division number of images and stores the output to OUTPUT_FOLDER .
+It also asks for corresponding deletion of original images from the user from the original image folder.
+The Parameters involved are :
+
+
+IM_FOLDER : Path to folder that contains all the images
+
+
+MASK_FOLDER : Path to folder that contains all the masks
+
+
+OUTPUT_FOLDER : Path to folder that crops will be stored in
+
+
+IM_OUT : Name of folder in which cropped images should be stored, under OUTPUT_FOLDER
+
+
+MASK_OUT : Name of folder in which cropped masks should be stored, under OUTPUT_FOLDER
+
+
+width_division : Number of divisions to be put along width of the image
+
+
+height_division : Number of divisions to be put along height of the image
+
+
+size : Size of each crop before resizing
+
+
+pre_resize : Dimension that original image should be resized to before cropping
+
+
+resize_to : Dimension of final output image after cropping
+
+
+images_prefix : Prefix of all output Image crops
+
+
+images_ext : Extension with which crops should be saved with Eg:'.png'
+
+
+spatial_resolution_in : Spatial resolution of images in the dataset
+
+
+spatial_resolution_out : The spatial resolution to which the images will be rescaled to
+
+
+delete_filer_after_processing : If True, all the original files will be deleted after they have been processed
+
+
+import_only :
+
+'Roads' : Read only pixels of value = 1 for each mask
+'Buildings' : Read only pixels of value = 2 for each mask
+
+
+
+export_as :
+
+'Roads' : Convert all non zero pixel values to 1 before saving each mask
+'Buildings' : Convert all non zero pixel values to 2 before saving each mask
+
+
+
+Functions involved are ( names are self-explanatory ) :-
+
+open_image
+change_resolution : changes the resolution by respective multiplication of dimensions by the factor calculated                                                          * make_dir
+make_dir : makes the output directory if it does not exist
+processing : iterates over the image files in the input folder,
+also asks for user's choice to delete the original images or not
+crop_image : crops the image by iterating through the image/mask, the number of overlap times
+( calculated in delta_row and delta_col )
+save_image_crop
+save_mask_crop
+make_name
+presize
+resize
+process : Iterates over the list of images and passes it to processing function
+
+
+
+transformations.py
+The class Transformer applies a list of functions (transforms) to any given image / mask
+Transforms will be applied in the order they are passed in the list
+A transform function is assumed to behave like so:
+transform( image_object ) -> image_object
+where the returned image_object is of the same size as the original image_object
+:returns: A callable instance of a class that applies all the transforms to the passed image_object
+Example usage :
+img = cv2.imread(file_path)
+transformer = Transformer([extract_roads, convert_to_roads])
+img = transformer(img)
+The Functions and respective parameters involved are :-
+
+transforms : (parameter) List of functions that can be applied to the image on calling class
+extract_roads : Takes as input a Mask, and Sets all non-road pixels to Zero.
+A Roads pixel is defined as a Pixel with value = 1
+
+param mask: Mask. Type : numpy.ndarray
+return: Mask with Roads only
+
+
+extract_buildings :  Takes as input a Mask, and Sets all non-building pixels to Zero.
+A Building pixel is defined as a Pixel with value = 2
+
+param mask: Mask. Type : numpy.ndarray
+return: Mask with Buildings only
+
+
+extract_number_from_image : General function to extract given pixels only and set all others to Zero.
+
+param mask: Mask. Type : numpy.ndarray
+param number: Pixel number which has to be extracted. Type : int
+return: Mask with 'number' pixels only
+
+
+convert_to_roads : Equalize all values in mask to Road-pixels
+A Road-pixel has value 1
+
+param mask: Mask to equalize
+return: Returns equalized mask
+
+
+convert_to_buildings : Equalize all values in mask to Road-pixels
+A Road-pixel has value 1
+
+param mask: Mask to equalize
+return: Returns equalized mask
+
+
+
+
+
+convenience.py
+This file comprises of many functions that help to create various check-points in the processing as well
+as add further provide added features.
+The Functions and respective parameters are :
+
+
+find_number_in_string : Finds and returns a number sequence in a given string.
+Assumes : The string has only one continuously unbroken sequence of numbers. If there are multiple sequences,
+the first one will be returned.
+
+param s: String containing number sequence. Type : str or pathlib.Path
+return: String representation of the Number found in the string.
+
+
+
+is_file(PATH)-> bool : Returns True if the file at PATH exists with Size > 0
+
+
+delete_file(PATH)-> bool : To delete the file if found there.
+
+
+
+
+MODULES/PACKAGES USED
+
+pathlib
+cv2
+tqdm
+numpy
+multiprocessing
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>DISS</title>
+
+  </head>
+  <body>
+
+  <div class="container">
+    <div style="background:transparent !important" class="jumbotron">
+      <div style="font-family: 'Pacifico', cursive;">
+        <p>
+          <center>
+          <font size="8">Dataset Intelligent Search System</font>
+          </center>
+        </p>
+      </div>
+    </div>
+
+  <form action="/search/dataset" method="post">
+    <div class="input-group">
+      <input type="text" class="form-control input-lg" name="input" placeholder="Search"  autofocus>
+      <div class="input-group-btn">
+        <button class="btn btn-primary btn-lg" type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <center>
+      <h1>Results: ({{ res['hits']['total']['value']*15 }}) </h1>
+  </center>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Dataset Name</th>
+        <th>Brief Description</th>
+        <th>Preprocessing</th>
+		<th>Instances</th>
+		<th>Format</th>
+		<th>Default Task</th>
+      </tr>
+    </thead>
+
+{% for hit in res['hits']['hits'] %}
+    <tbody>
+      <tr>
+			<th scope="row"><a href="{{ hit['_source']['url'] }}">{{ hit['_source']['dataset_name'] }}</a></th>
+			<td>{{ hit['_source']['description'] }}</td>	
+			<td>{{ hit['_source']['preprocessing'] }}</td>	
+			<td>{{ hit['_source']['instances'] }}</td>	
+			<td>{{ hit['_source']['format'] }}</td>	
+			<td>{{ hit['_source']['defaul_task'] }}</td>	
+      </tr>
+    </tbody>
+{% endfor %}
+  </table>
+
+        <footer class="footer">
+          <p>&copy; 2019 KBTU</p>
+        </footer>
+
+      </div>
+    </div>
+  </body>
+</html>

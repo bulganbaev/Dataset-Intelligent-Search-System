@@ -1,0 +1,4 @@
+
+Video_Game_Analysis
+Exploratory Data Analysis of a Video Game sales dataset with ~17,000 rows and 11 columns using statistical analysis and sub-plotting results with various graphs.
+

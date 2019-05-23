@@ -1,0 +1,4 @@
+
+corr-learn-som-quadrotor
+Simple implementation of the distributed cognitive maps for environment interpretation. The input activity mildly influences the belief of the cortically inspired relaxation network. The network dynamics ensures convergence to a stable state in which all quantities are in agreement given the mathematical constraints. The constraints are learned through biologically plausible mechanisms from data. Sensory correlation learning neural network. Unsupervised learning of functional relationships between 2 input sensory streams. The network uses SOMs to encode the input data into a population code and Hebbian learning to extract the co-activation patterns encoding the function. Datasets from quadrotor system.
+

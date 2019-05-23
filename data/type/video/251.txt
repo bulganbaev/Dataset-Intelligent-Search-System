@@ -1,0 +1,38 @@
+
+Game-Based Video-Context Dialogue
+This repository contains Twitch-FIFA dataset and code for: Game-Based Video-Context Dialogue
+Twitch-FIFA dataset is collected from twitch.tv platform and is subject to research-only purposes in accordance with the Twitch privacy policy. Note that the included MIT license only applies to our code and models.
+Twitch-FIFA Dataset Download - Google Drive
+
+You can download the full processed dataset along with inception-v3 frame-level videos features from here.
+You can download the raw videos at 3fps from here.
+
+Dataset Statistics:
+
+Code and Models
+This code is tested on python 2.7 and tensorflow 1.2.
+Setup:
+Install all the required packages from requirements.txt file.
+create "data" directory and place the downloaded processed data in that directory. The structure should look like as descibed below:
+.
+├── ...
+├── data                   
+│   ├── fifa        
+│   │    ├── train_word.json
+│   │    ├── ...                
+└── ...
+
+Run Code:
+use run.sh script to train and test models
+Pretrained Models
+Download the pretrained models for TriDAF discriminative model from here.
+Citation
+If you find this dataset and code helpful, please consider citing the following paper:
+@inproceedings{pasunuru2018gamebased,
+    title={Game-Based Video-Context Dialogue},
+    author={Pasunuru, Ramakanth and Bansal, Mohit},
+    booktitle={EMNLP},
+    year={2018}
+}
+
+

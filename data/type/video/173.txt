@@ -1,0 +1,5 @@
+
+heart-sound-segmentation
+This was my thesis. heartSoundSegmentation.m implements the idea featured in this video. If you're interested in this work and would like the full code/ pre-processed datasets, reach me at http://nunoskew.com
+
+

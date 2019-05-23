@@ -1,0 +1,4 @@
+
+SongPope
+A project to predict the popularity of songs using both audio and metadata features as provided by the Million Songs Database. We hope to gain insight into how songs become popular within a certain decade, and if time permits, sort the dataset along other metrics such as genre to get a better recommendations for the popularity of songs. Ultimately, we aim to generate our own songs based on audio features and predict whether they will be popular or not in a given decade.
+

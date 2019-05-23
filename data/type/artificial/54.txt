@@ -1,0 +1,13 @@
+
+Face-Recognition-using-ANN
+This repository contains step by step procedures to run a neural network classifier on face image classification.
+The dataset used is Celeba
+This dataset was used for non-commercial and academic purpose only.
+The details of the implementation can be found in Report_edited.pdf
+Order of running files is:
+
+data_creation.py (Needs CelebA dataset downloaded)
+save_mat.py
+code.py
+
+

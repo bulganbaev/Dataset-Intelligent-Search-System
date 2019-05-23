@@ -1,0 +1,45 @@
+
+OpenimageDataset
+Get Image Class from Openimage
+You could know class from https://storage.googleapis.com/openimages/web/visualizer/index.html?set=train&c=%2Fm%2F06msq
+Openimage format
+
+class-descriptions-boxable.csv
+
+/m/011k07,Tortoise
+/m/011q46kg,Container
+/m/01g317,Person
+
+
+train-annotations-bbox.csv  (1.2GB)
+
+ImageID,Source,LabelName,Confidence,XMin,XMax,YMin,YMax,IsOccluded,IsTruncated,IsGroupOf,IsDepiction,IsInside
+000002b66c9c498e,xclick,/m/01g317,1,0.012500,0.195312,0.148438,0.587500,0,1,0,0,0
+000002b66c9c498e,xclick,/m/01g317,1,0.025000,0.276563,0.714063,0.948438,0,1,0,0,0
+
+Process
+
+Get class from class-descriptions-boxable.csv
+Get image from train-annotations-bbox.csv, test-annotations-bbox.csv, and validation-annotations-bbox.csv
+
+Use openimage_util.py
+copy_images_by_classes_path
+Format
+copy_images_by_classes_path([class_name_file], [src_img_dir],[tar_img_dir],[Annot_File])
+
+Example:
+copy_images_by_classes_path('danger_classes.txt', '../test','../test_danger','../test-annotations-bbox.csv')
+
+
+copy_csv_by_class_path
+Format
+copy_csv_by_class_path([class_name_file], [Annot_File],[tar_iAnnot_File],)
+
+Example:
+copy_csv_by_class_path('danger_classes.txt','../test-annotations-bbox.csv', 'test_danger/annot.csv')
+
+Use transfer_hierachy_id_2_name.py
+See Openimage hierarchy
+https://storage.googleapis.com/openimages/2018_04/bbox_labels_600_hierarchy_visualizer/circle.html
+Generate bbox_labels_600_hierarchy_to_name.json to know class name and class ID map
+

@@ -1,0 +1,53 @@
+
+Aesthetics
+Image Aesthetics Definition
+Image aesthetic evaluation aims to classify photos into high quality or low quality from the perspective of human.
+
+
+
+High Quality Image
+Low Quality Image
+
+
+
+
+
+
+
+
+
+Image Aesthetics drills down to a classification problem:
+
+Low Quality Image 
+High Quality Image 
+
+A commonly used dataset for image aesthetics is AVA (Image Aesthetic Visual Analysis) dataset
+This repo provides following tools to help in image aesthetics problem:
+
+Fisher Vector implementation
+AVA dataset and fast multi-threaded downloader
+
+Fisher Vector
+Fisher Vector is a technique for generating features for images, which can be used by discriminative models like SVM. You can use fisher vectors for usecases like image classification (ImageNet), image aesthetics.
+Flow
+
+We create local descriptors using SIFT for each image in the training set
+We fit a Gausian Mixture Model (GMM) on descriptors for all images in training set.
+Using this global GMM we generate features for each image
+
+
+Spatial Pooling
+Spatial pooling is a technique to save the spatial information of the image while generating features. This is very important in image aesthetics because the look and feel of the image are highly dependent on the aspect ratio, placement of the objects in the image.
+Following image should clarify the importance of spatial pooling:
+
+For spatial pooling, the fisher vector paper recommends splitting the image into 4 patches:
+
+Full image patch
+3 horizontal sliced patches of the image
+
+To generate the fisher vector of the image, as shown in the flowchart above, we concat the fisher vectors of the 4 individual patches of the image.
+AVA Downloader
+./download.py --help
+./download.py ava
+This is a WIP
+

@@ -1,0 +1,46 @@
+
+Image Classification with MNIST Dataset
+In this project we implement different machine learning models to classify images in the MNIST dataset.
+We train our models using the MNIST training dataset and test the performance on the MNIST test dataset and the USPS dataset.
+We train the following classifiers:
+
+Bayesian Discriminant Function
+Logistic Regression
+SVM (Support Vector Machine) Package
+Random Forest Package
+Multilayer perceptron Neural Network
+
+Observations
+
+
+Bayesian Discriminant Function, achieving an accuracy of 84%
+
+
+
+
+
+Logistic Regression, achieving an accuracy of 86%
+
+
+
+
+
+SVM (Support Vector Machine) Package, achieving an accuracy of 97%
+
+
+
+
+
+Random Forest Package, achieving an accuracy of 97%
+
+
+
+
+
+Multilayer perceptron Neural Network, achieving an accuracy of 98%
+
+
+
+
+
+

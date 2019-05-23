@@ -1,0 +1,37 @@
+
+Quick start imagenet in pytorch
+ImageNet has become a staple dataset in computer vision, but is still pretty difficult to download/install. These are some simple instructions to get up and running in pytorch.
+step 1: download/preprocessing
+
+begin by following the instructions for downloading the ImageNet dataset here
+the dataset contains ~1.2 million training images and 50,000 validation images
+note that the dataset is quite large: the .tar files are 138G for train and 6.3G for val
+
+once extracted the train data is 177G and the val data is 8.3G
+
+
+the folder hierarchy looks liks this (val looks similar, there are 1000 folders, one for each class):
+
+train/
+	n04550184/
+		n04550184_9946.JPEG
+        n04550184_9945.JPEG  
+        ...
+	n04550180/
+	...
+	n04550180/
+step 2: get the names for each class
+
+to get the names for each of the classes, look at the class_names_imagenet.py file, which contains a dictionary containing the class labels
+
+step 3: set up a dataloader
+
+in pytorch, the dataloader should be set up using an ImageFolder
+there is an example here
+
+reference
+
+feel free to use/share this openly
+for similar projects, see some of my other repos: (e.g. acd) or my website (csinva.github.io)
+
+

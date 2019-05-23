@@ -1,0 +1,20 @@
+
+Dataset for video-based pulse detection
+Open dataset for video-based pulse detection. Includes .mp4 video files and ground truth ECG signals
+
+Videos
+
+20 sec video fragments in two physical conditions: in rest and after performing physical exercises
+
+
+ECG
+
+20 sec ECGs recorded using PC based 6-lead Resting ECG/EKG Workstation in .cardio and .txt
+
+
+.cardio - Can be opened using ECG Control software
+.txt - Contains six signals from six leads (I, II, III, avR, avL, avF)
+
+
+
+

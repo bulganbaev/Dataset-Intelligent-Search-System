@@ -1,0 +1,34 @@
+
+Dataset + Code on YouTube popularity history
+We release the sofware and dataset from the following paper,
+
+Honglin Yu, Lexing Xie and Scott Sanner, The Lifecycle of a Youtube Video: Phases, Content and Popularity, (ICWSM-15) [ paper | slides | poster]
+
+Sofware
+
+Algorithm for power-law phase segmentation 
+YouTube history crawler
+
+Data
+The data is hosted on dropbox.
+File Description
+All files are in python's pickle format.
+videoID_category.pickle
+
+Data type : dictionary
+Key : videoIDs
+Value : category got from google API
+
+videoID_segInfo.pickle
+
+Data type : dictionary
+Key : videoIDs
+Value : list of description of segments, following chronological order. For example, the value of video XXTey9OjuGc is [(0, 4, -0.373851, 2.98491, 48.4606, 1), (5, 734, 98.0916, -0.955789, 7.4257, 0)], this means the viewcount contains two segments. To see the parameter of each segment, please see this readme file on github.
+
+videoID_viewcount.pickle
+
+Data type : dictionary
+Key : videoIDs
+Value : viewcount from first day of uploading. (containing 735 days)
+
+

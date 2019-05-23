@@ -1,0 +1,4 @@
+
+Music-Genre-Classification-with-CNN
+It is based on a article from Towards Data Science. Here we apply CNN to the images of spectrum of the popular GTZAN dataset.
+

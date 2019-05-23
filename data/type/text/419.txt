@@ -1,0 +1,9 @@
+
+Text-related datasets
+This datasets plugin covers text-related datasets:
+
+Information Retrieval
+Natural Language Processing tasks
+
+The list of available datasets and usage instruction can be found in the documentation.
+

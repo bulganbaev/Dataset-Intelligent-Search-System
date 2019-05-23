@@ -1,0 +1,5 @@
+
+Selection of mood-related tags in the MagnaTagATune music dataset and get basic statistics.
+
+MagnaTagATune dataset:
+http://mirg.city.ac.uk/codeapps/the-magnatagatune-dataset

@@ -1,0 +1,4 @@
+
+LSTM-Poetry-Generator
+This is an LSTM model trained over collection of text (poem) dataset and generates poem like texts. This code is written in context of a blog post. For detailed explaination check out the blog.
+

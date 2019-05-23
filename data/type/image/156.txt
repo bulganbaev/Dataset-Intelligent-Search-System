@@ -1,0 +1,25 @@
+
+ImageClassification
+Compilation of ML algorithms to classify face datasets
+These files will run the PCA, LDA, SVM, CNN implementations used for the report
+
+pca_analysis
+lda_analysis
+svm_analysis
+cnn_analysis
+
+These files are needed to run all of the implementation python files
+
+utils
+prep_data (ensure directory in prep_data is modified correctly to extract CMU & Own images for classification)
+
+To run:
+
+ensure that each analysis file imports the utils & prep_data functions
+change the parameters depending on the requirements of the experiment
+a) Type of data to be extracted can be selected by the generate_data(1, 20, incl='y'), where 1st & 2nd arguments are the start & end of CMU data. incl indicates whether to include Own images in training set or not.
+b) select model parameters i.e compute_pcs(xtrain, n) , n indicates the number of components to compute using PCA.
+run the file and give the input of either 0,1,2 depending on the type of experiment to run
+
+Please contact m_ganeshkumar@u.nus.edu if you encounter any issues with the code. Thank you!
+

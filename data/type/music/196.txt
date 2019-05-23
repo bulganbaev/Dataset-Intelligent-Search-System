@@ -1,0 +1,3 @@
+
+This project presents an automatic instrument recognition system for polyphonic music recordings. Approaches taken are Mel-frequency cepstral coefficients and k-nearest neighboring algorithm. Experiments are done with a set of training and testing data extracted from MedleyDB, an online royal-free multi-track dataset curated at NYU'92s Music and Audio Research Lab.
+

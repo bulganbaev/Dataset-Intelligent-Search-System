@@ -1,0 +1,24 @@
+
+Alphabet Recognizer
+Simple Optical Character Recognizer
+This Image processing program can convert image of English writing (like- this) to text. It simply uses Template Matching strategy for character recognition.
+How to Run?
+
+Download Alphabet Recognizer, and import it in your IDE.
+Download egami.jar from project- Egami, and integrate it in the project's build path.
+For training the machine run Train.java.
+For testing run Predict.java (change file-paths in the main method according to your need).
+
+Visual of Learned Templates
+
+
+
+Downloads
+
+AlphabetRecognizer (zip)
+English Alphabet Dataset (zip)
+
+If you like this project, you may also like GenderRecognizer- Plain Face Detector & Gender Recognizer and SkinDetector- Detects Human Skin From Image.
+License
+Alphabet Recognizer project and its Training Dataset is licensed under MIT License.
+

@@ -1,0 +1,185 @@
+
+utl_minimum_code_for_crosstab_with_npercent_and_unvariate_stats
+Minimum code for crosstab report and dataset with npercent and unvariate stats.  Keywords: sas sql join merge big data analytics macros oracle teradata mysql sas communities stackoverflow statistics artificial inteligence AI Python R Java Javascript WPS Matlab SPSS Scala Perl C C# Excel MS Access JSON graphics maps NLP natural language processing machine learning igraph DOSUBL DOW loop stackoverflow SAS community.
+Minimum code for crosstab report and dataset with npercent and unvariate stats
+
+github
+https://tinyurl.com/y8a3g527
+https://github.com/rogerjdeangelis/utl_minimum_code_for_crosstab_with_npercent_and_unvariate_stats
+
+SAS forum
+https://tinyurl.com/y98gow2o
+https://communities.sas.com/t5/Base-SAS-Programming/Proc-Tabulate-column-percentage/m-p/472311
+
+I  normalized your data with just 6 lines of code
+
+
+INPUT
+=====
+
+ Added these lines to your input code.
+
+  Stat='NPct';
+  Mjr=ageCat;Mnr=SexCat  ; answer=1;output;
+  Mjr=ageCat;Mnr='SexAll'; answer=1;output;
+
+  Stat='Stat';
+  Mjr='NAge';Mnr=sexcat  ;answer=age;output;
+  Mjr='NAge';Mnr='SexAll';answer=age;output;
+
+
+ WORK.HAVE total obs=64
+
+  STAT    MJR              MNR      ANSWER
+
+  NPct    55-69 years    Females       1
+  NPct    55-69 years    SexAll        1
+  Stat    NAge           Females      66
+  Stat    NAge           SexAll       66
+  NPct    70+ years      Females       1
+  NPct    70+ years      SexAll        1
+  Stat    NAge           Females      87
+  Stat    NAge           SexAll       87
+  NPct    55-69 years    Males         1
+  NPct    55-69 years    SexAll        1
+  Stat    NAge           Males        63
+  Stat    NAge           SexAll       63
+ ....
+
+EXAMPLE OUTPUT ( A dataset not a static proc tabulate report)
+
+ WORK.WANT total obs=9
+
+    MJR            STAT      FEMALES    MALES     SEXALL
+
+    18-54 years    NPct      2(50%)     2(50%)    4(100%)
+    55-69 years    NPct      2(50%)     2(50%)    4(100%)
+    70+ years      NPct      2(25%)     6(75%)    8(100%)
+
+    NAge           N           6.0       10.0      16.0
+    NAge           Mean       63.8       65.0      64.6
+    NAge           Std        22.0       17.2      18.4
+    NAge           Median     66.0       72.0      69.0
+    NAge           Min        33.0       24.0      24.0
+    NAge           Max        87.0       79.0      87.0
+
+
+
+PROCESS ( This is all the code. Note it uses a SQL array. You need the do_over macro)
+=====================================================================================
+
+proc sql;
+  create
+    table want as
+  select
+    distinct
+     l.Stat
+    ,l.Mjr
+    ,l.Mnr
+    ,cats(put(sum(l.answer),4.),'(',put(sum(l.answer)/r.sumgrp,percent.),')') as answer
+  from
+     have as l,(select Mjr, sum(answer) as sumgrp from have where index(Mnr,'All')>0 group by Mjr ) as r
+  where
+     l.Mjr  =  r.Mjr and l.stat="NPct"
+  group
+     by l.Mjr, l.Mnr
+  union
+     all
+  %array(stats,values=N Mean Std Median Min Max)
+  %do_over(stats,phrase=%str(
+     select "?" as stat ,Mjr, Mnr, put(?(answer),5.1) as answer
+     from have where Mjr eqt "NAge"  group by Mjr, Mnr),between=union all
+  )
+;quit;
+
+proc transpose data=want out=wantXpo(drop=_name_);
+by Mjr Stat notsorted;
+id Mnr;
+var answer;
+run;quit;
+
+
+OUTPUT
+======
+
+ WORK.WANTXPO total obs=9
+
+   MJR            STAT      FEMALES    MALES     SEXALL
+
+   18-54 years    NPct      2(50%)     2(50%)    4(100%)
+   55-69 years    NPct      2(50%)     2(50%)    4(100%)
+   70+ years      NPct      2(25%)     6(75%)    8(100%)
+   NAge           N           6.0       10.0      16.0
+   NAge           Mean       63.8       65.0      64.6
+   NAge           Std        22.0       17.2      18.4
+   NAge           Median     66.0       72.0      69.0
+   NAge           Min        33.0       24.0      24.0
+   NAge           Max        87.0       79.0      87.0
+
+*                _              _       _
+ _ __ ___   __ _| | _____    __| | __ _| |_ __ _
+| '_ ` _ \ / _` | |/ / _ \  / _` |/ _` | __/ _` |
+| | | | | | (_| |   <  __/ | (_| | (_| | || (_| |
+|_| |_| |_|\__,_|_|\_\___|  \__,_|\__,_|\__\__,_|
+
+;
+
+proc format;
+value age 18-54= '18-54 years'
+          55-69= '55-69 years'
+          70-high= '70+ years'
+ ;
+ value $ sex
+ M = 'Males'
+ F = 'Females';
+run;
+
+data have;
+
+ length Stat Mjr Mnr agecat sexcat $24;
+
+ input id sex$ race$ age agecat$;
+
+ agecat=put(age,age.);
+ sexcat=put(sex,sex.);
+
+ Stat='NPct';
+ Mjr=ageCat;Mnr=SexCat  ; answer=1;output;
+ Mjr=ageCat;Mnr='SexAll'; answer=1;output;
+
+ Stat='Stat';
+ Mjr='NAge';Mnr=sexcat  ;answer=age;  output;
+ Mjr='NAge';Mnr='SexAll';answer=age;  output;
+
+ drop id--age agecat sexcat;
+datalines;
+01 F W 66 60-70
+02 F B 87 80-90
+03 M W 63 60-70
+04 M A 79 70-80
+05 M W 75 70-80
+06 M U 72 70-80
+07 F W 66 60-70
+08 F B 87 80-90
+09 M W 63 60-70
+10 M A 79 70-80
+11 M W 75 70-80
+12 M U 72 70-80
+12 M U 48 70-80
+12 M U 24 70-80
+12 F U 44 70-80
+12 F U 33 70-80
+;;;;
+run;quit;
+
+*          _       _   _
+ ___  ___ | |_   _| |_(_) ___  _ __
+/ __|/ _ \| | | | | __| |/ _ \| '_ \
+\__ \ (_) | | |_| | |_| | (_) | | | |
+|___/\___/|_|\__,_|\__|_|\___/|_| |_|
+
+;
+
+see process
+
+

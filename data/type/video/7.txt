@@ -1,0 +1,4 @@
+
+Youtube Video Understanding
+When having issues with GitHub ipynb notebook viewing, please visit this link for Youtube Analytics, this link for simple models.
+

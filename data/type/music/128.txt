@@ -1,0 +1,14 @@
+
+How to run:
+Dowload the pyrenn library. It is already given in this project folder.
+
+First run makedataset to make train and test data sets from songs.csv
+$ python3 makeDataset.py
+
+Then train the weights using TrainNN2.py and test it using TestNN2.py. TrainNN2 will save weights and normalizing factors using binary format in weights2.csv
+$ python3 TrainNN2.py
+$ python3 TestNN2.py
+
+Results are saved in the file predictions2.csv
+
+Dependencies: Pandas, numpy, pickle

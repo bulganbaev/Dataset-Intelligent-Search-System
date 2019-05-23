@@ -1,0 +1,8 @@
+
+ImageToText_Captioning
+This was a class project done as a part of DeepLearning Course. Uses Flickr image captioning dataset to caption images. Tried various variations of the model. This is one of the models with word embeddings. Image features are extracted using VGG, Resnet into a file features.pkl. The code and method to do this has been mention in [1]. The glove word embeddings require the glove.6b.100d.txt. This can be found from [4].
+[1]https://machinelearningmastery.com/develop-a-deep-learning-caption-generation-model-in-python/
+[2] http://cs224d.stanford.edu/reports/Thirman.pdf
+[3] M. Hodosh, P. Young and J. Hockenmaier (2013) "Framing Image Description as a Ranking Task: Data, Models and Evaluation Metrics", Journal of Artificial Intelligence Research, Volume 47, pages 853-899 http://www.jair.org/papers/paper3994.html
+[4] https://nlp.stanford.edu/projects/glove/
+

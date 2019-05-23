@@ -1,0 +1,16 @@
+
+Artificial Neural Network vs k-Nearest Neighbour
+Requirements
+
+Access to a Linux machine (or at least Cygwin)
+g++ compiler (GNU Compiler Collection)
+bash v.4+
+gnuplot
+An interest in this kind of stuff
+
+Instructions
+$ bash automate.sh  # Builds the project, runs experiments, and processes the results.
+
+Report
+The hypothesis, experiment design, results, and conclusion can be read in the paper at docs/report.pdf
+

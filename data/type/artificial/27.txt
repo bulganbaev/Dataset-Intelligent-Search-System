@@ -1,0 +1,72 @@
+
+Flying Machine Learning, Deep Learning, Artificial Intelligence
+Bookmark list for machine learning, deep learning, artificial intelligence and related topics
+Note: The format for every entry is Title (with link) - Date added to the list
+Tutorials
+
+Deep RL Bootcamp - 06.06.2018
+Implementing a Neural Network from Scratch in Python – An Introduction - 08.03.2018
+Amazon SageMaker – Accelerating Machine Learning - 08.03.2018
+Deep Learning with TensorFlow and Docker - 05.03.2018
+A visual introduction to machine learning - 19.10.2017
+
+Blog Posts & Articles
+
+How to Estimate a Machine Learning Project - 03.02.2019
+How to Use t-SNE Effectively - 18.09.2018
+Interpreting a data set, beginning to end - 18.09.2018
+Bias detectives: the researchers striving to make algorithms fair - 19.08.2018
+Comparing Deep Learning Frameworks: A Rosetta Stone Approach - 25.03.2018
+A Cookbook for Machine Learning: Vol 1 - 17.11.2017
+Introductory Resources on AI Safety Research -  17.11.2017
+AlphaGo Zero - How and Why it Works - 07.11.2017
+Neural Networks and Deep Learning Book - 11.10.2017
+
+Papers
+
+Unsupervised Meta-Learning for Reinforcement Learning - 19.08.2018
+Agent Foundations for Aligning Machine Intelligence with Human Interests: A Technical Research Agenda - 03.06.2018
+Efficient Neural Architecture Search via Parameter Sharing - 25.02.2018
+
+Books
+
+Supervised Sequence Labelling with Recurrent Neural Networks - 03.06.2018
+Causal Inference Book - 27.05.2018
+
+Tools and Projects
+
+Gym Retro - Platform for Reinforcement learning research on games - 03.06.2018
+State-of-the-art AI research projects and tools for the community - Facebook - 02.05.2018
+
+Datasets
+
+UCI Machine Learning Repository - 03.06.2018
+Medical Data for Machine Learning - 03.06.2018
+25 Open Datasets for Deep Learning Every Data Scientist Must Work With - 07.04.2018
+NLP Datasets - 07.04.2018
+
+Podcasts
+
+Future Thinkers - 03.06.2018
+Machine Learning Guide - 03.06.2018
+This Week in Machine Learning and AI - 03.06.2018
+
+Examples
+
+Here’s Mario Kart, as played by a neural network - 07.11.2017
+Sketching Interfaces - Airbnb - 27.10.2017
+
+Courses
+
+OpenDataScience Machine Learning course - 03.06.2018
+Philosophy of Mind: Brains, Consciousness, and Thinking Machines - 03.06.2018
+
+Slides & Lecture Materials
+
+Causal Inference in Machine Learning - 27.05.2018
+
+News
+
+Microsoft is creating an oracle for catching biased AI algorithms - 19.08.2018
+
+

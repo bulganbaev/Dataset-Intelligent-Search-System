@@ -1,0 +1,79 @@
+
+textlearnR
+A simple collection of well working NLP models (Keras) in R, tuned and benchmarked on a variety of datasets. This is a work in progress and the first version only supports classification tasks (at the moment).
+
+What can this package do for you? (in the future)
+Training neural networks can be bothering and time consuming due to the sheer amount of hyper-parameters. Hyperparameters are values that are defined prior and provided as additional model input. Tuning those requires either deeper knowledge about the model behavior itself or computational resources for random searches or optimization on the parameter space. textlearnR provides a light weight framework to train and compare ML models from Keras, H2O, starspace and text2vec (coming soon). Furthermore, it allows to define parameters for text processing (e.g. maximal number of words and text length), which are also considered to be priors.
+Beside language models, textlearnR also integrates third party packages for automatically tuning hyperparameters. The following strategies will be avaiable:
+Searching
+
+Grid search
+Random search
+Sobol sequence (quasi-random numbers designed to cover the space more evenly than uniform random numbers). Computationally expensive but parallelizeable.
+
+Optimization
+
+GA Genetic algorithms for stochastic optimization (only real-values).
+mlrMBO Bayesian and model-based optimization.
+Others:
+
+Nelder–Mead simplex (gradient-free)
+Particle swarm (gradient-free)
+
+
+
+For constructing new parameter objects the tidy way, the package dials is used. Each model optimized is saved to a SQLite database in data/model_dump.db. Of course, committed to tidy principals. Contributions are highly welcomed!
+Supervised Models
+model overview
+keras_model <- list(
+  simple_mlp = textlearnR::keras_simple_mlp,
+  deep_mlp = textlearnR::keras_deep_mlp,
+  simple_lstm = textlearnR::keras_simple_lstm,
+  #deep_lstm = textlearnR::keras_deep_lstm,
+  pooled_gru = textlearnR::keras_pooled_gru,
+  cnn_lstm = textlearnR::keras_cnn_lstm,
+  cnn_gru = textlearnR::keras_cnn_gru,
+  gru_cnn = textlearnR::keras_gru_cnn,
+  multi_cnn = textlearnR::keras_multi_cnn
+)
+Datasets
+
+celebrity-faceoff
+Google Jigsaw Toxic Comment Classification
+Hate speech detection
+nlp-datasets
+Scopus Classification
+party affiliations
+
+Understand one model
+textlearnR::keras_simple_mlp(
+    input_dim = 10000, 
+    embed_dim = 128, 
+    seq_len = 50, 
+    output_dim = 1
+  ) %>% 
+  summary
+## ___________________________________________________________________________
+## Layer (type)                     Output Shape                  Param #     
+## ===========================================================================
+## embedding_1 (Embedding)          (None, 50, 128)               1280000     
+## ___________________________________________________________________________
+## flatten_1 (Flatten)              (None, 6400)                  0           
+## ___________________________________________________________________________
+## dense_1 (Dense)                  (None, 128)                   819328      
+## ___________________________________________________________________________
+## dropout_1 (Dropout)              (None, 128)                   0           
+## ___________________________________________________________________________
+## dense_2 (Dense)                  (None, 1)                     129         
+## ===========================================================================
+## Total params: 2,099,457
+## Trainable params: 2,099,457
+## Non-trainable params: 0
+## ___________________________________________________________________________
+
+
+rather flowchart or ggalluvial
+
+
+
+

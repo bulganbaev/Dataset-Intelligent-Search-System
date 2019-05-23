@@ -1,0 +1,15 @@
+
+[THE CONTENT OF THIS PAGE IS STILL IN PROGRESS]
+the content of this GITHUB repository contains a dataset with around 300 elements of music sheet png files. This Dataset was created with the intention of being use at the course of Digital Image Processing at Universidad Peruana de Ciencias Aplicadas.
+The intention of the Project is to be able to recognize simple music notations inside (note, half note, quarter note and eight note)
+The files in this Dataset are for Free use and are intended to be for Academic purposes.
+About the dataset
+Separated into folders, the dataset includes a series of digitalized images of the next categories:
+
+Separate Notes
+Music Sheet
+Some note inside a music sheet
+
+Images will look like this
+
+

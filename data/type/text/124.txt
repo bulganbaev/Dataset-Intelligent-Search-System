@@ -1,0 +1,4 @@
+
+glTF-Texture-Transmission-Samples
+Third-party and Khronos sample apps, test scripts and public domain test image datasets for use with the glTF Texture Transmission extension
+

@@ -1,0 +1,165 @@
+
+Tensorflow_Object_Tracking_Video
+(Version 0.3, Last Update 10-03-2017)
+
+
+
+
+The Project follow the below index:
+
+Introduction;
+Requitements & Installation;
+YOLO Script Usage
+
+Setting Parameters;
+Usage.
+
+
+VID TENSORBOX Script Usage
+
+Setting Parameters;
+Usage.
+
+
+TENSORBOX Tests Files;
+Dataset Scripts;
+Copyright;
+State of the Project.
+DOWNLOADS.
+Acknowledgements.
+Bibliography.
+
+1.Introduction
+This Repository is my Master Thesis Project: "Develop a Video Object Tracking with Tensorflow Technology"
+and it's still developing, so many updates will be made.
+In this work, I used the architecture and problem solving strategy of the Paper T-CNN(Arxiv), that won last year IMAGENET 2015 Teaser Challenge VID.
+So the whole script architecture will be made of several component in cascade:
+
+Still Image Detection (Return Tracking Results on single Frame);
+Temporal Information Detection( Introducing Temporal Information into the DET Results);
+Context Information Detection( Introducing Context Information into the DET Results);
+
+
+Notice that the Still Image Detection component could be unique or decompose into two sub-component:
+
+First: determinate "Where" in the Frame;
+Second: determinate "What" in the Frame.
+
+
+My project use many online tensorflow projects, as:
+
+YOLO Tensorflow;
+TensorBox.
+Inception.
+
+2.Requirement & Installation
+To install the script you only need to download the Repository.
+To Run the script you have to had installed:
+
+Tensorflow;
+OpenCV;
+Python;
+
+All the Python library necessary could be installed easily trought pip install package-name.
+If you want to follow a guide to install the requirements here is the link for a tutorial I wrote for myself and for a course of Deep Learning at UPC.
+3.YOLO Script Usage
+i.Setting Parameters
+This are the inline terminal argmunts taken from the script, most of them aren't required, only the video path must be specified when we call the script:
+  parser = argparse.ArgumentParser()
+  parser.add_argument('--det_frames_folder', default='det_frames/', type=str)
+  parser.add_argument('--det_result_folder', default='det_results/', type=str)
+  parser.add_argument('--result_folder', default='summary_result/', type=str)
+  parser.add_argument('--summary_file', default='results.txt', type=str)
+  parser.add_argument('--output_name', default='output.mp4', type=str)
+  parser.add_argument('--perc', default=5, type=int)
+  parser.add_argument('--path_video', required=True, type=str)
+Now you have to download the weights for YOLO and put them into /YOLO_DET_Alg/weights/.
+For YOLO knowledge here you can find Original code(C implementation) & paper.
+ii.Usage
+After Set the Parameters, we can proceed and run the script:
+  python VID_yolo.py --path_video video.mp4
+You will see some Terminal Output like:
+
+You will see a realtime frames output(like the one here below) and then finally all will be embedded into the Video Output( I uploaded the first two Test I've made in the folder /video_result, you can download them and take a look to the final result.
+The first one has problems in the frames order, this is why you will see so much flickering in the video image,the problem was then solved and in the second doesn't show frames flickering ):
+
+4.VID TENSORBOX Script Usage
+i.Setting Parameters
+This are the inline terminal argmunts taken from the script, most of them aren't required.
+As before, only the video path must be specified when we call the script:
+  parser.add_argument('--output_name', default='output.mp4', type=str)
+  parser.add_argument('--hypes', default='./hypes/overfeat_rezoom.json', type=str)
+  parser.add_argument('--weights', default='./output/save.ckpt-1090000', type=str)
+  parser.add_argument('--perc', default=2, type=int)
+  parser.add_argument('--path_video', required=True, type=str)
+I will soon put a weight file to download.
+For train and spec on the multiclass implementation I will add them after the end of my thesis project.
+ii.Usage
+Download the .zip files linked in the Download section and replace the folders.
+Then, after set the parameters, we can proceed and run the script:
+  python VID_tensorbox_multi_class.py --path_video video.mp4
+5.Tensorbox Tests
+In the folder video_result_OVT you can find files result of the runs of the VID TENSOBOX scripts.
+6.Dataset Scripts
+All the scripts below are for the VID classes so if you wonna adapt them for other you have to simply change the Classes.py file where are defined the correspondencies between codes and names. All the data on the image are made respect a specific Image Ratio, because TENSORBOX works only with 640x480 PNG images, you will have to change the code a little to adapt to your needs.
+I will provide four scripts:
+
+Process_Dataset_heavy.py: Process your dataset with a brute force approach, you will obtain more bbox and files for each class;
+Process_Dataset_lightweight.py: Process your dataset with a lightweight approach making, you will obtain less bbox and files for each class;
+Resize_Dataset.py: Resize your dataset to 640x480 PNG images;
+Test_Processed_Data.py: Will test that the process end well without errors.
+
+I've also add some file scripts to pre process and prepare the dataset to train the last component, the Inception Model, you can find them in a subfolder of the dataset script folder.
+7.Copyright
+According to the LICENSE file of the original code,
+
+Me and original author hold no liability for any damages;
+Do not use this on commercial!.
+
+8.State of the Project
+
+Support YOLO (SingleClass) DET Algorithm;
+Support Training ONLY TENSOBOX and INCEPTION Training;
+USE OF TEMPORAL INFORMATION [This are retrieved through some post processing algorithm I've implemented in the Utils_Video.py file NOT TRAINABLE];
+Modular Architecture composed in cascade by: Tensorbox (as General Object Detector), Tracker and Smoother and Inception (as Object Classifier);
+
+9.Downloads
+Here below the links of the weights file for Inception and Tensorbox from my retraining experiments:
+
+INCEPTION
+TENSORBOX
+
+10.Acknowledgements
+Thanks to Professors:
+
+Elena Baralis from Politecnico di Torino Dipartimento di Automatica e Informatica;
+Jordi Torres from BSC Department of Computer Science;
+Xavi Giro ”I” Nieto from UPC Department of Image Processing.
+
+11.Bibliography
+i.Course
+
+Deep Learning for Computer Vision Barcelona
+Build Deep Learning Env with Tensorflow Python OpenCV
+
+ii.Classification
+
+ Alex Krizhevsky, Ilya Sutskever, and Geoffrey E. Hinton. “ImageNet Classification  with  Deep  Convolutional  Neural  Networks”.
+Christian Szegedy et al. “Going Deeper with Convolutions”.
+Christian Szegedy et al. “Rethinking the Inception Architecture for ComputerVision”.
+Kaiming  He  et  al.  “Delving  Deep  into  Rectifiers:  Surpassing  Human-LevelPerformance on ImageNet Classification”. 
+
+iii.Detection
+
+Russell  Stewart  and  Mykhaylo  Andriluka.  “End-to-end  people  detection  incrowded scenes”.
+Pierre  Sermanet  et  al.  “OverFeat:  Integrated  Recognition,  Localization  andDetection  using  Convolutional  Networks”.
+S. Ren et al. “Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks”.
+
+iv.Tracking
+
+Dinesh Jayaraman and Kristen Grauman. “Slow and Steady Feature Analy-sis: Higher Order Temporal Coherence in Video”.
+K.  Kang  et  al.  “T-CNN:  Tubelets  with  Convolutional  Neural  Networks  forObject Detection from Videos”.
+ W. Han et al. “Seq-NMS for Video Object Detection”.
+-J. Redmon et al. “You Only Look Once: Unified, Real-Time Object Detection”
+
+

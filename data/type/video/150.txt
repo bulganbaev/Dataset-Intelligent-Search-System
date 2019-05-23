@@ -1,0 +1,4 @@
+
+yotubeanalytics
+The world is generating and consuming an enormous amount of video content. Currently on YouTube, people watch over 1 billion hours of video every single day.  To spur advances in analyzing and understanding video, Google AI has publicly released a large-scale video dataset that consists of millions of YouTube video features and associated labels from a diverse vocabulary of 3,700+ visual entities called the YouTube-8M Dataset.
+

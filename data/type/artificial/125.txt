@@ -1,0 +1,5 @@
+
+ANN_FromScratch (Numpy)
+@Author:AYOUB EL KHALLIOUI
+Implementation Artificial Neural Network with One single hidden layer From Scratch (Test the model on MNIST Dataset)
+

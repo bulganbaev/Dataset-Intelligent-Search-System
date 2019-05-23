@@ -1,0 +1,35 @@
+
+Semantics Segmentation of Urban Environments
+This is my undergraduate dissertation project. The goal of this thesis is to examine and compare the results from two variations of CNN Encode-Decode arhitectures using Self-Normalization technique along with CRF-RNN post processing unit. Due to visualize the results of the model properly a Visualizer based on CityscapesScripts has been implemented to visualize the results.
+Cityscapes Dataset
+Cityscapes
+Dependencies
+
+python 		2.7
+keras 		2.1
+tensorflow 	1.4
+scikit-learn	0.19
+openCV		2.4
+numpy			1.13
+scipy			0.13
+pyQt4 for the Visualizer
+
+Run pip install -r requirements.txt to intall the dependencies
+Arguments
+train.py [-h] [-n NETWORK] [-trp TRAINPATH] [-vdp VALIDATIONPATH] [-tsp TESTPATH] [-bs BATCHSIZE] [-crf] [-w [WEIGHTS]] [-m [MODEL]] [-e EPOCHS]
+Results
+
+Installation
+Run make inside lib/crfasrnn_keras/src/cpp to build highdimfilter module.
+Create the npy data files for the data generator using denseExtraction.py.
+Check the examples below to train your model.
+Examples
+Training
+python train.py -n bdcnn -trp trainpath -vdp validationpath -tsp testpath -bs 4 -crf -e 20
+Resume  Training
+python train.py -trp trainpath -vdp validationpath -tsp testpath -bs 4 -w weightspath -m modelpath -e 20
+Acknowledgments
+
+I want to thank Sadeep Jayasumana for his excellent work with CRF-RNN post-processing unit implementation in keras.
+
+

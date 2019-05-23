@@ -1,0 +1,27 @@
+
+Sparkify
+Motivations
+Predicting churn rates is a challenging and common problem that data scientists and analysts regularly encounter in any customer-facing business. Additionally, the ability to efficiently manipulate large datasets with Spark is one of the highest-demand skills in the field of data.
+This repo is to uplevel my spark skills essentially with: how to manipulate large and realistic datasets with Spark to engineer relevant features for predicting churn. Learn how to use Spark MLlib to build machine learning models with large datasets, far beyond what could be done with non-distributed technologies like scikit-learn.
+Files Description
+
+There is no files for this project because it is running on Databricks plateform, However you can find the html file by clicking this link. It will move you to the Databricks notebook (html format) with all the last analysis steps.
+
+A commit will be done at each update and the following line will be increased by +0.1
+
+-> Update 0.9
+
+Archi
+
+Plateform Databricks
+Free 6GB Cluster
+Analysis of JSON File (123MB)
+Use Spark dataframe
+
+Authors
+Medhy Vinceslas
+License
+Project under the CC0-1.0 License
+Acknowledgement
+Thank you to the @udacity staff for giving me the opportunity to uplevel my Spark skills.
+

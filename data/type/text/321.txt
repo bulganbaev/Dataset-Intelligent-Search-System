@@ -1,0 +1,4 @@
+
+proyecto-TextMining
+se pretende implementar una herramienta para el etiquetado semi-supervisado de documentos con el objeto de generar datasets destinados al entrenamiento/validación de modelos utilizados en minería de opinión.  Los documentos serán representados como vectores de características de longitud predeterminada aplicando el método doc2vec y, partiendo de un subconjunto de ellos, se usará inferencia probabilística en la determinación del sentido de cada párrafo y una metodología semi-supervisada, para construir un sistema que se va reentrenando a medida que va recibiendo nuevos documentos.
+

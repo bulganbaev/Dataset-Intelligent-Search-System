@@ -1,0 +1,11 @@
+
+SyntheticAnomalyDataset
+Generates variable-length synthetic dataset for anomaly detection from videos
+How to generate the dataset
+
+Edit train_config.py and test_config.py to set the parameters
+Run training_generate_frames.py
+Run test_generate_frames.py
+Run test_generate_gt.py
+
+

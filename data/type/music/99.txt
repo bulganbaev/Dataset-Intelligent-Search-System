@@ -1,0 +1,7 @@
+
+
+turkish_makam_partial_alignment_dataset
+A test dataset for partial audio score alignment of Ottoman-Turkish makam music
+License
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+

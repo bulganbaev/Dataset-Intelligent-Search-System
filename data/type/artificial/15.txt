@@ -1,0 +1,4 @@
+
+NEURAL EXPERIMENT
+This is an Artificial Neural Network to classify MNIST Handwritten Digits dataset, written in C language.
+

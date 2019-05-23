@@ -1,0 +1,24 @@
+
+drum_bassline_dataset
+A dataset of audio drum loops with accompanying basslines for two styles of music (House and Soca). These two datasets were used for training the following model:
+https://github.com/behzadhaki/bassline_seq2seq
+Description of Files:
+
+
+For each Style (House/Soca), 50 samples are available. Each sample drum loop along with bassline is located in a separated subfolder (The folder titles correspond to Discogs release ids).
+
+
+In each release folder, there are 3 folders: A. harmonic, B. percussive, and C. percussive_monoloaded
+
+
+The "harmonic" folder contains the transcription of a bassline. The transcription is provided as a text file and a midi file. Note that the midi file isn't as accurate as the text file as the notes in the midi files have equal duration.
+
+
+The "percussive folder, contains a drum loop which has been loaded using an equal loudness filters. Moreover, this folder contains a symbolic representation which is based on time quantized onsets in 8 different frequency bands (B1 to B8): 40-70Hz, 70-110Hz, 130-145Hz, 160-190Hz, 300-400Hz, 5-7kHz, 7-10kHz and 10-15kHz. The nth row of the drum representation text file contains the onsets at B1-8 at the nth time step (each bar divided into 16 time steps).
+
+
+The duration of the drum loops and basslines are not matched in the dataset (some are 1 bar, some are 2 bars and some are 4 bars). They need to be either cut short or be concatenated to match a desired duration.
+
+The "percussive_monoloded" folder contains the same drum loop but loaded without any processing. (UPDATE: Missing for some House samples)
+
+

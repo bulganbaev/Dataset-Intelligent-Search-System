@@ -1,0 +1,134 @@
+
+Adversarial Training Methods
+Adversarial and virtual adversarial training methods for semi-supervised text classification.
+Based on the paper:
+Adversarial training methods for semi-supervised text classification, ICLR 2017, Miyato T., Dai A., Goodfellow I.
+
+Without the pre-training phase
+Requirements
+
+
+
+Package
+Version
+
+
+
+
+Python
+3.5.4
+
+
+Jupyter
+1.0.0
+
+
+Tensorflow
+r1.5
+
+
+GloVe
+1.2
+
+
+NLTK
+3.2.5
+
+
+ProgressBar2
+3.34.3
+
+
+Matplotlib
+2.1.2
+
+
+Argparse
+1.1
+
+
+
+Dataset creation
+Download the IMDB dataset.
+Then we have to do the following steps:
+
+prepare dataset in order to train GloVe using glove_training_preparation.ipynb
+set the vectors length at 256 and remove words appearing in less than 3 reviews in the GloVe training script
+run GloVe training script
+create the embedding matrix (used by the network) and the dictionary (used to convert reviews in sequences of index) using pretrained_glove_embedding_script.ipynb
+convert reviews in sequences of index using dataset_script.pynb and test_dataset_script.ipynb
+
+Training
+5% of the training set is used for validation
+use paper_network.ipynb or pyramidal_network.ipynb according to the network architecture you want to use.
+
+
+
+Paper model
+Pyramidal model
+
+
+
+
+
+
+
+
+
+Results
+Sequences are truncated at 1200 (pyramidal model), 600 and 400 to test the sensitivity of the model to reviews lengths. In particular we cut off or add zero-padding at the initial part of the review.
+
+
+
+Method
+Seq. Length
+Epochs
+Accuracy
+
+
+
+
+baseline
+400
+10
+0.906
+
+
+adversarial
+400
+10
+0.914
+
+
+virtual adv.
+400
+10
+0.921
+
+
+baseline
+600
+10
+0.904
+
+
+adversarial
+600
+10
+0.912
+
+
+pyramidal baseline
+1200
+10
+0.910
+
+
+pyramidal adversarial
+1200
+10
+0.916
+
+
+
+

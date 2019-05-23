@@ -1,0 +1,83 @@
+
+Rainy Image Dataset
+This repository serves as a mirror of the data used for paper “Clearing the
+  Skies: A deep network architecture for single image rain removal”
+  (arXiv:1609.02087) by Fu, Huang, Ding, Liao, and Paisley.
+The original dataset is hosted on Baiduyun, which some users – particularly
+  those with no working knowledge of written Chinese – might find difficult to
+  navigate. As such, this repository serves as an alternative way to access this
+  dataset. More information can be found at Xueyang Fu’s landing page for the
+  paper at his personal site here:
+  https://xueyangfu.github.io/projects/tip2017.html.
+All credit for preparing this dataset goes solely to the original authors.
+I additionally intend to expand on Fu et al.’s work on this dataset by providing
+  it in a variety of pre-packaged formats, e.g. TensorFlow’s TFRecord and HDF5.
+Obtaining the Dataset
+Raw
+If you’d like to simply retrieve the dataset files as is, there are some
+  caveats.
+This repository uses Git LFS to store the image files. As such, a direct
+  clone will not in itself get you the image files. Attempting the clone this
+  repository without Git LFS installed will get you files containing text
+  pointers, rather than the image data itself.
+To obtain the actual image data, first install Git LFS per instructions. Then,
+  you have one of several options:
+
+Clone the dataset repository as you would any other. This is most
+    straightforward; however, download time will be slow due to cloning only
+    allowing sequential file downloads.
+Alternatively, you can achieve a faster parallel batch download by
+    disabling Git LFS at clone time by first running:
+    GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/jinnovation/rainy-image-dataset.git
+    
+And then:
+git lfs pull
+    
+
+
+If you cloned the repository before installing Git LFS, you can download the
+  image data using:
+git lfs pull
+TFRecord
+Once you’ve obtained the dataset, this repository also contains a script –
+  aptly named tfrecord.py = that will package the dataset files into a single
+  TFRecord file to facilitate consumption into your TensorFlow model. The
+  script interface is as follows:
+Usage: tfrecord.py [OPTIONS] [INDICES]...
+
+  Packages the dataset into a TFRecord. Arguments are the input-output
+  indices to package. If no argument is provided, all indices will be
+  packaged.
+
+Options:
+  --strict                 When encountering problematic image pairs, whether
+                           or not to terminate.  [default: False]
+  -o, --out TEXT           File name for the output .tfrecord file.  [default:
+                           rain.tfrecord]
+  --rainy_image_dir PATH   [default: ./rainy image/]
+  --ground_truth_dir PATH  [default: ./ground truth/]
+  -v, --verbosity LVL      Either CRITICAL, ERROR, WARNING, INFO or DEBUG
+                           [default: DEBUG]
+  --help                   Show this message and exit.
+
+To run the script, first create a virtualenv and install dependencies listed
+  in requirements.txt.
+Note that the script is written in Python 3.
+Original README text
+
+1) This dataset contains 1,000 clean images. Each clean image was used to generate 14 rainy images with different streak orientations and magnitudes.
+
+
+2) We use PhotoShop to generate rainy images: http://www.photoshopessentials.com/photo-effects/rain/
+
+
+3) If this dataset helps your research, please cite our two papers that report this dataset:
+
+  [1] X. Fu, J. Huang, D. Zeng, Y. Huang, X. Ding and J. Paisley. ¡°Removing Rain from Single Images via a Deep Detail Network¡±, CVPR, 2017.
+
+  [2] X. Fu, J. Huang, X. Ding, Y. Liao and J. Paisley. ¡°Clearing the Skies: A deep network architecture for single-image rain removal¡±, IEEE Transactions on Image Processing, vol. 26, no. 6, pp. 2944-2956, 2017.
+
+
+4) Welcome to our homepage: http://smartdsp.xmu.edu.cn/
+
+

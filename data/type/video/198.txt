@@ -1,0 +1,4 @@
+
+pedestrian_detection_iosapp
+Developed an iOS application for detecting pedestrian based on computer vision and machine learning with C++. Collected dataset, Extracted features based on Haar-like, HOG and LBP algorithm under OpenCV and trained classifiers. Implemented Non-maximum Suppression algorithm to improve accuracy。 Utilized pre-image-processing, Armadillo library and GPU to accelerate the speed of processing. This application is able to be used in iPhone, iPad and any iOS devices and detect pedestrians accurately in real video frames.
+

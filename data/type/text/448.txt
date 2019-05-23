@@ -1,0 +1,17 @@
+
+dataset-list
+lists of text corpus and more
+Lists
+
+Text corpus
+
+Free
+
+
+Image dataset
+General
+etc
+
+License
+WTFPL
+

@@ -1,0 +1,26 @@
+
+Image-Classifier
+Create a image classifier based on the given dataset
+Work flow
+
+image preprocess
+
+The code preprocess read the pictures.csv file, automatically creates folders named by the classes, read through the images, resize the images and put the images into correct folder.
+When it is done, put the data into classifier/data folder for further training.
+
+training process
+
+Run the following command for training
+./code/train.sh path/to/classifier
+
+The training uses docker image tensorflow/tensorflow:0.9.0-devel. First, the bottlenecks of each image is created, then the bottlenecks are used to train the last layer of the inception model. During the training steps, each step calculate 3 values: training_accuracy, cross_entropy and validation_accurary.
+
+testing process
+
+Run the following command for testing
+./code/guessDir.sh path/to/classifier path/to/testing_data path/to/tesing_data_after_classification
+
+After testing, run the command to get the testing accuracy
+python code/accuracy.py
+
+

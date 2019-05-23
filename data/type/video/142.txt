@@ -1,0 +1,5 @@
+
+Youtube-Analyzer-and-Predictor
+This project scans a datasetof videos and show the ongoing trends and patterns and predict future possibilites.
+It fetches real time youtube data using the Youtube Data V3 API and builds the dataset. The dataset exported in csv format is fed to python using pandas library. The tool used for this is Jupyter Notebook. Data cleaning, Data visualization, Data normalization and Data prediction are acheived.
+

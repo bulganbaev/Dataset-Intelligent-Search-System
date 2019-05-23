@@ -1,0 +1,49 @@
+
+Image Classfication using CNN
+This app has been developed towards continous asessment of CS7GV1-A-Y-201718 (COMPUTER VISION) module.
+The dataset used here is Tiny ImageNet.
+Instructions to Run
+python Main.py
+
+
+
+Command Line Args
+Values
+
+
+
+
+--cuda
+True / False
+
+
+--datapath
+Source of data
+
+
+--aug
+Augmentation strategy to be used (H_FLIP, RANDOM_CROP_FLIP)
+
+
+--model
+Model to be used for training
+
+
+--pretrained
+True / False
+
+
+--batch_size
+Batch Size
+
+
+--epochs
+No of epochs
+
+
+--tag
+Save this model with tag name
+
+
+
+

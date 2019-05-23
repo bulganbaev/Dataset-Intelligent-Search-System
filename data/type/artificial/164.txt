@@ -1,0 +1,272 @@
+
+utl_sort_summarize_and_transpose_multiple_variable_and_create_output_dataset
+Sort, Summarize and Transpose multiple variables and create output dataset. Keywords: sas sql join merge big data analytics macros oracle teradata mysql sas communities stackoverflow statistics artificial inteligence AI Python R Java Javascript WPS Matlab SPSS Scala Perl C C# Excel MS Access JSON graphics maps NLP natural language processing machine learning igraph DOSUBL DOW loop stackoverflow SAS community.
+Sort, Summarize and Transpose multiple variables and create output dataset
+Original Topic:  How do I summarize a data set using Arrays
+
+github
+https://goo.gl/3Aw5DF
+https://github.com/rogerjdeangelis/utl_sort_summarize_and_transpose_multiple_variable_and_create_output_dataset
+
+see SAS forum
+https://goo.gl/X3c9zY
+https://communities.sas.com/t5/Base-SAS-Programming/How-do-I-summarize-a-data-set-using-Arrays/m-p/436714#M108646
+
+see githuub
+https://github.com/rogerjdeangelis/utl_compare_corresp_vs_report_output_datasets
+
+Three solution that sort, summary and transpose
+
+  1. utl_gather macro and proc corresp (most flexible?)
+  2. Single proc report  (you have to work over a bug and hardcode rename (report does not honor ods)).
+     This is very powerful if SAS fixes the bug?
+  3. Two proc corresp and a merge (no need to hardcode rename)
+
+INPUT
+=====
+
+ ALGORITHM
+   Transpose and sum both Cost abd budget using date as column id
+
+ WORK.HAVE total obs=9
+
+  ID     DATE      COST    BUDGET
+
+   1    01JAN02     50       900
+   1    01JAN02     20       800
+   1    01APR02     60       500
+   1    01JUL02     80       606
+   1    01JUL02     30       900
+   1    01JUL02     20       652
+   1    01OCT02     50       879
+   2    01JAN02     30       997
+   2    01JAN02     80      1000
+
+ EXAMPLE OUTPUT
+
+   WORK.WANT total obs=2
+
+           COST_     BUDGET_     COST_           BUDGET_         COST_     BUDGET_     COST_     BUDGET_
+    ID    01APR02    01APR02    01JAN02          01JAN02       01JUL02    01JUL02    01OCT02    01OCT02
+
+     1       60        500         70 (50+20)      1700           130        2158        50        879
+     2        .          .        110 (30+80)      1997(1000+997)   .           .         .          .
+
+
+PROCESS (All the code)
+======================
+
+   1. utl_gather then proc corresp
+
+      %utl_gather(have,var,val,id date,havxpo,valformat=10.);
+
+      ods exclude all;
+      ods output observed=want;
+      proc corresp data=havxpo dim=1 observed cross=both;
+        tables id, var date  ;
+        weight val;
+      run;quit;
+      ods select all;
+
+    2. Single proc report  (you have to work around a bug and hardcode a rename (report does not honor ods report)).
+
+       * amazing - just 5 statements(semicolons)
+       proc report data=have nowd missing out=want
+           (rename=( /* Bug in proc report. It does not honor printed ods report */
+                _c2_= cost_01apr02     /* alphabetic order */
+                _c3_= budget_01apr02
+                _c4_= cost_01jan02
+                _c5_= budget_01jan02
+                _c6_= cost_01jul02
+                _c7_= budget_01jul02
+                _c8_= cost_01oct02
+                _c9_= budget_01oct02));
+       cols id date, (cost budget);
+       define id      / group;
+       define date    / across;
+       run;quit;
+
+    3. Two proc corresp and a merge (no need to hardcode rename)
+
+      ods exclude all;
+      ods output observed=want_cost;
+      proc corresp data=have dim=1 observed cross=both;;
+        tables id, date ;
+        weight cost;
+      run;quit;
+
+      ods output observed=want_budget;
+      proc corresp data=have dim=1 observed ;
+        tables id, date;
+        weight budget;
+      run;quit;
+      ods select all;
+
+      data want;
+
+       if _n_=0 then do;
+         %let rc=%sysfunc(dosubl('
+           proc sql;
+             select
+                max(cats("_",date,"=bud_",date)),max(cats("_",date,"=cost_",date))
+             into
+                :renBud  separated by " ", :renCost separated by " "
+             from have group by date;quit;
+         '));
+       end;
+
+       merge want_cost  (rename=(&renCost sum=sumBud))
+             want_budget(rename=(&renBud  sum=sumCost));
+
+      run;quit;
+
+OUTPUT
+======
+
+   WORK.WANT TOTAL OBS=3 (Two proc corresp)
+
+             COST_      COST_      COST_      COST_                  BUD_       BUD_       BUD_       BUD_
+   ID       01APR02    01JAN02    01JUL02    01OCT02    SUMBUD     01APR02    01JAN02    01JUL02    01OCT02    SUMCOST
+
+    1          60         70        130         50        310        500        1700       2158       879        5237
+    2           0        110          0          0        110          0        1997          0         0        1997
+
+    Sum        60        180        130         50        420        500        3697       2158       879        7234
+
+*                _              _       _
+ _ __ ___   __ _| | _____    __| | __ _| |_ __ _
+| '_ ` _ \ / _` | |/ / _ \  / _` |/ _` | __/ _` |
+| | | | | | (_| |   <  __/ | (_| | (_| | || (_| |
+|_| |_| |_|\__,_|_|\_\___|  \__,_|\__,_|\__\__,_|
+
+;
+
+
+data have;
+input ID DATE $ COST BUDGET;
+cards4;
+01 01JAN02 50 900
+01 01JAN02 20 800
+01 01APR02 60 500
+01 01JUL02 80 606
+01 01JUL02 30 900
+01 01JUL02 20 652
+01 01OCT02 50 879
+02 01JAN02 30 997
+02 01JAN02 80 1000
+;;;;
+run;quit;
+
+*          _       _   _
+ ___  ___ | |_   _| |_(_) ___  _ __
+/ __|/ _ \| | | | | __| |/ _ \| '_ \
+\__ \ (_) | | |_| | |_| | (_) | | | |
+|___/\___/|_|\__,_|\__|_|\___/|_| |_|
+
+;
+
+1. utl_gather proc corresp
+
+   %utl_gather(have,var,val,id date,havxpo,valformat=10.);
+
+   ods exclude all;
+   ods output observed=want;
+   proc corresp data=havxpo dim=1 observed cross=both;
+     tables id, var date  ;
+     weight val;
+   run;quit;
+   ods select all;
+
+   /*
+   40 obs WORK.WANT total obs=3
+
+             BUDGET___    BUDGET___    BUDGET___    BUDGET___    COST___    COST___    COST___    COST___
+    ID       01APR02      01JAN02      01JUL02      01OCT02     01APR02    01JAN02    01JUL02    01OCT02     SUM
+
+     1          500          1700         2158         879          60         70        130         50      5547
+     2            0          1997            0           0           0        110          0          0      2107
+
+     Sum        500          3697         2158         879          60        180        130         50      7654
+    */
+
+ 2. Single proc report  (you have to work over a bug and hardcode rename (report does not honor ods)).
+
+    proc report data=have nowd missing out=want
+        (rename=( /* Bug in proc report. It does not honor printed ods report */
+             _c2_= cost_01apr02     /* alphabetic order */
+             _c3_= budget_01apr02
+             _c4_= cost_01jan02
+             _c5_= budget_01jan02
+             _c6_= cost_01jul02
+             _c7_= budget_01jul02
+             _c8_= cost_01oct02
+             _c9_= budget_01oct02));
+    cols id date, (cost budget);
+    define id      / group;
+    define date    / across;
+    run;quit;
+
+    /*
+     REPORT (output does not honor the ods report)
+                                                  DATE
+               01APR02               01JAN02               01JUL02               01OCT02
+     ID       COST     BUDGET       COST     BUDGET       COST     BUDGET       COST     BUDGET
+      1         60        500         70       1700        130       2158         50        879
+      2          .          .        110       1997          .          .          .          .
+
+
+     DATASET
+            COST_     BUDGET_     COST_     BUDGET_     COST_     BUDGET_     COST_     BUDGET_
+     ID    01APR02    01APR02    01JAN02    01JAN02    01JUL02    01JUL02    01OCT02    01OCT02    _BREAK_
+
+      1       60        500         70        1700       130        2158        50        879
+      2        .          .        110        1997         .           .         .          .
+    */
+
+ 3. Two proc corresp and a merge (no need to hardcode rename)
+
+   ods exclude all;
+   ods output observed=want_cost;
+   proc corresp data=have dim=1 observed cross=both;;
+     tables id, date ;
+     weight cost;
+   run;quit;
+
+   ods output observed=want_budget;
+   proc corresp data=have dim=1 observed ;
+     tables id, date;
+     weight budget;
+   run;quit;
+   ods select all;
+
+   data want;
+
+    if _n_=0 then do;
+      %let rc=%sysfunc(dosubl('
+        proc sql;
+          select
+             max(cats("_",date,"=bud_",date)),max(cats("_",date,"=cost_",date))
+          into
+             :renBud  separated by " ", :renCost separated by " "
+          from have group by date;quit;
+      '));
+    end;
+
+    merge want_cost  (rename=(&renCost sum=sumBud))
+          want_budget(rename=(&renBud  sum=sumCost));
+
+   run;quit;
+
+   /*
+   WORK.WANT TOTAL OBS=3
+
+             COST_      COST_      COST_      COST_                 BUD_       BUD_       BUD_       BUD_
+   ID       01APR02    01JAN02    01JUL02    01OCT02    SUMBUD    01APR02    01JAN02    01JUL02    01OCT02    SUMCOST
+
+    1          60         70        130         50        310       500        1700       2158       879        5237
+    2           0        110          0          0        110         0        1997          0         0        1997
+
+    Sum        60        180        130         50        420       500        3697       2158       879        7234
+   */
+
+

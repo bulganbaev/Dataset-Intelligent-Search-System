@@ -1,0 +1,6 @@
+
+ConvNeuralNetwork_MNIST_Dataset
+Convolutional Neural Network to recognize handwriting images using MNIST Dataset
+Nama: Fadli Maulana Muhammad
+NIM: 16/398503/PA/17464
+

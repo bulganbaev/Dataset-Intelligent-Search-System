@@ -1,0 +1,4 @@
+
+Car-Evaluation
+Using the Artificial Neural Network, it says if a car is very bad-bad-normal-good-very good for you. It was a school project. Data set from ; https://archive.ics.uci.edu/ml/datasets/car+evaluation.
+

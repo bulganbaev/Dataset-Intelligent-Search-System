@@ -1,0 +1,134 @@
+
+utl_sort_transpose_and_summarize_a_dataset_using_just_one_proc_report
+Sort, transpose and summarize a dataset using just one proc report. Keywords: sas sql join merge big data analytics macros oracle teradata mysql sas communities stackoverflow statistics artificial inteligence AI Python R Java Javascript WPS Matlab SPSS Scala Perl C C# Excel MS Access JSON graphics maps NLP natural language processing machine learning igraph DOSUBL DOW loop stackoverflow SAS community.
+Complex Sort, transpose and summarize a dataset using just one proc report
+
+github
+https://github.com/rogerjdeangelis/utl_sort_transpose_and_summarize_a_dataset_using_just_one_proc_report
+
+
+INPUT                                                                               OUTPUT A DATASET
+=====                                                              +---------------------------------------------------+
+                                                                   |   RULES Stas over A,B and Typ                     |
+   Up to 40 obs WORK.HAVE total obs=26                             |                                                   |
+                                                                   |         STATISTICS               TRANSPOSE        |
+                                                                   |   ---------------------       ----------------    |
+   Obs     A      B            TYP      SCORE     C     D          |   SUMS      MAXS   MINS       BOG   HOG    LOG    |
+                                                                   |                                                   |
+     1    Ted     Harry       Score1      75     Bog    Peter      | 75+74+29     75     29        The   Quick  Brown  |
+     2    Ted     Harry       Score1      74     Hog    Piper      |                                                   |
+     3    Ted     Harry       Score1      29     Log    Picked     |                                                   |
+                                                                   |                                                   |
+     4    Ted     Harry       Score2      29     Log    Picked     |   29         29     29                     Picked |
+                                                                   |                                                   |
+     5    Ted     Hermione    Score1      99     Bog    A          |                                                   |
+     6    Ted     Hermione    Score1      21     Hog    Powerful   |                                                   |
+     7    Ted     Hermione    Score1      29     Log    Peck       |                                                   |
+                                                                   |                                                   |
+     8    Ted     Hermione    Score2      56     Log    Peck       |                                                   |
+                                                                   |                                                   |
+                                                                   +---------------------------------------------------+
+
+EXAMPLE OUTPUT
+
+  40 obs from havXpoSas total obs=13
+
+
+      A      B            TYP      BOG      HOG         LOG        N    SUMS    MAXS    MINS
+
+     Ted     Harry       Score1    Peter    Piper       Picked     3     178     75      29
+     Ted     Harry       Score2                         Picked     1      29     29      29
+     Ted     Hermione    Score1    A        Powerful    Peck       3     149     99      21
+     Ted     Hermione    Score2                         Peck       1      56     56      56
+    ....
+
+PROCESS
+=======
+
+* proc report amazes me ;
+
+proc report data=have
+       out=havXpoSas (
+         drop=_break_
+         rename=(
+          _C4_ = bog
+          _C5_ = hog
+          _C6_ = log)) ;
+  columns a b  typ c , d n score=sumS score=maxS score=minS ;
+  define a   / group;
+  define b   / group;
+  define typ / group;
+  define c / across;
+  define d / display;
+  define n / 'n';
+  define sumS / sum  'sum';
+  define minS / min 'min';
+  define maxS / max 'max';
+run;quit;
+
+
+OUTPUT
+======
+
+  WORK.HAVXPOSAS  total obs=13
+
+    A      B            TYP      BOG      HOG         LOG        N    SUMS    MAXS    MINS
+
+   Bill    Harry       Score1    The      Quick       Brown      3     156     79      28
+   Bill    Harry       Score2             Quick                  1      94     94      94
+   Bill    Hermione    Score1    Fox      Jumps       Over       3      81     42       9
+   Bill    Hermione    Score2    Fox                  Over       2     190     96      94
+   Bill    Ron         Score1    The      Lazy        Dogs       3     197     95      31
+   Bill    Ron         Score2             Lazy                   2     170     89      81
+   Bill    Ron         Score2             Lazy                   2     170     89      81
+   Ted     Harry       Score1    Peter    Piper       Picked     3     178     75      29
+   Ted     Harry       Score2                         Picked     1      29     29      29
+   Ted     Hermione    Score1    A        Powerful    Peck       3     149     99      21
+   Ted     Hermione    Score2                         Peck       1      56     56      56
+   Ted     Ron         Score1    Of       Picked      Peppers    3     149     73      21
+   Ted     Ron         Score2             Picked                 1      13     13      13
+
+*                _              _       _
+ _ __ ___   __ _| | _____    __| | __ _| |_ __ _
+| '_ ` _ \ / _` | |/ / _ \  / _` |/ _` | __/ _` |
+| | | | | | (_| |   <  __/ | (_| | (_| | || (_| |
+|_| |_| |_|\__,_|_|\_\___|  \__,_|\__,_|\__\__,_|
+
+;
+
+
+data have;
+input A$ B$ C$ D$  ;
+cards4;
+Ted Harry Bog Peter
+Ted Harry Hog Piper
+Ted Harry Log Picked
+Ted Hermione Bog A
+Ted Hermione Hog Powerful
+Ted Hermione Log Peck
+Ted Ron Bog Of
+Ted Ron Hog Picked
+Ted Ron Log Peppers
+Bill Harry Bog The
+Bill Harry Hog Quick
+Bill Harry Log Brown
+Bill Hermione Bog Fox
+Bill Hermione Hog Jumps
+Bill Hermione Log Over
+Bill Ron Bog The
+Bill Ron Hog Lazy
+Bill Ron Log Dogs
+;;;;
+run;quit;
+
+*          _       _   _
+ ___  ___ | |_   _| |_(_) ___  _ __
+/ __|/ _ \| | | | | __| |/ _ \| '_ \
+\__ \ (_) | | |_| | |_| | (_) | | | |
+|___/\___/|_|\__,_|\__|_|\___/|_| |_|
+
+;
+
+see process
+
+

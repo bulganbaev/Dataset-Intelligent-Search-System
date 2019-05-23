@@ -1,0 +1,63 @@
+
+Text-Mining-Yelp
+Abstract
+In this project we investigate a variety of
+regression and classification models to predict
+rating from given review text. It was found that
+Ridge regression with TFIDF unigram features
+worked the best in terms of Mean Squared Error.
+We investigate the model performance on data
+from different cities and conclude that our model
+is robust to changes in rating distribution. Also,
+we show that the text based models should be
+used with caution across regions since they are
+sensitive to language. Additionally, it is observed
+that it may be better to use different models for
+different time periods (seasons or years).
+Visualizing the word clouds give valuable insights
+about region, culture as well as its correlation to
+seasons and ratings.
+Dataset
+Round 9 Of The Yelp Dataset Challenge - link
+Below is the preview of relevant data files.
+yelp_academic_dataset_business.json
+{
+    "business_id":"encrypted business id",
+    "name":"business name",
+    "neighborhood":"hood name",
+    "address":"full address",
+    "city":"city",
+    "state":"state -- if applicable --",
+    "postal code":"postal code",
+    "latitude":latitude,
+    "longitude":longitude,
+    "stars":star rating, rounded to half-stars,
+    "review_count":number of reviews,
+    "is_open":0/1 (closed/open),
+    "attributes":["an array of strings: each array element is an attribute"],
+    "categories":["an array of strings of business categories"],
+    "hours":["an array of strings of business hours"],
+    "type": "business"
+}
+
+yelp_academic_dataset_review.json
+{
+    "review_id":"encrypted review id",
+    "user_id":"encrypted user id",
+    "business_id":"encrypted business id",
+    "stars":star rating, rounded to half-stars,
+    "date":"date formatted like 2009-12-19",
+    "text":"review text",
+    "useful":number of useful votes received,
+    "funny":number of funny votes received,
+    "cool": number of cool review votes received,
+    "type": "review"
+}
+
+Tools used
+
+Numpy, Scipy, Pandas
+Sklearn, NLTK
+Matplotlib, WordCloud
+
+

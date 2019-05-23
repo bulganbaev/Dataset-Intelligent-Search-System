@@ -1,0 +1,319 @@
+
+Video-understanding-dataset
+Please feel free to pull a request.
+Note: ActivityNet v1.3, Kinetics-600, Moments in time, AVA will be used at ActivityNet challenge 2018
+Video Classification
+
+
+
+Dataset
+Paper
+Website
+Category
+#Examples
+#Classes
+Duration
+Organizer
+SOTA performance
+
+
+
+
+UCF101
+PDF
+Link
+human action
+13,320
+101
+<10s
+UCF
+98% (DeepMind I3D)
+
+
+HMDB51
+PDF
+Link
+human action
+6,766
+51
+<10s
+Brown
+80.7% (DeepMind I3D)
+
+
+ActivityNet v1.3
+PDF
+Link
+human activities
+~20,000
+200
+-
+ActivityNet
+8.83% err (iBUG)
+
+
+Charades
+PDF
+Link
+daily human activities
+9,848
+157
+-
+AI2
+0.3441 mAP (DeepMind I3D)
+
+
+Kinetics
+PDF
+Link
+human action
+~500,000
+600
+10s
+DeepMind
+-
+
+
+Sports-1M
+PDF
+Link
+sports
+~1 million
+478
+5m36s
+Google & Stanford
+-
+
+
+YouTube-8M
+PDF
+Link
+visual contents
+~7 million
+4716
+120-500s
+Google Cloud
+85% GAP (WILLOW)
+
+
+FCVID
+PDF
+Link
+visual contents
+91,223
+239
+100s+
+Fudan-Columbia
+-
+
+
+Something-Something
+PDF
+Link
+action with objects
+108,499
+174
+~4s
+TwentyBN
+-
+
+
+Moments in Time
+PDF
+Link
+action or activity
+~1 million
+339
+3s
+MIT-IBM Watson
+-
+
+
+SLAC
+arXiv
+Link
+recognition and localization
+520K
+200
+~30.6s
+MIT and Facebook
+-
+
+
+
+Temporal Action Detection
+
+
+
+Dataset
+Paper
+Website
+#Examples
+Organizer
+SOTA performance
+
+
+
+
+THUMOS2014
+PDF
+Link
+9.682
+UCF
+-
+
+
+ActivityNet(v1.3)
+PDF
+Link
+~20,000
+ActivityNet
+0.344(SJTU & Columbia )
+
+
+Broad Video Highlights
+-
+Link
+18000
+Baidu
+-
+
+
+
+Spatio-temporally Localized Atomic Visual Actions
+
+
+
+Dataset
+Paper
+Website
+#Examples
+#Classes
+Organizer
+SOTA performance
+
+
+
+
+AVA
+arXiv
+Link
+57.6k
+80
+Google & Berkeley
+-
+
+
+
+Hand Gestures in Videos
+
+
+
+Dataset
+Paper
+Website
+#Examples
+#Classes
+Organizer
+SOTA performance
+
+
+
+
+Jester
+-
+Link
+148,092
+27
+TwentyBN
+95.34%(Ke Yang, NUDT_PDL)
+
+
+
+Video Captioning
+
+
+
+Dataset
+Paper
+Website
+Context
+#Examples
+Organizer
+SOTA performance
+
+
+
+
+MPII-MD
+PDF
+Link
+movie
+68,337 clips with 68,375 sentences
+MPII
+-
+
+
+MSR-VTT
+PDF
+Link
+20 categories
+10,000 clips wth 200,000 sentences
+MSR
+-
+
+
+Charades
+PDF
+Link
+human activity
+9,848 clips wth 27,847 sentences
+AI2
+-
+
+
+Densevid
+PDF
+Link
+event
+20k clips and 100k sentences
+Stanford, ActivityNet
+-
+
+
+
+Video Question Answering
+
+
+
+Dataset
+Paper
+Website
+Task
+#Examples
+Organizer
+SOTA performance
+
+
+
+
+MovieQA
+PDF
+Link
+question-answering in movies
+408 movies & 14944 QAs
+UToronto
+-
+
+
+MarioQA
+PDF
+Link
+reasoning events in game videos
+187,757 examples with 92,874 QAs
+POSTECH
+-
+
+
+
+

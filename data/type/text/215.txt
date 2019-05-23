@@ -1,0 +1,6 @@
+
+SSRSDatasetConverter
+Batch dataset converter (.rsd to plain text for creation of stored procedures)
+Created in Microsoft Visual C# 2010
+Compiled .exe can be accessed @ \DatasetConverter\obj\x86\Release\DatasetConverter.exe
+

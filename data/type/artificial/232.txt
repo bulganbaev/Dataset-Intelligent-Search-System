@@ -1,0 +1,4 @@
+
+Zeronn_ASIMO
+This is an AI(artificial Intelligence) Assistant that uses Neural Networks for the speech to text conversion and trained using my voice dataset and Neural Networks used are called LSTM recurrent Neural Networks. The converted Text is then analysed using the Natural Language Processing NLTK and tokenizes the sentences and words and triggers the appropriate actions based on the user rules. Then based on the actions done the AI then makes a phrase and that is converted into a speech using the Text-to-Speech algorithm. So, TO sum it up the system takes the users queries as voice inputs and processes that and does the tasks and gives the output as sound and actions. This processing is a powerful algorithm that uses the free available data online than the costly APIs.
+

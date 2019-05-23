@@ -1,0 +1,7 @@
+
+ESA-SNAP
+Calibrated datasets to analyze the radiance for each band for Sentinel 3, with image manifests from CODA
+These datasets are a result of some serious efforts put into calibrating the satellite imagery with the insitu metadata at pixel level;
+And are open to use for everyone.
+Kindly cite the repo/ author when you use these.
+

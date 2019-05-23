@@ -1,0 +1,42 @@
+
+Machine readable datasets
+A collection of open, machine readable music documents from all over the Web
+Motivation
+Scientific studies over multi-format symbolic music notation are currently impossible. Mostly due to the siloed nature of all such open data on the Web.
+These analyses require large collections of files directly downloadable for large scale number crunching.
+Criteria for inclusion
+
+Machine readable
+Open license
+Directly downloadable via a URL
+
+Index of document formats
+
+MIDI
+MusicXML
+Humdrum
+Guitar Pro
+Kern
+
+Datasets
+MIDI
+
+The largest MIDI collection on the Internet, compiled by a redditor
+The Lakh MIDI dataset is a collection of 176,581 unique MIDI files, 45,129 of which have been matched and aligned to entries in the Million Song Dataset; compiled by Colin Raffel
+Musicalion  (SCRAPE NEEDED)
+
+LilyPond
+
+Mutopia database (SCRAPE NEEDED)
+
+Kern
+
+Kern Scores (SCRAPE NEEDED)
+
+MusicXML
+
+Catalog of catalogs (SCRAPE NEEDED)
+Musicalion  (SCRAPE NEEDED)
+
+GuitarPro datasets
+

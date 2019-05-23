@@ -1,0 +1,10 @@
+
+ARE-WE-LOSING-CUSTOMERS-USING-ANN
+Customer churn occurs when customers stop doing business with a company, also known as customer attrition. It is also referred to as loss of clients or customers. Sensitive information of 9,000 of an European Bank, EBQ was taken an built an Artificial Neural Network (ANN) based on the dataset such that later the ANN model can predict correctly which of the 1,000 customers (in a separate unlabeled judge set) the bank is going to lose.
+The datset.csv is the dataset Containing 9000 customer information (labeled)
+The judge.csv is the dataset containing 1000 customer information (unlabeled)
+Preprocessed the dataset, and had a 80-20 split (training and test). Before doing that, I investigated which feature(s) might or might not have relations to the target variable “Exited” and dropped those (very) distantly related features from the dataset.
+Utilized the SynapseMatrix style data structure to store weight values and constructed the artificial neural networks. Then, implemented backpropagation algorithm and run the algorithm on the training set, and the applied the trained model on the test dataset.
+Wrote a program that has access to my best performing trained ANN (in terms of accuracy metric), and reads the judge.csv file. It outputs judge-pred.csv containing only two fields: CustomerID, Exited for each of the judge instances present in the judge.csv file in the exact
+same order.
+

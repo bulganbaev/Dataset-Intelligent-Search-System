@@ -1,0 +1,89 @@
+
+Datasets creation
+About
+Scripts for preparing image classification datasets using publicly available, tagged images.
+Project is based on the Flickr API.
+Prerequisites
+
+
+Project depends on the Flickr API
+thus requires API credentials. Credentials should be stored as environmental variables,
+named API_KEY and API_SECRET.
+
+
+It's recommended to execute the code in Docker.
+
+
+How to use
+Outline
+
+Run make build in the root directory to prepare the environment.
+Modify config.yaml
+Run  make create_dataset
+
+1. Prepare environment
+Navigate to the project's root directory and run:
+make build
+If you're NOT going to use Docker:
+
+Install python3
+Install pip3
+Run pip3 install -r requrements.txt
+
+2. Configure dataset requirements
+Modify the config.yaml file according to your needs.
+Define image classes
+Simply replace or add required classes and images count you'd like to donwload
+for each of them.
+It may be a good idea to try Flickr browser
+first to decide on the best query tag. Make sure that you're searching by tags and not
+text.
+classes:
+  - name: cat
+    count: 20000
+  - name: dog
+    count: 10000
+
+Configure train test split
+After all the images are downloaded, the json file with relative paths to files
+divided into train and test set is generated.
+train_test_split:
+  seed: 42
+
+  # proportional - select n% of images from each class
+  # absolute - select n images from each class
+  type: 'absolute'
+  test_size: 500
+
+3. Execute scripts
+Navigate to the project's root directory and run:
+make create_dataset
+All the required steps will be performed automatically.
+You may want to edit the Makefile to change project's settings but it's
+not necessary as the code doesn't affect anything outside the project.
+Produced artifacts
+
+Separate directories for each class containing small
+images (240px on the longest side) with class instances.
+train_test_split.json file containing relative paths to the images
+divided into training and testing set.
+dataset.tgz archive containing the above (1, 2).
+urls_data.json urls to images on Flickr.
+summary.txt report from the downloading process. At the same time it summarizes
+the contents of the dataset.
+
+Notes
+
+Obtained data isn't perfect.
+
+There is no guarantee that all the images are unique.
+Some images may be very similar to each other.
+Some images may not represent an adequate class.
+
+
+Flickr API breaks sometimes,
+there up to 5 retries in the case of Flickr API erros.
+Each step of the process has to finish in a single run.
+There is no mechanism implemented that would allow to re-run steps from the middle.
+
+

@@ -1,0 +1,63 @@
+
+ImageSearch
+Image search using Mobile Net neural network and ImageNet dataset
+Objetivo
+Neste projeto, o objetivo foi construir um buscador de imagem utilizando Machine Learning. O processo de treinamento foi feito utilizando a rede neural pré treinada MobileNet, com o dataset ImageNet. O banco de dados de imagens disponíveis (dentro da pasta images/) foi construído com um esforço conjunto dos alunos da disciplina de Visão Computacional 2018.2 do Insper. O banco de dados possui aproximadamente 750 imagens.
+Dependências
+
+Python 3
+Keras
+Tensorflow
+maplotlib
+numpy
+
+Para instalar as dependências:
+$ pip install -r requirements.txt
+Explicação do algoritmo
+O dataset ImageNet possui 1000 classes diferentes e milhares de imagens. O arquivo imagenet.txt possui um mapeamento de índices para nome de classes. O pacote Keras provê redes neurais pré-treinadas com as imagens da ImageNet. Utilizaremos a MobileNet, uma rede leve que pode ser utilizada em smartphones.
+Para cada imagem do nosso banco de dados customizado, é realizada uma predição utilizando a rede citada acima. Cada imagem gera como predição um vetor de 1000 posições, contendo as probabilidades de cada classes para esta dada imagem. As predições são persistidas em um índice (dicionário) no seguinte formato, usando o módulo pickle:
+index = {
+    "uri_da_imagem_0": [], # vetor de probabilidades 0
+    "uri_da_imagem_1": [], # vetor de probabilidades 1
+    ...
+}
+Este índice será utilizado para retornar as imagens buscadas. O processo de busca se dá assim:
+
+O usuário entra com um dos 1000 termos presentes no arquivo imagenet.txt.
+Este termo é convertido no ID correspondente.
+Para cada uma das imagens no banco de dados, é coletada a probabilidade presente na posição ID do vetor de probabilidades daquela imagem.
+Estas probabilidades são ordenadas e mostradas juntamente com as imagens correspondentes, em ordem crescente de confiança.
+
+Exemplo: termo "banana"
+
+Termo "banana".
+O ID do termo "banana" é 954.
+Para cada imagem do banco, é coletada a probabilidade (confiança) da posição 954 do vetor. Um dicionário é montado, contendo como chaves as URIs das imagens, e como valores as probabilidades coletadas:
+
+coleta = {
+    "./images/martimfj/banana3.jpg": 1.0,
+    "./images/lucassa3/banana0.jpg": 0.9999671,
+    "./images/lucassa3/banana2.jpg": 0.9995524,
+    "./images/lucassa3/banana4.jpg": 0.9994442,
+    "./images/martimfj/banana2.jpg": 0.9975414,
+    .....
+}
+
+O dicionário é ordenado em ordem decrescente, de acordo com a probabilidade. Os cinco primeiros resultados são mostrados.
+
+Para evitar com que o índice seja construído toda vez que uma busca for realizada, o pacote pickle foi utilizado, permitindo guardar arquivos binários de objetos Python.
+Utilização
+Para rodar o algoritmo, pode-se utilizar:
+$ python image_search.py <termo_imagenet>
+Caso a flag --build-index seja passada, o índice será reconstruído. Os termos estão em imagenet.txt.
+Resultados
+Abaixo são mostrados resultados utilizando termos presentes no ImageNet, mas procurando por uma categoria que possui imagens no banco de dados (exemplo 1) e uma categoria que não possui.
+Exemplo 1:
+Termo buscado: banana
+Primeiro resultado (o número no topo representa a confiança do classificador, ou seja, a chance deste resultado estar correto):
+
+Exemplo 2:
+Termo buscado: mushroom
+Primeiro resultado (o número no topo representa a confiança do classificador, ou seja, a chance deste resultado estar correto):
+
+

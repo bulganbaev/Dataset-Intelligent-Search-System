@@ -1,0 +1,26 @@
+
+CoFE
+Method described on the paper Topic Modeling for Short Texts with Cooccurrence
+Frequency-based Expansion published in the Proceedings of Brazilian Conference
+on Intelligent Systems (BRACIS) 2016. Work developed together with Marcelo Pita,
+Paulo Bicalho, Anisio Lacerda and Gisele L. Pappa.
+CoFE generates pseudo-documents from a given text collection which are larger than the original ones.
+It does so by creating a similarity graph, which is generated exploiting word cooccurrence information
+found in the dataset. Then, for each document, CoFE explores the graph to select good words to be
+appended to the document to generate its larger version.
+Abstract
+Short texts are everywhere on the Web, including messages in social media, status messages, etc,
+and extracting semantically meaningful topics from these collections is an important and difficult task.
+Topic modeling methods, such as Latent Dirichlet Allocation, were designed for this purpose.
+However, discovering high quality topics in short text collections is a challenging task.
+This is because most topic modeling methods rely on information coming from the word co-occurrence distribution
+in the collection to extract topics.
+As in short text this information is scarce, topic modeling methods have difficulties in this scenario, and
+different strategies to tackle this problem have been proposed in the literature.
+In this direction, this paper introduces a method for topic modeling of short texts that creates pseudo-documents
+representations from the original documents.
+The method is simple, effective, and considers word co-occurrence to expand documents, which can be given as input
+to any topic modeling algorithm.
+Experiments were run in four datasets and compared against state-of-the-art methods for extracting topics from short text.
+Results of coherence, NPMI and clustering metrics showed to be statistically significantly better than the baselines in the majority of cases.
+

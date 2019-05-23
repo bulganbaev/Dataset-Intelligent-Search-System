@@ -1,0 +1,13 @@
+
+Spike Train Visualization
+Description
+A visualization of both artificially generated poisson-like spiking with an arbitrary time-dependent rate function and real experimental spike train data from a freely available dataset.
+Files
+generated/ - Folder, source code for artificially generating spike trains and an example render
+generated/animated_spiketrain_plot.py - Source code for generating an arbitrary number of spike trains on demand, with a visualization
+generated/generated_spike_trains.mp4 - An example render of artifically generated poisson spiking
+real/ - Folder, source code for visualizing spike train datasets provided as lists of spike times and an example render
+real/animated_spiketrain_dataset.py - Source code for visualizing an arbitrary number of lists of spikes times
+real/real_single_unit_spike_trains.mp4 - An example render of a subset of data from a real spike train dataset
+real/i140703-001_lfp-spikes.pkl - A pickled dictionary of spike time lists indexed by unit IDs, see animated_spiketrain_dataset.py for links/citations to data source. This file is provided under the Creative Commons Attribution-ShareAlike 4.0 International Public License (https://creativecommons.org/licenses/by-sa/4.0/)
+

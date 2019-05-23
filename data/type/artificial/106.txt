@@ -1,0 +1,281 @@
+
+utl_splitting_a_five_column_sas_dataset_by_the_median_into_lower_and_upper_dataset
+Splitting a five column SAS dataset by the median into lower and upper dataset Keywords: sas sql join merge big data analytics macros oracle teradata mysql sas communities stackoverflow statistics artificial inteligence AI Python R Java Javascript WPS Matlab SPSS Scala Perl C C# Excel MS Access JSON graphics maps NLP natural language processing machine learning igraph DOSUBL DOW loop stackoverflow SAS community.
+StackOverflow R: Splitting a five column SAS dataset by the median into lower and upper dataset
+github
+https://goo.gl/fAzNXd
+https://github.com/rogerjdeangelis/utl_splitting_a_five_column_sas_dataset_by_the_median_into_lower_and_upper_dataset
+
+see
+https://stackoverflow.com/questions/48200191/splitting-a-data-frame-by-median
+
+   I tried
+      1. Proc rank
+      2. Hash sort
+
+   Three solutions
+
+     1.  WPS/PROC R
+     2.  PROC TRANSPOSE
+     3.  DOSUBL
+
+
+INPUT  ( I keep a NULL dataset for problems like this)
+======================================================
+
+ SASUSER.WANT total obs=0 variables=0 (null dataset)
+
+
+ SD1.HAVE total obs=6            |  RULES  (sort each column and split 1/2 the number of rows)
+                                 |             LOWER
+    V1    V2    V3    V4    V5   |    V1    V2    V3    V4    V5
+                                 |     0     3     4     5     1
+    67    75     4     5    20   |     7    12     8    10    20
+     0    38    93    90    24   |    19    34    33    24    24
+    72    12    97    27     1   |             UPPER
+     7     3    39    83    96   |    65    38    39    27    69
+    65    34     8    10    76   |    67    75    93    83    76
+    19    88    33    24    69   |    72    88    97    90    96
+
+
+  This will require we sort each column independently.
+  If the source dataset has 6 rows the upper will have the 3 lower values and the
+  upper 3 higher values.
+
+  If the source dataset has 7 rows the upper will have the 4 lower values and the
+  upper 4 higher values with he median repeated.
+
+
+PROCESSES
+=========
+
+ 1, WPS/PROC R (Working code)
+
+     want<-apply(have, 2, function(x) (sort(x)));
+     lower <- want[1:round(nrow(want)/2),];
+     upper <- want[round(nrow(want)/2+1):nrow(want),];
+
+ 2.  TRANSPOSE (All the code)
+
+     proc transpose data=sd1.have out=havXpo;
+     var v1 v2 v3 v4 v5;
+     run;quit;
+
+     data want;
+       set havxpo;
+       array nums[*] _numeric_;
+       call sortn(of nums[*]);  * sort rows which were columns;
+     run;quit;
+
+     proc transpose data=want out=havXpoXpo;  * exactly like original v1-v5 have dataset sorted;
+     var col1-col6;
+     run;quit;
+
+     data lower upper;
+       set havXpoXpo nobs=_obs;
+       select;
+         when ( _n_ le  round(_obs/2)) output lower;
+         when ( _n_ ge  round(_obs/2)+1) output upper; /* for odd _obs median values */
+       end;                                            /* in both datasets           */
+     run;quit;
+
+ 3.  DOSUBL
+
+    * create another null dataset want - could use null directly;
+    data want;
+      set sasuser.null;
+    run;quit;
+
+    data _null_;
+
+       * get meta data;
+       set sd1.have(obs=1);
+       array nums[*]  _numeric_;   * just need this for vname function;
+
+       do col=1 to dim(nums);      * cycle over columns;
+          call symputx('colnam',vname(nums[col]));
+
+          * sort and add columns to want;
+          rc=dosubl('
+             proc sort data=sd1.have(keep=&colnam) out=hav&colnam;
+                 by &colnam;
+             run;quit;
+             data want;
+                merge want hav&colnam(in=b); column by column concatenation;
+                if b;
+             run;quit;
+          ');
+
+       end;
+
+    run;quit;
+
+    data lower upper;
+      set want nobs=_obs;
+      select;
+        when ( _n_ le  round(_obs/2)  ) output lower;
+        when ( _n_ ge  round(_obs/2)+1) output upper; /* for odd _obs median values */
+      end;                                            /* in both datasets           */
+    run;quit;
+
+OUTPUT
+======
+
+ WORK.LOWER total obs=3
+
+    V1    V2    V3    V4    V5
+
+     0     3     4     5     1
+     7    12     8    10    20
+    19    34    33    24    24
+
+ WORK.UPPER total obs=3
+
+    V1    V2    V3    V4    V5
+
+    65    38    39    27    69
+    67    75    93    83    76
+    72    88    97    90    96
+
+
+*                _              _       _
+ _ __ ___   __ _| | _____    __| | __ _| |_ __ _
+| '_ ` _ \ / _` | |/ / _ \  / _` |/ _` | __/ _` |
+| | | | | | (_| |   <  __/ | (_| | (_| | || (_| |
+|_| |_| |_|\__,_|_|\_\___|  \__,_|\__,_|\__\__,_|
+
+;
+
+* if you do not have a null dataset;
+  data sasuser.null;
+  run;quit;
+
+  data want;
+    set null;
+  run;quit;
+
+  /* you can do this instead of the two datasets above
+  data want; * null dataset;
+  run;quit;
+  */
+
+  options validvarname=upcase;
+  libname sd1 "d:/sd1";
+  data sd1.have;
+    call streaminit(5731);
+    array nums[5] v1-v5;
+    do rec=1 to 6;
+       do i=1 to dim(nums);
+          nums[i]=int(100*(rand("uniform")));
+       end;
+    drop i rec;
+    output;
+    end;
+  run;quit;
+
+*                      ______
+__      ___ __  ___   / /  _ \
+\ \ /\ / / '_ \/ __| / /| |_) |
+ \ V  V /| |_) \__ \/ / |  _ <
+  \_/\_/ | .__/|___/_/  |_| \_\
+         |_|
+;
+
+proc datasets lib=work kill;
+run;quit;
+
+%utl_submit_wps64('
+libname sd1 sas7bdat "d:/sd1";
+options set=R_HOME "C:/Program Files/R/R-3.3.2";
+libname wrk sas7bdat "%sysfunc(pathname(work))";
+proc r;
+submit;
+source("C:/Program Files/R/R-3.3.2/etc/Rprofile.site", echo=T);
+library(haven);
+have<-read_sas("d:/sd1/have.sas7bdat");
+want<-apply(have, 2, function(x) (sort(x)));
+lower <- want[1:round(nrow(want)/2),];
+upper <- want[round(nrow(want)/2+1):nrow(want),];
+endsubmit;
+import r=lower data=wrk.lower;
+import r=upper data=wrk.upper;
+run;quit;
+');
+
+*_
+| |_ _ __ __ _ _ __  ___ _ __   ___  ___  ___
+| __| '__/ _` | '_ \/ __| '_ \ / _ \/ __|/ _ \
+| |_| | | (_| | | | \__ \ |_) | (_) \__ \  __/
+ \__|_|  \__,_|_| |_|___/ .__/ \___/|___/\___|
+                        |_|
+;
+
+%utl_submit_wps64('
+libname sd1 sas7bdat "d:/sd1";
+libname wrk sas7bdat "%sysfunc(pathname(work))";
+proc transpose data=sd1.have out=havXpo;
+var v1 v2 v3 v4 v5;
+run;quit;
+
+data want;
+  set havxpo;
+  array nums[*] _numeric_;
+  call sortn(of nums[*]);  * sort rows which were columns;
+run;quit;
+
+proc transpose data=want out=havXpoXpo;  * exactly like original v1-v5 have dataset sorted;
+var col1-col6;
+run;quit;
+
+data wrk.lower wrk.upper;
+  set havXpoXpo nobs=_obs;
+  select;
+    when ( _n_ le  round(_obs/2)  ) output wrk.lower;
+    when ( _n_ ge  round(_obs/2)+1) output wrk.upper; /* for odd _obs median values */
+  end;                                            /* in both datasets           */
+run;quit;
+');
+
+*    _                 _     _
+  __| | ___  ___ _   _| |__ | |
+ / _` |/ _ \/ __| | | | '_ \| |
+| (_| | (_) \__ \ |_| | |_) | |
+ \__,_|\___/|___/\__,_|_.__/|_|
+
+;
+
+data want; * create null dataset;
+run;quit;
+
+data _null_;
+   * get meta data;
+   set sd1.have(obs=1);
+   array nums[*]  _numeric_;   * just need this for vname function;
+
+   do col=1 to dim(nums);      * cycle over columns;
+      call symputx('colnam',vname(nums[col]));
+
+      * sort and add columns to want;
+      rc=dosubl('
+         proc sort data=sd1.have(keep=&colnam) out=hav&colnam;
+             by &colnam;
+         run;quit;
+         data want;
+            merge want hav&colnam(in=b); * column by column concatenation;
+            if b;
+         run;quit;
+      ');
+
+   end;
+   stop;
+run;quit;
+
+data lower upper;
+  set want nobs=_obs;
+  select;
+    when ( _n_ le  round(_obs/2)  ) output lower;
+    when ( _n_ ge  round(_obs/2)+1) output upper; /* for odd _obs median values */
+  end;                                            /* in both datasets           */
+run;quit;
+
+

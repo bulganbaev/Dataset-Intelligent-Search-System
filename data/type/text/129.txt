@@ -1,0 +1,28 @@
+
+shareabotus-textizen-adaptor
+Integrate a Textizen poll with a Shareabouts dataset
+To load in responses manually:
+
+
+Download a CSV snapshot of the Shareabouts API survey responses
+
+
+Pick out the medallion_number and private_participant_phone fields
+
+
+Copy them into the manually_load_... Python file
+
+
+Make a list of tuples out of them in the seen_responses set.
+
+
+Get a poll from the Textizen API
+ curl -X POST "https://textizen.com/api/users/sign_in?email=<email>&password=<password>"
+ curl "https://textizen.com/api/polls/440?auth_token=<auth_token>" > poll_info.json
+
+
+
+Run the manually_load_... script
+
+
+

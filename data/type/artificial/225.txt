@@ -1,0 +1,6 @@
+
+Customer_Churn
+Customer churn happens when a company’s customers stop doing business with that company. Businesses are particularly very keen on measuring churn because retaining existing customer costs less than acquiring a new customer. Acquiring new customer involves fund for marketing and sales including using different sales channels. Meanwhile existing customers often have a higher volume of service consumption rate and often generate additional customer through referrals.
+For the project a sample dataset from a bank was used. The information included parameters like customer id, credit score, gender, age, tenure, balance, if the customer is active, has a credit card, etc. The data was observed for a period of 6 months. The bank observed if these customers left or stayed in the bank.
+The aim of the project was to make Artificial Neural Network that can predict, based on geo-demographical and transactional information of the dataset, and predict if any individual customer will leave the bank or stay (customer churn).
+

@@ -1,0 +1,39 @@
+
+Inception V3 for TV Human Interactions dataset
+ArXiv link
+Code is used as part of our survey on human action & interaction recognition: Understanding human-human interactions: a survey [arXiv]
+About
+Applying Transfer Learning on Inception V3 model (weights trained on Imagenet) for the Oxford TV Human Interactions dataset. The network gets as inputs images extracted every 5 frames from videos.
+
+
+Activations from the first convolutional layer that handles the input image
+
+
+Grad-cam for the kiss class of an example from the HighFive dataset
+Installation
+Git is required to download and install the repo. You can open Terminal (for Linux and Mac) or cmd (for Windows) and follow these commands:
+$ sudo apt-get update
+$ sudo apt-get install git
+$ git clone https://github.com/alexandrosstergiou/Inception_v3_TV_Human_Interactions.git
+Dependencies
+The network was build with Keras while using the TensorFlow backend.  scikit-learn was used as a supplementary package for doing a train-validation split. Additionally, for the grad-cam visualisations the keras-vis toolkit was employed. Considering a correct configuration of Keras, to install the dependencies follow:
+$ sudo pip install -U scikit-learn
+$ sudo pip install keras-vis
+References
+This work is based on the following two papers:
+
+Patron-Perez, Alonso, et al. "High Five: Recognising human interactions in TV shows." BMVC, 2010. [link]
+Szegedy, Christian, et al. "Going deeper with convolutions." CVPR, 2015.[link]
+
+If you use this repository for your work, you can cite it as:
+@misc{astergiou2018inceptionInteractions},
+title={Inception V3 - TV Human Interactions dataset}
+author={Alexandros Stergiou}
+year={2018}
+License
+MIT
+Contact
+Alexandros Stergiou
+a.g.stergiou at uu.nl
+Any queries or suggestions are much appreciated!
+

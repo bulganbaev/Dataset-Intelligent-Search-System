@@ -1,0 +1,30 @@
+
+Deep Learning webapp
+Simple image classification with 20 images
+
+imageset has to be downloaded from VOC for classfication function to work
+
+What it shows
+
+Webapp allows for classification of an image
+belonging to 1 of 20 classes given:
+
+['aeroplane', 'bicycle', 'bird', 'boat',
+'bottle', 'bus', 'car', 'cat', 'chair',
+'cow', 'diningtable', 'dog', 'horse',
+'motorbike', 'person', 'pottedplant',
+'sheep', 'sofa', 'train',
+'tvmonitor']
+
+How to run it
+
+For space reasons, VOCdevkit will not
+be included, and has to be put under
+static/ folder before running webapp
+To build a new data.json to display
+on the webapp, use BuildDB(saved_dict=<path_to_your_state_dict_here>)
+to generate a new data.json
+A trained_model.pt is required, which uses
+a model of resnet18 to run.
+
+

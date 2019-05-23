@@ -1,0 +1,4 @@
+
+PRONTO-heterogeneous-benchmark-dataset
+The PRONTO heterogeneous benchmark dataset is based on an industrial-scale multiphase flow facility. It includes data from heterogeneous sources, including process measurements, alarm records, high frequency ultrasonic flow and pressure measurements, an operation log and video recordings. The study collected data from various operational conditions with and without induced faults to generate a multi-rate, multi-modal dataset.  The dataset is suitable for developing and validating algorithms for fault detection and diagnosis (FDD) and data fusion.
+

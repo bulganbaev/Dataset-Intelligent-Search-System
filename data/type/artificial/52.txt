@@ -1,0 +1,28 @@
+
+Implementation of k-Nearest Neighbors (kNN) algorithm in Python
+Setting up Python environment
+The kNN algorithm is entirely built using in-built Python functions, however, the program uses matplotlib for displaying graphs and following are the steps to set that up.
+
+Open Terminal and run the following commands:
+pip install matplotlib (This command installs matplotlib)
+sudo apt-get install python-tk (This command installs the python-tk package)\
+How to run
+Kindly execute the program using the following steps:
+
+1. Open terminal and navigate to the path containing the 4 Python (.py)
+files mentioned in the previous section. 
+
+2. Execute the following command:
+python abhishek_sharma_knn.py <directory_name> <value_of_k>
+
+<directory_name>: Specifies the name of directory containing the
+training and testing datasets.
+<value_of_k>: Specifies the value of k
+
+Note: For any value of k, the program measures the accuracy for all
+odd values of k from 1 to k.
+For instance, if k=9, the program will display the accuracy for
+k=1,3,5,7,9.
+
+Example command: python abhishek_sharma_knn.py heart 11
+

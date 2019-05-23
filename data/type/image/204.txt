@@ -1,0 +1,20 @@
+
+facial-image-dataset-for-deep-learning
+This repo contains my self-built dataset for deep learning-facial image rating track. Feel free to use the code or dataset if you want to train your own rater machine.
+The final dataset contains 682 labeled(1-10) facial images and you can do data augmentation by yourself.
+Steps from sctrach:
+1.Crawled thousands of images from facebook and only keep the high quality white woman facial images.
+2.run py document as follows:
+run find_faces_in_picture.py
+run rename.py
+run resize_image.py
+
+run CNN.py
+
+zip files specified:
+The original dataset web_image
+The datasets with logical names full_data_rename.zip
+The final dataset after every image standardized to 224x224x3 full_data_standardize.zip
+p.s. the dataset originally published in kaggle
+reference:keras cheet sheet
+

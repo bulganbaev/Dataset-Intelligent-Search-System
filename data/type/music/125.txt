@@ -1,0 +1,19 @@
+
+Music-Genre-Classification
+This is a Keras implementation to classify genre of audio files from GTZAN Genre Collection using Neural Networks.
+Todo:
+
+ Instead of applying dense neural networks, convert audio files to spectrogram images and apply cnn model
+ Model is overfitting, therefore, apply regularisation
+ Other dataset that can be used is Audio set dataset made available by Google Inc.
+
+References:
+
+Dropout: A Simple Way to Prevent Neural Networks from
+Overfitting
+
+Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift
+This notebook uses librosa library to extract features features from audio clips.
+Medium blog by Parul Pandey
+
+

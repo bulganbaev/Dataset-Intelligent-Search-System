@@ -1,0 +1,10 @@
+
+image_downloader
+Image downloader utility for large image datasets or theme creation
+To download images visit https://images.google.com/ and search images you want to download
+Then scroll down until you see enough of images you need and run the following in browser console:
+urls = Array.from(document.querySelectorAll('.rg_di .rg_meta')).map(el=>JSON.parse(el.textContent).ou); window.open('data:text/csv;charset=utf-8,' + escape(urls.join('\n')));
+Note that if you have add blocker, it's possible that download prompt might not appear
+After downloading url set of images, run image_downloader.py [path to txt file] [output dir] [number of images to download (optional, default = all in txt file] [notification preference, how often to notify image download prompt, default = 5]
+Example: image_downloader.py ships_at_sea.txt .\images 50 10
+

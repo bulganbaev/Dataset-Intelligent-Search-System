@@ -1,0 +1,4 @@
+
+Takes an input CSV file of the sematones and octaves of a list of songs.
+Works based on scikit-learn algorithms.
+

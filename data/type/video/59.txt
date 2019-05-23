@@ -1,0 +1,9 @@
+
+Create_Dataset
+Contains Python code and Java code(for Swing GUI) to  automatically create a dataset of desired number of images from input Video.
+Also contains small module for image pre-processing. This module was used to create the dataset file "Preprocessed_data.zip" which also contains images from the following source :
+**Shankar Setty, Moula Husain, Parisa Beham, Jyothi Gudavalli, Menaka Kandasamy, Radhesyam Vaddi, Vidyagouri Hemadri, J C Karure, Raja Raju, Rajan, Vijay Kumar and C V Jawahar. "Indian Movie Face Database: A Benchmark for Face Recognition Under Wide Variations"
+**National Conference on Computer Vision, Pattern Recognition, Image Processing and Graphics (NCVPRIPG), 2013.
+parallel.py :
+This script performs the same task that create_dataset.py does, but it splits the input video into two halves and parallelises the processing of those, thus reducing the processing time of the complete video
+

@@ -1,0 +1,4 @@
+
+Multilayered-Residual_Networks_Activity_Recognition
+Multilayered Residual Networks to classify. Training and validation dataset was collected across a sample of 10 people in UCSD. The code classifies a video feed into these: Cleaning, Cutting, Drinking, Talking on Phone, Reading, Walking. Test set was obtained using real time video feed.
+

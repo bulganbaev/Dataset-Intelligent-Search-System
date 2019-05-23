@@ -1,0 +1,5 @@
+
+moving zebrafish larvae segmentation and tracking dataset
+This dataset consists of 10 video sequences with original video frames and their manually segmented ground truth or golden standard of the moving zebrafish larvae in each frame, as well as a region based segmentation accuracy evaluation program written in MATLAB.
+The original frames of each video sequence are in zipped files #.zip. Since sequnce 8 is a very long video, its frames are saved in 08_part1.zip and 08_part2.zip. Please cut all the frames in one of the zipped file and paste to the other after unzip, and change the file's name with all the frames of sequence 8 to 08, after download these data.
+

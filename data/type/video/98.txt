@@ -1,0 +1,172 @@
+
+Analyzing Hyperparameters for a CNN LSTM Video Description Framework
+In this project, we explore a deep learning encoder-decoder framework that describes objects or/and activities in a video by modelling the local and global temporal structure of videos. The framework "arctic-capgen-vid" consists of deep Convolutional Neural Networks (CNNs) which serve as an encoder and Long Short-Term Memory Network (LSTM) for the decoder. This design has been proven effective for producing high learning capacity models for video to text translations as long as critical hyperparameters are identified and provided with appropriate values.  Our study therefore seeks to discover the pivotal hyperparameters and experimental conditions in which this approach works best. The framework for our experiments provides description for the Youtube2Text dataset and performs exceptionally well for both BLEU and METEOR metrics.
+Setting up environment
+
+We are using ARC clusters  which are GPU clusters provided by our university. You can run our project on CPU as well, since the following setup steps will work for local machine too. However, training on GPU provided us with a speed boost of at least 10x.
+You will need to use python 2.x
+
+Accessing ARC nodes
+Steps to access ARC nodes can be followed by the "Accessing the Cluster" section from ARC Cluters
+Assign node
+Once logged in to the ARC cluster, you will have to assign a node to install dependencies in your workspace.
+To check available nodes, run
+sinfo
+
+Then, use the following command to assign a node.
+srun -n 32 -N 2 -p gtx780 --pty /bin/bash
+OR
+srun -n 16 -N 1 -p gtx1080 --pty /bin/bash
+
+Installing python dependencies
+pip2.7 install --user tables
+pip2.7 install --user sklearn
+pip2.7 install --user scipy
+pip2.7 install --user mako
+pip2.7 install --user cython
+pip2.7 install --user nose
+
+Installing git from source
+wget https://github.com/git/git/archive/v2.1.2.tar.gz -O git.tar.gz
+tar -zxf git.tar.gz
+cd git-2.1.2/
+make configure
+make install
+
+Configure git (optional)
+# git config --global user.name "Your name"
+# git config --global user.email "Your email address"
+
+Checkout repo
+cd ~
+git clone https://github.com/rohitnaik246/video-description-cnn-rnn.git
+
+Install dependencies
+mkdir ~/video-description-cnn-rnn/arctic-capgen-vid/dependencies
+cd ~/video-description-cnn-rnn/arctic-capgen-vid/dependencies
+
+# Coco-caption
+git clone https://github.com/tylin/coco-caption.git
+
+# Jobman
+git clone git://git.assembla.com/jobman.git Jobman
+
+## Theano + pygpuarray
+# First install cmake version 3.x
+cd
+wget https://cmake.org/files/v3.6/cmake-3.6.2.tar.gz
+tar -zxvf cmake-3.6.2.tar.gz
+cd cmake-3.6.2
+./bootstrap --prefix=~/.local/
+make
+make install
+vim ~/.bash_profile
+export PATH=~/.local/bin:$PATH
+
+# Theano
+cd ~/video-description-cnn-rnn/arctic-capgen-vid/dependencies
+git clone git://github.com/Theano/Theano.git
+cd Theano
+pip install --user -e .
+
+# pygpu
+cd ..
+git clone https://github.com/Theano/libgpuarray.git
+cd libgpuarray
+git checkout tags/v0.7.5 -b v0.7.5
+mkdir Build
+cd Build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=~/.local
+make
+make install
+cd ..
+python setup.py build_ext -L ~/.local/lib -I ~/.local/include
+python setup.py build
+python setup.py install --user
+
+Adding following paths to your bash profile as per your home directory
+vim ~/.bash_profile
+
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/video-description-cnn-rnn/arctic-capgen-vid/dependencies/Jobman/bin
+
+export PYTHONPATH=$PYTHONPATH:$HOME/video-description-cnn-rnn/arctic-capgen-vid/dependencies/Theano/:$HOME/video-description-cnn-rnn/arctic-capgen-vid/dependencies/coco-caption:$HOME/video-description-cnn-rnn/arctic-capgen-vid/dependencies/Jobman
+
+export CPATH=$CPATH:~/.local/include
+export LIBRARY_PATH=$LIBRARY_PATH:~/.local/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib
+
+Load bash profile
+. ~/.bash_profile
+
+Download the dataset
+NOTE: Dataset has been included as LFS links in the project. Please follow the steps below only if there is some problem with accessing the dataset
+mkdir ~/video-description-cnn-rnn/arctic-capgen-vid/dataset
+cd ~/video-description-cnn-rnn/arctic-capgen-vid/dataset
+wget 'http://lisaweb.iro.umontreal.ca/transfert/lisa/users/yaoli/youtube2text_iccv15.zip'
+unzip youtube2text_iccv15.zip 
+
+Running the project
+
+Go to common.py and change the value of following variables: RAB_DATASET_BASE_PATH and RAB_EXP_PATH according to your specific setup. The first path is the parent dir path containing youtube2text_iccv15 dataset folder. The second path specifies where you would like to save all the experimental results. Create a "exp" folder for it.
+Before training the model, we suggest to test data_engine.py by running python data_engine.py without any error.
+It is also useful to verify coco-caption evaluation pipeline works properly by running python metrics.py without any error.
+Now ready to launch the training. You can change the configuration of the model in config.py
+
+
+to run on gpu:
+
+./run_theano.sh
+
+
+to run on cpu:
+
+THEANO_FLAGS=mode=FAST_RUN,device=cpu,floatX=float32 python train_model.py
+
+Running the training in background
+Since training the model takes a lot of time, you can use "sbatch" command on ARC cluster to run the training in background.
+Follow the steps:
+
+Create a batch file called "run_model.batch" and add following lines in it
+
+#!/bin/bash
+#SBATCH -J stdm_cnn_rnn               # Job name
+#SBATCH -o stdm_cnn_rnn.out         # Name of stdout output file (%j expands to jobId)
+#SBATCH -N 1                          # Total number of nodes requested
+#SBATCH -n 16                       # Total number of mpi tasks requested
+#SBATCH -t 24:00:00                   # Maximum Run time (hh:mm:ss) - 1.5 hours
+#SBATCH -p gtxtitanx                   # Specify gpu/CPU
+$HOME/video-description-cnn-rnn/arctic-capgen-vid/run_theano.sh
+
+
+Submit batch file to run by executing command:
+
+sbatch run_model.batch
+
+Above command will generate a job id for corresponding to that batch file execution
+
+Check job status
+
+scontrol show job=<job_id>
+
+The job status should be "RUNNING". If it is "PENDING" then most likely there are no nodes available right now, and the job will start running as soon as the requested node (in batch file) gets available to run.
+
+Check running jobs
+
+squeue -u <unity_id> -t running
+
+Tracking video descriptions
+Video descriptions can be tracked in the output file of the batch file. In the example batch file above, output will be generated in "stdm_cnn_rnn.out" file. Thus, check the descriptions by opening the file
+less stdm_cnn_rnn.out
+
+and search for 'sampling from train'
+Running visualization script
+python plot_parameters.py
+
+This will generate 4 files "BLEU.png", "CIDer.png", "METEOR.png", "ROUGE.png"
+Acknowledgements
+
+We thank the arctic-capgen-vid team for their licensed project, which we could extend for exploration purposes
+We thank our instructors Dr. Raju Vatsavai and Bharathkumar Ramachandra for their support throughout the project
+=======
+
+

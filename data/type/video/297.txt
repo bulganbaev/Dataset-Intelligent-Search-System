@@ -1,0 +1,37 @@
+
+BigDataAnalysis-1
+Analyzing Video game sales Dataset analysis to mine meaningful insight.
+Tools used: Python, R, MySQL
+Goals:
+
+
+Study trends in global video games sales across a period of 30+ years and identify key insights from comparing the major
+platforms such as Nintendo, PlayStation and Xbox. Conduct a comprehensive analysis of the top three 7th generation consoles and determine the best performing platform.
+
+
+Develop a predictive model to predict sales of games in Europe by performing Regression on sales in North America of the same games.
+
+
+Approach:
+Dataset from Kaggle.com- Rush Kirobi. 2017. Video Game Sales with Ratings.
+Kaggle.com. (January 2017).
+https://www.kaggle.com/rush4ratio/video-game-saleswith-ratings
+Exploratory Data Analysis and Data Visualization performed using Panda, Numpy, Seaborn in Python to study and compare the performance of different console platforms.
+By using Sales in North America for the list of 500 games, tested to predict the sales of the same games in Europe.
+Used Degree of polynomial=3, to achieve a decently fitted model & to avoid over or under fitting.
+Insights:
+
+
+Performance of PS3 is most consistent across various regions and different genres.
+
+
+XBox 360 sold the most number copies but it did not do well outside North America as compared to others.
+
+
+Nintendo Wii sold the maximum number of titles worldwide for a single genre.
+
+
+Developed a model to predict sales in Europe, achieving R2 score of 0.41 & Mean absolute error of 0.185.
+
+
+

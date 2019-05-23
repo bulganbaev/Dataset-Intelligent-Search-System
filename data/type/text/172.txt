@@ -1,0 +1,19 @@
+
+Naive-Bayes-classifier-for-text-file-classification
+Naive Bayesian classifier is implemented using Python 3.
+Classified a massive collection of 20,000 documents (news groups dataset) into 20 labels.
+Project involved 3 stages:
+
+Pre-processing
+Removal of stop words using NTLK
+Implementation of Multinomial Naive Bayes algorithm to perform text classification
+
+Requirements:
+
+Python version 3 or higher (Anaconda distribution recommended)
+Training and Test dataset must be in same folder as that of Python script.
+Ensure 'nltk' library has been downloaded.
+import nltk
+nltk.download()
+
+

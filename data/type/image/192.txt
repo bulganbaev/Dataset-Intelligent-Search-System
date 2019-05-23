@@ -1,0 +1,8 @@
+
+Load Dataset
+This examples illustrates how to load dataset for supervised learning for both image classficiation and text classfiiation.
+Loading images
+Run load_image_data.py
+Loading Text
+Run load_text_data.py
+

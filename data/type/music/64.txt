@@ -1,0 +1,37 @@
+
+Classical Music Dataset
+This dataset contains 4806 classical pieces in "piano roll"
+format, represented by 128*(song_length) matricies in sparse format, with the volume
+normalized between 0 and 1.
+This format is convienient for deep learning applications.
+Usage
+First unzip the music.7z file using 7zip. The uncompressed size is ~3 GB.
+Then use pickle to load the data.
+The format is a list of dicts like:
+{"name":..., "composer": ..., "sequencer":..., "piece": ...}
+import pickle
+import numpy as np
+with open("music.pk", "rb") as f:
+    music = pickle.load(f)
+# Get the numpy array from the sparse matrix. The matricies are coo_matrix from scipy.sparse.
+music.
+
+print(music[234]["song"].toarray())
+
+#Get composer
+
+print(music[234]["composer"]
+
+Using read_midi  you can convert your own midi files to the piano roll format.
+Using write_midi you can write a piano roll as a numpy array to a midi file.
+with open("music.pc", "rb") as f:
+    music = pickle.load(f)
+n=481
+print(music[n]["composer"])
+write_midi(music[n]["song"].toarray()*127, "tester1.mid")
+Warning
+I just used the piano roll tool on all kinds of midi files so there needs to be pruning of the ones which didn't read particularly well.
+Credits
+Hao-Wen Dong for pypianoroll, really helped me out here!
+Music from http://www.kunstderfuge.com/
+

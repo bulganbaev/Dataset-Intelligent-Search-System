@@ -1,0 +1,7 @@
+
+AnnotationSite
+Simple annotation tool to annotate text datasets.
+Uses Python+Flask and TinyDB to save user response ID's.
+
+A working implementation can be found Here.
+

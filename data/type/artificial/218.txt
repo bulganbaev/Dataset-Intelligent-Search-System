@@ -1,0 +1,14 @@
+
+AI Programming with Python Project
+Project code for Udacity's AI Programming with Python Nanodegree program. In this project, students first develop code for an image classifier built with PyTorch, then convert it into a command line application.
+Projects assets :
+
+Image Classifier Project.ipynb : Jupyter notebook
+Image Classifier Project.html : html export of the Jupyter notebook
+train.py : to train a network on a dataset
+predict.py : to predict flower name from an image
+imported_packages.py : the packages used in the other python files
+model.py : functions and classes relating to the model
+utility_functions : different functions for loading data and preprocessing images
+
+

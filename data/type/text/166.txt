@@ -1,0 +1,197 @@
+
+Coleridge Rich Text Competition
+Competition Link
+Problem:
+To automate the discovery of research datasets and the associated research methods and fields in social science research publications. Participants should use any combination of machine learning and data analysis methods to identify the datasets used in a corpus of social science publications and infer both the scientific methods and fields used in the analysis and the research fields.
+Approach
+Code
+We considered some approaches to tackle this problem. Among those, developing a very deep CNN based multiclass classifier for identification of all datasets seemed like a good candidate. But it would require retraining with inclusion of every new dataset, and to start with the publications were not even labelled with respect to all datasets. 2500 documents were labelled for about 1000 datasets. Then, we evaluated some document level similarity matching techiques but they did not localize exact mentions and would not identify mentons of unseen datsets, which were a requirement for this project.
+So we decided to go for a sentence level classification approach, where we evaluate sentences and classify them as a dataset mention based on their linguistic properties. Our aim was a robust generalization of a sentence that mentions dataset as opposed to normal sentences. Then we use docuement similarity techniques to see if the dataset mention refers to one of the known datsets or a new dataset.
+Pipeline
+Complete Code
+
+Remove refrences section
+Parse document through Spacy Language Model
+
+Sentence segmentation
+Named Entity Recognition
+
+
+Infer year of publication as being equal to maximum year in entities of type TIME
+Filter the sentences to keep those which contain a Named entity of type Organization
+Preprocess the filtered sentences
+
+Expand Abbreviations
+Remove punctuations
+Remove non albhabetical words
+Make lower case
+Perform word stemming
+Special mapping (e.g replace study by survey)
+
+
+Pass sentences through trained Convolutional Neural Network Classifier
+
+outputs the probability of a sentence being a datset mention
+select senteces above a P-threshold to get candidate mentions
+
+
+Document Similarity matching of candidate mentions and known datset titles
+
+TFIDF Ngram matrix of candidate mentions
+TFIDF Ngram matrix of known datsets
+Cosine Similarity calculation
+Geting datasets above S-threshhold
+Grouping similar datasets
+TFIDF similarity matching within each group and relevant mentions to select most similar datsets from a group, focusing on numeric indicators like version number and dates
+Computing Scores and saving results
+
+
+Fields Identification Module
+
+Generate TFIDF Ngram matrix of publication
+Generate TFIDF Ngram matrix of the wikipedia articles of that all candidate fields
+Cosine similarity matching
+Assigning the most similar field label and saving results
+
+
+Methods Identification Module
+
+Find the occurences and frequency of sage methods tokens in the publications
+Threshhold by minimum frequency
+Score by the frequency save results
+
+
+
+The precision problem
+When run against a test sample and considering only 1028 labelled datsets database we were able to achieve a recall of about 90% but precision was only about 10%.
+We observe that there were two reasons behind this:
+1) Versions of the Same Datsets
+Most of the datasets come in groups like:
+
+'Current Population Survey: Annual Demographic File, 1984',
+'Current Population Survey: Annual Demographic File, 1985',
+'Current Population Survey: Annual Demographic File, 1987',
+'Current Population Survey: Annual Demographic File, 1988',
+'Current Population Survey: Annual Demographic File, 1989',
+'Current Population Survey: Annual Demographic File, 1990'
+
+These groups can be larger than 50 in size. Since the titles for these groups are similar it is hard for the model to distinguish between them. We were able to narrow down to the right group in most cases but finding the right dataset presented a problem. If we return all these matches it results in a very bad precision and trying to filter among these sacrifices accuracy. We build a cascaded approach for this problem described below but still we were not able to deal effectively with this problem.
+2) Primary Dataset in Labels
+Since the actuall labelling is done by the human expert he has some insights about the study and aonly includes the dataset in label if it is actually being used by the study. But some sentences mention datasets when referring to sister publications or discussing contemporary research efforts. Since we are solving the problem at sentence level we end up picking out these mentions as well which hurts our precision. We came up with a simple way to exclude references section from the publication before processing, but it needs to be matured further. So if we can develop methods to intelligently parse the publication into structuted text, and incorporate incorporation about where the mention came from in text, we can tackle this problem. E.g mentions in methods and dataset sections would be more relvant as compared to literature review and futre work sections.
+Preparing Dataset for Sentence Binary Classification:
+Dataset Prep Notebook
+We noticed that most of the dataset mentions had a named entity of type ORG in it, as detected by the SPACY language model. So if we extraxt all sentences that have a named entity in them we can drastically shorten the space for our search. Since if an article talks about a datasets, multiple sentecnces usually refer to it. So by filtering to sentences using NER will not hurt the recall much.
+
+
+Positive Examples:
+All raw sentences that mention datasets. Mentions are extracted from citations file and complete respective sentences are extracted from raw text copurs. Complete sentences are used to provide model with context and help it generalize over the liguistic qualitites of a dataset mention.
+
+
+Negative Examples:
+All raw sentences that contained a named entity but are not talking about datasets.
+
+
+Spacy was used for sentence segmentation and named entity recognition.
+Abbreviation Expansion
+Abbreviation Expansion Notebook
+We discovered that abbreviation expansion was extremely important becuase the text refers to datasets as abbreviations mostly. Abbreviation expansion module inhanced the accuracy of our sentence classification model by 7 %. When there are multiple possible expansions True expansion of the abbreviation should also take into consideration the context of the text. Otherwise it will lead to bias in the model. Example being WLS which can be 'Wisconsin Longitudinal Study' or 'Weighted Least Square'. We did not handle this for now but it is crucial in any future work.
+We developed a abbreviation expansion dictionary from the datsets metadata file. It was conststurcted using following approach:
+
+All the abbreviations were detected using regex matching
+N-Grams of the relevant length were extracted from the description an metions (both with and without stop word removal)
+Abbreviation and intials of N-grams were matched to create possible expansions
+Lemmatization resolved for the muliple expansion caused by  'X study' and 'X studies'
+Manual pruning resolved the remaininig multiple expansions
+
+We also attempted to create an abbreviation dictionary for the whole corpus, but it resulted in a lot of bogus expansions that would induce bias in the model. So we did not use it. But it is certianly something that can be worked on in future.
+Mention Classification Model:
+Mention Classification Notebook
+This model was trained to take all sentences talking about a named entity and classify them as dataset mentions or not. The training pipeline was as follows:
+
+Load Training and filter to sentences between 5 and 65 length.
+Preprocess the Sentences
+
+Expand Abbreviations
+Remove punctuations
+Remove non albhabetical words
+Make lower case
+Perform word stemming
+Special mapping (e.g replace study by survey)
+
+
+Build a vocabulary
+Tokenize sentences into vectors
+Train the model
+
+Classifer
+ANN classifier was used for this purpose. We were inspired by the wide use of CNNs are widely used for document classification but also realized that LSTMs are better at modeling intricate linguistic qualities specially the ones with long range dependencies. Hence we tested both LSTMs and CNN for this task and CNNs gave us better results (I would like to state that our testing of these paradigms was not exhaustive in terms of achitecture and hyperparameters). We observed that our model tended to overfit very quickly so we had to limit training to a very few epochs and introduce strict dropout, becuase we wanted our model to generalize rather than learn the input data. We were able to achive good accuracy on our dataset after hyperparameter tuning and trying different data cleaning methods. Following are important observations:
+
+abbreviation expansion module aimproved accuracy by 7 %
+word stemming improved accuracy by 6 %
+word2vec or GloVe word embeddings did not do well
+training our own embedding layer with the model did well
+We were able to get Validation Set accuracy of 94%
+We believe that if large enough data is avalable fot training a very robust mention classifier can be trained
+
+Model Architecture:
+After hyperparamter tuning the following architecture was selected:
+
+Candidate Sentences
+The senteces that had probability greater than P_threshold were selected and passed further into the pipeline. The threshold value of 0.8 was used after tuning.
+NGram Similarity Candidate Mentions and Dataset Titles
+Whole pipeline Notebook has relevant Code
+We solved that problem by cascading two modules of coarse search and fine search.
+For selected candidate sentences we did following steps:
+
+Clean sentences and use only alphabetic tokens
+Generate TFIDF Ngram (length 2 to 4) matrix of sentences
+Generate TFIDF Ngram (length 2 to 4) matrix of Datset titles
+Compute Cosine Similarity
+Coarse Search: Select datsets above a threshhold for each sentence
+Merge similar datsets into groups (e.g different versions of same data)
+Dataset group and group mention matching. For each dataset group:
+
+clean sentence and keep numeric features and dates
+expand dates (e.g 2012-2014 to 2012,2013,2014)
+Generate TFIDF matrix for group
+Generate TFIDF vector of all mentions appended together
+Cosine similarity matching
+Fine Search- select the dataset above a certain threshhold
+
+
+
+Research Fields Identification
+Feilds Extraction Wikipedia
+Pipeline
+Due to time constraints we were not able to fully explore the fields and methods identification problems. We decided to use document similarity matching between the publications and research fields. For that we tried to prepare text related to each field by extracting wikipedia articles related to that field. Some of the fields did not have an article that exactly matched the content. The field identification module have following steps:
+
+Clean the text data
+Compute TFIDF NGram matrices for both fields data and publications
+Compute Cosine Similarity
+Assign the field by maximum similarity
+
+NGram Similarity Model
+NGram Model Notebook
+We evaluated the use of Ngram features and similarity matching as a way to create publication and datset pairs. The pipeline of the model was as follows:
+
+Clean Data Set Titles and description and merge them into one sentence.
+Preprocess the articles text and append it into a single line
+Generate N-gram TFIDF matrix for datasets
+Generate N-gram TFIDF matrix for articles
+Compute Cosine similarity matrix
+Filtering based on similarity value
+
+We got following results:
+
+Selecting only the most similar datset: recall: 0.3 precision: 0.66
+Selecting 50 most similar datsets for each publcication recall:0.95 precision:0.04
+Selecting all the datasets above a threshHold value (tuned for maz F score): recall: 0.36 precision:0.52
+
+Following experiment only considered 1028 datsets search which were labelled in 2500. The performance might detereorate when all 10000 datsets are used.
+We did not pursue this approach further for following reasons:
+
+It did not solve the second aspect of the problem where you were supposed to detect mentions for datsets not in database.
+It was a document level matching so it did not pin point the exact mention
+
+Resources at Jason Brownlee's excellent website were a huge help.
+

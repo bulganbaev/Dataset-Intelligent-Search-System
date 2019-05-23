@@ -1,0 +1,13 @@
+
+ML310 FINAL PROJECT
+Using the politwoops dataset, we use machine learning to analyze the tweets, breaking the project up into the following 4 categories:
+
+exploratory analysis and text-mining (notebook)
+deletion times (how long tweets were live) (notebook)
+sentiment analysis (notebook)
+hashtag recommendation system (notebook)
+
+
+for more info on the open-source Politwoops tweet collection method visit their github. the web application used to display the tweets on https://projects.propublica.org/politwoops/ is also open-source
+Shayna Anderson-Hill contributed frequently to this project
+

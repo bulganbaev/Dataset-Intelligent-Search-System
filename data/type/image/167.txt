@@ -1,0 +1,8 @@
+
+Image-Classification
+Image Classification on MNIST dataset using PyTorch.
+And use T-SNE to make a visualization.
+* PS: Parameter "download=True" means you can download dataset online,but it will be very slow.
+    If you want to download mnist by yourself,please set "download=False" and put them under folder mnist.
+
+

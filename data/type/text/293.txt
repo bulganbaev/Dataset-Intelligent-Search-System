@@ -1,0 +1,14 @@
+
+Text-Classification-
+CMU Text Learning news dataset was classified into 5 classes using supervised Multinomial NB Classifier with 500 articles/class in the training phase to achieve 0.892 accuracy
+This project was a part of acedmic course CS-6320 Natural Language Processing, at University of Texas at Dallas, Spring 2018
+Dataset : https://www.cs.cmu.edu/afs/cs/project/theo-20/www/data/news20.html
+The code has been executed in Python
+python new_nlp_Project.py  
+Report:
+Experiments :
+Accuracy was used to compare the results between the experiments. The test set has a constant set of 50 Articles from the same classes used in the training set. The multinomial Naïve Bayes function was implemented without using the built-in function. It was implemented in Python.
+Experiment 1 : One dataset (containing 300, 500 messages) were selected from each of the 5 super-classes for training. The training set here consists of articles from 5 classes.
+Experiment 2 : All dataset (containing 300,500 messages) were selected from 1 super class. For example, one dataset from comp.graphics, comp.os.ms-windows.misc, comp.sys.ibm.pc.hardware, comp.sys.mac.hardware, comp.windows.x, all of which belong to one super class “comp”. Therefore, the training set consists of articles from 5 classes.
+Experiment 3: One dataset (containing 300, 500 messages) were selected from each of the 5 super-classes for training. The training set here consists of articles from 5 classes. The entire text in each document was used for training (no pre-processing done).
+

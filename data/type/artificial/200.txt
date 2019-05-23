@@ -1,0 +1,100 @@
+
+This is a set of python scripts that can be used to analyze the sqlite database also included in this repository.
+The goal of the analysis was to study performance metrics for the product over time (see more info in the pdf report).
+==========
+Some general notes: This code is not optimal:
+1) Lack of error handling
+2) No thought given to scalability; basically written just for this or equivalently small exercises
+3) Some best practices ignored. Example: I've used python string substitutions instead of the DB-API's replace function.
+4) Several of the scripts could have been combined, with functionality further specified by user input, to create more general tools
+==========
+Filename:   read_database.py
+Function:   Opens connection to sqlite database, basic reusable functions for general reading of info
+Execution:  import read_database
+==========
+Filename:   add_requests_new.py
+Function:   adds requests_new table referenced in writeup
+Execution:  python add_requests_new.py <DB_FILENAME> 1
+==========
+Filename:   users_basic_info.py
+Function:   Show basic info about the users in the dataset, using plots and output to the console
+Execution:
+        To get information about the users' gender:
+        
+            python users_basic_info.py <DB_FILENAME> 1
+        
+        To get information about the number of consumers vs providers:
+        
+            python users_basic_info.py <DB_FILENAME> 2
+            
+        To get information (and a plot) about the number of consumer users in a given location:
+        
+            python users_basic_info.py <DB_FILENAME> 3
+            
+        To get information (and plots) about the number of consumer users in a given category and meta-category:
+            
+            python users_basic_info.py <DB_FILENAME> 4
+
+==========
+Filename:   requests_basic_info.py
+Function:   Show basic info about the requests in the dataset, using plots and output to the console
+Execution:
+        For instructions, type: python requests_basic_info.py help
+
+==========
+Filename:   invites_basic_info.py
+Function:   Show basic info about the invites in the dataset, using plots and output to the console
+Execution:
+        For instructions, type: python invites_basic_info.py help
+
+==========
+Filename:   quotes_basic_info.py
+Function:   Show basic info about the quotes in the dataset, using plots and output to the console
+Execution:
+        To generate two plots of the number of quotes vs time (daily and weekly binning):
+        
+            python quotes_basic_info.py <DB_FILENAME> 1
+            
+        To generate two plots of the number of quotes vs time (daily and weekly binning) for a given meta-category:
+            
+            python quotes_basic_info.py <DB_FILENAME> 2 <META-CATEGORY ID>
+
+==========
+Filename:   analysis.py
+Function:   Analysis of quoting metrics and change in number of unique category ids over time
+Execution:
+        Plots of the linear fit to the trend of the weekly distributions:
+            
+            python analysis.py trend
+            
+        Plots of power spectral density for the daily distributions:
+        
+            Number of quotes vs time:
+                python analysis.py period_qvt
+                
+            Number of unique category ids vs time:
+                python analysis.py period_cat
+                
+            Invite to quote rate vs time:
+                python analysis.py period_i2q
+                
+        Plots of coherence:
+        
+            Coherence of quotes vs time with categories vs time:
+                python analysis.py co_qvt_cat
+                
+            Coherence of invite-to-quote-rate with categories vs time:
+                python analysis.py co_i2q_cat
+
+        To reproduce the dataframe that I reference in the report:
+        
+            python data_analysis.py <DB_FILENAME> 1
+            
+        To add an updated requests table ('requests_new') including meta_category_id as an attribute:
+        
+            python data_analysis.py <DB_FILENAME> 2
+            
+            NOTE: Don't do this more than once, there is nothing built in to drop the table if it already exists
+
+Example:    python data_analysis.py invite_dataset_ff829852.sqlite 1
+

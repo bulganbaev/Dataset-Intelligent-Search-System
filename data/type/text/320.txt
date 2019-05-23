@@ -1,0 +1,11 @@
+
+DATA-ANALYSIS-ON-AMAZON-FINE-FOOD-REVIEWS-DATASET
+Performed Exploratory Data Analysis, Data Cleaning, Data Visualization and Text Featurization (BOW, tfidf, Word2Vec). Build several ML models like KNN, Naive Bayes, Logistic Regression, SVM, Random Forest, etc..
+Amazon Food Reviews EDA, NLP and Text Preprocessing
+Defined Problem Statement
+Performed Exploratory Data Analysis(EDA) on Amazon Fine Food Reviews Dataset plotted Word Clouds, Distplots, Histograms, etc.
+Performed Data Cleaning & Data Preprocessing by removing unneccesary and duplicates rows and for text reviews removed html tags, punctuations, Stopwords and Stemmed the words using Porter Stemmer
+Documented the concepts clearly
+Plotted TSNE plots for Different Featurization of Data viz. BOW(uni-gram,bi-gram), tfidf, Avg-Word2Vec(using Word2Vec model pretrained on Google News) and tf-idf-Word2Vec
+
+

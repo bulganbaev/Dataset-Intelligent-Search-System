@@ -1,0 +1,23 @@
+
+Custom-Datasets-Tool
+Image Tool for working with custom datasets
+ADDED:
+
+Crop region (square or custom rectangle) of images with labels (in Pascal VOC format) auto modified
+
+INSTALL:
+pip install python-tk
+pip install pillow
+
+Run GUI:
+python main.py
+
+
+TO DO:
+
+Modify object bounding boxes
+Modify object labels
+Zoom buttons
+...
+
+

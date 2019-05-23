@@ -1,0 +1,5 @@
+
+Artificial-Neural-Net-Example
+An example of ANN prediction on a dataset of 10000 records. Built using Keras on a tensorflow background.
+Makes use of k-fold cross validation, dropout regularization, and hyper parameter tuning via gridsearch.
+

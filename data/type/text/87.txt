@@ -1,0 +1,59 @@
+
+VAE-Text-Generation
+Implementation of "Generating Sentences from a Continuous Space" paper using pytorch and torchtext. Generate sentences based on imdb review dataset
+Prerequisites
+
+Python 2.7
+Pytorch 0.4.0
+Torchtext 0.2.0
+
+Data
+Data can be found at data/imdb where I have splitted imdb review paras into sentences, picked those with word count more than 5 and less than 20, splitted them into train set and test set based on 7:3 ratio. In total, there are around 5.5 lakh training sentences and 2.4 lakh testing sentences
+Training
+To train the model from the beginning, run:
+python main.py
+
+To resume training from a saved model, run:
+python main.py --resume_training=True
+
+Testing
+To generate samples from a saved model, run:
+python main.py --to_train=False
+
+Notice that if you try to generate a sample from model which is not trained enough, it might generate sentences with words greater than 20.
+Samples with default configuration and after 120 epochs:
+<sos> i highly recommend this movie for horror fans. <eos>
+<sos> these are not what kids will always like. <eos>
+<sos> but for me alone 3 d enough to make it more excellent effects than the first <unk> <eos>
+<sos> they still <unk> young children. <eos>
+<sos> so the movie has all those ways home take your parents kids to watch it. <eos>
+<sos> better on for the three for good disgusting stuff. <eos>
+<sos> there is a lot of things about the film again seem it seem like it drags along. <eos>
+<sos> when you need your health watch movies you have just seen in good movies. <eos>
+<sos> in fact it a marvel for the city of <unk> of humanity. <eos>
+<sos> i loved the surreal sense of music we see in the car still. <eos>
+<sos> running from the story takes an interesting and unexpected outcome. <eos>
+<sos> i like robert de niro in one of ridley scott semi <unk> movies ever day godzilla vs <unk> . <eos>
+<sos> cruise and jolie both capture their into and are very entertaining. <eos>
+<sos> the objects have caught me in years. <eos>
+<sos> hugh jackman is a cop who ends up there with kingdom to harold and the song <eos>
+<sos> why not waste the sorry guys <eos>
+<sos> in fact he could not save much of a script it a musical. <eos>
+<sos> to the weird parents first impressions <eos>
+<sos> this film is not for everybody. <eos>
+<sos> actually he is not as witty as he can be a person <unk> a <unk> police <unk> <eos>
+<sos> his dialogue was a bit stiff and heavy of the film. <eos>
+<sos> there is not much excitement here. <eos>
+<sos> it should not be a sequel. <eos>
+<sos> controversy is a blockbuster that has gone through and that what a surprise to it. <eos>
+<sos> is there those looking united that <unk> missing a <unk> one thing <eos>
+<sos> it might be rather confusing when the first marvel movie left to hell looked at. <eos>
+<sos> and the <unk> of our penguins play properly giving <unk> cool feeling now that too well. <eos>
+<sos> it is an incredible movie. <eos>
+<sos> and yet the characters are has a variety of charm with multi <unk> <eos>
+<sos> this does not star kurt russell but <unk> allows him what amounts to an extended cameo. <eos>
+<sos> but when it fun for what it is. <eos>
+<sos> every single theme is the same. <eos>
+<sos> right and filled with a <unk> uncomfortable moments. <eos>
+<sos> there are always familiar faces in the superman 2004 . <eos>
+

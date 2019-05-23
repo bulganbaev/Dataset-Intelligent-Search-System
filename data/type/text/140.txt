@@ -1,0 +1,12 @@
+
+News Articles Dataset
+A dataset of 2095 plain text articles of 5 categories with over 805k words in total.
+News articles are crawled and parsed from BBC website.
+Usage
+You can join this dataset to your projects using git submodules.
+For example, you can clone this submodule to the new dataset directory in your
+project with the following command:
+git submodule add https://github.com/ZitRos/news-articles-dataset dataset/
+License
+MIT ©Nikita Savchenko
+

@@ -1,0 +1,17 @@
+
+Auto_Text_Generator
+Retrained the model using  Flickr 30k image dataset which contains 158873 image caption.
+Edited the generate function  to redirect the output to a file (optional). Pass return_as_list=True to the generate function to get the output as list (preferred).
+Requirements: textgenrnn that uses Python3 and run on top on Tensorflow
+Attached:  Flickr 30k captions In.txt and the trained model textgenrnn_weights.hdf5
+Examples:
+Two teenagers are sitting on a sidewalk .
+A man is sitting on a bench looking at a park .
+Two people are standing on a rock .
+Man in a suit is in a field .
+Two young man in black shirt and a worker shorts playing a soccer ball .
+Two children are walking in front of a statue .
+References: 
+Original Github repo
+Flickr
+

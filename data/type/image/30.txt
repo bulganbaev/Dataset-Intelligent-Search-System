@@ -1,0 +1,9 @@
+
+CIFAR-10-Image-Classification
+Convolutional Neural Network to classify the CIFAR 10 dataset . The dataset consists of airplanes, dogs, cats, and other objects.
+
+
+
+
+The model only gives 62-65 % accuracy . Needs considerable improvement .
+

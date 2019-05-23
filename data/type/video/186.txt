@@ -1,0 +1,27 @@
+
+pyvideo/data
+Python related videos and metadata
+
+
+
+
+Publishing
+NO_PUBLISH.json
+Please do not publish to any video hosting site any of the videos whose IDs are in this list.
+Some speakers/video owners have reached out and requested that their videos
+not be published. Such videos are listed in this file by ID.
+Contributing
+Contribution guide: CONTRIBUTING.rst
+Contributors
+Find our contributors here: https://github.com/pyvideo/data/graphs/contributors and here:
+CONTRIBUTORS_WITHOUT_COMMITS.rst
+Thanks everybody in these lists!
+Copying
+All data files located in this repo are released under a CC0 license.
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to these files
+to the public domain worldwide. These files are distributed without
+any warranty.
+You should have received a copy of the CC0 license in the file LICENSE.
+If not, see http://creativecommons.org/publicdomain/zero/1.0
+

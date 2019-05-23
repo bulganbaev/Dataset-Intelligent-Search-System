@@ -1,0 +1,8 @@
+
+YouTube-Spam-Collection-Data-Set-
+Abstract: It is a public set of comments collected for spam research. It has five datasets composed by 1,956 real messages extracted from five videos that were among the 10 most viewed on the collection period.
+This data set is downloaded from UCI machine learning repository. Below is the link to download it. Description of the data set can be found in the same location.
+https://archive.ics.uci.edu/ml/datasets/YouTube+Spam+Collection
+Accuracy of the ML model is 90%.
+I have used sklearn's naive bayes MultinomialNB to predict the CLASS as SPAM or HAM
+

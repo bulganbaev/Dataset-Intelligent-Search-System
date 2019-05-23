@@ -1,0 +1,9 @@
+
+Face_generation
+
+This project involves generating new faces from the given dataset of celeb A which is publicly available
+This project utilises the DCGAN(Deep Convolutional General Adversarial Networks) architecture to generate new faces
+
+Get Started
+Please install Pytorch, Numpy and Jupyter to get started with this project
+

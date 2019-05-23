@@ -1,0 +1,6 @@
+
+Unsupervised image retrieval
+This code is related to this blog post on using convolutional denoising
+autoencoder for content based image retrieval.
+We use keras machine learning python library and mnist dataset.
+

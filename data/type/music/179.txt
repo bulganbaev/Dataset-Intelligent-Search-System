@@ -1,0 +1,17 @@
+
+Wrangling and Visualizing Musical Data in R
+Project Description
+Apply data-wrangling and visualization tools from the tidyverse to musical data. Find the most common chords and chord  progressions in a sample of pop/rock music from the 1950s-1990s, and compare the styles of different artists. This project  assumes familiarity with standard TidyVerse tools for R, in particular the tibble data structure and the dplyr and ggplot2  packages. No specific musical knowledge is required, though it may give you ideas for further exploration of the dataset  after completing the project.This project uses a parsed and cleaned version of the McGill Billboard Dataset,  version 2.0 (CC0 license).
+Before taking on this project its recommend that you have the following knowledges in R:
+i)Uses of Tidyverse Package in R
+ii)Data Visualization with ggplot2 in R
+How to Open notebook.ipynb Project File
+i) Free download and install Anaconda from https://www.anaconda.com/download/ based upon your computer's operating system.
+ii) After downloading Anaconda, Launch "Jupyter Notebook" from Start Menu -> Anaconda.
+iii) Move to the directory on "Jupyter Notebook" where you have stored the .ipynb file.
+iv) Double click to open the File on "Jupyter Notebook" software.
+v) The Jupyter notebook shall reside under the folder "Wrangling_and_Visualizing_Musical_Data".
+You can download the Wrangling_and_Visualizing_Musical_Data.zip file and unzip at your favourite location to see the notebook.
+vi) The datasets which are used on this project shall reside under the folder Wrangling_and_Visualizing_Musical_Data_\datasets
+vii) All the required images shall reside under folder Wrangling_and_Visualizing_Musical_Data_\img
+

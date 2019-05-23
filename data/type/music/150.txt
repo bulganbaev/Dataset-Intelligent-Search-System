@@ -1,0 +1,50 @@
+
+Music Search Engine
+Disclaimer
+This music search engine is very simple and uses a relatively small dataset,
+the goal of the project is not to be used by real life users.
+Professional music search engines are way more advanced (Discogs, Last.fm, ...).
+Overview
+Indexing script
+This search engine allows the user to type an artist name or a track name and to find
+the results included in the dataset quickly. To do so, a script index every word of
+every artist and track of the dataset (src/indexing/sript.js). This script browse all
+the .json files containing the artists and tracks informations one by one. The output
+of the script is a .json file containing the words and their location. For example :
+{
+  "words":
+    {
+      "JUSTICE": ["a-7-700", "t-13-3", "t-16-9", "t-16-15", "t-20-39"],
+      "OIZO": ["a-2-342", "t-2-92", "t-4-19", "t-9-84"]
+    }
+}
+All words have been uppercased to avoid case problems. Each index contains three parts :
+
+The type of content : 'a' for artist and 't' for tracks
+The file number
+The index of the information
+
+For example a-20-39 means that the related information can be found in the 20th file
+containing artists, at the 39th index.
+The dataset, obtained via Last.fm is already ordered by popularity. I decided to keep
+this order since the results are coherent with the search.
+Search Engine
+The search engine loads the indexed.json file. At each request, the SE gets the words
+and the corresponding index for each word. If the request contains several words, only the
+matching index are kept. If the index doesn't match, the search keep the (number of words - 1)
+matching index. As example, Run the Jewels contains 3 words. If there is one similar index
+in RUN, THE and JEWELS, then this index is kept. If not, index matching 2 words will
+be kept. It can be either RUN and THE, RUN and JEWELS, or THE and JEWELS.
+Website
+The search engine is accessible via an interface developed
+in React.js. Components of the application can be
+found in src/client/components. The site is responsive and display 2 columns of results on
+a big screen, 1 on smaller screens. Animations are made using the transition property of
+CSS3. The project doesn't use external CSS library. Since it is a small project, I choosed to
+write the CSS by myself. For the CSS, I tried to stand to the
+"mostly reasonable approch to CSS and Sass" of Airbnb, even
+if I don't use Sass.
+Screenshots
+
+
+

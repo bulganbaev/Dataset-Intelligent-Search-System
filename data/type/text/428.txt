@@ -1,0 +1,7 @@
+
+OCR_Recognition_data
+
+ upload benchmark data
+ upload Totaltext data
+
+

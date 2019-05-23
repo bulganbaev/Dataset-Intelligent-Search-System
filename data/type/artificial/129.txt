@@ -1,0 +1,6 @@
+
+Low_level_tensorflow_MNIST
+@author:AYOUB EL KHALLIOUI
+tensorflow (1.6.0)
+Implementation Artificial Neural Network with One single hidden layer by Low level Tensorflow API(Test the model on MNIST Dataset)
+

@@ -1,0 +1,7 @@
+
+fake-news-dataset
+A LSTM network model for classification of news text into fake news or not
+To implement the code, use MATLAB 2017b or later. The raw dataset can be found here: https://github.com/GeorgeMcIntire/fake_real_news_dataset
+To run the main code use fake_news.m script, other functions needed to run the code are also in the folder.
+The document fake_news.pdf is a live script version of the code, describing the workflow of implementing LSTM model in Matlab for classification tasks using Neural Network Toolbox.
+

@@ -1,0 +1,53 @@
+
+
+
+
+learnfy
+
+Create a music genre dataset (metadata or audio) for classification using the Spotify Web API.
+
+Disclaimer: It's not a Spotify product and isn't associated with the company.
+Intro
+Learnfy is a webapp to help you to create a dataset of songs for music genre classification.
+Resources
+Setting up
+Clone the repo
+$ git clone https://github.com/Hguimaraes/learnfy
+$ cd learnfy
+$ npm install && bower install
+Create your app on the Spotify developer page
+
+Go to the Spotify developer page and click in the "My apps" tab
+Click on the "Create an app" button
+Fill the information as the following
+
+
+
+
+
+Add the URL http://localhost:8888/callback to your Redirect URIs
+
+
+
+
+
+Save your Client ID and Client Secret. Don't forget to save this edit before leaving the page
+
+
+
+
+Create the env file
+$ mv .env.example .env
+And edit the .env file with your favorite text editor and place your client ID and client secret in the correct line (without "").
+Change the config file (optional)
+You can edit the config/config.js file to change the place where you will save the data. By default it will save on the dataset folder.
+Run the app
+$ node learnfy
+or if you already have an bkp file and want to create an exact dataset of it:
+(@TO-DO)$ node learnfy --restore mybkpfile.bkp
+Where mybkpfile.bkp is the path to your backup file.
+Legal information
+
+Read carefuly the Terms of Use of the Spotify API
+
+

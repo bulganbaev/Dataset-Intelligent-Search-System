@@ -1,0 +1,4 @@
+
+ANN_from_Scratch
+This repository contains code about artificial neural network build from scratch(using numpy) on Iris dataset and applying adam optimizer on it
+

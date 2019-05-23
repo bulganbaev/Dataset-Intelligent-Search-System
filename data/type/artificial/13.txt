@@ -1,0 +1,15 @@
+
+The simple add sequence dataset
+
+Randomly generate pieces of data for sas GE/LT classification task. Each piece of data has an input string and an output label.
+
+The input string has 4 integer numbers, seperated by blanks. There are two candidate output labels -- "GE" and "LT".
+
+Denote the 4 integer as a, b, c, ans (in sequential order). If a+b-c >= ans, the output label should be "GE"; otherwise, the output label should be "LT".
+
+eg. Input: "65 235 328 905"; output: "LT".
+    Input: "744 25 3 376"; output: 'GE'.
+
+Generator and dataset classes are included in the package.
+
+Please enjoy!

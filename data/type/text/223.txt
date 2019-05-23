@@ -1,0 +1,136 @@
+
+Arabic-Text-Summarization
+This is an implementation of the Modern Arabic Text Summarization: Data and Methods paper (uploaded in the repo). The goal of this repository is to offer tools for extracting and analyzing the Arabic Gigaword Fifth Edition dataset and applying advanced/baselines Arabic text summarization methods on it.
+Outline and Setup
+
+Parse, normalize, and split the Arabic Gigaword Fifth Edition dataset to train/test/val
+Tokenizers
+
+
+Farasa
+Byte Pair Encoding (BPE)
+MultiLingual BERT tokenizer
+
+
+Models
+
+
+LSTM (+ BERT)
+Transformer (+ BERT)
+
+
+Pre-Trained Models
+
+
+pyArabic LSTM (no segmentation)
+Farasa LSTM
+BPE LSTM
+BERT + LSTM
+
+
+Validation (rouge)
+
+To run all parts of this system, you will need Python 2.7, Python 3, GNU Parallel, Jpype, and OpenNMT. This code works on GPU's and CPU's. We use the Arabic Gigaword Fifth Edition dataset, which is a large dataset of arabic newswire article/title pairs. You can find this dataset in LDC and getting access to it requires membership.
+*NOTE: You don't need Jpype if you will not be using Farasa
+Download the Full Arabic Gigaword Fifth Edition dataset. The downloaded file should include nine distinct sources of Arabic newswire, represnted here:
+
+Asharq Al-Awsat (aaw_arb)
+Agence France Presse (afp_arb)
+Al-Ahram (ahr_arb)
+Assabah (asb_arb)
+Al Hayat (hyt_arb)
+An Nahar (nhr_arb)
+Al-Quds Al-Arabi (qds_arb)
+Ummah Press (umh_arb)
+Xinhua News Agency (xin_arb)
+
+This data file will be referred to as the arb_gw_data.
+Parse the Arabic Gigaword dataset
+Set the $ABS environment variable from your terminal as follows:
+
+export ABS=$PWD
+
+To parse, normalize, split the Arabic Gigaword dataset to train/test/val run the following command:
+
+./construct_data.sh arb_gw_data output_file
+
+Note: this could take up to 30 mins to run depending on your machine.
+This script will unzip all the articles, fetch the title and first paragraph of each story, and normalize the text. The outputs you will be interested in will be:
+
+train.article.txt
+train.title.txt
+valid.article.txt
+valid.title.txt
+test.article.txt
+test.title.txt
+
+To analyze these 6 files, run the following command:
+
+python3 analysis.py <descriptive_title> <title_file> <article_file>
+
+make sure to run analysis.py on title/article of the same type. For example, train.article.txt and train.title.txt go together.
+Tokenizers
+We offer three different ways to tokenize the text. To fully run the tokenization, you will need to run the commands below on the train, test, and valid normalized txt files generated from above.
+Farasa
+Farasa is a morphological tokenization system, you need to request access to it from here. You'll be able to get access to Farasa instantly, however, you need to download Jpype because Farasa is written in Java and we pipe it into python to utalize it's tokenizer. After downloading Farasa and making sure it works separately, you might need to edit the farasa_tokenizer.py file by changing the 'jvm_path' to your local jvm path.
+Run the following command to use Farasa:
+
+python3 farasa_tokenizer.py  
+
+Note: Farasa sometimes crashes when running on large files and ommits the last several lines of the document. If this happens to you just run farasa_tokenizer.py on the ommited lines that didn't get tokenized (you will see that the tokenized output file has less lines than the input file)
+BPE
+We used OpenNMT-py to generate BPE files. These files can be found in
+the tools subdirectory. We used create_vocabulary.py to create vocabulary, learn_bpe.py to determine the BPE
+tokenizations, and apply_bpe.sh to finally apply BPE to our data. All flags
+can be found in the files - they are well-documented. We did not set any special flags for any of these scripts.
+BERT
+To use Multilingual BERT embeddings as input to the encoder, you need to change where embeddings are called in OpenNMT. First, copy the file in this repository at bert/bert_embedding.py into the onmt directory in your OpenNMT repo. This file exports a function called bert_embed which takes a batch of inputs and outputs the bert contextual embeddings for the batch.
+Next, change the constant VOCAB_FILE_PATH in bert_embedding.py to be the location of your vocab.pt file generated during preprocessing.
+To use bert_embed in your encoder, you need to identify which encoder you are using. For example, to use BERT embeddings for an rnn encoder, go to the file onmt/encoders/rnn_encoder.py. Next put the following line at the top of the file:
+from onmt.bert_embedding import bert_embed This will import the bert_embed function. Next, find the line emb = self.embeddings(src) in the Encoder class and replace it with emb = bert_embed(src). Now your embeddings will be contextual vectors from BERT.
+When running train.py, you will need to pass in the flag -src_word_vec_size 768 to ensure that the embeddings have size 768 (which is the length of BERT's contextual vectors), as opposed to the default 500.
+In the current implementation, for a given word, bert_embed takes the sum of the 4 top layers of the BERT transformer as the context vector for that word. You can experiment with different functions for generating context vectors from the outputs of the 12 layers.
+Detokenizers
+After training and generating the test predictions, detokenize the test predictions before you validate them with rouge.
+Farasa
+We created two different tokenizers for Farasa, a basic detokenizer that just removes Farasa's tokenization symbole (the '+' sign) and concats wordPieces together, and a more complicated detokenizer that is an encoder-decoder lstm trained on a translation task that takes in tokenized Farasa text and outputs detokenizer farasa text.
+The basic detokenizer can be run as follows:
+
+python3 farasa_basic_detokenizer.py <input_file> <detokenized_output_file>
+
+To run the LSTM detokenizer, follow the following instructions:
+A detokenizer must be trained for Farasa tokenization because Farasa is not
+inversible. The detokenizer can be trained using OpenNMT - the same train.sh
+script can be used. To train, let the source file be a Farasa title file and let the
+target file be a Pyarabic title file.
+BPE
+BPE is easily inversible, the script below takes in a BPE tokenized file and generates a detokenized version of the same file
+
+python3 bpe_detokenizer.py <input_file> <detokenized_output_file>
+
+BERT
+BERT tokenized text is not 100% inversible. The script below takes in a BERT tokenized file and generates a detokenized version of the same file. But this detokenizer cannot handle certain things such as accurate punctuation spacing.
+
+python3 bert_detokenizer.py <input_file> <detokenized_output_file>
+
+Models
+Models
+We heavily used OpenNMT-py in our models.
+All preprocessing, training, and final prediction was done using OpenNMT-py. In
+particular, the files preprocess.py, train.py and translate.py provided
+by OpenNMT-py were what we used to do these three steps, respectively. In order to run these scripts on different tokenizations simply requires changing the data input source, which can be done inside of the scripts easily.
+In our BERT models, the exception is that a different rnn_encoder.py file is used, and we introduce a module bert_embedding.py which calls multilingual BERT. The scripts can be found in the scripts folder - it would be convenient to
+put this entire folder into the OpenNMT-py root directory.
+Model Types
+We used bi-LSTMs, transformers, and BERT. Our bi-LSTM hyperparameters can be found in train_lstm.sh, and transformer parameters can be found in train_transformer.sh. For instructions on how to run multilingual BERT, please see here. Again, note that all tokenizations can be ran with the same hyperparameters - all that needs to be changed is data files.
+OpenNMT-py can be cloned from here.
+Pre-Trained Models
+Not published yet.
+Validation
+To validate our models, we use google-research's implementaion of the original rouge perl script. We forked google's implementation in our repo, so you don't need to download anything to compuet rouge.
+The following script will generate rouge-1, rouge-2, and rouge-L:
+
+python -m rouge.rouge --target_filepattern= --prediction_filepattern= --output_filename=rouge_scores.csv --use_stemmer=false
+
+we suggest that you always pass the target as the original not tokenized file and the source/predictions should always be detokenized.
+

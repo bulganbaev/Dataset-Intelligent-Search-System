@@ -1,0 +1,4 @@
+
+CS277-Data-Mining-Spring-2013
+Repository captures Project work done in the course. Design and Development of a Music Recommendation Engine based on the Item / User based Collaborative filtering techniques and Ensemble of Machine Learning methods.
+

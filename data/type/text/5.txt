@@ -1,0 +1,5 @@
+
+-text-classification-on-Sogou-datasets
+This project is a coursework of NLP in UCAS, including a PDF report, Sougou dataset.
+If you want to run it, please see README.txt writing in chinese.
+

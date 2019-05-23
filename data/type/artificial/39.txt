@@ -1,0 +1,8 @@
+
+image-classification-artificial-intelligence
+Classifies images into portraits or landscapes using a training dataset.
+Also computes accuracy using a 3-fold validation.
+
+
+
+

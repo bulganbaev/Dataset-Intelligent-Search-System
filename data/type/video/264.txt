@@ -1,0 +1,58 @@
+
+Video delivery dataset analysis in Python using Jupyter notebook
+Dataset Information
+This dataset data.csv is measuring the data downloaded through P2P (peer to peer) and through the CDN (Content Delivery Network) by the viewers.
+Content
+Each data point has the following dimension, represented with 6 variables:
+
+
+
+Name
+Description
+
+
+
+
+#stream
+ID of each stream
+
+
+isp
+Name of the Internet Service Provider
+
+
+browser
+Browser name
+
+
+connected
+Boolean value, true if the user is connected to the backend during his session
+
+
+p2p
+Data downloaded through P2P (peer to peer)
+
+
+cdn
+Data downloaded through CDN (Content Delivery Network)
+
+
+
+Goal
+The goal of this notebook is to explore the dataset and give recommendations as to where the service should be improved.
+Technologies used
+
+Python (version 3.7.0) - because the dataset is not too large to require some Big Data framework;
+Jupyter notebook (version 5.7.2) - because of the readability and explanation of the steps;
+Pandas library (version 0.23.4) - for data manipulation, analysis and plotting;
+Seaborn library (version 0.9.0) - data visualization library based on matplotlib.
+
+Approach
+
+Understanding the dataset in terms of columns and their values;
+Visualizing which values affect connectivity to the backend;
+How much data is sent in which stream and over which ISP/browser;
+Visualizing correlation between ISP, browser, connectivity and bandwidth;
+Trying to see if there are points where the service could be improved.
+
+

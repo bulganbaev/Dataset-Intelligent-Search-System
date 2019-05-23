@@ -1,0 +1,5 @@
+
+Text_generation
+A LSTM neural network model for text generation using Encoder-Decoder method for the dataset 'Alice in Wonderland'.
+The model is developed using keras library.
+

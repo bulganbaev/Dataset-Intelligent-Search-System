@@ -1,0 +1,24 @@
+
+Steam video games recommendation
+A video games recommendation model using LDA. The dataset comes from kaggle.
+Steam Video Games -- (https://www.kaggle.com/tamber/steam-video-games)
+About the Data
+Steam is a digital distribution platform for purchasing and playing video games. The dataset contains user's purchasing record, and the challenge is to predict which video game will the user purchase.
+The dataset contains the interaction between 12,393 users and 5,155 games. In comparison, 7,672 games were released on steam in 2017.
+model
+We convert the steam purchase record to a user-game matrix, and feed the data to LDA model to make recommendation.
+
+For evaluation, we pick one purchased game from each user to be the answer, if the recommendation hit the answer, we call it a hit and calculate the hit rate.
+We refer to the evaluation method in
+P Cremonesi, Y Koren (2010)
+Demo
+train model
+$ python3 main.py 
+Hit Rate
+
+( Hit rate = recall )
+Hit example
+
+Miss example
+
+

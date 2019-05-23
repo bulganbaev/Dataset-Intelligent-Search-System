@@ -1,0 +1,4 @@
+
+Open-Institute-Dashboard
+This Dashboard contains information about the performance of Open Institute projects: Open County and Open Duka, showing the impact of the projects, number of datasets extracted and the number of government officials reached. This dashboard also shows the resources we have under each project i.e head count, number of events under each project, number of partnerships, number of blogs released and number of videos released. Current Projects in the dashboard are Open County and Open Duka.
+

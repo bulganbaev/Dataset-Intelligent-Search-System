@@ -1,0 +1,6 @@
+
+Text-Mining-on-Amazon-Review-Dataset
+Python notebook demonstrating use of Machine Learning statistical models for analyzing and classifying product reviews on Amazon.
+The project was created as a requirement for the Graduate Course CMSC 691 Introduction to Data Science for the fall 2017 semester at the University of Maryland, Baltimore County. The project was created by a group of 4 people including me.
+The project aimed at classification using sentiment analysis. The dataset was provided by Professor Julian McAuley of University of California, San Diego and was then processed and stored in a Mongo repository.
+

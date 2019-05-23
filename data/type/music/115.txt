@@ -1,0 +1,28 @@
+
+DuetHLSTM: A Hierarchical LSTM Model for Two-Track Music Generation
+10-707 Final Project
+
+Jocelyn Huang, Menglan Ji, Daniel Martin
+
+DuetHLSTM is a model that generates two-track, polyphonic music using a
+hierarchical LSTM. You can find the training data here:
+
+https://salu133445.github.io/lakh-pianoroll-dataset/
+
+Save the train_x_lpd_5_phr.npz in the same directory as the .py files. To train, run:
+
+python process_data.py
+
+on the training data, which will load the data into .npy format. Then, to train, run:
+
+python music_gen.py
+
+This will output a set of samples at every epoch in .npy format in a
+results/ subdirectory, which can be converted to MIDI files using
+
+python midi.py in.npy out.mid
+
+To evaluate using objective metrics, run metrics.py on the .npy samples, which will print metrics and save generated images in the working directory.
+
+python metrics.py in.npy name
+

@@ -1,0 +1,26 @@
+
+Making Music With Online Data Workshop
+
+Preparations
+
+Please clone the template repository.
+$ git clone https://github.com/dodiku/music_with_data_workshop_template.git 
+
+Stack and installations
+Client side:
+
+Tone.js
+socket.io (client)
+
+Server side:
+
+node.js
+express.js
+socket.io (server - npm)
+twit (npm)
+
+Computer music tools libraries and tutorials
+
+https://github.com/juniorxsound/Interactive-Music
+
+
